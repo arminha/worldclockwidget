@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/appwidget_dark_bg"
-    android:padding="8dp" >
+    android:padding="@dimen/widget_padding" >
 
     <TextView
         android:id="@+id/city_text"
