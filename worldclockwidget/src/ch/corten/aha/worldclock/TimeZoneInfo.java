@@ -73,7 +73,7 @@ public class TimeZoneInfo {
         }
         String city = parts[parts.length - 1];
         StringBuilder area = new StringBuilder();
-        for (int i = parts.length - 1; i >= 0; i--) {
+        for (int i = parts.length - 2; i >= 0; i--) {
             if (area.length() > 0) {
                 area.append(", ");
             }
@@ -99,9 +99,28 @@ public class TimeZoneInfo {
     }
     
     public int getTimeDifference() {
-        TimeZone tz = getTimeZone();
+        return getTimeDifference(getTimeZone());
+    }
+    
+    public static int getTimeDifference(TimeZone tz) {
         int milliseconds = tz.getOffset(System.currentTimeMillis());
         return milliseconds / 60000;
+    }
+    
+    public static String getTimeDifferenceString(TimeZone tz) {
+        int minutesDiff = getTimeDifference(tz);
+        StringBuilder sb = new StringBuilder();
+        sb.append("GMT");
+        if (minutesDiff < 0) {
+            sb.append("-");
+        } else {
+            sb.append("+");
+        }
+        minutesDiff = Math.abs(minutesDiff);
+        sb.append(minutesDiff / 60);
+        sb.append(":");
+        sb.append(minutesDiff % 60);
+        return sb.toString();
     }
     
     @Override
