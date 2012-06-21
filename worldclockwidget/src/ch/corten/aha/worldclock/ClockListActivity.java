@@ -1,5 +1,6 @@
 package ch.corten.aha.worldclock;
 
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.TimeZone;
@@ -10,17 +11,24 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.ListFragment;
 import android.app.LoaderManager;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.CursorAdapter;
+import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
@@ -41,6 +49,8 @@ public class ClockListActivity extends Activity {
     public static class ClockListFragment extends ListFragment implements
             LoaderManager.LoaderCallbacks<Cursor> {
 
+        private static final String TAG = "ClockListFragment";
+        
         private CursorAdapter mAdapter;
 
         private static final String[] CLOCKS_PROJECTION = { Clocks._ID,
@@ -78,7 +88,64 @@ public class ClockListActivity extends Activity {
             setListAdapter(mAdapter);
 
             setListShown(false);
+            
+            ListView listView = getListView();
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
+                
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    return false;
+                }
+                
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                }
+                
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    MenuInflater inflater = mode.getMenuInflater();
+                    inflater.inflate(R.menu.clock_list_context, menu);
+                    return true;
+                }
+                
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    switch (item.getItemId()) {
+                    case R.id.menu_delete:
+                        deleteSelectedItems();
+                        mode.finish();
+                        return true;
+                    default:
+                        return false;
+                    }
+                }
+                
+                @Override
+                public void onItemCheckedStateChanged(ActionMode mode, int position,
+                        long id, boolean checked) {
+                    int count = getListView().getCheckedItemCount();
+                    if (count > 0) {
+                        CharSequence format = getResources().getText(R.string.n_selcted_format);
+                        mode.setTitle(MessageFormat.format(format.toString(), count));
+                    } else {
+                        mode.setTitle("");
+                    }
+                    
+                }
+            });            
             getLoaderManager().initLoader(0, null, this);
+        }
+
+        private void deleteSelectedItems() {
+            long[] itemIds = getListView().getCheckedItemIds();
+            Uri baseUri = Clocks.CONTENT_URI;
+            ContentResolver resolver = getActivity().getContentResolver();
+            for (long id : itemIds) {
+                Log.d(TAG, "delete item " + id);
+                resolver.delete(ContentUris.withAppendedId(baseUri, id), null, null);
+            }
+            getLoaderManager().restartLoader(0, null, this);
         }
 
         @Override
@@ -90,7 +157,7 @@ public class ClockListActivity extends Activity {
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
-            case R.id.add_clock:
+            case R.id.menu_add:
                 addClock();
                 return true;
             default:

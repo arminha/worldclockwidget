@@ -2,5 +2,7 @@
 <resources>
     <string name="app_name">World Clock Widget</string>
     <string name="add_clock">Add clock</string>
-
+	<string name="n_selcted_format">{0} selected</string>
+	<string name="delete">Delete</string>
+	<string name="add">Add</string>
 </resources>
