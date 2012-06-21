@@ -4,7 +4,7 @@
     android:minHeight="40dp"
     android:minResizeWidth="40dp"
     android:minResizeHeight="40dp"
-    android:initialLayout="@layout/world_clock_widget_layout"
+    android:initialLayout="@layout/world_clock_widget"
     android:updatePeriodMillis="0"
     android:previewImage="@drawable/world_clock_widget_preview"
     android:resizeMode="horizontal|vertical">

@@ -35,15 +35,14 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
     }
 
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
-        // TODO Create an Intent to launch config
-        // Intent intent = new Intent(context, ExampleActivity.class);
-        // PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
-        //        intent, 0);
+        // Create an Intent to launch ClockListActivity
+        Intent intent = new Intent(context, ClockListActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         // Get the layout for the App Widget and attach an on-click listener
         // to the button
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.world_clock_widget_layout);
-        // TODO views.setOnClickPendingIntent(R.id.button, pendingIntent);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.world_clock_widget);
+        views.setOnClickPendingIntent(R.id.app_widget, pendingIntent);
 
         // update view
         updateViews(context, views);

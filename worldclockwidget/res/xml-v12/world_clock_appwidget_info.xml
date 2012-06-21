@@ -2,7 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="110dp"
     android:minHeight="40dp"
-    android:initialLayout="@layout/world_clock_widget_layout"
+    android:initialLayout="@layout/world_clock_widget"
     android:updatePeriodMillis="0"
     android:previewImage="@drawable/world_clock_widget_preview"
     android:resizeMode="horizontal|vertical">
