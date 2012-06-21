@@ -83,7 +83,7 @@ public class DigitalClock extends TextView {
                     if (mTimeZone != null) {
                         df.setTimeZone(mTimeZone);
                     }
-                    setText(df.format(mCalendar));
+                    setText(df.format(mCalendar.getTime()));
                     invalidate();
                     long now = SystemClock.uptimeMillis();
                     long next = now + (1000 - now % 1000);
