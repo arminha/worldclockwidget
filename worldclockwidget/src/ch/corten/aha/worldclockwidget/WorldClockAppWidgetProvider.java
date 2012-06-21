@@ -53,8 +53,11 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
     }
     
     static void updateViews(Context context, RemoteViews views) {
-        views.setTextViewText(R.id.city_text, "Zürich");
+        final String city = "Ottawa";
+        TimeZoneInfo timeZone = TimeZoneInfo.getCity(city);
+        views.setTextViewText(R.id.city_text, city);
         DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
+        df.setTimeZone(timeZone.getTimeZone());
         views.setTextViewText(R.id.time_text, df.format(new Date()));
     }
 
