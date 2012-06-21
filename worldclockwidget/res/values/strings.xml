@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">World Clock Widget</string>
+    <string name="add_clock">Add clock</string>
 
 </resources>
