@@ -1,6 +1,7 @@
 package ch.corten.aha.worldclock;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.TimeZone;
 
 import ch.corten.aha.widget.DigitalClock;
@@ -15,9 +16,10 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
@@ -35,21 +37,14 @@ public class ClockListActivity extends Activity {
             fm.beginTransaction().add(android.R.id.content, list).commit();
         }
     }
-    
+
     public static class ClockListFragment extends ListFragment implements
             LoaderManager.LoaderCallbacks<Cursor> {
 
         private CursorAdapter mAdapter;
 
         private static final String[] CLOCKS_PROJECTION = { Clocks._ID,
-                Clocks.TIMEZONE_ID, Clocks.CITY, Clocks.AREA, Clocks.TIME_DIFF };
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            // TODO Auto-generated method stub
-            return super.onCreateView(inflater, container, savedInstanceState);
-        }
+                Clocks.TIMEZONE_ID, Clocks.CITY, Clocks.AREA, Clocks.TIME_DIFF + " DESC, " + Clocks.CITY + " ASC" };
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -58,7 +53,7 @@ public class ClockListActivity extends Activity {
             setHasOptionsMenu(true);
 
             mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.world_clock_item, null) {
-                
+
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
                     TextView cityText = (TextView) view.findViewById(R.id.city_text);
@@ -84,6 +79,30 @@ public class ClockListActivity extends Activity {
 
             setListShown(false);
             getLoaderManager().initLoader(0, null, this);
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            super.onCreateOptionsMenu(menu, inflater);
+            inflater.inflate(R.menu.clock_list, menu);
+        }
+        
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+            case R.id.add_clock:
+                addClock();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+            }
+        }
+
+        private void addClock() {
+            TimeZoneInfo[] allTimeZones = TimeZoneInfo.getAllTimeZones();
+            int n = new Random(System.currentTimeMillis()).nextInt(allTimeZones.length);
+            Clocks.addClock(getActivity(), allTimeZones[n]);
+            getLoaderManager().restartLoader(0, null, this);
         }
 
         @Override

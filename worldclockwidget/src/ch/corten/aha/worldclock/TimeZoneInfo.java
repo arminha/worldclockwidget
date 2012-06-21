@@ -67,11 +67,13 @@ public class TimeZoneInfo {
     }
     
     public static TimeZoneInfo getTimeZone(String id) {
+        if (!isValidArea(id)) return null;
+        
         String[] parts = id.split("/");
         if (parts.length < 2) {
             return null;
         }
-        String city = parts[parts.length - 1];
+        String city = parts[parts.length - 1].replace('_', ' ');
         StringBuilder area = new StringBuilder();
         for (int i = parts.length - 2; i >= 0; i--) {
             if (area.length() > 0) {
@@ -80,6 +82,15 @@ public class TimeZoneInfo {
             area.append(parts[i].replace('_', ' '));
         }
         return new TimeZoneInfo(city, area.toString(), id);
+    }
+
+    private static boolean isValidArea(String id) {
+        for (String area : AREAS) {
+            if (id.startsWith(area)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getCity() {
