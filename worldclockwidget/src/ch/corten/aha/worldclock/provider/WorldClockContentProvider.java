@@ -24,7 +24,11 @@ public class WorldClockContentProvider extends ContentProvider {
     private static final int DATABASE_VERSION = 1;
     
     private DatabaseHelper mDbHelper;
-    private UriMatcher mUriMatcher;
+    private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    static {
+        mUriMatcher.addURI(WorldClock.AUTHORITY, WorldClock.Clocks.TABLE_NAME, 1);
+        mUriMatcher.addURI(WorldClock.AUTHORITY, WorldClock.Clocks.TABLE_NAME + "/#", 2);
+    }
     
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
@@ -36,9 +40,10 @@ public class WorldClockContentProvider extends ContentProvider {
             case 2:
                 table = WorldClock.Clocks.TABLE_NAME;
                 selection = "_ID = " + uri.getLastPathSegment();
+                break;
             default:
                 // TODO URI not recognized
-                throw new RuntimeException("URI not recognized");
+                throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -54,7 +59,7 @@ public class WorldClockContentProvider extends ContentProvider {
             return WorldClock.Clocks.CONTENT_ITEM_TYPE;
         default:
             // TODO URI not recognized
-            throw new RuntimeException("URI not recognized");
+            throw new RuntimeException("URI not recognized: " + uri.toString());
         }
     }
 
@@ -67,7 +72,7 @@ public class WorldClockContentProvider extends ContentProvider {
             break;
         default:
             // TODO URI not recognized
-            throw new RuntimeException("URI not recognized");
+            throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -78,9 +83,6 @@ public class WorldClockContentProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mDbHelper = new DatabaseHelper(getContext());
-        mUriMatcher = new UriMatcher(0);
-        mUriMatcher.addURI(WorldClock.AUTHORITY, WorldClock.Clocks.TABLE_NAME, 1);
-        mUriMatcher.addURI(WorldClock.AUTHORITY, WorldClock.Clocks.TABLE_NAME + "/#", 2);
         return true;
     }
 
@@ -96,9 +98,10 @@ public class WorldClockContentProvider extends ContentProvider {
             case 2:
                 table = WorldClock.Clocks.TABLE_NAME;
                 selection = "_ID = " + uri.getLastPathSegment();
+                break;
             default:
                 // TODO URI not recognized
-                throw new RuntimeException("URI not recognized");
+                throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -116,9 +119,10 @@ public class WorldClockContentProvider extends ContentProvider {
         case 2:
             table = WorldClock.Clocks.TABLE_NAME;
             selection = "_ID = " + uri.getLastPathSegment();
+            break;
         default:
             // TODO URI not recognized
-            throw new RuntimeException("URI not recognized");
+            throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
