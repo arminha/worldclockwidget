@@ -119,7 +119,12 @@ public class TimeZoneInfo {
         minutesDiff = Math.abs(minutesDiff);
         sb.append(minutesDiff / 60);
         sb.append(":");
-        sb.append(minutesDiff % 60);
+        
+        int minutes = minutesDiff % 60;
+        if (minutes < 10) {
+            sb.append("0");
+        }
+        sb.append(minutes);
         return sb.toString();
     }
     
