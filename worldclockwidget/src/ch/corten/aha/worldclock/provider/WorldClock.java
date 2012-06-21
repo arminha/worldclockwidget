@@ -1,5 +1,8 @@
 package ch.corten.aha.worldclock.provider;
 
+import ch.corten.aha.worldclock.TimeZoneInfo;
+import android.content.ContentValues;
+import android.content.Context;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -20,5 +23,39 @@ public class WorldClock {
         public static final String CITY = "city";
         public static final String AREA = "area";
         public static final String TIME_DIFF = "time_diff";
+        
+        /**
+         * Create a new clock.
+         * 
+         * @param timeZone
+         *            the time zone id
+         * @param city
+         *            the city
+         * @param area
+         *            the area
+         * @param timeDiff
+         *            the time difference to GMT in minutes
+         */
+        public static void addClock(Context context, String timeZoneId, String city, String area, int timeDiff) {
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(TIMEZONE_ID, timeZoneId);
+            initialValues.put(CITY, city);
+            initialValues.put(AREA, area);
+            initialValues.put(TIME_DIFF, timeDiff);
+            
+            context.getContentResolver().insert(CONTENT_URI, initialValues);
+        }
+        
+        /**
+         * Create a new clock.
+         * 
+         * @param timeZoneInfo
+         *            the time zone
+         */
+        public static void addClock(Context context, TimeZoneInfo timeZoneInfo) {
+            addClock(context, timeZoneInfo.getId(), timeZoneInfo.getCity(),
+                    timeZoneInfo.getArea(), timeZoneInfo.getTimeDifference());
+        }
+
     }
 }
