@@ -1,4 +1,4 @@
-package ch.corten.aha.worldclockwidget;
+package ch.corten.aha.worldclock;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,6 +96,12 @@ public class TimeZoneInfo {
     
     public TimeZone getTimeZone() {
         return TimeZone.getTimeZone(id);
+    }
+    
+    public int getTimeDifference() {
+        TimeZone tz = getTimeZone();
+        int milliseconds = tz.getOffset(System.currentTimeMillis());
+        return milliseconds / 60000;
     }
     
     @Override

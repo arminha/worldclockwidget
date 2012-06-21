@@ -1,4 +1,4 @@
-package ch.corten.aha.worldclockwidget;
+package ch.corten.aha.worldclock;
 
 import java.text.DateFormat;
 import java.util.Arrays;
