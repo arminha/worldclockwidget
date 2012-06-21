@@ -25,6 +25,10 @@
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/world_clock_appwidget_info" />
         </receiver>
+        <provider
+            android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
+            android:authorities="ch.corten.aha.worldclock.provider"
+            android:exported="false" />
     </application>
 
 </manifest>
