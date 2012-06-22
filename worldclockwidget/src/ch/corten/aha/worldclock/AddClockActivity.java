@@ -16,6 +16,8 @@
 
 package ch.corten.aha.worldclock;
 
+import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TimeZone;
 
@@ -27,6 +29,8 @@ import android.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,6 +40,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 
@@ -66,11 +71,58 @@ public class AddClockActivity extends Activity {
                     TimeZoneInfo.getAllTimeZones());
             mAdapter.sort(new CityComparer());
             setListAdapter(mAdapter);
+            
+            ListView listView = getListView();
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+            
+            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
+                
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    return false;
+                }
+                
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                }
+                
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    MenuInflater menuInflater = mode.getMenuInflater();
+                    menuInflater.inflate(R.menu.timezone_list_context, menu);
+                    return true;
+                }
+                
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    switch (item.getItemId()) {
+                    case R.id.menu_add:
+                        addSelected();
+                        mode.finish();
+                        return true;
+                    default:
+                        return false;
+                    }
+                }
+                
+                @Override
+                public void onItemCheckedStateChanged(ActionMode mode, int position,
+                        long id, boolean checked) {
+                    int count = getListView().getCheckedItemCount();
+                    if (count > 0) {
+                        CharSequence format = getResources().getText(R.string.n_selcted_format);
+                        mode.setTitle(MessageFormat.format(format.toString(), count));
+                    } else {
+                        mode.setTitle("");
+                    }
+                }
+            });
         }
 
-        @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Place an action bar item for searching.
-            MenuItem item = menu.add("Search");
+            MenuItem item = menu.add(R.string.search);
             item.setIcon(android.R.drawable.ic_menu_search);
             item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
             SearchView sv = new SearchView(getActivity());
@@ -81,9 +133,28 @@ public class AddClockActivity extends Activity {
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
             super.onListItemClick(l, v, position, id);
-            TimeZoneInfo timeZone = mAdapter.getItem(position);
+            final TimeZoneInfo timeZone = mAdapter.getItem(position);
             WorldClock.Clocks.addClock(getActivity(), timeZone);
-            getActivity().setResult(1);
+            returnResult(1);
+        }
+        
+        private void addSelected() {
+            final SparseBooleanArray positions = getListView().getCheckedItemPositions();
+            final ArrayList<TimeZoneInfo> timeZones = new ArrayList<TimeZoneInfo>();
+            for (int i = 0; i < mAdapter.getCount(); i++) {
+                if (positions.get(i)) {
+                    timeZones.add(mAdapter.getItem(i));
+                }
+            }
+            final Context context = getActivity();
+            for (TimeZoneInfo timeZone : timeZones) {
+                WorldClock.Clocks.addClock(context, timeZone);
+            }
+            returnResult(timeZones.size());
+        }
+
+        private void returnResult(int resultCode) {
+            getActivity().setResult(resultCode);
             getActivity().finish();
         }
 
