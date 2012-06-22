@@ -53,8 +53,13 @@ public class ClockListActivity extends Activity {
         
         private CursorAdapter mAdapter;
 
-        private static final String[] CLOCKS_PROJECTION = { Clocks._ID,
-                Clocks.TIMEZONE_ID, Clocks.CITY, Clocks.AREA, Clocks.TIME_DIFF + " DESC, " + Clocks.CITY + " ASC" };
+        private static final String[] CLOCKS_PROJECTION = {
+            Clocks._ID,
+            Clocks.TIMEZONE_ID,
+            Clocks.CITY,
+            Clocks.AREA,
+            Clocks.TIME_DIFF
+            };
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -175,7 +180,7 @@ public class ClockListActivity extends Activity {
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             return new CursorLoader(getActivity(), Clocks.CONTENT_URI,
-                    CLOCKS_PROJECTION, null, null, Clocks.TIME_DIFF);
+                    CLOCKS_PROJECTION, null, null, Clocks.TIME_DIFF  + " ASC, " + Clocks.CITY + " ASC");
         }
 
         @Override
