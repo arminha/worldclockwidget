@@ -19,7 +19,7 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
 
     private static final String TAG = "WorldClockAppWidgetProvider";
     
-    public static final String CLOCK_WIDGET_UPDATE = "ch.corten.aha.worldclockwidget.CLOCK_WIDGET_UPDATE";
+    public static final String CLOCK_WIDGET_UPDATE = "ch.corten.aha.worldclock.CLOCK_WIDGET_UPDATE";
     
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,

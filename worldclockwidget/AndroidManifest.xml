@@ -20,7 +20,7 @@
 			    <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
 			</intent-filter>
 			<intent-filter>
-			    <action android:name="ch.corten.aha.worldclockwidget.CLOCK_WIDGET_UPDATE" />
+			    <action android:name="ch.corten.aha.worldclock.CLOCK_WIDGET_UPDATE" />
 			</intent-filter>
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/world_clock_appwidget_info" />
