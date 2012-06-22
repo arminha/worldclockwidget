@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_widget"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/appwidget_dark_bg"
-    android:padding="@dimen/widget_padding" >
+    android:paddingBottom="@dimen/widget_padding_vertical"
+    android:paddingLeft="@dimen/widget_padding_horizontal"
+    android:paddingRight="@dimen/widget_padding_horizontal"
+    android:paddingTop="@dimen/widget_padding_vertical"
+    tools:ignore="Overdraw" >
 
     <TextView
         android:id="@+id/city_text"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
+        android:textColor="@android:color/white"
         android:layout_gravity="left" />
 
     <TextView
         android:id="@+id/time_text"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
+        android:textColor="@android:color/white"
         android:layout_gravity="right" />
 
 </FrameLayout>
