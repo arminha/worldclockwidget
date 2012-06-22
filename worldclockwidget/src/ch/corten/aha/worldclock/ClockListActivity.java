@@ -2,7 +2,6 @@ package ch.corten.aha.worldclock;
 
 import java.text.MessageFormat;
 import java.util.Date;
-import java.util.Random;
 import java.util.TimeZone;
 
 import ch.corten.aha.widget.DigitalClock;
@@ -15,6 +14,7 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -182,10 +182,17 @@ public class ClockListActivity extends Activity {
         }
 
         private void addClock() {
-            TimeZoneInfo[] allTimeZones = TimeZoneInfo.getAllTimeZones();
-            int n = new Random(System.currentTimeMillis()).nextInt(allTimeZones.length);
-            Clocks.addClock(getActivity(), allTimeZones[n]);
-            getLoaderManager().restartLoader(0, null, this);
+            Intent intent = new Intent(getActivity(), AddClockActivity.class);
+            startActivityForResult(intent, 0);
+        }
+        
+        @Override
+        public void onActivityResult(int requestCode, int resultCode,
+                Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+            if (resultCode > 0) {
+                getLoaderManager().restartLoader(0, null, this);
+            }
         }
 
         @Override

@@ -1,6 +1,7 @@
 package ch.corten.aha.worldclock;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
@@ -122,21 +123,30 @@ public class TimeZoneInfo {
         int minutesDiff = getTimeDifference(tz);
         StringBuilder sb = new StringBuilder();
         sb.append("GMT");
-        if (minutesDiff < 0) {
-            sb.append("-");
-        } else {
-            sb.append("+");
+        if (minutesDiff != 0) {
+            if (minutesDiff < 0) {
+                sb.append("-");
+            } else {
+                sb.append("+");
+            }
+            minutesDiff = Math.abs(minutesDiff);
+            sb.append(minutesDiff / 60);
+            sb.append(":");
+            
+            int minutes = minutesDiff % 60;
+            if (minutes < 10) {
+                sb.append("0");
+            }
+            sb.append(minutes);
         }
-        minutesDiff = Math.abs(minutesDiff);
-        sb.append(minutesDiff / 60);
-        sb.append(":");
-        
-        int minutes = minutesDiff % 60;
-        if (minutes < 10) {
-            sb.append("0");
-        }
-        sb.append(minutes);
         return sb.toString();
+    }
+    
+    public static String getDescription(TimeZone tz) {
+        if (tz.useDaylightTime() && tz.inDaylightTime(new Date())) {
+            return tz.getDisplayName(true, TimeZone.LONG);
+        }
+        return tz.getDisplayName();
     }
     
     @Override
