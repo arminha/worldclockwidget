@@ -5,4 +5,5 @@
 	<string name="n_selcted_format">{0} selected</string>
 	<string name="delete">Delete</string>
 	<string name="add">Add</string>
+	<string name="edit">Edit</string>
 </resources>

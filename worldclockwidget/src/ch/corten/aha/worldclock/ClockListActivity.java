@@ -100,7 +100,14 @@ public class ClockListActivity extends Activity {
                 
                 @Override
                 public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                    return false;
+                    MenuItem editItem = menu.findItem(R.id.menu_edit);
+                    boolean oneSelected = getListView().getCheckedItemCount() == 1;
+                    if (editItem.isVisible() == oneSelected) {
+                        return false;
+                    } else {
+                        editItem.setVisible(oneSelected);
+                        return true;
+                    }
                 }
                 
                 @Override
@@ -121,6 +128,10 @@ public class ClockListActivity extends Activity {
                         deleteSelectedItems();
                         mode.finish();
                         return true;
+                    case R.id.menu_edit:
+                        // TODO call edit intend
+                        mode.finish();
+                        return true;
                     default:
                         return false;
                     }
@@ -136,7 +147,7 @@ public class ClockListActivity extends Activity {
                     } else {
                         mode.setTitle("");
                     }
-                    
+                    mode.invalidate();
                 }
             });            
             getLoaderManager().initLoader(0, null, this);
