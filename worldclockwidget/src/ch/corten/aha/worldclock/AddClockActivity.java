@@ -16,6 +16,7 @@
 
 package ch.corten.aha.worldclock;
 
+import java.util.Comparator;
 import java.util.TimeZone;
 
 import ch.corten.aha.widget.FilterableArrayAdapter;
@@ -63,6 +64,7 @@ public class AddClockActivity extends Activity {
             
             mAdapter = new TimeZoneArrayAdapter(getActivity(),
                     TimeZoneInfo.getAllTimeZones());
+            mAdapter.sort(new CityComparer());
             setListAdapter(mAdapter);
         }
 
@@ -139,4 +141,12 @@ public class AddClockActivity extends Activity {
             return value.getCity().toLowerCase().contains(prefixString);
         }
     }
+    
+    private static class CityComparer implements Comparator<TimeZoneInfo> {
+        @Override
+        public int compare(TimeZoneInfo lhs, TimeZoneInfo rhs) {
+            return lhs.getCity().compareTo(rhs.getCity());
+        }
+    }
+
 }
