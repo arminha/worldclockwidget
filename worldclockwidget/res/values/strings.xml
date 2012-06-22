@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">World Clock Widget</string>
+    <string name="app_name">World Clock</string>
     <string name="add_clock">Add clock</string>
 	<string name="n_selcted_format">{0} selected</string>
 	<string name="delete">Delete</string>
