@@ -18,10 +18,14 @@ public class WorldClockContentProvider extends ContentProvider {
                     + "timezone_id text not null, "
                     + "city text not null, "
                     + "area text not null, "
-                    + "time_diff integer not null);";
+                    + "time_diff integer not null, "
+                    + "use_in_widget integer not null default 1);";
+    
+    private static final String DATABASE_UPDATE_2 = 
+            "alter table clocks add column use_in_widget integer not null default 1";
 
     private static final String DATABASE_NAME = "worldclock";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     
     private DatabaseHelper mDbHelper;
     private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -34,16 +38,15 @@ public class WorldClockContentProvider extends ContentProvider {
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         String table;
         switch (mUriMatcher.match(uri)) {
-            case 1:
-                table = WorldClock.Clocks.TABLE_NAME;
-                break;
-            case 2:
-                table = WorldClock.Clocks.TABLE_NAME;
-                selection = "_ID = " + uri.getLastPathSegment();
-                break;
-            default:
-                // TODO URI not recognized
-                throw new RuntimeException("URI not recognized: " + uri.toString());
+        case 1:
+            table = WorldClock.Clocks.TABLE_NAME;
+            break;
+        case 2:
+            table = WorldClock.Clocks.TABLE_NAME;
+            selection = "_ID = " + uri.getLastPathSegment();
+            break;
+        default:
+            throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -58,7 +61,6 @@ public class WorldClockContentProvider extends ContentProvider {
         case 2:
             return WorldClock.Clocks.CONTENT_ITEM_TYPE;
         default:
-            // TODO URI not recognized
             throw new RuntimeException("URI not recognized: " + uri.toString());
         }
     }
@@ -71,7 +73,6 @@ public class WorldClockContentProvider extends ContentProvider {
             table = WorldClock.Clocks.TABLE_NAME;
             break;
         default:
-            // TODO URI not recognized
             throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
@@ -91,17 +92,16 @@ public class WorldClockContentProvider extends ContentProvider {
             String[] selectionArgs, String sortOrder) {
         String table;
         switch (mUriMatcher.match(uri)) {
-            case 1:
-                table = WorldClock.Clocks.TABLE_NAME;
-                if (TextUtils.isEmpty(sortOrder)) sortOrder = "_ID ASC";
-                break;
-            case 2:
-                table = WorldClock.Clocks.TABLE_NAME;
-                selection = "_ID = " + uri.getLastPathSegment();
-                break;
-            default:
-                // TODO URI not recognized
-                throw new RuntimeException("URI not recognized: " + uri.toString());
+        case 1:
+            table = WorldClock.Clocks.TABLE_NAME;
+            if (TextUtils.isEmpty(sortOrder)) sortOrder = "_ID ASC";
+            break;
+        case 2:
+            table = WorldClock.Clocks.TABLE_NAME;
+            selection = "_ID = " + uri.getLastPathSegment();
+            break;
+        default:
+            throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -121,7 +121,6 @@ public class WorldClockContentProvider extends ContentProvider {
             selection = "_ID = " + uri.getLastPathSegment();
             break;
         default:
-            // TODO URI not recognized
             throw new RuntimeException("URI not recognized: " + uri.toString());
         }
         
@@ -141,7 +140,9 @@ public class WorldClockContentProvider extends ContentProvider {
         
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            // TODO not supported
+            if (oldVersion < 2 && newVersion >= 2) {
+                db.execSQL(DATABASE_UPDATE_2);
+            }
         }
     }
     

@@ -23,6 +23,7 @@ public class WorldClock {
         public static final String CITY = "city";
         public static final String AREA = "area";
         public static final String TIME_DIFF = "time_diff";
+        public static final String USE_IN_WIDGET = "use_in_widget";
         
         /**
          * Create a new clock.
