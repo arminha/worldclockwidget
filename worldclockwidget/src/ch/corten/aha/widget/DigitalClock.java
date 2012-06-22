@@ -50,6 +50,7 @@ public class DigitalClock extends TextView {
 
     public void setTimeZone(TimeZone timeZone) {
         mTimeZone = timeZone;
+        updateClock();
     }
 
     private void initClock(Context context) {
@@ -78,13 +79,7 @@ public class DigitalClock extends TextView {
         mTicker = new Runnable() {
                 public void run() {
                     if (mTickerStopped) return;
-                    mCalendar.setTimeInMillis(System.currentTimeMillis());
-                    java.text.DateFormat df = new SimpleDateFormat(mFormat);
-                    if (mTimeZone != null) {
-                        df.setTimeZone(mTimeZone);
-                    }
-                    setText(df.format(mCalendar.getTime()));
-                    invalidate();
+                    updateClock();
                     long now = SystemClock.uptimeMillis();
                     long next = now + (1000 - now % 1000);
                     mHandler.postAtTime(mTicker, next);
@@ -112,6 +107,16 @@ public class DigitalClock extends TextView {
         } else {
             mFormat = m12;
         }
+    }
+
+    private void updateClock() {
+        mCalendar.setTimeInMillis(System.currentTimeMillis());
+        java.text.DateFormat df = new SimpleDateFormat(mFormat);
+        if (mTimeZone != null) {
+            df.setTimeZone(mTimeZone);
+        }
+        setText(df.format(mCalendar.getTime()));
+        invalidate();
     }
 
     private class FormatChangeObserver extends ContentObserver {
