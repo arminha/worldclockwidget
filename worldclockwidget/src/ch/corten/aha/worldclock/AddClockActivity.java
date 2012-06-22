@@ -122,12 +122,9 @@ public class AddClockActivity extends Activity {
         @Override
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Place an action bar item for searching.
-            MenuItem item = menu.add(R.string.search);
-            item.setIcon(R.drawable.ic_menu_search);
-            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-            SearchView sv = new SearchView(getActivity());
+            inflater.inflate(R.menu.timezone_list, menu);
+            SearchView sv = (SearchView) menu.findItem(R.id.menu_search).getActionView();
             sv.setOnQueryTextListener(this);
-            item.setActionView(sv);
         }
 
         @Override
