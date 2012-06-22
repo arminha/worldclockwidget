@@ -18,17 +18,24 @@ package ch.corten.aha.worldclock;
 
 import java.util.TimeZone;
 
+import ch.corten.aha.widget.FilterableArrayAdapter;
 import ch.corten.aha.worldclock.provider.WorldClock;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 
 public class AddClockActivity extends Activity {
@@ -45,17 +52,30 @@ public class AddClockActivity extends Activity {
         }
     }
     
-    public static class TimeZoneListFragment extends ListFragment {
+    public static class TimeZoneListFragment extends ListFragment implements
+            OnQueryTextListener {
         private ArrayAdapter<TimeZoneInfo> mAdapter;
-        
+
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
+            setHasOptionsMenu(true);
+            
             mAdapter = new TimeZoneArrayAdapter(getActivity(),
                     TimeZoneInfo.getAllTimeZones());
             setListAdapter(mAdapter);
         }
-        
+
+        @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            // Place an action bar item for searching.
+            MenuItem item = menu.add("Search");
+            item.setIcon(android.R.drawable.ic_menu_search);
+            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+            SearchView sv = new SearchView(getActivity());
+            sv.setOnQueryTextListener(this);
+            item.setActionView(sv);
+        }
+
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
             super.onListItemClick(l, v, position, id);
@@ -64,10 +84,26 @@ public class AddClockActivity extends Activity {
             getActivity().setResult(1);
             getActivity().finish();
         }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            if (!TextUtils.isEmpty(newText)) {
+                mAdapter.getFilter().filter(newText);
+            } else {
+                mAdapter.getFilter().filter(null);
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
     }
-    
-    private static class TimeZoneArrayAdapter extends ArrayAdapter<TimeZoneInfo> {
-        
+
+    private static class TimeZoneArrayAdapter extends
+            FilterableArrayAdapter<TimeZoneInfo> {
+
         public TimeZoneArrayAdapter(Context context, TimeZoneInfo[] objects) {
             super(context, R.layout.time_zone_item, R.id.city_text, objects);
         }
@@ -76,7 +112,8 @@ public class AddClockActivity extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View view;
             if (convertView == null) {
-                view = LayoutInflater.from(getContext()).inflate(R.layout.time_zone_item, null);
+                view = LayoutInflater.from(getContext()).inflate(
+                        R.layout.time_zone_item, null);
             } else {
                 view = convertView;
             }
@@ -95,6 +132,11 @@ public class AddClockActivity extends Activity {
             timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
             TextView timeZoneDescText = (TextView) view.findViewById(R.id.timezone_desc_text);
             timeZoneDescText.setText(TimeZoneInfo.getDescription(tz));
+        }
+
+        @Override
+        protected boolean match(String prefixString, TimeZoneInfo value) {
+            return value.getCity().toLowerCase().contains(prefixString);
         }
     }
 }
