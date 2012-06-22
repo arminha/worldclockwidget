@@ -46,6 +46,8 @@ import android.widget.TextView;
 
 public class AddClockActivity extends Activity {
 
+    private TimeZoneListFragment mListFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +55,21 @@ public class AddClockActivity extends Activity {
         FragmentManager fm = getFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
-            TimeZoneListFragment list = new TimeZoneListFragment();
-            fm.beginTransaction().add(android.R.id.content, list).commit();
+            mListFragment = new TimeZoneListFragment();
+            fm.beginTransaction().add(android.R.id.content, mListFragment).commit();
         }
+    }
+    
+    @Override
+    public boolean onSearchRequested() {
+        mListFragment.startSearch();
+        return true;
     }
     
     public static class TimeZoneListFragment extends ListFragment implements
             OnQueryTextListener {
         private ArrayAdapter<TimeZoneInfo> mAdapter;
+        private SearchView mSearchView;
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -118,13 +127,18 @@ public class AddClockActivity extends Activity {
                 }
             });
         }
+        
+        public void startSearch() {
+            mSearchView.setIconified(false);
+            mSearchView.requestFocus();
+        }
 
         @Override
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Place an action bar item for searching.
             inflater.inflate(R.menu.timezone_list, menu);
-            SearchView sv = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-            sv.setOnQueryTextListener(this);
+            mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+            mSearchView.setOnQueryTextListener(this);
         }
 
         @Override
