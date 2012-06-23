@@ -38,7 +38,7 @@ import android.widget.RemoteViews;
 
 public class WorldClockAppWidgetProvider extends AppWidgetProvider {
 
-    private static final String TAG = "WorldClockAppWidgetProvider";
+    private static final String TAG = "WorldClockAppWidget";
     
     public static final String CLOCK_WIDGET_UPDATE = "ch.corten.aha.worldclock.CLOCK_WIDGET_UPDATE";
     
@@ -47,7 +47,9 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
             int[] appWidgetIds) {
         final int N = appWidgetIds.length;
 
-        Log.i(TAG, "Updating widgets " + Arrays.asList(appWidgetIds));
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "Updating widgets " + Arrays.asList(appWidgetIds));
+        }
         
         for (int i = 0; i < N; i++) {
             int appWidgetId = appWidgetIds[i];
@@ -127,7 +129,9 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        Log.d(TAG, "Widget Provider disabled. Turning off timer");
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "Widget Provider disabled. Turning off timer");
+        }
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.cancel(createClockTickIntent(context));
     }
@@ -135,7 +139,9 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
-        Log.d(TAG, "Widget Provider enabled.  Starting timer to update widget every second");
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "Widget Provider enabled.  Starting timer to update widget every second");
+        }
         AlarmManager alarmManager = (AlarmManager) context
                 .getSystemService(Context.ALARM_SERVICE);
         Calendar calendar = Calendar.getInstance();
@@ -150,9 +156,10 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        Log.d(TAG, "Received intent " + intent);
         if (CLOCK_WIDGET_UPDATE.equals(intent.getAction())) {
-            Log.d(TAG, "Clock update");
+            if (Log.isLoggable(TAG, Log.DEBUG)) {
+                Log.d(TAG, "Clock update");
+            }
             // Get the widget manager and ids for this widget provider, then call the shared
             // clock update method.
             ComponentName thisAppWidget = new ComponentName(context.getPackageName(), getClass().getName());

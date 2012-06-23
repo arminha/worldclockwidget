@@ -36,7 +36,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -174,7 +173,6 @@ public class ClockListActivity extends Activity {
             Uri baseUri = Clocks.CONTENT_URI;
             ContentResolver resolver = getActivity().getContentResolver();
             for (long id : itemIds) {
-                Log.d(TAG, "delete item " + id);
                 resolver.delete(ContentUris.withAppendedId(baseUri, id), null, null);
             }
             refreshClocks();
