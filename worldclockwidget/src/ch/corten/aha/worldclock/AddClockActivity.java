@@ -16,35 +16,35 @@
 
 package ch.corten.aha.worldclock;
 
-import java.text.MessageFormat;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TimeZone;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import ch.corten.aha.widget.FilterableArrayAdapter;
 import ch.corten.aha.worldclock.provider.WorldClock;
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.SearchViewCompat;
+import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseBooleanArray;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.AbsListView.MultiChoiceModeListener;
-import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 
-public class AddClockActivity extends Activity {
+public class AddClockActivity extends SherlockFragmentActivity {
 
     private TimeZoneListFragment mListFragment;
 
@@ -53,7 +53,7 @@ public class AddClockActivity extends Activity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.add_clock);
         
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
             mListFragment = new TimeZoneListFragment();
@@ -67,10 +67,9 @@ public class AddClockActivity extends Activity {
         return true;
     }
     
-    public static class TimeZoneListFragment extends ListFragment implements
-            OnQueryTextListener {
+    public static class TimeZoneListFragment extends SherlockListFragment {
         private ArrayAdapter<TimeZoneInfo> mAdapter;
-        private SearchView mSearchView;
+        private View mSearchView;
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -81,65 +80,86 @@ public class AddClockActivity extends Activity {
                     TimeZoneInfo.getAllTimeZones());
             mAdapter.sort(new CityComparer());
             setListAdapter(mAdapter);
-            
-            ListView listView = getListView();
-            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-            
-            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
-                
-                @Override
-                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                    return false;
-                }
-                
-                @Override
-                public void onDestroyActionMode(ActionMode mode) {
-                }
-                
-                @Override
-                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    MenuInflater menuInflater = mode.getMenuInflater();
-                    menuInflater.inflate(R.menu.timezone_list_context, menu);
-                    return true;
-                }
-                
-                @Override
-                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                    switch (item.getItemId()) {
-                    case R.id.menu_add:
-                        addSelected();
-                        mode.finish();
-                        return true;
-                    default:
-                        return false;
-                    }
-                }
-                
-                @Override
-                public void onItemCheckedStateChanged(ActionMode mode, int position,
-                        long id, boolean checked) {
-                    int count = getListView().getCheckedItemCount();
-                    if (count > 0) {
-                        CharSequence format = getResources().getText(R.string.n_selcted_format);
-                        mode.setTitle(MessageFormat.format(format.toString(), count));
-                    } else {
-                        mode.setTitle("");
-                    }
-                }
-            });
+        }
+
+        private void setupCab() {
+//            ListView listView = getListView();
+//            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+//            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
+//                
+//                @Override
+//                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+//                    return false;
+//                }
+//                
+//                @Override
+//                public void onDestroyActionMode(ActionMode mode) {
+//                }
+//                
+//                @Override
+//                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//                    MenuInflater menuInflater = mode.getMenuInflater();
+//                    menuInflater.inflate(R.menu.timezone_list_context, menu);
+//                    return true;
+//                }
+//                
+//                @Override
+//                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+//                    switch (item.getItemId()) {
+//                    case R.id.menu_add:
+//                        addSelected();
+//                        mode.finish();
+//                        return true;
+//                    default:
+//                        return false;
+//                    }
+//                }
+//                
+//                @Override
+//                public void onItemCheckedStateChanged(ActionMode mode, int position,
+//                        long id, boolean checked) {
+//                    int count = getListView().getCheckedItemCount();
+//                    if (count > 0) {
+//                        CharSequence format = getResources().getText(R.string.n_selcted_format);
+//                        mode.setTitle(MessageFormat.format(format.toString(), count));
+//                    } else {
+//                        mode.setTitle("");
+//                    }
+//                }
+//            });
         }
         
         public void startSearch() {
-            mSearchView.setIconified(false);
-            mSearchView.requestFocus();
+            Class<? extends View> svClass = mSearchView.getClass();
+            if (svClass.getName().equals("android.widget.SearchView")) {
+                try {
+                    Method method = svClass.getMethod("setIconified", boolean.class);
+                    method.invoke(mSearchView, false);
+                    mSearchView.requestFocus();
+                } catch (Exception e) {
+                    Log.e("AddClockActivity", e.getMessage(), e);
+                }
+            }
         }
 
         @Override
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Place an action bar item for searching.
             inflater.inflate(R.menu.timezone_list, menu);
-            mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-            mSearchView.setOnQueryTextListener(this);
+            MenuItem item = menu.findItem(R.id.menu_search);
+            mSearchView = SearchViewCompat.newSearchView(getActivity());
+            item.setActionView(mSearchView);
+            SearchViewCompat.setOnQueryTextListener(mSearchView, new OnQueryTextListenerCompat() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return TimeZoneListFragment.this.onQueryTextChange(newText);
+                }
+                
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return TimeZoneListFragment.this.onQueryTextSubmit(query);
+                }
+            });
         }
 
         @Override
@@ -170,7 +190,6 @@ public class AddClockActivity extends Activity {
             getActivity().finish();
         }
 
-        @Override
         public boolean onQueryTextChange(String newText) {
             if (!TextUtils.isEmpty(newText)) {
                 mAdapter.getFilter().filter(newText);
@@ -180,7 +199,6 @@ public class AddClockActivity extends Activity {
             return true;
         }
 
-        @Override
         public boolean onQueryTextSubmit(String query) {
             return false;
         }
