@@ -177,7 +177,14 @@ public class ClockListActivity extends Activity {
                 Log.d(TAG, "delete item " + id);
                 resolver.delete(ContentUris.withAppendedId(baseUri, id), null, null);
             }
+            refreshClocks();
+        }
+
+        private void refreshClocks() {
             getLoaderManager().restartLoader(0, null, this);
+            // send update broadcast to widget
+            Intent broadcast = new Intent(WorldClockAppWidgetProvider.CLOCK_WIDGET_UPDATE);
+            getActivity().sendBroadcast(broadcast);
         }
 
         @Override
@@ -207,7 +214,7 @@ public class ClockListActivity extends Activity {
                 Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode > 0) {
-                getLoaderManager().restartLoader(0, null, this);
+                refreshClocks();
             }
         }
 

@@ -5,5 +5,5 @@
     android:initialLayout="@layout/world_clock_widget"
     android:updatePeriodMillis="0"
     android:previewImage="@drawable/world_clock_widget_preview"
-    android:resizeMode="horizontal|vertical">
+    android:resizeMode="none">
 </appwidget-provider>

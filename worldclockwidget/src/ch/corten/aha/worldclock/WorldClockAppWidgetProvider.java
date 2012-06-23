@@ -20,6 +20,9 @@ import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -28,7 +31,9 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.util.Log;
+import android.view.View;
 import android.widget.RemoteViews;
 
 public class WorldClockAppWidgetProvider extends AppWidgetProvider {
@@ -67,13 +72,52 @@ public class WorldClockAppWidgetProvider extends AppWidgetProvider {
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
     
+    private static final String[] PROJECTION = {
+        Clocks.TIMEZONE_ID,
+        Clocks.CITY
+    };
+    
+    private static final int[] CITY_IDS = {
+        R.id.city_text1,
+        R.id.city_text2,
+        R.id.city_text3,
+        R.id.city_text4,
+    };
+    
+    private static final int[] TIME_IDS = {
+        R.id.time_text1,
+        R.id.time_text2,
+        R.id.time_text3,
+        R.id.time_text4,
+    };
+    
     static void updateViews(Context context, RemoteViews views) {
-        final String city = "Ottawa";
-        TimeZoneInfo timeZone = TimeZoneInfo.getCity(city);
-        views.setTextViewText(R.id.city_text, city);
-        DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
-        df.setTimeZone(timeZone.getTimeZone());
-        views.setTextViewText(R.id.time_text, df.format(new Date()));
+        Cursor cursor = context.getContentResolver().query(Clocks.CONTENT_URI,
+                PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
+                Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC");
+        
+        try {
+            int n = 0;
+            DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
+            Date date = new Date();
+            while (cursor.moveToNext() && n < CITY_IDS.length) {
+                String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
+                String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
+                TimeZone tz = TimeZone.getTimeZone(id);
+                df.setTimeZone(tz);
+                views.setTextViewText(CITY_IDS[n], city);
+                views.setTextViewText(TIME_IDS[n], df.format(date));
+                n++;
+            }
+            int showEmptyText = (n == 0) ? View.VISIBLE : View.INVISIBLE;
+            views.setViewVisibility(R.id.empty_text, showEmptyText);
+            for (; n < CITY_IDS.length; n++) {
+                views.setTextViewText(CITY_IDS[n], "");
+                views.setTextViewText(TIME_IDS[n], "");
+            }
+        } finally {
+            cursor.close();
+        }
     }
 
     @Override

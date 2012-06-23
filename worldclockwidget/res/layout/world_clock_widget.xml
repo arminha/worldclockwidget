@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_widget"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/appwidget_dark_bg"
     android:paddingBottom="@dimen/widget_padding_vertical"
     android:paddingLeft="@dimen/widget_padding_horizontal"
@@ -12,17 +12,79 @@
     tools:ignore="Overdraw" >
 
     <TextView
-        android:id="@+id/city_text"
+        android:id="@+id/city_text1"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:textColor="@android:color/white"
-        android:layout_gravity="left" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textColor="@android:color/white" />
+    
+    <TextView
+        android:id="@+id/time_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/time_text"
+        android:id="@+id/city_text2"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:textColor="@android:color/white"
-        android:layout_gravity="right" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/city_text1"
+        android:textColor="@android:color/white" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/time_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/city_text2"
+        android:layout_alignBottom="@id/city_text2"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/city_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/city_text2"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/time_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/city_text3"
+        android:layout_alignBottom="@id/city_text3"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/city_text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/city_text3"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/time_text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/city_text4"
+        android:layout_alignBottom="@id/city_text4"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/add_clock"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
