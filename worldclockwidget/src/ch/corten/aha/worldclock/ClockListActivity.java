@@ -20,40 +20,42 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import ch.corten.aha.widget.DigitalClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.ListFragment;
-import android.app.LoaderManager;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.text.format.DateFormat;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView.MultiChoiceModeListener;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-public class ClockListActivity extends Activity {
+public class ClockListActivity extends SherlockFragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
             ClockListFragment list = new ClockListFragment();
@@ -61,7 +63,7 @@ public class ClockListActivity extends Activity {
         }
     }
 
-    public static class ClockListFragment extends ListFragment implements
+    public static class ClockListFragment extends SherlockListFragment implements
             LoaderManager.LoaderCallbacks<Cursor> {
 
         private static final String TAG = "ClockListFragment";
@@ -110,62 +112,141 @@ public class ClockListActivity extends Activity {
             setListShown(false);
             
             ListView listView = getListView();
-            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
-                
+            setupCabOld(listView);            
+            getLoaderManager().initLoader(0, null, this);
+        }
+
+        private ActionMode mMode;
+        
+        private void setupCabOld(ListView listView) {
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            listView.setOnItemClickListener(new OnItemClickListener() {
                 @Override
-                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                    MenuItem editItem = menu.findItem(R.id.menu_edit);
-                    boolean oneSelected = getListView().getCheckedItemCount() == 1;
-                    if (editItem.isVisible() == oneSelected) {
-                        return false;
+                public void onItemClick(AdapterView<?> parent, View view,
+                        int position, long id) {
+                    long[] checked = getListView().getCheckedItemIds();
+                    
+                    if (checked.length > 0) {
+                        if (mMode == null) {
+                            mMode = getSherlockActivity().startActionMode(new ModeCallback());
+                        }
+                        CharSequence format = getResources().getText(R.string.n_selcted_format);
+                        mMode.setTitle(MessageFormat.format(format.toString(), checked.length));
+                        mMode.invalidate();
                     } else {
-                        editItem.setVisible(oneSelected);
-                        return true;
+                        if (mMode != null) {
+                            mMode.finish();
+                        }
                     }
                 }
-                
-                @Override
-                public void onDestroyActionMode(ActionMode mode) {
-                }
-                
-                @Override
-                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    MenuInflater inflater = mode.getMenuInflater();
-                    inflater.inflate(R.menu.clock_list_context, menu);
+            });
+        }
+        
+        private class ModeCallback implements ActionMode.Callback {
+
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.clock_list_context, menu);
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                MenuItem editItem = menu.findItem(R.id.menu_edit);
+                boolean oneSelected = getListView().getCheckedItemIds().length == 1;
+                if (editItem.isVisible() == oneSelected) {
+                    return false;
+                } else {
+                    editItem.setVisible(oneSelected);
                     return true;
                 }
-                
-                @Override
-                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                    switch (item.getItemId()) {
-                    case R.id.menu_delete:
-                        deleteSelectedItems();
-                        mode.finish();
-                        return true;
-                    case R.id.menu_edit:
-                        // TODO call edit intend
-                        mode.finish();
-                        return true;
-                    default:
-                        return false;
-                    }
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                switch (item.getItemId()) {
+                case R.id.menu_delete:
+                    deleteSelectedItems();
+                    mode.finish();
+                    return true;
+                case R.id.menu_edit:
+                    // TODO call edit intend
+                    mode.finish();
+                    return true;
+                default:
+                    return false;
                 }
-                
-                @Override
-                public void onItemCheckedStateChanged(ActionMode mode, int position,
-                        long id, boolean checked) {
-                    int count = getListView().getCheckedItemCount();
-                    if (count > 0) {
-                        CharSequence format = getResources().getText(R.string.n_selcted_format);
-                        mode.setTitle(MessageFormat.format(format.toString(), count));
-                    } else {
-                        mode.setTitle("");
-                    }
-                    mode.invalidate();
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                for (int i = 0; i < getListAdapter().getCount(); i++)
+                    getListView().setItemChecked(i, false);
+     
+                if (mode == mMode) {
+                    mMode = null;
                 }
-            });            
-            getLoaderManager().initLoader(0, null, this);
+            }
+             
+        }
+        
+        private void setupCab(ListView listView) {
+//            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+//            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
+//                
+//                @Override
+//                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+//                    MenuItem editItem = menu.findItem(R.id.menu_edit);
+//                    boolean oneSelected = getListView().getCheckedItemCount() == 1;
+//                    if (editItem.isVisible() == oneSelected) {
+//                        return false;
+//                    } else {
+//                        editItem.setVisible(oneSelected);
+//                        return true;
+//                    }
+//                }
+//                
+//                @Override
+//                public void onDestroyActionMode(ActionMode mode) {
+//                }
+//                
+//                @Override
+//                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//                    MenuInflater inflater = mode.getMenuInflater();
+//                    inflater.inflate(R.menu.clock_list_context, menu);
+//                    return true;
+//                }
+//                
+//                @Override
+//                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+//                    switch (item.getItemId()) {
+//                    case R.id.menu_delete:
+//                        deleteSelectedItems();
+//                        mode.finish();
+//                        return true;
+//                    case R.id.menu_edit:
+//                        // TODO call edit intend
+//                        mode.finish();
+//                        return true;
+//                    default:
+//                        return false;
+//                    }
+//                }
+//                
+//                @Override
+//                public void onItemCheckedStateChanged(ActionMode mode, int position,
+//                        long id, boolean checked) {
+//                    int count = getListView().getCheckedItemCount();
+//                    if (count > 0) {
+//                        CharSequence format = getResources().getText(R.string.n_selcted_format);
+//                        mode.setTitle(MessageFormat.format(format.toString(), count));
+//                    } else {
+//                        mode.setTitle("");
+//                    }
+//                    mode.invalidate();
+//                }
+//            });
         }
 
         private void deleteSelectedItems() {
@@ -224,7 +305,7 @@ public class ClockListActivity extends Activity {
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            mAdapter.swapCursor(data);
+            mAdapter.changeCursor(data);
             // The list should now be shown.
             if (isResumed()) {
                 setListShown(true);
@@ -235,7 +316,7 @@ public class ClockListActivity extends Activity {
 
         @Override
         public void onLoaderReset(Loader<Cursor> arg0) {
-            mAdapter.swapCursor(null);
+            mAdapter.changeCursor(null);
         }
     }
 }
