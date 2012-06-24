@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ch.corten.aha.widget.CheckableFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/activatedBackgroundIndicator"
     android:padding="8dp">
 
     <TextView
@@ -44,3 +46,4 @@
         android:layout_below="@+id/time_diff_text" />
 
 </RelativeLayout>
+</ch.corten.aha.widget.CheckableFrameLayout>

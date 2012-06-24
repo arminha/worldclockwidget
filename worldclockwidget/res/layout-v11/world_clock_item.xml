@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/activatedBackgroundIndicator"
+    android:background="?android:attr/activatedBackgroundIndicator"
     android:padding="8dp">
-    
+
     <TextView
         android:id="@+id/city_text"
         android:layout_width="wrap_content"
@@ -13,27 +13,34 @@
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-   	<TextView
-        android:id="@+id/time_diff_text"
+    <ch.corten.aha.widget.DigitalClock
+        android:id="@+id/time_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
     <TextView
         android:id="@+id/area_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/city_text" />
-    
+
     <TextView
-        android:id="@+id/timezone_desc_text"
+        android:id="@+id/time_diff_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/area_text"
         android:layout_alignBottom="@+id/area_text"
         android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/time_diff_text" />
 
 </RelativeLayout>
