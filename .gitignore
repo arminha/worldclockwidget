@@ -1,6 +1,5 @@
 *.class
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# don't accidentially add keystores
+*.keystore
+
