@@ -51,6 +51,7 @@ public class AddClockActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.add_clock);
         
         FragmentManager fm = getFragmentManager();
         // Create the list fragment and add it as our sole content.

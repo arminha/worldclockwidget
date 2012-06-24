@@ -79,7 +79,7 @@ public class ClockListActivity extends Activity {
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            setEmptyText(getText(R.string.add_clock));
+            setEmptyText(getText(R.string.no_clock_defined));
             setHasOptionsMenu(true);
 
             mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.world_clock_item, null) {
