@@ -26,21 +26,26 @@ import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
 
 import ch.corten.aha.widget.FilterableArrayAdapter;
 import ch.corten.aha.worldclock.provider.WorldClock;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SearchViewCompat;
 import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -70,6 +75,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
     public static class TimeZoneListFragment extends SherlockListFragment {
         private ArrayAdapter<TimeZoneInfo> mAdapter;
         private View mSearchView;
+        private MenuItem mSearchItem;
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -129,9 +135,13 @@ public class AddClockActivity extends SherlockFragmentActivity {
 //            });
         }
         
+        private static boolean isHoneycomb() {
+            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
+        }
+        
         public void startSearch() {
-            Class<? extends View> svClass = mSearchView.getClass();
-            if (svClass.getName().equals("android.widget.SearchView")) {
+            if (isHoneycomb()) {
+                Class<? extends View> svClass = mSearchView.getClass();
                 try {
                     Method method = svClass.getMethod("setIconified", boolean.class);
                     method.invoke(mSearchView, false);
@@ -139,6 +149,8 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 } catch (Exception e) {
                     Log.e("AddClockActivity", e.getMessage(), e);
                 }
+            } else {
+                mSearchItem.expandActionView();
             }
         }
 
@@ -146,20 +158,56 @@ public class AddClockActivity extends SherlockFragmentActivity {
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Place an action bar item for searching.
             inflater.inflate(R.menu.timezone_list, menu);
-            MenuItem item = menu.findItem(R.id.menu_search);
+            mSearchItem = menu.findItem(R.id.menu_search);
             mSearchView = SearchViewCompat.newSearchView(getActivity());
-            item.setActionView(mSearchView);
-            SearchViewCompat.setOnQueryTextListener(mSearchView, new OnQueryTextListenerCompat() {
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    return TimeZoneListFragment.this.onQueryTextChange(newText);
-                }
-                
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return TimeZoneListFragment.this.onQueryTextSubmit(query);
-                }
-            });
+            if (mSearchView != null) {
+                mSearchItem.setActionView(mSearchView);
+                SearchViewCompat.setOnQueryTextListener(mSearchView, new OnQueryTextListenerCompat() {
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        return TimeZoneListFragment.this.onQueryTextChange(newText);
+                    }
+                    
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return TimeZoneListFragment.this.onQueryTextSubmit(query);
+                    }
+                });
+            } else { // pre Honeycomb create our own search view
+                mSearchItem.setActionView(R.layout.collapsible_search_view);
+                mSearchView = mSearchItem.getActionView();
+                mSearchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+                final EditText editText = (EditText) mSearchView;
+                mSearchItem.setOnActionExpandListener(new OnActionExpandListener() {
+                    
+                    @Override
+                    public boolean onMenuItemActionExpand(MenuItem item) {
+                        return true;
+                    }
+                    
+                    @Override
+                    public boolean onMenuItemActionCollapse(MenuItem item) {
+                        editText.setText("");
+                        return true;
+                    }
+                });
+                editText.addTextChangedListener(new TextWatcher() {
+                    
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    }
+                    
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count,
+                            int after) {
+                    }
+                    
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        onQueryTextChange(s.toString());
+                    }
+                });
+            }
         }
 
         @Override
