@@ -40,6 +40,8 @@ public class WorldClock {
         public static final String AREA = "area";
         public static final String TIME_DIFF = "time_diff";
         public static final String USE_IN_WIDGET = "use_in_widget";
+        public static final String LATITUDE = "latitude";
+        public static final String LONGITUDE = "longitude";
         
         /**
          * Create a new clock.
@@ -74,5 +76,28 @@ public class WorldClock {
                     timeZoneInfo.getArea(), timeZoneInfo.getTimeDifference());
         }
 
+    }
+    
+    public static class Cities {
+        static final String TABLE_NAME = "cities";
+        
+        public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, TABLE_NAME);
+        
+        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + TABLE_NAME;
+        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd." + AUTHORITY + "." + TABLE_NAME;
+        
+        /**
+         * The geonameid of the city
+         */
+        public static final String _ID = BaseColumns._ID;
+        public static final String NAME = "name";
+        public static final String ASCII_NAME = "asciiname";
+        public static final String LATITUDE = "latitude";
+        public static final String LONGITUDE = "longitude";
+        /**
+         * ISO-3166 2-letter country code, 2 characters
+         */
+        public static final String COUNTRY_CODE = "country_code";
+        public static final String TIMEZONE_ID = "timezone_id";
     }
 }

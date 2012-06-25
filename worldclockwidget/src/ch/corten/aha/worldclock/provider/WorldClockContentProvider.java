@@ -16,10 +16,11 @@
 
 package ch.corten.aha.worldclock.provider;
 
+import ch.corten.aha.worldclock.provider.WorldClock.Cities;
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -29,77 +30,85 @@ import android.text.TextUtils;
 
 public class WorldClockContentProvider extends ContentProvider {
 
-    private static final String DATABASE_CREATE =
-            "create table clocks (_id integer primary key autoincrement, "
-                    + "timezone_id text not null, "
-                    + "city text not null, "
-                    + "area text not null, "
-                    + "time_diff integer not null, "
-                    + "use_in_widget integer not null default 1);";
+    private WorldClockDatabase mClockDbHelper;
+    private CityDatabase mCityDbHelper;
     
-    private static final String DATABASE_UPDATE_2 = 
-            "alter table clocks add column use_in_widget integer not null default 1";
-
-    private static final String DATABASE_NAME = "worldclock";
-    private static final int DATABASE_VERSION = 2;
+    private static final int CLOCKS = 1;
+    private static final int CLOCKS_ITEM = 2;
+    private static final int CITIES = 3;
+    private static final int CITIES_ITEM = 4;
     
-    private DatabaseHelper mDbHelper;
     private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static {
-        mUriMatcher.addURI(WorldClock.AUTHORITY, WorldClock.Clocks.TABLE_NAME, 1);
-        mUriMatcher.addURI(WorldClock.AUTHORITY, WorldClock.Clocks.TABLE_NAME + "/#", 2);
+        mUriMatcher.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME, CLOCKS);
+        mUriMatcher.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME + "/#", CLOCKS_ITEM);
+        mUriMatcher.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME, CITIES);
+        mUriMatcher.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME + "/#", CITIES_ITEM);
     }
     
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        String table;
         switch (mUriMatcher.match(uri)) {
-        case 1:
-            table = WorldClock.Clocks.TABLE_NAME;
+        case CLOCKS:
             break;
-        case 2:
-            table = WorldClock.Clocks.TABLE_NAME;
+        case CLOCKS_ITEM:
             selection = "_ID = " + uri.getLastPathSegment();
             break;
+        case CITIES:
+        case CITIES_ITEM:
+            throw citiesReadOnly();
         default:
-            throw new RuntimeException("URI not recognized: " + uri.toString());
+            throw invalidUri(uri);
         }
-        
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        return db.delete(table, selection, selectionArgs);
+
+        SQLiteDatabase db = mClockDbHelper.getWritableDatabase();
+        return db.delete(Clocks.TABLE_NAME, selection, selectionArgs);
     }
 
     @Override
     public String getType(Uri uri) {
         switch (mUriMatcher.match(uri)) {
-        case 1:
-            return WorldClock.Clocks.CONTENT_TYPE;
-        case 2:
-            return WorldClock.Clocks.CONTENT_ITEM_TYPE;
+        case CLOCKS:
+            return Clocks.CONTENT_TYPE;
+        case CLOCKS_ITEM:
+            return Clocks.CONTENT_ITEM_TYPE;
+        case CITIES:
+            return Cities.CONTENT_TYPE;
+        case CITIES_ITEM:
+            return Cities.CONTENT_ITEM_TYPE;
         default:
-            throw new RuntimeException("URI not recognized: " + uri.toString());
+            throw invalidUri(uri);
         }
     }
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        String table;
         switch (mUriMatcher.match(uri)) {
-        case 1:
-            table = WorldClock.Clocks.TABLE_NAME;
+        case CLOCKS:
             break;
+        case CITIES:
+            throw citiesReadOnly();
         default:
-            throw new RuntimeException("URI not recognized: " + uri.toString());
+            throw invalidUri(uri);
         }
-        
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        long id = db.insert(table, null, values);
+
+        SQLiteDatabase db = mClockDbHelper.getWritableDatabase();
+        long id = db.insert(Clocks.TABLE_NAME, null, values);
         return ContentUris.withAppendedId(uri, id);
+    }
+
+    private static RuntimeException invalidUri(Uri uri) {
+        return new RuntimeException("URI not recognized: " + uri.toString());
+    }
+
+    private static RuntimeException citiesReadOnly() {
+        return new RuntimeException("Cannot write cities, they are read-only.");
     }
 
     @Override
     public boolean onCreate() {
-        mDbHelper = new DatabaseHelper(getContext());
+        mClockDbHelper = new WorldClockDatabase(getContext());
+        mCityDbHelper = new CityDatabase(getContext());
         return true;
     }
 
@@ -107,59 +116,57 @@ public class WorldClockContentProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection,
             String[] selectionArgs, String sortOrder) {
         String table;
-        switch (mUriMatcher.match(uri)) {
-        case 1:
-            table = WorldClock.Clocks.TABLE_NAME;
+        SQLiteOpenHelper helper;
+        int match = mUriMatcher.match(uri);
+        switch (match) {
+        case CLOCKS:
+        case CLOCKS_ITEM:
+            table = Clocks.TABLE_NAME;
+            helper = mClockDbHelper;
+            break;
+        case CITIES:
+        case CITIES_ITEM:
+            table = Cities.TABLE_NAME;
+            helper = mCityDbHelper;
+            break;
+        default:
+            throw invalidUri(uri);
+        }
+        
+        switch (match) {
+        case CLOCKS:
+        case CITIES:
             if (TextUtils.isEmpty(sortOrder)) sortOrder = "_ID ASC";
             break;
-        case 2:
-            table = WorldClock.Clocks.TABLE_NAME;
+        case CITIES_ITEM:
+        case CLOCKS_ITEM:
             selection = "_ID = " + uri.getLastPathSegment();
             break;
         default:
-            throw new RuntimeException("URI not recognized: " + uri.toString());
+            throw invalidUri(uri);
         }
-        
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        SQLiteDatabase db = helper.getReadableDatabase();
         return db.query(table, projection, selection, selectionArgs, null, null, sortOrder);
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection,
             String[] selectionArgs) {
-        String table;
         switch (mUriMatcher.match(uri)) {
-        case 1:
-            table = WorldClock.Clocks.TABLE_NAME;
+        case CLOCKS:
             break;
-        case 2:
-            table = WorldClock.Clocks.TABLE_NAME;
+        case CLOCKS_ITEM:
             selection = "_ID = " + uri.getLastPathSegment();
             break;
+        case CITIES:
+        case CITIES_ITEM:
+            throw citiesReadOnly();
         default:
-            throw new RuntimeException("URI not recognized: " + uri.toString());
+            throw invalidUri(uri);
         }
-        
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-        return db.update(table, values, selection, selectionArgs);
-    }
 
-    private static class DatabaseHelper extends SQLiteOpenHelper {
-        public DatabaseHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        }
-        
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(DATABASE_CREATE);
-        }
-        
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            if (oldVersion < 2 && newVersion >= 2) {
-                db.execSQL(DATABASE_UPDATE_2);
-            }
-        }
+        SQLiteDatabase db = mClockDbHelper.getReadableDatabase();
+        return db.update(Clocks.TABLE_NAME, values, selection, selectionArgs);
     }
-    
 }
