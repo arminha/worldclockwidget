@@ -40,6 +40,8 @@
         </activity>
         <activity
             android:name=".AddClockActivity" />
+        <activity
+            android:name=".EditClockActivity" />
     </application>
 
 </manifest>

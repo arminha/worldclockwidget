@@ -66,8 +66,6 @@ public class ClockListActivity extends SherlockFragmentActivity {
     public static class ClockListFragment extends SherlockListFragment implements
             LoaderManager.LoaderCallbacks<Cursor> {
 
-        private static final String TAG = "ClockListFragment";
-        
         private CursorAdapter mAdapter;
 
         private static final String[] CLOCKS_PROJECTION = {
@@ -171,7 +169,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
                     mode.finish();
                     return true;
                 case R.id.menu_edit:
-                    // TODO call edit intend
+                    editClock();
                     mode.finish();
                     return true;
                 default:
@@ -285,6 +283,13 @@ public class ClockListActivity extends SherlockFragmentActivity {
 
         private void addClock() {
             Intent intent = new Intent(getActivity(), AddClockActivity.class);
+            startActivityForResult(intent, 0);
+        }
+        
+        private void editClock() {
+            long id = getListView().getCheckedItemIds()[0];
+            Intent intent = new Intent(getActivity(), EditClockActivity.class);
+            intent.putExtra(Clocks._ID, id);
             startActivityForResult(intent, 0);
         }
         

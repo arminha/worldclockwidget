@@ -8,4 +8,10 @@
 	<string name="add">Add</string>
 	<string name="edit">Edit</string>
 	<string name="search">Search</string>
+	<string name="city">City</string>
+	<string name="latitude">Latitude</string>
+	<string name="longitude">Longitude</string>
+	<string name="display_in_widget">Display in widget</string>
+	<string name="description">Description</string>
+	<string name="edit_clock">Edit Clock</string>
 </resources>
