@@ -37,9 +37,22 @@ public class WorldClockDatabase extends SQLiteOpenHelper {
             "alter table clocks add column latitude real not null default 0;",
             "alter table clocks add column longitude real not null default 0;"
     };
+    
+    /*
+     * Add columns for weather
+     */
+    private static final String[] DATABASE_UPDATE_4 = {
+        "alter table clocks add column temperature real;",
+        "alter table clocks add column wind_speed real;",
+        "alter table clocks add column wind_direction text;",
+        "alter table clocks add column humidity real;",
+        "alter table clocks add column weather_condition text;",
+        "alter table clocks add column condition_code integer;",
+        "alter table clocks add column last_update integer default 0;",
+    };
 
     private static final String DATABASE_NAME = "worldclock";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     public WorldClockDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -51,6 +64,9 @@ public class WorldClockDatabase extends SQLiteOpenHelper {
         for (String stmt : DATABASE_UPDATE_3) {
             db.execSQL(stmt);
         }
+        for (String stmt : DATABASE_UPDATE_4) {
+            db.execSQL(stmt);
+        }
     }
     
     @Override
@@ -60,6 +76,11 @@ public class WorldClockDatabase extends SQLiteOpenHelper {
         }
         if (oldVersion < 3 && newVersion >= 3) {
             for (String stmt : DATABASE_UPDATE_3) {
+                db.execSQL(stmt);
+            }
+        }
+        if (oldVersion < 4 && newVersion >= 4) {
+            for (String stmt : DATABASE_UPDATE_4) {
                 db.execSQL(stmt);
             }
         }

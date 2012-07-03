@@ -16,6 +16,8 @@
 
 package ch.corten.aha.worldclock.provider;
 
+import ch.corten.aha.worldclock.weather.WeatherObservation;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
@@ -42,6 +44,17 @@ public class WorldClock {
         public static final String LATITUDE = "latitude";
         public static final String LONGITUDE = "longitude";
         
+        /*
+         * Add columns for weather
+         */
+        public static final String TEMPERATURE = "temperature";
+        public static final String WIND_SPEED = "wind_speed";
+        public static final String WIND_DIRECTION = "wind_direction";
+        public static final String HUMIDITY = "humidity";
+        public static final String WEATHER_CONDITION = "weather_condition";
+        public static final String CONDITION_CODE = "condition_code";
+        public static final String LAST_UPDATE = "last_update";
+        
         /**
          * Create a new clock.
          * 
@@ -66,6 +79,21 @@ public class WorldClock {
             initialValues.put(LONGITUDE, longitude);
             
             context.getContentResolver().insert(CONTENT_URI, initialValues);
+        }
+        
+        public static boolean updateWeather(Context context, long id, WeatherObservation obs) {
+            ContentValues values = new ContentValues();
+            values.put(TEMPERATURE, obs.getTemperature());
+            values.put(WIND_SPEED, obs.getWindSpeed());
+            values.put(WIND_DIRECTION, obs.getWindDirection());
+            values.put(HUMIDITY, obs.getHumidity());
+            values.put(WEATHER_CONDITION, obs.getWeatherCondition());
+            values.put(CONDITION_CODE, obs.getConditionCode());
+            values.put(LAST_UPDATE, obs.getUpdateTime().getTime());
+            
+            Uri uri = ContentUris.withAppendedId(CONTENT_URI, id);
+            int count = context.getContentResolver().update(uri, values, null, null);
+            return count > 0;
         }
     }
     
