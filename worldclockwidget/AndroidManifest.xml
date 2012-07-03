@@ -44,6 +44,8 @@
             android:name=".AddClockActivity" />
         <activity
             android:name=".EditClockActivity" />
+        <activity 
+            android:name=".WorldClockPreferenceActivity" />
     </application>
 
 </manifest>

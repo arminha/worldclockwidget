@@ -14,4 +14,20 @@
 	<string name="display_in_widget">Display in widget</string>
 	<string name="description">Description</string>
 	<string name="edit_clock">Edit Clock</string>
+	<string name="refresh">Refresh</string>
+    <string-array name="speed_units">
+        <item name="kmh">km/h</item>
+        <item name="mph">mph</item>
+        <item name="ms">m/s</item>
+    </string-array>
+    <string-array name="temp_units">
+        <item name="celsius">°C</item>
+        <item name="fahrenheit">°F</item>
+    </string-array>
+    <string name="preferences">Preferences</string>
+    <string name="temperature_unit">Temperature unit</string>
+    <string name="wind_speed_unit">Wind speed unit</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_format">Wind: {0} at {1}</string>
+    <string name="weather">Weather</string>
 </resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="speed_unit_values">
+        <item name="kmh">kmh</item>
+        <item name="mph">mph</item>
+        <item name="ms">ms</item>
+    </string-array>
+    <string-array name="temp_unit_values">
+        <item name="celsius">C</item>
+        <item name="fahrenheit">F</item>
+    </string-array>
+    <string name="temp_unit_key">temp_unit</string>
+    <string name="wind_speed_unit_key">wind_speed_unit</string>
+</resources>

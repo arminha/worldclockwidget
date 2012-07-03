@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="@string/weather">
+        <ListPreference
+            android:title="@string/temperature_unit"
+            android:key="@string/temp_unit_key"
+            android:entryValues="@array/temp_unit_values"
+            android:entries="@array/temp_units"
+            android:defaultValue="C" />
+        <ListPreference 
+            android:title="@string/wind_speed_unit"
+            android:key="@string/wind_speed_unit_key"
+            android:entryValues="@array/speed_unit_values"
+            android:entries="@array/speed_units"
+            android:defaultValue="kmh" />
+    </PreferenceCategory>
+</PreferenceScreen>

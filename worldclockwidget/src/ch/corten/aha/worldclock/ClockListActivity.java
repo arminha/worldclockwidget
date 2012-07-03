@@ -29,12 +29,16 @@ import com.actionbarsherlock.view.MenuItem;
 
 import ch.corten.aha.widget.DigitalClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
+import ch.corten.aha.worldclock.weather.WeatherObservation;
+import ch.corten.aha.worldclock.weather.WeatherService;
+import ch.corten.aha.worldclock.weather.google.GoogleWeatherService;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.LoaderManager;
@@ -45,6 +49,7 @@ import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
@@ -73,7 +78,13 @@ public class ClockListActivity extends SherlockFragmentActivity {
             Clocks.TIMEZONE_ID,
             Clocks.CITY,
             Clocks.AREA,
-            Clocks.TIME_DIFF
+            Clocks.TIME_DIFF,
+            Clocks.TEMPERATURE,
+            Clocks.HUMIDITY,
+            Clocks.WIND_DIRECTION,
+            Clocks.WIND_SPEED,
+            Clocks.WEATHER_CONDITION,
+            Clocks.CONDITION_CODE
             };
 
         @Override
@@ -86,11 +97,8 @@ public class ClockListActivity extends SherlockFragmentActivity {
 
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
-                    TextView cityText = (TextView) view.findViewById(R.id.city_text);
-                    cityText.setText(cursor.getString(cursor.getColumnIndex(Clocks.CITY)));
-                    
-                    TextView areaText = (TextView) view.findViewById(R.id.area_text);
-                    areaText.setText(cursor.getString(cursor.getColumnIndex(Clocks.AREA)));
+                    BindHelper.bindText(view, cursor, R.id.city_text, Clocks.CITY);
+                    BindHelper.bindText(view, cursor, R.id.area_text, Clocks.AREA);
                     
                     String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
                     TimeZone timeZone = TimeZone.getTimeZone(timeZoneId);
@@ -103,6 +111,41 @@ public class ClockListActivity extends SherlockFragmentActivity {
                     timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(timeZone));
                     DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
                     clock.setTimeZone(timeZone);
+                    
+                    BindHelper.bindTemperature(context, view, cursor, R.id.temp_text);
+                    BindHelper.bindText(view, cursor, R.id.condition_text, Clocks.WEATHER_CONDITION);
+                    ImageView condImage = (ImageView) view.findViewById(R.id.condition_image);
+                    int condCode = cursor.getInt(cursor.getColumnIndex(Clocks.CONDITION_CODE));
+                    condImage.setImageResource(WeatherIcons.getIcon(condCode));
+                    
+                    bindHumidity(view, cursor);
+                    bindWind(view, cursor);
+                }
+                
+                private void bindWind(View view, Cursor cursor) {
+                    String text;
+                    int index = cursor.getColumnIndex(Clocks.WIND_SPEED);
+                    if (cursor.isNull(index)) {
+                        text = "";
+                    } else {
+                        double windSpeed = cursor.getDouble(cursor.getColumnIndex(Clocks.WIND_SPEED));
+                        String speed = BindHelper.getSpeed(getActivity(), windSpeed);
+                        String windDirection = cursor.getString(cursor.getColumnIndex(Clocks.WIND_DIRECTION));
+                        text = MessageFormat.format(getText(R.string.wind_format).toString(), windDirection, speed);
+                    }
+                    BindHelper.setText(view, R.id.wind_text, text);
+                }
+                
+                private void bindHumidity(View view, Cursor cursor) {
+                    String text;
+                    int index = cursor.getColumnIndex(Clocks.HUMIDITY);
+                    if (cursor.isNull(index)) {
+                        text = "";
+                    } else {
+                        double humidity = cursor.getDouble(index);
+                        text = MessageFormat.format("{0}: {1, number,#}%", getString(R.string.humidity), humidity);
+                    }
+                    BindHelper.setText(view, R.id.humidity_text, text);
                 }
             };
             setListAdapter(mAdapter);
@@ -218,8 +261,55 @@ public class ClockListActivity extends SherlockFragmentActivity {
             case R.id.menu_add:
                 addClock();
                 return true;
+            case R.id.menu_refresh:
+                updateWeather();
+                return true;
+            case R.id.menu_preferences:
+                showPreferences();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
+            }
+        }
+
+        private void showPreferences() {
+            Intent i = new Intent(getActivity(), WorldClockPreferenceActivity.class);
+            startActivity(i);
+        }
+
+        private void updateWeather() {
+            // TODO run at beginning
+            // TODO update only not recently updated
+            new UpdateWeatherTask().execute();
+        }
+        
+        private class UpdateWeatherTask extends AsyncTask<Void, Integer, Integer> {
+            @Override
+            protected Integer doInBackground(Void... params) {
+                ContentResolver resolver = getActivity().getContentResolver();
+                String[] projection = {
+                    Clocks._ID,
+                    Clocks.LATITUDE,
+                    Clocks.LONGITUDE
+                };
+                int count = 0;
+                WeatherService service = new GoogleWeatherService();
+                Cursor c = resolver.query(Clocks.CONTENT_URI, projection, null, null, null);
+                while (c.moveToNext()) {
+                    double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
+                    double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
+                    long id = c.getLong(c.getColumnIndex(Clocks._ID));
+                    WeatherObservation observation = service.getWeather(lat, lon);
+                    if (observation != null && Clocks.updateWeather(getActivity(), id, observation)) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+            
+            @Override
+            protected void onPostExecute(Integer result) {
+                refreshClocks();
             }
         }
 
