@@ -79,9 +79,9 @@ public class EditClockActivity extends SherlockFragmentActivity {
             mDescText = (EditText) getView().findViewById(R.id.description_edittext);
             mDescText.setText(c.getString(c.getColumnIndex(Clocks.AREA)));
             mLatitudeText = (EditText) getView().findViewById(R.id.latitude_edittext);
-            mLatitudeText.setText(printFloat(c.getFloat(c.getColumnIndex(Clocks.LATITUDE))));
+            mLatitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LATITUDE))));
             mLongitudeText = (EditText) getView().findViewById(R.id.longitude_edittext);
-            mLongitudeText.setText(printFloat(c.getFloat(c.getColumnIndex(Clocks.LONGITUDE))));
+            mLongitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LONGITUDE))));
             mUseInWidgetCheckBox = (CheckBox) getView().findViewById(R.id.use_in_widget_checkbox);
             mUseInWidgetCheckBox.setChecked(c.getInt(c.getColumnIndex(Clocks.USE_IN_WIDGET)) != 0);
         }
@@ -98,17 +98,17 @@ public class EditClockActivity extends SherlockFragmentActivity {
             return inflater.inflate(R.layout.edit_clock, null);
         }
         
-        private static float parseFloat(Editable editable) {
+        private static double parseNumber(Editable editable) {
             try {
-                return Float.parseFloat(editable.toString().trim());
+                return Double.parseDouble(editable.toString().trim());
             } catch (NumberFormatException e) {
                 Log.e("EditClockActivity", "Failure to parse number!", e);
-                return 0f;
+                return 0.0;
             }
         }
         
-        private static String printFloat(float f) {
-            return Float.toString(f);
+        private static String printNumber(double d) {
+            return Double.toString(d);
         }
         
         public void cancel(View view) {
@@ -125,9 +125,9 @@ public class EditClockActivity extends SherlockFragmentActivity {
             ContentValues values = new ContentValues();
             values.put(Clocks.CITY, mCityText.getText().toString().trim());
             values.put(Clocks.AREA, mDescText.getText().toString().trim());
-            float latitude = parseFloat(mLatitudeText.getText());
+            double latitude = parseNumber(mLatitudeText.getText());
             values.put(Clocks.LATITUDE, latitude);
-            float longitude = parseFloat(mLongitudeText.getText());
+            double longitude = parseNumber(mLongitudeText.getText());
             values.put(Clocks.LONGITUDE, longitude);
             values.put(Clocks.USE_IN_WIDGET, mUseInWidgetCheckBox.isChecked());
             int changed = getActivity().getContentResolver().update(uri, values, null, null);

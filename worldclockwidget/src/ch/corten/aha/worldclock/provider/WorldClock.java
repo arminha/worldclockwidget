@@ -55,8 +55,8 @@ public class WorldClock {
          *            the time difference to GMT in minutes
          */
         public static void addClock(Context context, String timeZoneId,
-                String city, String area, int timeDiff, float latitude,
-                float longitude) {
+                String city, String area, int timeDiff, double latitude,
+                double longitude) {
             ContentValues initialValues = new ContentValues();
             initialValues.put(TIMEZONE_ID, timeZoneId);
             initialValues.put(CITY, city);

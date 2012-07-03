@@ -285,8 +285,8 @@ public class AddClockActivity extends SherlockFragmentActivity {
             String countryCode = c.getString(c.getColumnIndex(Cities.COUNTRY_CODE));
             String country = getCountryName(countryCode);
             int timeDiff = TimeZoneInfo.getTimeDifference(TimeZone.getTimeZone(timeZoneId));
-            float latitude = c.getFloat(c.getColumnIndex(Cities.LATITUDE));
-            float longitude = c.getFloat(c.getColumnIndex(Cities.LONGITUDE));
+            double latitude = c.getDouble(c.getColumnIndex(Cities.LATITUDE));
+            double longitude = c.getDouble(c.getColumnIndex(Cities.LONGITUDE));
             WorldClock.Clocks.addClock(getActivity(), timeZoneId, city,
                     country, timeDiff, latitude, longitude);
             returnResult(1);
