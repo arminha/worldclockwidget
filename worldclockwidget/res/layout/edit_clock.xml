@@ -31,13 +31,11 @@
         android:inputType="textCapWords" />
 
     <TextView
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/latitude" />
 
     <EditText
-        android:visibility="gone"
         android:id="@+id/latitude_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,13 +43,11 @@
         android:inputType="numberSigned" />
 
     <TextView
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/longitude" />
 
     <EditText
-        android:visibility="gone"
         android:id="@+id/longitude_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
