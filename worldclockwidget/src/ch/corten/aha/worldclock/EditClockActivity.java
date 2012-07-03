@@ -21,8 +21,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 public class EditClockActivity extends SherlockFragmentActivity {
     
-    private EditClockFragment fragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +29,22 @@ public class EditClockActivity extends SherlockFragmentActivity {
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
-            fragment = new EditClockFragment();
+            EditClockFragment fragment = new EditClockFragment();
             fm.beginTransaction().add(android.R.id.content, fragment).commit();
         }
     }
     
+    private EditClockFragment getFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        return (EditClockFragment) fm.findFragmentById(android.R.id.content);
+    }
+    
     public void ok(View view) {
-        fragment.ok(view);
+        getFragment().ok(view);
     }
     
     public void cancel(View view) {
-        fragment.cancel(view);
+        getFragment().cancel(view);
     }
     
     public static class EditClockFragment extends SherlockFragment {
