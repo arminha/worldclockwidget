@@ -143,53 +143,6 @@ public class AddClockActivity extends SherlockFragmentActivity {
             }
         }
         
-        private void setupCab() {
-//            ListView listView = getListView();
-//            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-//            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
-//                
-//                @Override
-//                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-//                    return false;
-//                }
-//                
-//                @Override
-//                public void onDestroyActionMode(ActionMode mode) {
-//                }
-//                
-//                @Override
-//                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-//                    MenuInflater menuInflater = mode.getMenuInflater();
-//                    menuInflater.inflate(R.menu.timezone_list_context, menu);
-//                    return true;
-//                }
-//                
-//                @Override
-//                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-//                    switch (item.getItemId()) {
-//                    case R.id.menu_add:
-//                        addSelected();
-//                        mode.finish();
-//                        return true;
-//                    default:
-//                        return false;
-//                    }
-//                }
-//                
-//                @Override
-//                public void onItemCheckedStateChanged(ActionMode mode, int position,
-//                        long id, boolean checked) {
-//                    int count = getListView().getCheckedItemCount();
-//                    if (count > 0) {
-//                        CharSequence format = getResources().getText(R.string.n_selcted_format);
-//                        mode.setTitle(MessageFormat.format(format.toString(), count));
-//                    } else {
-//                        mode.setTitle("");
-//                    }
-//                }
-//            });
-        }
-        
         private static boolean isHoneycomb() {
             return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
         }

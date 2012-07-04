@@ -189,64 +189,6 @@ public class ClockListActivity extends SherlockFragmentActivity {
              
         }
         
-        private void setupCab(ListView listView) {
-//            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-//            listView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
-//                
-//                @Override
-//                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-//                    MenuItem editItem = menu.findItem(R.id.menu_edit);
-//                    boolean oneSelected = getListView().getCheckedItemCount() == 1;
-//                    if (editItem.isVisible() == oneSelected) {
-//                        return false;
-//                    } else {
-//                        editItem.setVisible(oneSelected);
-//                        return true;
-//                    }
-//                }
-//                
-//                @Override
-//                public void onDestroyActionMode(ActionMode mode) {
-//                }
-//                
-//                @Override
-//                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-//                    MenuInflater inflater = mode.getMenuInflater();
-//                    inflater.inflate(R.menu.clock_list_context, menu);
-//                    return true;
-//                }
-//                
-//                @Override
-//                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-//                    switch (item.getItemId()) {
-//                    case R.id.menu_delete:
-//                        deleteSelectedItems();
-//                        mode.finish();
-//                        return true;
-//                    case R.id.menu_edit:
-//                        // TODO call edit intend
-//                        mode.finish();
-//                        return true;
-//                    default:
-//                        return false;
-//                    }
-//                }
-//                
-//                @Override
-//                public void onItemCheckedStateChanged(ActionMode mode, int position,
-//                        long id, boolean checked) {
-//                    int count = getListView().getCheckedItemCount();
-//                    if (count > 0) {
-//                        CharSequence format = getResources().getText(R.string.n_selcted_format);
-//                        mode.setTitle(MessageFormat.format(format.toString(), count));
-//                    } else {
-//                        mode.setTitle("");
-//                    }
-//                    mode.invalidate();
-//                }
-//            });
-        }
-
         private void deleteSelectedItems() {
             long[] itemIds = getListView().getCheckedItemIds();
             Uri baseUri = Clocks.CONTENT_URI;
