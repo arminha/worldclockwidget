@@ -128,6 +128,7 @@ public class GoogleWeatherService implements WeatherService {
             map.put("snow showers", SNOW_SHOWERS);
             map.put("hail", HAIL);
             map.put("drizzle", DRIZZLE);
+            map.put("heavy rain", HEAVY_RAIN);
             CONDITION_CODES = Collections.unmodifiableMap(map);
         }
         

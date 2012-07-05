@@ -50,6 +50,7 @@ public class WeatherIcons {
         case WeatherObservation.CLOUDY:
             return R.drawable.weather_cloudy;
         case WeatherObservation.RAIN:
+        case WeatherObservation.HEAVY_RAIN:
             return R.drawable.weather_rain;
         case WeatherObservation.HAIL:
             return R.drawable.weather_hail;
