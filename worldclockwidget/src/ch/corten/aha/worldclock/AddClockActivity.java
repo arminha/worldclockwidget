@@ -55,8 +55,6 @@ import android.widget.TextView;
 
 public class AddClockActivity extends SherlockFragmentActivity {
 
-    private TimeZoneListFragment mListFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,14 +63,17 @@ public class AddClockActivity extends SherlockFragmentActivity {
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
-            mListFragment = new TimeZoneListFragment();
-            fm.beginTransaction().add(android.R.id.content, mListFragment).commit();
+            TimeZoneListFragment listFragment = new TimeZoneListFragment();
+            fm.beginTransaction().add(android.R.id.content, listFragment).commit();
         }
     }
     
     @Override
     public boolean onSearchRequested() {
-        mListFragment.startSearch();
+        FragmentManager fm = getSupportFragmentManager();
+        TimeZoneListFragment fragment = (TimeZoneListFragment) fm
+                .findFragmentById(android.R.id.content);
+        fragment.startSearch();
         return true;
     }
     
