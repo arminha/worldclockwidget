@@ -36,10 +36,13 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -74,6 +77,8 @@ public class ClockListActivity extends SherlockFragmentActivity {
             LoaderManager.LoaderCallbacks<Cursor> {
 
         private CursorAdapter mAdapter;
+        private ActionMode mMode;
+        private OnSharedPreferenceChangeListener mSpChange;
 
         private static final String[] CLOCKS_PROJECTION = {
             Clocks._ID,
@@ -155,12 +160,37 @@ public class ClockListActivity extends SherlockFragmentActivity {
             setListShown(false);
             
             ListView listView = getListView();
-            setupCabOld(listView);            
+            setupCabOld(listView);
+            registerPreferenceChanged();
+            
             getLoaderManager().initLoader(0, null, this);
             updateWeather(WEATHER_TIMEOUT);
         }
-
-        private ActionMode mMode;
+        
+        private void registerPreferenceChanged() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            mSpChange = new OnSharedPreferenceChangeListener() {
+                
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+                        String key) {
+                    refreshClocks();
+                }
+            };
+            prefs.registerOnSharedPreferenceChangeListener(mSpChange);
+        }
+        
+        private void unregisterPreferenceChanged() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            prefs.unregisterOnSharedPreferenceChangeListener(mSpChange);
+            mSpChange = null;
+        }
+        
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            unregisterPreferenceChanged();
+        }
         
         private void setupCabOld(ListView listView) {
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
