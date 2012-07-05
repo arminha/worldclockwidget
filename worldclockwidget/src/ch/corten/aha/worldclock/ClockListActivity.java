@@ -174,7 +174,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                         String key) {
-                    refreshClocks();
+                    getLoaderManager().restartLoader(0, null, ClockListFragment.this);
                 }
             };
             prefs.registerOnSharedPreferenceChangeListener(mSpChange);
@@ -276,7 +276,6 @@ public class ClockListActivity extends SherlockFragmentActivity {
         }
 
         private void refreshClocks() {
-            getLoaderManager().restartLoader(0, null, this);
             // send update broadcast to widget
             Intent broadcast = new Intent(WorldClockAppWidgetProvider.CLOCK_WIDGET_UPDATE);
             getActivity().sendBroadcast(broadcast);
@@ -311,14 +310,20 @@ public class ClockListActivity extends SherlockFragmentActivity {
         }
 
         private void updateWeather(int timeout) {
-            new UpdateWeatherTask().execute(timeout);
+            new UpdateWeatherTask(getActivity()).execute(timeout);
         }
         
-        private class UpdateWeatherTask extends AsyncTask<Integer, Integer, Integer> {
+        private static class UpdateWeatherTask extends AsyncTask<Integer, Integer, Integer> {
+            private Context mContext;
+            
+            public UpdateWeatherTask(Context context) {
+                mContext = context;
+            }
+            
             @Override
             protected Integer doInBackground(Integer... params) {
                 int updateTimeout = params.length > 0 ? params[0] : 0;
-                ContentResolver resolver = getActivity().getContentResolver();
+                ContentResolver resolver = mContext.getContentResolver();
                 String[] projection = {
                     Clocks._ID,
                     Clocks.LATITUDE,
@@ -336,7 +341,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
                     double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
                     long id = c.getLong(c.getColumnIndex(Clocks._ID));
                     WeatherObservation observation = service.getWeather(lat, lon);
-                    if (observation != null && Clocks.updateWeather(getActivity(), id, observation)) {
+                    if (observation != null && Clocks.updateWeather(mContext, id, observation)) {
                         count++;
                     }
                 }
@@ -345,7 +350,6 @@ public class ClockListActivity extends SherlockFragmentActivity {
             
             @Override
             protected void onPostExecute(Integer result) {
-                refreshClocks();
             }
         }
 
@@ -367,6 +371,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode > 0) {
                 updateWeather(WEATHER_TIMEOUT);
+                refreshClocks();
             }
         }
 
