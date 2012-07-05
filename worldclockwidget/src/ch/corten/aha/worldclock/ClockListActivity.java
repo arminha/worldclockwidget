@@ -55,6 +55,8 @@ import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
 public class ClockListActivity extends SherlockFragmentActivity {
+    
+    private static final int WEATHER_TIMEOUT = 900000; // 15 minutes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +157,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
             ListView listView = getListView();
             setupCabOld(listView);            
             getLoaderManager().initLoader(0, null, this);
+            updateWeather(WEATHER_TIMEOUT);
         }
 
         private ActionMode mMode;
@@ -262,7 +265,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
                 addClock();
                 return true;
             case R.id.menu_refresh:
-                updateWeather();
+                updateWeather(0);
                 return true;
             case R.id.menu_preferences:
                 showPreferences();
@@ -277,24 +280,27 @@ public class ClockListActivity extends SherlockFragmentActivity {
             startActivity(i);
         }
 
-        private void updateWeather() {
-            // TODO run at beginning
-            // TODO update only not recently updated
-            new UpdateWeatherTask().execute();
+        private void updateWeather(int timeout) {
+            new UpdateWeatherTask().execute(timeout);
         }
         
-        private class UpdateWeatherTask extends AsyncTask<Void, Integer, Integer> {
+        private class UpdateWeatherTask extends AsyncTask<Integer, Integer, Integer> {
             @Override
-            protected Integer doInBackground(Void... params) {
+            protected Integer doInBackground(Integer... params) {
+                int updateTimeout = params.length > 0 ? params[0] : 0;
                 ContentResolver resolver = getActivity().getContentResolver();
                 String[] projection = {
                     Clocks._ID,
                     Clocks.LATITUDE,
                     Clocks.LONGITUDE
                 };
+                String query = null;
+                if (updateTimeout > 0) {
+                    query = Clocks.LAST_UPDATE + " < " + (System.currentTimeMillis() - updateTimeout);
+                }
                 int count = 0;
                 WeatherService service = new GoogleWeatherService();
-                Cursor c = resolver.query(Clocks.CONTENT_URI, projection, null, null, null);
+                Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
                 while (c.moveToNext()) {
                     double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
                     double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
@@ -330,7 +336,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
                 Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode > 0) {
-                refreshClocks();
+                updateWeather(WEATHER_TIMEOUT);
             }
         }
 
