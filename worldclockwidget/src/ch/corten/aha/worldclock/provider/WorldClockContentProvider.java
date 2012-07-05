@@ -62,7 +62,11 @@ public class WorldClockContentProvider extends ContentProvider {
         }
 
         SQLiteDatabase db = mClockDbHelper.getWritableDatabase();
-        return db.delete(Clocks.TABLE_NAME, selection, selectionArgs);
+        int deleted = db.delete(Clocks.TABLE_NAME, selection, selectionArgs);
+        if (deleted > 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return deleted;
     }
 
     @Override
@@ -94,7 +98,9 @@ public class WorldClockContentProvider extends ContentProvider {
 
         SQLiteDatabase db = mClockDbHelper.getWritableDatabase();
         long id = db.insert(Clocks.TABLE_NAME, null, values);
-        return ContentUris.withAppendedId(uri, id);
+        Uri insertUri = ContentUris.withAppendedId(uri, id);
+        getContext().getContentResolver().notifyChange(insertUri, null);
+        return insertUri;
     }
 
     private static RuntimeException invalidUri(Uri uri) {
@@ -147,7 +153,9 @@ public class WorldClockContentProvider extends ContentProvider {
         }
 
         SQLiteDatabase db = helper.getReadableDatabase();
-        return db.query(table, projection, selection, selectionArgs, null, null, sortOrder);
+        Cursor c = db.query(table, projection, selection, selectionArgs, null, null, sortOrder);
+        c.setNotificationUri(getContext().getContentResolver(), uri);
+        return c;
     }
 
     @Override
@@ -167,6 +175,10 @@ public class WorldClockContentProvider extends ContentProvider {
         }
 
         SQLiteDatabase db = mClockDbHelper.getReadableDatabase();
-        return db.update(Clocks.TABLE_NAME, values, selection, selectionArgs);
+        int updated = db.update(Clocks.TABLE_NAME, values, selection, selectionArgs);
+        if (updated > 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return updated;
     }
 }
