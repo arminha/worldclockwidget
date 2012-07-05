@@ -56,6 +56,7 @@ public class WeatherIcons {
         case WeatherObservation.ICY:
             return R.drawable.weather_icy;
         case WeatherObservation.LIGHT_RAIN:
+        case WeatherObservation.DRIZZLE:
             return R.drawable.weather_showers;
         case WeatherObservation.LIGHT_SNOW:
         case WeatherObservation.FLURRIES:

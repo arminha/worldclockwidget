@@ -54,6 +54,7 @@ public interface WeatherObservation {
     static final int LIGHT_RAIN = 31;
     static final int SNOW_SHOWERS = 32;
     static final int HAIL = 33;
+    static final int DRIZZLE = 34;
     
     /**
      * Time of this update
