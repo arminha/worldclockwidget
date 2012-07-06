@@ -12,7 +12,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock" >
-        <receiver android:name=".WorldClockAppWidgetProvider">
+        <receiver android:name=".WorldClockAppWidgetProvider"
+            android:label="@string/clock_widget_name">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 			</intent-filter>
@@ -28,10 +29,27 @@
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/world_clock_appwidget_info" />
         </receiver>
+        <!-- TODO disable for older devices -->
+        <receiver android:name=".WeatherWidgetProvider"
+            android:label="@string/weather_widget_name">
+            <intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+               android:resource="@xml/weather_appwidget_info" />
+        </receiver>
+        <service android:name=".WeatherWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
         <provider
             android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
-            android:authorities="ch.corten.aha.worldclock.provider"
-            android:exported="false" />
+            android:authorities="ch.corten.aha.worldclock.provider" />
         <activity
             android:name=".ClockListActivity"
             android:label="@string/app_name">
@@ -41,11 +59,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddClockActivity" />
+            android:name=".AddClockActivity"
+            android:exported="false" />
         <activity
-            android:name=".EditClockActivity" />
+            android:name=".EditClockActivity"
+            android:exported="false" />
         <activity 
-            android:name=".WorldClockPreferenceActivity" />
+            android:name=".WorldClockPreferenceActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

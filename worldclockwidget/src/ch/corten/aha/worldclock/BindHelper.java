@@ -40,26 +40,31 @@ public class BindHelper {
     public static final String CELSIUS = "C";
     public static final String FAHRENHEIT = "F";
     
-    private static final String TEMP_FORMAT = "{0,number,#} °{1}";
-    private static final String TEMP_NA_FORMAT = "-- °{1}";
+    private static final String TEMP_FORMAT = "{0,number,#}°{1}";
+    private static final String TEMP_NA_FORMAT = "--°{1}";
     
     public static void bindTemperature(Context context, View view, Cursor cursor, int resource) {
         TextView tempText = (TextView) view.findViewById(resource);
+        tempText.setText(getTemperature(context, cursor, true));
+    }
+    
+    public static String getTemperature(Context context, Cursor cursor, boolean addUnit) {
         int index = cursor.getColumnIndex(Clocks.TEMPERATURE);
         String format = cursor.isNull(index) ? TEMP_NA_FORMAT : TEMP_FORMAT;
         double temperature = cursor.getDouble(index);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String unit = prefs.getString(context.getString(R.string.temp_unit_key), CELSIUS);
+        String unitString = addUnit ? unit : "";
         String text;
         if (unit.equals(CELSIUS)) {
-            text = MessageFormat.format(format, temperature, unit);
+            text = MessageFormat.format(format, temperature, unitString);
         } else if (unit.equals(FAHRENHEIT)) {
             double fTemperature = Math.round(temperature * 9.0 / 5.0 + 32);
-            text = MessageFormat.format(format, fTemperature, unit);
+            text = MessageFormat.format(format, fTemperature, unitString);
         } else {
             throw new RuntimeException("Invalid value: " + unit);
         }
-        tempText.setText(text);
+        return text;
     }
     
     private static final String KMH = "kmh";
