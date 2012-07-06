@@ -169,12 +169,14 @@ public class ClockListActivity extends SherlockFragmentActivity {
         
         private void registerPreferenceChanged() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            final Context context = getActivity();
             mSpChange = new OnSharedPreferenceChangeListener() {
                 
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                         String key) {
                     getLoaderManager().restartLoader(0, null, ClockListFragment.this);
+                    sendWidgetRefresh(context);
                 }
             };
             prefs.registerOnSharedPreferenceChangeListener(mSpChange);
@@ -272,13 +274,13 @@ public class ClockListActivity extends SherlockFragmentActivity {
             for (long id : itemIds) {
                 resolver.delete(ContentUris.withAppendedId(baseUri, id), null, null);
             }
-            refreshClocks();
+            sendWidgetRefresh(getActivity());
         }
 
-        private void refreshClocks() {
+        private static void sendWidgetRefresh(Context context) {
             // send update broadcast to widget
             Intent broadcast = new Intent(ClockWidgetProvider.WIDGET_DATA_CHANGED_ACTION);
-            getActivity().sendBroadcast(broadcast);
+            context.sendBroadcast(broadcast);
         }
 
         @Override
@@ -350,6 +352,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
             
             @Override
             protected void onPostExecute(Integer result) {
+                sendWidgetRefresh(mContext); 
             }
         }
 
@@ -371,7 +374,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode > 0) {
                 updateWeather(WEATHER_TIMEOUT);
-                refreshClocks();
+                sendWidgetRefresh(getActivity());
             }
         }
 
