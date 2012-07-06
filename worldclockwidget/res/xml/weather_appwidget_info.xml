@@ -4,5 +4,6 @@
     android:minHeight="50dp"
     android:initialLayout="@layout/weather_widget"
     android:resizeMode="vertical|horizontal"
+    android:previewImage="@drawable/world_clock_weather_widget_preview"
     android:updatePeriodMillis="0">
 </appwidget-provider>
