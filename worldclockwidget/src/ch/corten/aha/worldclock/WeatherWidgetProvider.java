@@ -16,6 +16,7 @@
 
 package ch.corten.aha.worldclock;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -31,7 +32,6 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         super(CLOCK_TICK_ACTION);
     }
     
-    // TODO on click
     @Override
     protected void updateAppWidget(Context context,
             AppWidgetManager appWidgetManager, int appWidgetId) {
@@ -45,6 +45,11 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.weather_widget);
         rv.setRemoteAdapter(appWidgetId, R.id.grid_view, intent);
         rv.setEmptyView(R.id.grid_view, R.id.empty_view);
+        
+        Intent i = new Intent(context, ClockListActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, i, 0);
+        rv.setPendingIntentTemplate(R.id.grid_view, pendingIntent);
+        rv.setOnClickPendingIntent(R.id.empty_view, pendingIntent);
 
         appWidgetManager.updateAppWidget(appWidgetId, rv);
     }

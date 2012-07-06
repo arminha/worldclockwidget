@@ -100,6 +100,9 @@ public class WeatherWidgetService extends RemoteViewsService {
                 
                 int condCode = mCursor.getInt(mCursor.getColumnIndex(Clocks.CONDITION_CODE));
                 rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode));
+                
+                Intent intent = new Intent();
+                rv.setOnClickFillInIntent(R.id.widget_item, intent);
             }
             return rv;
         }

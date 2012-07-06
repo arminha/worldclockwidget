@@ -58,7 +58,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.add_clock);
+        setTitle(R.string.add_city);
         
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
