@@ -2,4 +2,5 @@
 <resources>
     <dimen name="widget_padding_horizontal">16dp</dimen>
     <dimen name="widget_padding_vertical">10dp</dimen>
+    <dimen name="widget_padding">8dp</dimen>
 </resources>
