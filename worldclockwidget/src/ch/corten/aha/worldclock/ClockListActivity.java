@@ -277,7 +277,7 @@ public class ClockListActivity extends SherlockFragmentActivity {
 
         private void refreshClocks() {
             // send update broadcast to widget
-            Intent broadcast = new Intent(WorldClockAppWidgetProvider.CLOCK_WIDGET_UPDATE);
+            Intent broadcast = new Intent(ClockWidgetProvider.WIDGET_DATA_CHANGED_ACTION);
             getActivity().sendBroadcast(broadcast);
         }
 

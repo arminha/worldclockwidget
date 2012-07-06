@@ -24,7 +24,10 @@
 			    <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
 			</intent-filter>
 			<intent-filter>
-			    <action android:name="ch.corten.aha.worldclock.CLOCK_WIDGET_UPDATE" />
+			    <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="ch.corten.aha.worldclock.CLOCK_WIDGET_TICK"/>
 			</intent-filter>
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/world_clock_appwidget_info" />
@@ -40,6 +43,12 @@
 			</intent-filter>
 			<intent-filter>
 			    <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="ch.corten.aha.worldclock.WEATHER_WIDGET_TICK"/>
 			</intent-filter>
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/weather_appwidget_info" />

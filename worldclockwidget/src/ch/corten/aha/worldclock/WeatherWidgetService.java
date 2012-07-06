@@ -106,7 +106,7 @@ public class WeatherWidgetService extends RemoteViewsService {
 
         @Override
         public RemoteViews getLoadingView() {
-            // TODO Auto-generated method stub
+            // we don't use a special loading view.
             return null;
         }
 
