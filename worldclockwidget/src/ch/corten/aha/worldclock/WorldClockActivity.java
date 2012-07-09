@@ -57,7 +57,7 @@ import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-public class ClockListActivity extends SherlockFragmentActivity {
+public class WorldClockActivity extends SherlockFragmentActivity {
     
     private static final int WEATHER_TIMEOUT = 900000; // 15 minutes
 

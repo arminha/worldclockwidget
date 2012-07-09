@@ -61,7 +61,7 @@
             android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
             android:authorities="ch.corten.aha.worldclock.provider" />
         <activity
-            android:name=".ClockListActivity"
+            android:name=".WorldClockActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

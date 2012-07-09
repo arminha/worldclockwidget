@@ -41,8 +41,8 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
     
     @Override
     protected void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
-        // Create an Intent to launch ClockListActivity
-        Intent intent = new Intent(context, ClockListActivity.class);
+        // Create an Intent to launch WorldClockActivity
+        Intent intent = new Intent(context, WorldClockActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         // Get the layout for the App Widget and attach an on-click listener

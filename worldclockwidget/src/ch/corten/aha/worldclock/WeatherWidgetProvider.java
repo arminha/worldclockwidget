@@ -46,7 +46,7 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         rv.setRemoteAdapter(appWidgetId, R.id.grid_view, intent);
         rv.setEmptyView(R.id.grid_view, R.id.empty_view);
         
-        Intent i = new Intent(context, ClockListActivity.class);
+        Intent i = new Intent(context, WorldClockActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, i, 0);
         rv.setPendingIntentTemplate(R.id.grid_view, pendingIntent);
         rv.setOnClickPendingIntent(R.id.empty_view, pendingIntent);
