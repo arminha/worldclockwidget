@@ -12,7 +12,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock" >
-        <receiver android:name=".WorldClockAppWidgetProvider"
+        <receiver android:name=".WorldClockWidgetProvider"
             android:label="@string/clock_widget_name">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

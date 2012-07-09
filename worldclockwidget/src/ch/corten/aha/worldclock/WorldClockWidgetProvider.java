@@ -31,11 +31,11 @@ import android.database.Cursor;
 import android.view.View;
 import android.widget.RemoteViews;
 
-public class WorldClockAppWidgetProvider extends ClockWidgetProvider {
+public class WorldClockWidgetProvider extends ClockWidgetProvider {
     
     public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.CLOCK_WIDGET_TICK";
     
-    public WorldClockAppWidgetProvider() {
+    public WorldClockWidgetProvider() {
         super(CLOCK_TICK_ACTION);
     }
     
