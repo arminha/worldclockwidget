@@ -13,6 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock" >
         <receiver android:name=".WorldClockWidgetProvider"
+            android:exported="true"
             android:label="@string/clock_widget_name">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -33,6 +34,7 @@
                android:resource="@xml/world_clock_appwidget_info" />
         </receiver>
         <receiver android:name=".WeatherWidgetProvider"
+            android:exported="true"
             android:label="@string/weather_widget_name"
             android:enabled="@bool/enable_weather_widget">
             <intent-filter>
