@@ -59,6 +59,8 @@
             android:permission="android.permission.BIND_REMOTEVIEWS"
             android:exported="false"
             android:enabled="@bool/enable_weather_widget" />
+        <service android:name=".UpdateWeatherService"
+            android:exported="false" />
         <provider
             android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
             android:authorities="ch.corten.aha.worldclock.provider" />

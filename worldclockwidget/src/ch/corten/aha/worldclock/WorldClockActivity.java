@@ -29,9 +29,6 @@ import com.actionbarsherlock.view.MenuItem;
 
 import ch.corten.aha.widget.DigitalClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
-import ch.corten.aha.worldclock.weather.WeatherObservation;
-import ch.corten.aha.worldclock.weather.WeatherService;
-import ch.corten.aha.worldclock.weather.google.GoogleWeatherService;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -40,7 +37,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
@@ -311,51 +307,12 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             startActivity(i);
         }
 
-        private void updateWeather(int timeout) {
-            new UpdateWeatherTask(getActivity()).execute(timeout);
+        private void updateWeather(int updateIntervall) {
+            Intent service = new Intent(getActivity(), UpdateWeatherService.class);
+            service.putExtra(UpdateWeatherService.WEATHER_DATA_UPDATE_INTERVAL, updateIntervall);
+            getActivity().startService(service);
         }
         
-        private static class UpdateWeatherTask extends AsyncTask<Integer, Integer, Integer> {
-            private Context mContext;
-            
-            public UpdateWeatherTask(Context context) {
-                mContext = context;
-            }
-            
-            @Override
-            protected Integer doInBackground(Integer... params) {
-                int updateTimeout = params.length > 0 ? params[0] : 0;
-                ContentResolver resolver = mContext.getContentResolver();
-                String[] projection = {
-                    Clocks._ID,
-                    Clocks.LATITUDE,
-                    Clocks.LONGITUDE
-                };
-                String query = null;
-                if (updateTimeout > 0) {
-                    query = Clocks.LAST_UPDATE + " < " + (System.currentTimeMillis() - updateTimeout);
-                }
-                int count = 0;
-                WeatherService service = new GoogleWeatherService();
-                Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
-                while (c.moveToNext()) {
-                    double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
-                    double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
-                    long id = c.getLong(c.getColumnIndex(Clocks._ID));
-                    WeatherObservation observation = service.getWeather(lat, lon);
-                    if (observation != null && Clocks.updateWeather(mContext, id, observation)) {
-                        count++;
-                    }
-                }
-                return count;
-            }
-            
-            @Override
-            protected void onPostExecute(Integer result) {
-                sendWidgetRefresh(mContext); 
-            }
-        }
-
         private void addClock() {
             Intent intent = new Intent(getActivity(), AddClockActivity.class);
             startActivityForResult(intent, 0);
