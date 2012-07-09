@@ -30,10 +30,10 @@ public class UpdateWeatherService extends IntentService {
 
     public static final String WEATHER_DATA_TIMEOUT = "dataTimeout";
     public static final int DEFAULT_WEATHER_DATA_TIMEOUT = 3600000; // 1 hour
-    
+
     public static final String WEATHER_DATA_UPDATE_INTERVAL = "updateInterval";
     public static final int DEFAULT_WEATHER_DATA_UPDATE_INTERVAL = 900000; // 15 minutes
-    
+
     public UpdateWeatherService() {
         super("UpdateWeather-service");
     }
@@ -43,7 +43,7 @@ public class UpdateWeatherService extends IntentService {
         int dataTimeout = intent.getIntExtra(WEATHER_DATA_TIMEOUT, DEFAULT_WEATHER_DATA_TIMEOUT);
         int updateInterval = intent.getIntExtra(WEATHER_DATA_UPDATE_INTERVAL, DEFAULT_WEATHER_DATA_UPDATE_INTERVAL);
         final long currentTime = System.currentTimeMillis();
-        
+
         Context context = getApplicationContext();
         ContentResolver resolver = context.getContentResolver();
         String[] projection = {
@@ -58,7 +58,7 @@ public class UpdateWeatherService extends IntentService {
         }
         int count = 0;
         WeatherService service = new GoogleWeatherService();
-        
+
         Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
         try {
             while (c.moveToNext()) {
@@ -76,12 +76,12 @@ public class UpdateWeatherService extends IntentService {
         } finally {
             c.close();
         }
-        
+
         if (count > 0) {
             sendWidgetRefresh();
         }
     }
-    
+
     private void sendWidgetRefresh() {
         Intent broadcast = new Intent(ClockWidgetProvider.WIDGET_DATA_CHANGED_ACTION);
         getApplicationContext().sendBroadcast(broadcast);

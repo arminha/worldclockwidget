@@ -16,6 +16,7 @@
 
 package ch.corten.aha.worldclock;
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -32,6 +33,30 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         super(CLOCK_TICK_ACTION);
     }
     
+    @Override
+    public void onEnabled(Context context) {
+        super.onEnabled(context);
+        
+        // enable weather update service
+        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarm.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(),
+                AlarmManager.INTERVAL_HOUR, createWeatherUpdateIntent(context));
+    }
+    
+    @Override
+    public void onDisabled(Context context) {
+        super.onDisabled(context);
+        
+        // disable weather update service
+        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarm.cancel(createWeatherUpdateIntent(context));
+    }
+    
+    private PendingIntent createWeatherUpdateIntent(Context context) {
+        Intent service = new Intent(context, UpdateWeatherService.class);
+        return PendingIntent.getService(context, 0, service, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
     @Override
     protected void updateAppWidget(Context context,
             AppWidgetManager appWidgetManager, int appWidgetId) {
