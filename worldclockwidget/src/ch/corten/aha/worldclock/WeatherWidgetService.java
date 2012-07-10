@@ -52,7 +52,9 @@ public class WeatherWidgetService extends RemoteViewsService {
             Clocks.CITY,
             Clocks.TEMPERATURE,
             Clocks.CONDITION_CODE,
-            Clocks.WEATHER_CONDITION
+            Clocks.WEATHER_CONDITION,
+            Clocks.LATITUDE,
+            Clocks.LONGITUDE
         };
         
         @Override
@@ -99,7 +101,9 @@ public class WeatherWidgetService extends RemoteViewsService {
                 rv.setTextViewText(R.id.temp_text, temperature);
                 
                 int condCode = mCursor.getInt(mCursor.getColumnIndex(Clocks.CONDITION_CODE));
-                rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode));
+                double lat = mCursor.getDouble(mCursor.getColumnIndex(Clocks.LATITUDE));
+                double lon = mCursor.getDouble(mCursor.getColumnIndex(Clocks.LONGITUDE));
+                rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode, lon, lat));
                 
                 Intent intent = new Intent();
                 rv.setOnClickFillInIntent(R.id.widget_item, intent);

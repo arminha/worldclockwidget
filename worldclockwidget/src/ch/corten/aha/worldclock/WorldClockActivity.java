@@ -87,7 +87,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             Clocks.WIND_DIRECTION,
             Clocks.WIND_SPEED,
             Clocks.WEATHER_CONDITION,
-            Clocks.CONDITION_CODE
+            Clocks.CONDITION_CODE,
+            Clocks.LATITUDE,
+            Clocks.LONGITUDE
             };
 
         @Override
@@ -119,7 +121,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                     BindHelper.bindText(view, cursor, R.id.condition_text, Clocks.WEATHER_CONDITION);
                     ImageView condImage = (ImageView) view.findViewById(R.id.condition_image);
                     int condCode = cursor.getInt(cursor.getColumnIndex(Clocks.CONDITION_CODE));
-                    condImage.setImageResource(WeatherIcons.getIcon(condCode));
+                    double lat = cursor.getDouble(cursor.getColumnIndex(Clocks.LATITUDE));
+                    double lon = cursor.getDouble(cursor.getColumnIndex(Clocks.LONGITUDE));
+                    condImage.setImageResource(WeatherIcons.getIcon(condCode, lon, lat));
                     
                     bindHumidity(view, cursor);
                     bindWind(view, cursor);

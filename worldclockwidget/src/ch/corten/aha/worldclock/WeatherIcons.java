@@ -16,6 +16,9 @@
 
 package ch.corten.aha.worldclock;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 
 public class WeatherIcons {
@@ -82,5 +85,72 @@ public class WeatherIcons {
         default:
             return R.drawable.weather_na;
         }
+    }
+    
+    public static int getIcon(int conditionCode, double longitude, double latitude) {
+        return getIcon(conditionCode, isNight(longitude, latitude));
+    }
+    
+    private static final long UNIX_STD_EQUINOX = 946728000;
+    private static final double MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    
+    private static final double RAD_TO_DEG = 180 / Math.PI;
+    private static final double DEG_TO_RAD = Math.PI / 180;
+    
+    /**
+     * Compute the current coordinates of the sun at the given point
+     * and return weather it is night or day.
+     * Algorithm according to http://de.wikipedia.org/wiki/Sonnenstand
+     * @param longitude
+     * @param latitude
+     * @return
+     */
+    public static boolean isNight(double longitude, double latitude) {
+        final long currentTimeMillis = System.currentTimeMillis();
+        final double n = (currentTimeMillis - UNIX_STD_EQUINOX) / MILLISECONDS_PER_DAY;
+        final double L = (280.460 + (360 / 365.2422) * n) % 360;
+        final double g = (357.528 + (360 / 365.2596) * n) % 360;
+        final double Delta = L + 1.915 * Math.sin(g * DEG_TO_RAD)
+                + 0.02 * Math.sin(2 * g * DEG_TO_RAD);
+        final double epsilon = 23.439 - 0.0000004 * n;
+        double alpha = RAD_TO_DEG
+                * Math.atan(Math.cos(epsilon * DEG_TO_RAD)
+                        * Math.sin(Delta * DEG_TO_RAD)
+                        / Math.cos(Delta * DEG_TO_RAD));
+        if (Math.cos(Delta * DEG_TO_RAD) < 0) {
+            alpha = alpha + 180;
+        }
+        final double deltaRad = Math.asin(Math.sin(epsilon * DEG_TO_RAD)
+                * Math.sin(Delta * DEG_TO_RAD));
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        cal.setTimeInMillis(currentTimeMillis);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        final double n0 = (cal.getTimeInMillis() - UNIX_STD_EQUINOX) / MILLISECONDS_PER_DAY;
+        final double T0 = n0 / 36525;
+        cal.setTimeInMillis(currentTimeMillis);
+        final double T = hourOfDay(cal);
+        final double omega_hG = (6.697376 + 2400.05134 * T0 + 1.002738 * T) % 24;
+        final double omegaG = omega_hG * 15;
+        final double omega = omegaG + longitude;
+        final double tau = omega - alpha;
+        final double h = RAD_TO_DEG
+                * Math.asin(Math.cos(deltaRad)
+                        * Math.cos(tau * DEG_TO_RAD)
+                        * Math.cos(latitude * DEG_TO_RAD)
+                        + Math.sin(deltaRad)
+                        * Math.sin(latitude * DEG_TO_RAD));
+        return h < 0;
+    }
+    
+    private static double hourOfDay(Calendar cal) {
+        final int hours = cal.get(Calendar.HOUR_OF_DAY);
+        final int minutes = cal.get(Calendar.MINUTE);
+        final int seconds = cal.get(Calendar.SECOND);
+        final int milliseconds = cal.get(Calendar.MILLISECOND);
+        
+        return hours + (minutes / 60.0) + (seconds / 3600.0) + (milliseconds / 3600000.0);
     }
 }
