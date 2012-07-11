@@ -16,6 +16,8 @@
 
 package ch.corten.aha.worldclock;
 
+import java.util.Date;
+
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
@@ -24,12 +26,13 @@ import android.app.IntentService;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 
 public class UpdateWeatherService extends IntentService {
 
-    public static final String WEATHER_DATA_TIMEOUT = "dataTimeout";
-    public static final int DEFAULT_WEATHER_DATA_TIMEOUT = 3600000; // 1 hour
+    public static final String WEATHER_DATA_PURGE_AFTER = "purgeAfter";
+    public static final int DEFAULT_WEATHER_DATA_PURGE_AFTER = 7200000; // 2 hour
 
     public static final String WEATHER_DATA_UPDATE_INTERVAL = "updateInterval";
     public static final int DEFAULT_WEATHER_DATA_UPDATE_INTERVAL = 900000; // 15 minutes
@@ -40,10 +43,21 @@ public class UpdateWeatherService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        int dataTimeout = intent.getIntExtra(WEATHER_DATA_TIMEOUT, DEFAULT_WEATHER_DATA_TIMEOUT);
-        int updateInterval = intent.getIntExtra(WEATHER_DATA_UPDATE_INTERVAL, DEFAULT_WEATHER_DATA_UPDATE_INTERVAL);
+        int purgeAfter = intent.getIntExtra(WEATHER_DATA_PURGE_AFTER,
+                DEFAULT_WEATHER_DATA_PURGE_AFTER);
+        int updateInterval = intent.getIntExtra(WEATHER_DATA_UPDATE_INTERVAL,
+                DEFAULT_WEATHER_DATA_UPDATE_INTERVAL);
         final long currentTime = System.currentTimeMillis();
 
+        // TODO check connectivity before update
+        updateData(updateInterval, currentTime);
+
+        purgeOldData(purgeAfter, currentTime);
+        
+        sendWidgetRefresh();
+    }
+
+    private int updateData(int updateInterval,long currentTime) {
         Context context = getApplicationContext();
         ContentResolver resolver = context.getContentResolver();
         String[] projection = {
@@ -67,8 +81,6 @@ public class UpdateWeatherService extends IntentService {
                 long id = c.getLong(c.getColumnIndex(Clocks._ID));
                 WeatherObservation observation = service.getWeather(lat, lon);
                 
-                // TODO never return null
-                // TODO discard old data only when older than dataTimeout and no new data
                 if (observation != null && Clocks.updateWeather(context, id, observation)) {
                     count++;
                 }
@@ -76,10 +88,29 @@ public class UpdateWeatherService extends IntentService {
         } finally {
             c.close();
         }
+        return count;
+    }
 
-        if (count > 0) {
-            sendWidgetRefresh();
+    private int purgeOldData(int purgeAfter, long currentTime) {
+        Context context = getApplicationContext();
+        ContentResolver resolver = context.getContentResolver();
+        String[] projection = { Clocks._ID };
+        String query = Clocks.LAST_UPDATE + " < " + (currentTime - purgeAfter);
+        int count = 0;
+        WeatherObservation obs = new EmptyObservation(getResources());
+
+        Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
+        try {
+            while (c.moveToNext()) {
+                long id = c.getLong(c.getColumnIndex(Clocks._ID));
+                if (Clocks.updateWeather(context, id, obs)) {
+                    count++;
+                }
+            }
+        } finally {
+            c.close();
         }
+        return count;
     }
 
     private void sendWidgetRefresh() {
@@ -87,4 +118,47 @@ public class UpdateWeatherService extends IntentService {
         getApplicationContext().sendBroadcast(broadcast);
     }
 
+    private static class EmptyObservation implements WeatherObservation {
+
+        private Resources mRes;
+
+        public EmptyObservation(Resources res) {
+            mRes = res;
+        }
+
+        @Override
+        public Date getUpdateTime() {
+            return new Date(0);
+        }
+
+        @Override
+        public Double getTemperature() {
+            return null;
+        }
+
+        @Override
+        public Double getWindSpeed() {
+            return null;
+        }
+
+        @Override
+        public String getWindDirection() {
+            return null;
+        }
+
+        @Override
+        public Double getHumidity() {
+            return null;
+        }
+
+        @Override
+        public String getWeatherCondition() {
+            return mRes.getString(R.string.no_data_available);
+        }
+
+        @Override
+        public int getConditionCode() {
+            return NA;
+        }
+    }
 }

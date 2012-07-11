@@ -17,9 +17,12 @@
 package ch.corten.aha.worldclock.weather.google;
 
 import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.Date;
@@ -53,7 +56,9 @@ public class GoogleWeatherService implements WeatherService {
         try {
             java.net.URI uri = new URI("http", "www.google.com", "/ig/api", query, null);
             URL url = new URL(uri.toASCIIString());
-            Log.d(TAG, uri.toASCIIString());
+            if (Log.isLoggable(TAG, Log.DEBUG)) {
+                Log.d(TAG, uri.toASCIIString());
+            }
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
                 InputStream in = new BufferedInputStream(conn.getInputStream());
@@ -61,11 +66,15 @@ public class GoogleWeatherService implements WeatherService {
             } finally {
                 conn.disconnect();
             }
-        } catch (Exception e) {
+        } catch (MalformedURLException e) {
+            Log.wtf(TAG, "Invalid URL", e);
+        } catch (IOException e) {
             Log.e(TAG, "Failed to retrieve weather data", e);
-            // TODO i18n message
-            return new Observation("Failed to retrieve weather data");
+            return null;
+        } catch (URISyntaxException e) {
+            Log.wtf(TAG, "Invalid URI", e);
         }
+        return null;
     }
 
     private WeatherObservation readStream(InputStream in) {

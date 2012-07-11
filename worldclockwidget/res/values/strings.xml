@@ -32,4 +32,5 @@
     <string name="weather">Weather</string>
     <string name="clock_widget_name">World Clock</string>
     <string name="weather_widget_name">World Clock &amp; Weather</string>
+    <string name="no_data_available">No data available</string>
 </resources>

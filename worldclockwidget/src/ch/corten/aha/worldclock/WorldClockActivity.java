@@ -55,7 +55,7 @@ import android.widget.TextView;
 
 public class WorldClockActivity extends SherlockFragmentActivity {
     
-    private static final int WEATHER_TIMEOUT = 900000; // 15 minutes
+    private static final int WEATHER_UPDATE_INTERVAL = 900000; // 15 minutes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,7 +164,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             registerPreferenceChanged();
             
             getLoaderManager().initLoader(0, null, this);
-            updateWeather(WEATHER_TIMEOUT);
+            updateWeather(false);
         }
         
         private void registerPreferenceChanged() {
@@ -296,7 +296,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 addClock();
                 return true;
             case R.id.menu_refresh:
-                updateWeather(0);
+                updateWeather(true);
                 return true;
             case R.id.menu_preferences:
                 showPreferences();
@@ -311,9 +311,16 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             startActivity(i);
         }
 
-        private void updateWeather(int updateIntervall) {
+        private void updateWeather(boolean immediately) {
             Intent service = new Intent(getActivity(), UpdateWeatherService.class);
-            service.putExtra(UpdateWeatherService.WEATHER_DATA_UPDATE_INTERVAL, updateIntervall);
+            int updateInterval;
+            if (immediately) {
+                updateInterval = 0;
+                service.putExtra(UpdateWeatherService.WEATHER_DATA_PURGE_AFTER, 0);
+            } else {
+                updateInterval = WEATHER_UPDATE_INTERVAL;
+            }
+            service.putExtra(UpdateWeatherService.WEATHER_DATA_UPDATE_INTERVAL, updateInterval);
             getActivity().startService(service);
         }
         
@@ -334,8 +341,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode > 0) {
-                updateWeather(WEATHER_TIMEOUT);
-                sendWidgetRefresh(getActivity());
+                updateWeather(false);
             }
         }
 
