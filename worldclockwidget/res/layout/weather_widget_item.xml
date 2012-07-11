@@ -3,7 +3,10 @@
     android:id="@+id/widget_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:paddingTop="@dimen/weather_grid_item_padding_top"
+    android:paddingBottom="@dimen/weather_grid_item_padding_bottom"
+    android:paddingLeft="@dimen/weather_grid_item_padding_horizontal"
+    android:paddingRight="@dimen/weather_grid_item_padding_horizontal">
 
     <TextView
         android:id="@+id/city_text"
