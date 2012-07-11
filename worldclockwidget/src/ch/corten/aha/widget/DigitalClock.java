@@ -18,7 +18,6 @@
 package ch.corten.aha.widget;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -71,8 +70,6 @@ public class DigitalClock extends TextView {
     }
 
     private void initClock(Context context) {
-        Resources r = context.getResources();
-
         if (mCalendar == null) {
             mCalendar = Calendar.getInstance();
         }
