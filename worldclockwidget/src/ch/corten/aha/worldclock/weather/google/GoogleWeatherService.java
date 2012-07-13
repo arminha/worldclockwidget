@@ -56,9 +56,6 @@ public class GoogleWeatherService implements WeatherService {
         try {
             java.net.URI uri = new URI("http", "www.google.com", "/ig/api", query, null);
             URL url = new URL(uri.toASCIIString());
-            if (Log.isLoggable(TAG, Log.DEBUG)) {
-                Log.d(TAG, uri.toASCIIString());
-            }
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
                 InputStream in = new BufferedInputStream(conn.getInputStream());
