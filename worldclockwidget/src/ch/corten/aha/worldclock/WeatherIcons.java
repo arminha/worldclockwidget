@@ -49,6 +49,7 @@ public class WeatherIcons {
         case WeatherObservation.MIST:
         case WeatherObservation.FOG:
         case WeatherObservation.HAZE:
+        case WeatherObservation.SMOKE:
             return R.drawable.weather_mist;
         case WeatherObservation.CLOUDY:
             return R.drawable.weather_cloudy;
@@ -61,11 +62,14 @@ public class WeatherIcons {
             return R.drawable.weather_icy;
         case WeatherObservation.LIGHT_RAIN:
         case WeatherObservation.DRIZZLE:
+        case WeatherObservation.CHANCE_OF_RAIN:
             return R.drawable.weather_showers;
         case WeatherObservation.LIGHT_SNOW:
         case WeatherObservation.FLURRIES:
+        case WeatherObservation.CHANCE_OF_SNOW:
             return R.drawable.weather_light_snow;
         case WeatherObservation.SNOW:
+        case WeatherObservation.SNOW_SHOWERS:
             return R.drawable.weather_snow;
         case WeatherObservation.THUNDERSTORM:
             return R.drawable.weather_thunderstorm;
@@ -73,15 +77,13 @@ public class WeatherIcons {
         case WeatherObservation.CHANCE_OF_TSTORM:
             return R.drawable.weather_chance_of_thunderstorm;
         case WeatherObservation.RAIN_AND_SNOW:
-        case WeatherObservation.FREEZING_DRIZZLE:
-        case WeatherObservation.CHANCE_OF_RAIN:
-        case WeatherObservation.CHANCE_OF_STORM:
-        case WeatherObservation.CHANCE_OF_SNOW:
-        case WeatherObservation.STORM:
         case WeatherObservation.SLEET:
+        case WeatherObservation.FREEZING_DRIZZLE:
+            return R.drawable.weather_rain_snow;
+        case WeatherObservation.CHANCE_OF_STORM:
+        case WeatherObservation.STORM:
         case WeatherObservation.DUST:
-        case WeatherObservation.SMOKE:
-        case WeatherObservation.SNOW_SHOWERS:
+            return R.drawable.weather_storm;
         default:
             return R.drawable.weather_na;
         }
