@@ -88,18 +88,22 @@ public class EditClockActivity extends SherlockFragmentActivity {
             }
             Uri uri = ContentUris.withAppendedId(Clocks.CONTENT_URI, mId);
             Cursor c = getActivity().getContentResolver().query(uri, PROJECTION, null, null, null);
-            c.moveToFirst();
-            
-            mCityText = (EditText) getView().findViewById(R.id.city_edittext);
-            mCityText.setText(c.getString(c.getColumnIndex(Clocks.CITY)));
-            mDescText = (EditText) getView().findViewById(R.id.description_edittext);
-            mDescText.setText(c.getString(c.getColumnIndex(Clocks.AREA)));
-            mLatitudeText = (EditText) getView().findViewById(R.id.latitude_edittext);
-            mLatitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LATITUDE))));
-            mLongitudeText = (EditText) getView().findViewById(R.id.longitude_edittext);
-            mLongitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LONGITUDE))));
-            mUseInWidgetCheckBox = (CheckBox) getView().findViewById(R.id.use_in_widget_checkbox);
-            mUseInWidgetCheckBox.setChecked(c.getInt(c.getColumnIndex(Clocks.USE_IN_WIDGET)) != 0);
+            try {
+                c.moveToFirst();
+                
+                mCityText = (EditText) getView().findViewById(R.id.city_edittext);
+                mCityText.setText(c.getString(c.getColumnIndex(Clocks.CITY)));
+                mDescText = (EditText) getView().findViewById(R.id.description_edittext);
+                mDescText.setText(c.getString(c.getColumnIndex(Clocks.AREA)));
+                mLatitudeText = (EditText) getView().findViewById(R.id.latitude_edittext);
+                mLatitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LATITUDE))));
+                mLongitudeText = (EditText) getView().findViewById(R.id.longitude_edittext);
+                mLongitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LONGITUDE))));
+                mUseInWidgetCheckBox = (CheckBox) getView().findViewById(R.id.use_in_widget_checkbox);
+                mUseInWidgetCheckBox.setChecked(c.getInt(c.getColumnIndex(Clocks.USE_IN_WIDGET)) != 0);
+            } finally {
+                c.close();
+            }
         }
         
         @Override

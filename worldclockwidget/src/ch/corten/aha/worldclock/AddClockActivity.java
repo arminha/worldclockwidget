@@ -233,17 +233,21 @@ public class AddClockActivity extends SherlockFragmentActivity {
             Uri uri = ContentUris.withAppendedId(Cities.CONTENT_URI, id);
             Cursor c = getActivity().getContentResolver().query(uri,
                     ADD_CITY_PROJECTION, null, null, null);
-            c.moveToNext();
-            String timeZoneId = c.getString(c.getColumnIndex(Cities.TIMEZONE_ID));
-            String city = c.getString(c.getColumnIndex(Cities.NAME));
-            String countryCode = c.getString(c.getColumnIndex(Cities.COUNTRY_CODE));
-            String country = getCountryName(countryCode);
-            int timeDiff = TimeZoneInfo.getTimeDifference(TimeZone.getTimeZone(timeZoneId));
-            double latitude = c.getDouble(c.getColumnIndex(Cities.LATITUDE));
-            double longitude = c.getDouble(c.getColumnIndex(Cities.LONGITUDE));
-            WorldClock.Clocks.addClock(getActivity(), timeZoneId, city,
-                    country, timeDiff, latitude, longitude);
-            returnResult(1);
+            try {
+                c.moveToNext();
+                String timeZoneId = c.getString(c.getColumnIndex(Cities.TIMEZONE_ID));
+                String city = c.getString(c.getColumnIndex(Cities.NAME));
+                String countryCode = c.getString(c.getColumnIndex(Cities.COUNTRY_CODE));
+                String country = getCountryName(countryCode);
+                int timeDiff = TimeZoneInfo.getTimeDifference(TimeZone.getTimeZone(timeZoneId));
+                double latitude = c.getDouble(c.getColumnIndex(Cities.LATITUDE));
+                double longitude = c.getDouble(c.getColumnIndex(Cities.LONGITUDE));
+                WorldClock.Clocks.addClock(getActivity(), timeZoneId, city,
+                        country, timeDiff, latitude, longitude);
+                returnResult(1);
+            } finally {
+                c.close();
+            }
         }
         
         private String getCountryName(String isoCode) {
