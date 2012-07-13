@@ -54,7 +54,7 @@ public class GoogleWeatherService implements WeatherService {
         int lon = Math.round((float)longitude * 1000000);
         String query = "weather=,,," + lat + "," + lon + "&hl=en";
         try {
-            java.net.URI uri = new URI("http", "www.google.com", "/ig/api", query, null);
+            java.net.URI uri = new URI("https", "www.google.com", "/ig/api", query, null);
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
