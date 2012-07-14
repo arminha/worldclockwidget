@@ -3,6 +3,7 @@
 import glob
 import os.path
 import subprocess
+import sys
 
 res_dir = '../worldclockwidget/res/'
 resolutions = [
@@ -27,12 +28,16 @@ def get_out_file(in_file):
     out_file += '.png'
     return out_file
 
-def main():
-    for in_file in glob.glob('weather_*.svg'):
+def main(argv):
+    if len(argv) == 0:
+        input_files = glob.glob('ic_*.svg') + glob.glob('weather_*.svg')
+    else:
+        input_files = argv[1:]
+    for in_file in input_files:
         for res, size in resolutions:
             out_file = get_out_file(in_file)
             out_file = os.path.join(res_dir, 'drawable-' + res, out_file)
             export(in_file, out_file, size)
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)
