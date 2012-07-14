@@ -96,7 +96,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             super.onActivityCreated(savedInstanceState);
             setHasOptionsMenu(true);
             
-            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.time_zone_item, null) {
+            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.time_zone_item, null, 0) {
                 
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {

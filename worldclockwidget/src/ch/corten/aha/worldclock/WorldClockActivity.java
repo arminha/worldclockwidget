@@ -98,7 +98,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             setEmptyText(getText(R.string.no_clock_defined));
             setHasOptionsMenu(true);
 
-            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.world_clock_item, null) {
+            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.world_clock_item, null, 0) {
 
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
