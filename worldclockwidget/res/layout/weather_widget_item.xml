@@ -3,6 +3,7 @@
     android:id="@+id/widget_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/appwidget_dark_bg"
     android:paddingTop="@dimen/weather_grid_item_padding_top"
     android:paddingBottom="@dimen/weather_grid_item_padding_bottom"
     android:paddingLeft="@dimen/weather_grid_item_padding_horizontal"

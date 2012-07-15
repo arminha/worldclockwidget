@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_widget"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/appwidget_dark_bg"
-    android:padding="@dimen/widget_padding"
-    tools:ignore="Overdraw" >
+    android:padding="@dimen/widget_padding">
 
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="@dimen/weather_grid_column_width"
+        android:columnWidth="140dp"
         android:horizontalSpacing="@dimen/weather_grid_horizontal_spacing"
         android:listSelector="#00000000"
         android:numColumns="auto_fit"
@@ -21,6 +18,7 @@
     <TextView
         android:id="@+id/empty_view"
         android:gravity="center"
+        android:background="@drawable/appwidget_dark_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/add_city"
