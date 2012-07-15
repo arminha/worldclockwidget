@@ -2,10 +2,10 @@
 <resources>
     <dimen name="widget_padding_horizontal">18dp</dimen>
 	<dimen name="widget_padding_vertical">14dp</dimen>
-	<dimen name="weather_grid_column_width">150dp</dimen>
+	<dimen name="weather_grid_column_width">135dp</dimen>
 	<dimen name="weather_grid_item_padding_top">3dp</dimen>
     <dimen name="weather_grid_item_padding_bottom">5dp</dimen>
 	<dimen name="weather_grid_item_padding_horizontal">6dp</dimen>
-    <dimen name="weather_grid_vertival_spacing">2dp</dimen>
-    <dimen name="weather_grid_horizontal_spacing">0dp</dimen>
+    <dimen name="weather_grid_vertival_spacing">24dp</dimen>
+    <dimen name="weather_grid_horizontal_spacing">12dp</dimen>
 </resources>
