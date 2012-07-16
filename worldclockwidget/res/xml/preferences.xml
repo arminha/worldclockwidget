@@ -24,6 +24,19 @@
             android:defaultValue="@string/default_weather_source"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/widget">
+        <CheckBoxPreference
+            android:title="@string/use_custom_colors"
+            android:key="@string/use_custom_colors_key"
+            android:defaultValue="false" />
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="@string/background"
+            android:key="@string/background_color_key"
+            android:defaultValue="@android:color/black"
+            android:dependency="@string/use_custom_colors_key"
+            alphaSlider="true" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="Attributions">
         <Preference
             android:title="Yahoo! Weather"

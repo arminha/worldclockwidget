@@ -20,10 +20,14 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -112,6 +116,15 @@ public class WeatherWidgetService extends RemoteViewsService {
 
                 Intent intent = new Intent();
                 rv.setOnClickFillInIntent(R.id.widget_item, intent);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+                boolean customColors = prefs.getBoolean(mContext.getString(R.string.use_custom_colors_key), false);
+                if (customColors) {
+                    int color = prefs.getInt(mContext.getString(R.string.background_color_key), Color.BLACK);
+                    RemoteViewUtil.setBackgroundColor(rv, R.id.widget_item, color);
+                } else {
+                    RemoteViewUtil.setBackground(rv, R.id.widget_item, R.drawable.appwidget_dark_bg);
+                }
             }
             return rv;
         }

@@ -21,6 +21,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 import android.app.PendingIntent;
@@ -28,7 +29,10 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -100,6 +104,14 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
             for (; n < CITY_IDS.length; n++) {
                 views.setTextViewText(CITY_IDS[n], "");
                 views.setTextViewText(TIME_IDS[n], "");
+            }
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean customColors = prefs.getBoolean(context.getString(R.string.use_custom_colors_key), false);
+            if (customColors) {
+                int color = prefs.getInt(context.getString(R.string.background_color_key), Color.BLACK);
+                RemoteViewUtil.setBackgroundColor(views, R.id.app_widget, color);
+            } else {
+                RemoteViewUtil.setBackground(views, R.id.app_widget, R.drawable.appwidget_dark_bg);
             }
         } finally {
             cursor.close();

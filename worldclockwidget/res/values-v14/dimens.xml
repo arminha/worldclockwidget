@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="widget_padding_horizontal">8dp</dimen>
-    <dimen name="widget_padding_vertical">2dp</dimen>
     <dimen name="widget_padding">0dp</dimen>
 </resources>
