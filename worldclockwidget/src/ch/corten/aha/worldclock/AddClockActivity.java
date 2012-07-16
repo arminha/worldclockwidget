@@ -96,7 +96,8 @@ public class AddClockActivity extends SherlockFragmentActivity {
             super.onActivityCreated(savedInstanceState);
             setHasOptionsMenu(true);
             
-            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.time_zone_item, null, 0) {
+            // use constructor available in gingerbread
+            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.time_zone_item, null) {
                 
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {

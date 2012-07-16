@@ -98,63 +98,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             setEmptyText(getText(R.string.no_clock_defined));
             setHasOptionsMenu(true);
 
-            mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.world_clock_item, null, 0) {
-
-                @Override
-                public void bindView(View view, Context context, Cursor cursor) {
-                    BindHelper.bindText(view, cursor, R.id.city_text, Clocks.CITY);
-                    BindHelper.bindText(view, cursor, R.id.area_text, Clocks.AREA);
-                    
-                    String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
-                    TimeZone timeZone = TimeZone.getTimeZone(timeZoneId);
-                    java.text.DateFormat df = DateFormat.getDateFormat(context);
-                    df.setTimeZone(timeZone);
-                    TextView dateText = (TextView) view.findViewById(R.id.date_text);
-                    dateText.setText(df.format(new Date()));
-                    
-                    TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
-                    timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(timeZone));
-                    DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
-                    clock.setTimeZone(timeZone);
-                    
-                    BindHelper.bindTemperature(context, view, cursor, R.id.temp_text);
-                    BindHelper.bindText(view, cursor, R.id.condition_text, Clocks.WEATHER_CONDITION);
-                    ImageView condImage = (ImageView) view.findViewById(R.id.condition_image);
-                    int condCode = cursor.getInt(cursor.getColumnIndex(Clocks.CONDITION_CODE));
-                    double lat = cursor.getDouble(cursor.getColumnIndex(Clocks.LATITUDE));
-                    double lon = cursor.getDouble(cursor.getColumnIndex(Clocks.LONGITUDE));
-                    condImage.setImageResource(WeatherIcons.getIcon(condCode, lon, lat));
-                    
-                    bindHumidity(view, cursor);
-                    bindWind(view, cursor);
-                }
-                
-                private void bindWind(View view, Cursor cursor) {
-                    String text;
-                    int index = cursor.getColumnIndex(Clocks.WIND_SPEED);
-                    if (cursor.isNull(index)) {
-                        text = "";
-                    } else {
-                        double windSpeed = cursor.getDouble(cursor.getColumnIndex(Clocks.WIND_SPEED));
-                        String speed = BindHelper.getSpeed(getActivity(), windSpeed);
-                        String windDirection = cursor.getString(cursor.getColumnIndex(Clocks.WIND_DIRECTION));
-                        text = MessageFormat.format(getText(R.string.wind_format).toString(), windDirection, speed);
-                    }
-                    BindHelper.setText(view, R.id.wind_text, text);
-                }
-                
-                private void bindHumidity(View view, Cursor cursor) {
-                    String text;
-                    int index = cursor.getColumnIndex(Clocks.HUMIDITY);
-                    if (cursor.isNull(index)) {
-                        text = "";
-                    } else {
-                        double humidity = cursor.getDouble(index);
-                        text = MessageFormat.format("{0}: {1, number,#}%", getString(R.string.humidity), humidity);
-                    }
-                    BindHelper.setText(view, R.id.humidity_text, text);
-                }
-            };
+            mAdapter = new ClockCursorAdapter(getActivity(), R.layout.world_clock_item, null);
             setListAdapter(mAdapter);
 
             setListShown(false);
@@ -365,6 +309,72 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         @Override
         public void onLoaderReset(Loader<Cursor> arg0) {
             mAdapter.changeCursor(null);
+        }
+    }
+    
+    private final static class ClockCursorAdapter extends ResourceCursorAdapter {
+        private Context mContext;
+        
+        @SuppressWarnings("deprecation")
+        private ClockCursorAdapter(Context context, int layout, Cursor c) {
+            // use constructor available in gingerbread 
+            super(context, layout, c);
+            mContext = context;
+        }
+
+        @Override
+        public void bindView(View view, Context context, Cursor cursor) {
+            BindHelper.bindText(view, cursor, R.id.city_text, Clocks.CITY);
+            BindHelper.bindText(view, cursor, R.id.area_text, Clocks.AREA);
+            
+            String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
+            TimeZone timeZone = TimeZone.getTimeZone(timeZoneId);
+            java.text.DateFormat df = DateFormat.getDateFormat(context);
+            df.setTimeZone(timeZone);
+            TextView dateText = (TextView) view.findViewById(R.id.date_text);
+            dateText.setText(df.format(new Date()));
+            
+            TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
+            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(timeZone));
+            DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
+            clock.setTimeZone(timeZone);
+            
+            BindHelper.bindTemperature(context, view, cursor, R.id.temp_text);
+            BindHelper.bindText(view, cursor, R.id.condition_text, Clocks.WEATHER_CONDITION);
+            ImageView condImage = (ImageView) view.findViewById(R.id.condition_image);
+            int condCode = cursor.getInt(cursor.getColumnIndex(Clocks.CONDITION_CODE));
+            double lat = cursor.getDouble(cursor.getColumnIndex(Clocks.LATITUDE));
+            double lon = cursor.getDouble(cursor.getColumnIndex(Clocks.LONGITUDE));
+            condImage.setImageResource(WeatherIcons.getIcon(condCode, lon, lat));
+            
+            bindHumidity(view, cursor);
+            bindWind(view, cursor);
+        }
+
+        private void bindWind(View view, Cursor cursor) {
+            String text;
+            int index = cursor.getColumnIndex(Clocks.WIND_SPEED);
+            if (cursor.isNull(index)) {
+                text = "";
+            } else {
+                double windSpeed = cursor.getDouble(cursor.getColumnIndex(Clocks.WIND_SPEED));
+                String speed = BindHelper.getSpeed(mContext, windSpeed);
+                String windDirection = cursor.getString(cursor.getColumnIndex(Clocks.WIND_DIRECTION));
+                text = MessageFormat.format(mContext.getText(R.string.wind_format).toString(), windDirection, speed);
+            }
+            BindHelper.setText(view, R.id.wind_text, text);
+        }
+
+        private void bindHumidity(View view, Cursor cursor) {
+            String text;
+            int index = cursor.getColumnIndex(Clocks.HUMIDITY);
+            if (cursor.isNull(index)) {
+                text = "";
+            } else {
+                double humidity = cursor.getDouble(index);
+                text = MessageFormat.format("{0}: {1, number,#}%", mContext.getString(R.string.humidity), humidity);
+            }
+            BindHelper.setText(view, R.id.humidity_text, text);
         }
     }
 }
