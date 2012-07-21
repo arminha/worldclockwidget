@@ -34,4 +34,6 @@
     <string name="clock_widget_name">World Clock</string>
     <string name="weather_widget_name">World Clock &amp; Weather</string>
     <string name="no_data_available">No data available</string>
+    <string name="change_temperature_unit">Change temperature unit</string>
+    <string name="change_wind_speed_unit">Change wind speed unit</string>
 </resources>
