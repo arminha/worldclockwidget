@@ -20,3 +20,22 @@ The Internet connectivity permission is **only** used to retrieve current weathe
 
 Please help to improve this application. We very much appreciate your feedback.
 
+Download
+--------
+
+The latest version of the app is available on `Google Play`__.
+
+__ https://play.google.com/store/apps/details?id=ch.corten.aha.worldclock
+
+Screenshots
+-----------
+
+.. image:: https://github.com/arminha/worldclockwidget/raw/master/publish/screen01.png
+   :alt: Screenshot 1
+
+.. image:: https://github.com/arminha/worldclockwidget/raw/master/publish/screen02.png
+   :alt: Screenshot 2
+
+.. image:: https://github.com/arminha/worldclockwidget/raw/master/publish/screen03.png
+   :alt: Screenshot 3
+
