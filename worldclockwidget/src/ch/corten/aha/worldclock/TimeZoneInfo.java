@@ -16,6 +16,8 @@
 
 package ch.corten.aha.worldclock;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -24,7 +26,7 @@ public class TimeZoneInfo {
         int milliseconds = tz.getOffset(System.currentTimeMillis());
         return milliseconds / 60000;
     }
-    
+
     public static String getTimeDifferenceString(TimeZone tz) {
         int minutesDiff = getTimeDifference(tz);
         StringBuilder sb = new StringBuilder();
@@ -38,7 +40,7 @@ public class TimeZoneInfo {
             minutesDiff = Math.abs(minutesDiff);
             sb.append(minutesDiff / 60);
             sb.append(":");
-            
+
             int minutes = minutesDiff % 60;
             if (minutes < 10) {
                 sb.append("0");
@@ -47,11 +49,28 @@ public class TimeZoneInfo {
         }
         return sb.toString();
     }
-    
+
     public static String getDescription(TimeZone tz) {
         if (tz.useDaylightTime() && tz.inDaylightTime(new Date())) {
             return tz.getDisplayName(true, TimeZone.LONG);
         }
         return tz.getDisplayName();
+    }
+
+    private static final String WEEKDAY_FORMAT = "EEE";
+    
+    public static String showTime(TimeZone tz, Date date, DateFormat df, boolean addWeekday) {
+        df.setTimeZone(tz);
+        String time = df.format(date);
+        if (addWeekday) {
+            SimpleDateFormat dayFormat = new SimpleDateFormat(WEEKDAY_FORMAT);
+            SimpleDateFormat dayFormat2 = new SimpleDateFormat(WEEKDAY_FORMAT);
+            dayFormat.setTimeZone(tz);
+            String day = dayFormat.format(date);
+            if (!day.equals(dayFormat2.format(date))) {
+                time += " " + day;
+            }
+        }
+        return time;
     }
 }

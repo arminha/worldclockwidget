@@ -91,8 +91,7 @@ public class WeatherWidgetService extends RemoteViewsService {
                 DateFormat df = android.text.format.DateFormat.getTimeFormat(mContext);
                 Date date = new Date();
                 TimeZone tz = TimeZone.getTimeZone(id);
-                df.setTimeZone(tz);
-                rv.setTextViewText(R.id.time_text, df.format(date));
+                rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, df, true));
                 
                 rv.setTextViewText(R.id.condition_text, mCursor
                         .getString(mCursor.getColumnIndex(Clocks.WEATHER_CONDITION)));
