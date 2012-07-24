@@ -4,3 +4,5 @@
 # don't accidentially add keystores
 *.keystore
 
+# don't add apks
+/apk
