@@ -4,5 +4,6 @@
     android:layout_height="wrap_content"
     android:hint="@string/search"
     android:inputType="text"
-    android:singleLine="true" />
+    android:singleLine="true"
+    android:imeOptions="flagNoExtractUi" />
 

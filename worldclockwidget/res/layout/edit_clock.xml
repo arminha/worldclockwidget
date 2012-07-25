@@ -18,7 +18,8 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="textCapWords">
+	        android:inputType="textCapWords"
+	        android:imeOptions="flagNoExtractUi">
 	        <requestFocus />
 	    </EditText>
 
@@ -32,7 +33,8 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="textCapWords" />
+	        android:inputType="textCapWords"
+	        android:imeOptions="flagNoExtractUi" />
 
 	    <TextView
 	        android:layout_width="wrap_content"
@@ -44,7 +46,8 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="numberSigned|numberDecimal" />
+	        android:inputType="numberSigned|numberDecimal"
+	        android:imeOptions="flagNoExtractUi" />
 
 	    <TextView
 	        android:layout_width="wrap_content"
@@ -56,7 +59,8 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="numberSigned|numberDecimal" />
+	        android:inputType="numberSigned|numberDecimal"
+	        android:imeOptions="flagNoExtractUi" />
 
 	    <CheckBox
 	        android:id="@+id/use_in_widget_checkbox"
