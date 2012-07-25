@@ -92,6 +92,8 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             Clocks.LONGITUDE
             };
 
+        private static final String CAB = "cab";
+
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
@@ -106,6 +108,16 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             ListView listView = getListView();
             setupCabOld(listView);
             registerPreferenceChanged();
+
+            if (savedInstanceState != null) {
+                // Restore contextual action bar state
+                CharSequence cab = savedInstanceState.getCharSequence(CAB);
+                if (cab != null) {
+                    mMode = getSherlockActivity().startActionMode(new ModeCallback());
+                    mMode.setTitle(cab);
+                    mMode.invalidate();
+                }
+            }
             
             getLoaderManager().initLoader(0, null, this);
             updateWeather(false);
@@ -130,6 +142,15 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             prefs.unregisterOnSharedPreferenceChangeListener(mSpChange);
             mSpChange = null;
+        }
+        
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            super.onSaveInstanceState(outState);
+            // save contextual action bar state
+            if (mMode != null) {
+                outState.putCharSequence(CAB, mMode.getTitle());
+            }
         }
         
         @Override
@@ -208,7 +229,6 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                     mMode = null;
                 }
             }
-             
         }
         
         private void deleteSelectedItems() {
@@ -303,6 +323,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 setListShown(true);
             } else {
                 setListShownNoAnimation(true);
+            }
+            if (mMode != null) {
+                mMode.invalidate();
             }
         }
 
