@@ -30,9 +30,4 @@ __ https://play.google.com/store/apps/details?id=ch.corten.aha.worldclock
 Screenshots
 -----------
 
-`Clock list <https://github.com/arminha/worldclockwidget/raw/master/publish/screen01.png>`_
-
-`Widgets <https://github.com/arminha/worldclockwidget/raw/master/publish/screen02.png>`_
-
-`Add city screen <https://github.com/arminha/worldclockwidget/raw/master/publish/screen03.png>`_
-
+`wiki/Screenshots <https://github.com/arminha/worldclockwidget/wiki/Screenshots>`_
