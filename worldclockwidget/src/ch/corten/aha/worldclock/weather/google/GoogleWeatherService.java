@@ -58,8 +58,10 @@ public class GoogleWeatherService implements WeatherService {
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
-                InputStream in = new BufferedInputStream(conn.getInputStream());
-                return readStream(in);
+                if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    InputStream in = new BufferedInputStream(conn.getInputStream());
+                    return readStream(in);
+                }
             } finally {
                 conn.disconnect();
             }
@@ -91,8 +93,7 @@ public class GoogleWeatherService implements WeatherService {
             }
         } catch (XPathExpressionException e) {
             Log.e(TAG, "Failed to parse weather data", e);
-            // TODO i18n message
-            return new Observation("Failed to parse weather data");
+            return null;
         }
     }
 
