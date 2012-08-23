@@ -31,3 +31,11 @@ Screenshots
 -----------
 
 `wiki/Screenshots <https://github.com/arminha/worldclockwidget/wiki/Screenshots>`_
+
+Attributions
+------------
+
+* Weather data is provided by `Yahoo! Weather <http://weather.yahoo.com/>`_.
+* The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
+* Time zone and geographical data is from `Geonames.org <http://www.geonames.org/>`_.
+

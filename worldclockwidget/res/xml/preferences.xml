@@ -23,4 +23,16 @@
             android:entries="@array/weather_sources"
             android:defaultValue="@string/default_weather_source"/>
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Attributions">
+        <Preference
+            android:title="Yahoo! Weather"
+            android:summary="Weather data is provided by Yahoo! Weather." />
+        <Preference
+            android:title="Meteocons"
+            android:summary="The weather icons are based on Meteocons from Alessio Atzeni." />
+        <Preference 
+            android:title="Geonames.org"
+            android:summary="Time zone and geographical data is from Geonames.org" />
+    </PreferenceCategory>
 </PreferenceScreen>
