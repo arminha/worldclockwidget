@@ -18,4 +18,5 @@ package ch.corten.aha.worldclock.weather;
 
 public interface WeatherService {
     WeatherObservation getWeather(double latitude, double longitude);
+    void close();
 }

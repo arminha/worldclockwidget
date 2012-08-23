@@ -75,6 +75,10 @@ public class GoogleWeatherService implements WeatherService {
         }
         return null;
     }
+    
+    @Override
+    public void close() {
+    }
 
     private WeatherObservation readStream(InputStream in) {
         XPath xPath = XPathFactory.newInstance().newXPath();

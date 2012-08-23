@@ -16,15 +16,98 @@
 
 package ch.corten.aha.worldclock.weather.yahoo;
 
+import java.io.File;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 class WoeidCache {
 
+    private static final String TABLE = "woeid_cache";
+    private final Storage mStorage;
+    
+    public WoeidCache(Context context) {
+        mStorage = new Storage(context);
+    }
+    
     public String get(double latitude, double longitude) {
-        // TODO
-        return null;
+        SQLiteDatabase db = mStorage.getDatabase();
+        String[] selectionArgs = new String[] { Double.toString(latitude), Double.toString(longitude) };
+        Cursor c = db.query(TABLE, new String[] { "woeid" }, "latitude = ? and longitude = ?", selectionArgs, null, null, null);
+        try {
+            if (c.moveToFirst()) {
+                return c.getString(c.getColumnIndex("woeid"));
+            } else {
+                return null;
+            }
+        } finally {
+            c.close();
+        }
     }
     
     public void put(double latitude, double longitude, String woeid) {
-        // TODO
+        SQLiteDatabase db = mStorage.getDatabase();
+        ContentValues values = new ContentValues();
+        values.put("woeid", woeid);
+        if (get(latitude, longitude) != null) {
+            String[] whereArgs = new String[] { Double.toString(latitude), Double.toString(longitude) };
+            db.update(TABLE, values, "latitude = ? and longitude = ?", whereArgs);
+        } else {
+            values.put("latitude", latitude);
+            values.put("longitude", longitude);
+            db.insert(TABLE, null, values);
+        }
     }
     
+    public void close() {
+        mStorage.close();
+    }
+    
+    private static class Storage {
+        private static final String FILENAME = "woeid";
+        
+        private static final String DATABASE_CREATE =
+                "create table woeid_cache (latitude real not null, "
+                        + "longitude real not null, "
+                        + "woeid text not null);";
+
+        private SQLiteDatabase mDatabase;
+        private final Context mContext;
+        
+        public Storage(Context context) {
+            mContext = context;
+        }
+        
+        public synchronized SQLiteDatabase getDatabase() {
+            if (mDatabase != null) {
+                if (!mDatabase.isOpen()) {
+                    mDatabase = null;
+                }
+            }
+
+            if (mDatabase == null) {
+                String path = mContext.getCacheDir().getPath() + File.separator + FILENAME; 
+                SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(path, null);
+                if (db.getVersion() == 0) {
+                    onCreate(db);
+                    db.setVersion(1);
+                }
+                mDatabase = db;
+            }
+            return mDatabase;
+        }
+        
+        public synchronized void close() {
+            if (mDatabase != null && mDatabase.isOpen()) {
+                mDatabase.close();
+                mDatabase = null;
+            }
+        }
+        
+        protected void onCreate(SQLiteDatabase db) {
+            db.execSQL(DATABASE_CREATE);
+        }
+    }
 }

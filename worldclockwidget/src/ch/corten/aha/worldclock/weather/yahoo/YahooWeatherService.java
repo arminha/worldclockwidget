@@ -17,8 +17,10 @@
 package ch.corten.aha.worldclock.weather.yahoo;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -38,6 +40,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import android.content.Context;
 import android.util.Log;
 import android.util.SparseIntArray;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
@@ -49,11 +52,29 @@ public class YahooWeatherService implements WeatherService {
     private final PlaceFinderService mPlaceFinder;
     private final WoeidCache mCache;
     
-    public YahooWeatherService(String appId) {
-        mPlaceFinder = new PlaceFinderService(appId);
-        mCache = new WoeidCache();
+    public YahooWeatherService(Context context) {
+        mPlaceFinder = new PlaceFinderService(getAppId(context));
+        mCache = new WoeidCache(context);
+    }
+    
+    private static String getAppId(Context context) {
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(context.getAssets().open("yahooAppId")));
+            String key = in.readLine();
+            if (key != null) {
+                return key;
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "unable to load AppId", e);
+        }
+        return "NOAPPID";
     }
 
+    @Override
+    public void close() {
+        mCache.close();
+    }
+    
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
         String woeid = getWOEID(latitude, longitude);

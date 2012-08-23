@@ -87,6 +87,7 @@ public class UpdateWeatherService extends IntentService {
             }
         } finally {
             c.close();
+            service.close();
         }
         return count;
     }
