@@ -31,7 +31,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class CityDatabase extends SQLiteOpenHelper {
+class CityDatabase extends SQLiteOpenHelper {
 
     private static final String CITY_DATA_CSV = "city_data.csv";
 

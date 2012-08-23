@@ -33,15 +33,15 @@ public class WeatherWidgetService extends RemoteViewsService {
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
         return new WeatherWidgetViewsFactory(this.getApplicationContext());
     }
-    
+
     static class WeatherWidgetViewsFactory implements RemoteViewsFactory {
         private Context mContext;
         private Cursor mCursor;
-        
+
         public WeatherWidgetViewsFactory(Context context) {
             mContext = context;
         }
-        
+
         @Override
         public void onCreate() {
         }
@@ -56,14 +56,14 @@ public class WeatherWidgetService extends RemoteViewsService {
             Clocks.LATITUDE,
             Clocks.LONGITUDE
         };
-        
+
         @Override
         public void onDataSetChanged() {
             // Refresh the cursor
             if (mCursor != null) {
                 mCursor.close();
             }
-            
+
             mCursor = mContext.getContentResolver().query(Clocks.CONTENT_URI,
                     PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
                     Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC");
@@ -92,18 +92,18 @@ public class WeatherWidgetService extends RemoteViewsService {
                 Date date = new Date();
                 TimeZone tz = TimeZone.getTimeZone(id);
                 rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, df, true));
-                
+
                 rv.setTextViewText(R.id.condition_text, mCursor
                         .getString(mCursor.getColumnIndex(Clocks.WEATHER_CONDITION)));
                 
                 String temperature = BindHelper.getTemperature(mContext, mCursor, false);
                 rv.setTextViewText(R.id.temp_text, temperature);
-                
+
                 int condCode = mCursor.getInt(mCursor.getColumnIndex(Clocks.CONDITION_CODE));
                 double lat = mCursor.getDouble(mCursor.getColumnIndex(Clocks.LATITUDE));
                 double lon = mCursor.getDouble(mCursor.getColumnIndex(Clocks.LONGITUDE));
                 rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode, lon, lat));
-                
+
                 Intent intent = new Intent();
                 rv.setOnClickFillInIntent(R.id.widget_item, intent);
             }
@@ -133,7 +133,7 @@ public class WeatherWidgetService extends RemoteViewsService {
         public boolean hasStableIds() {
             return true;
         }
-        
+
     }
 
 }

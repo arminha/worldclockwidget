@@ -20,7 +20,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class WorldClockDatabase extends SQLiteOpenHelper {
+class WorldClockDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_CREATE =
             "create table clocks (_id integer primary key autoincrement, "
