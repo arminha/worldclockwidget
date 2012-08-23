@@ -83,7 +83,13 @@ public class WeatherWidgetService extends RemoteViewsService {
 
         @Override
         public RemoteViews getViewAt(int position) {
-            RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.weather_widget_item);
+            RemoteViews rv;
+            if (position == 0) {
+                rv = new RemoteViews(mContext.getPackageName(), R.layout.weather_widget_item2);
+            } else {
+                rv = new RemoteViews(mContext.getPackageName(), R.layout.weather_widget_item);
+            }
+
             if (mCursor.moveToPosition(position)) {
                 rv.setTextViewText(R.id.city_text, mCursor.getString(mCursor.getColumnIndex(Clocks.CITY)));
                 
@@ -118,7 +124,7 @@ public class WeatherWidgetService extends RemoteViewsService {
 
         @Override
         public int getViewTypeCount() {
-            return 1;
+            return 2;
         }
 
         @Override
