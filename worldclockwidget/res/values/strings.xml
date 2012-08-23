@@ -36,4 +36,10 @@
     <string name="no_data_available">No data available</string>
     <string name="change_temperature_unit">Change temperature unit</string>
     <string name="change_wind_speed_unit">Change wind speed unit</string>
+    <string name="weather_source">Weather data source</string>
+    <string-array name="weather_sources">
+        <item name="yahoo">Yahoo! Weather</item>
+        <item name="google">Google Weather (unsupported)</item>
+    </string-array>
+        <string name="change_source_of_weather_data">Change source of weather data</string>
 </resources>

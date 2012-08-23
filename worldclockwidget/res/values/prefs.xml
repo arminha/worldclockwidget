@@ -13,4 +13,10 @@
     <string name="defaul_temp_unit">C</string>
     <string name="temp_unit_key">temp_unit</string>
     <string name="wind_speed_unit_key">wind_speed_unit</string>
+    <string name="weather_source_key">weather_provider</string>
+    <string-array name="weather_source_values">
+        <item name="yahoo">yahoo</item>
+        <item name="google">google</item>
+    </string-array>
+    <string name="default_weather_source">yahoo</string>
 </resources>

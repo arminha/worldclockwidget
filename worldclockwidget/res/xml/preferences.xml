@@ -15,5 +15,12 @@
             android:entryValues="@array/speed_unit_values"
             android:entries="@array/speed_units"
             android:defaultValue="@string/default_speed_unit" />
+        <ListPreference 
+            android:title="@string/weather_source"
+            android:key="@string/weather_source_key"
+            android:summary="@string/change_source_of_weather_data"
+            android:entryValues="@array/weather_source_values"
+            android:entries="@array/weather_sources"
+            android:defaultValue="@string/default_weather_source"/>
     </PreferenceCategory>
 </PreferenceScreen>

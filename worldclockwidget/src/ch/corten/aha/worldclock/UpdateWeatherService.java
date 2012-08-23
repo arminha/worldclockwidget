@@ -22,12 +22,15 @@ import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
 import ch.corten.aha.worldclock.weather.google.GoogleWeatherService;
+import ch.corten.aha.worldclock.weather.yahoo.YahooWeatherService;
 import android.app.IntentService;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 
 public class UpdateWeatherService extends IntentService {
 
@@ -71,7 +74,15 @@ public class UpdateWeatherService extends IntentService {
             query = Clocks.LAST_UPDATE + " < " + (currentTime - updateInterval);
         }
         int count = 0;
-        WeatherService service = new GoogleWeatherService();
+
+        WeatherService service;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String provider = prefs.getString(context.getString(R.string.weather_source_key), "yahoo");
+        if (provider.equals("yahoo")) {
+            service = new YahooWeatherService(context);
+        } else {
+            service = new GoogleWeatherService();
+        }
 
         Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
         try {
