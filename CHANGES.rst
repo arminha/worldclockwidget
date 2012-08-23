@@ -1,4 +1,10 @@
 
+1.4.7:
+
+* Yahoo! Weather is now the default source for weather data.
+  There is an option in the preferences to switch back to Google, but it is not recommended.
+* Bug fixes
+
 1.4.6:
 
 * Improve stability of weather lookup:
