@@ -114,9 +114,9 @@ public class WorldClock {
         public static final String LATITUDE = "latitude";
         public static final String LONGITUDE = "longitude";
         /**
-         * ISO-3166 2-letter country code, 2 characters
+         * Country name
          */
-        public static final String COUNTRY_CODE = "country_code";
+        public static final String COUNTRY = "country";
         public static final String TIMEZONE_ID = "timezone_id";
     }
 }

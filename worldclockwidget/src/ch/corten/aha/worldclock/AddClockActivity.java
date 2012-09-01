@@ -16,7 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.TimeZone;
 
@@ -27,7 +26,6 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
 
-import ch.corten.aha.worldclock.R.string;
 import ch.corten.aha.worldclock.provider.WorldClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Cities;
 import android.content.ContentUris;
@@ -87,7 +85,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
         private static final String[] CITY_PROJECTION = {
             Cities._ID,
             Cities.NAME,
-            Cities.COUNTRY_CODE,
+            Cities.COUNTRY,
             Cities.TIMEZONE_ID
             };
         
@@ -101,11 +99,8 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
-                    TextView cityText = (TextView) view.findViewById(R.id.city_text);
-                    cityText.setText(cursor.getString(cursor.getColumnIndex(Cities.NAME)));
-                    TextView areaText = (TextView) view.findViewById(R.id.area_text);
-                    String countryCode = cursor.getString(cursor.getColumnIndex(Cities.COUNTRY_CODE));
-                    areaText.setText(getCountryName(countryCode));
+                    BindHelper.bindText(view, cursor, R.id.city_text, Cities.NAME);
+                    BindHelper.bindText(view, cursor, R.id.area_text, Cities.COUNTRY);
                     TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
                     TimeZone tz = TimeZone.getTimeZone(cursor.getString(cursor.getColumnIndex(Cities.TIMEZONE_ID)));
                     timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
@@ -224,7 +219,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             Cities.NAME,
             Cities.LATITUDE,
             Cities.LONGITUDE,
-            Cities.COUNTRY_CODE,
+            Cities.COUNTRY,
             Cities.TIMEZONE_ID
         };
         
@@ -238,8 +233,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 c.moveToNext();
                 String timeZoneId = c.getString(c.getColumnIndex(Cities.TIMEZONE_ID));
                 String city = c.getString(c.getColumnIndex(Cities.NAME));
-                String countryCode = c.getString(c.getColumnIndex(Cities.COUNTRY_CODE));
-                String country = getCountryName(countryCode);
+                String country = c.getString(c.getColumnIndex(Cities.COUNTRY));
                 int timeDiff = TimeZoneInfo.getTimeDifference(TimeZone.getTimeZone(timeZoneId));
                 double latitude = c.getDouble(c.getColumnIndex(Cities.LATITUDE));
                 double longitude = c.getDouble(c.getColumnIndex(Cities.LONGITUDE));
@@ -250,19 +244,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 c.close();
             }
         }
-        
-        private String getCountryName(String isoCode) {
-            try {
-                Class<string> c = R.string.class;
-                Field field = c.getField("country_" + isoCode);
-                int id = field.getInt(null);
-                return getResources().getString(id);
-            } catch (Exception e) {
-                Log.e("AddClockActivity", "failure to get country string id", e);
-                return isoCode;
-            }
-        }
-        
+
         private void returnResult(int resultCode) {
             getActivity().setResult(resultCode);
             getActivity().finish();

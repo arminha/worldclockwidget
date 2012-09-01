@@ -4,7 +4,7 @@ import csv
 
 #TODO individual population levels
 
-# rows in cities15000
+# columns in cities15000
 GEONAMEID = 0
 NAME = 1
 ASCIINAME = 2
@@ -27,14 +27,18 @@ class CountryInfo(object):
             reader = csv.reader(r, delimiter='\t')
             for row in reader:
                 if not row[0].startswith('#'):
-                    self.countries[row[0]] = { 
+                    self.countries[row[0]] = {
                         'iso' : row[0],
                         'name' : row[4],
                         'capital' : row[5],
-                        'population' : int(row[7])
+                        'population' : int(row[7]),
+                        'cities' : []
                     }
 
     def is_capital(self, row):
+        '''
+        Returns true if the row refers to a capital.
+        '''
         capital = self.countries[row[ISO_CODE]]['capital']
         if capital == row[NAME] or capital == row[ASCIINAME]:
             return True
@@ -43,9 +47,18 @@ class CountryInfo(object):
                 return True
         return False
 
+    def add_city(self, row):
+        '''
+        Add a row to the city list of the specific country.
+        Replaces the iso code with the country name.
+        '''
+        country = self.countries[row[4]]
+        cities = country['cities']
+        row[4] = country['name']
+        cities.append(row)
+
 def main():
     columns_to_copy = [
-        GEONAMEID,
         NAME,
         ASCIINAME,
         LATITUDE,
@@ -57,14 +70,22 @@ def main():
 
     with open(cities_file, 'rb') as r:
         reader = csv.reader(r, delimiter='\t')
-        with open(output_file, 'wb') as w:
-            writer = csv.writer(w, delimiter='\t')
-            for row in reader:
-                if select_row(ci, row):
-                    newrow = []
-                    for index in columns_to_copy:
-                        newrow.append(row[index])
-                    writer.writerow(newrow)
+        for row in reader:
+            if select_row(ci, row):
+                newrow = []
+                for index in columns_to_copy:
+                    newrow.append(row[index])
+                ci.add_city(newrow)
+    with open(output_file, 'wb') as w:
+        writer = csv.writer(w, delimiter='\t')
+        i = 1;
+        # sort countries by name
+        for country in sorted(ci.countries.values(), key=lambda c:c['name']):
+            # sort cities by name (1st column)
+            for city in sorted(country['cities'], key=lambda c:c[0]):
+                city.insert(0, i)
+                i = i + 1
+                writer.writerow(city)
 
 def select_row(ci, row):
     return int(row[POPULATION]) > 100000 or ci.is_capital(row)

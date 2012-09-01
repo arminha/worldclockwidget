@@ -41,11 +41,13 @@ class CityDatabase extends SQLiteOpenHelper {
                     + "asciiname text not null, "
                     + "latitude real not null, "
                     + "longitude real not null, "
-                    + "country_code text not null, "
+                    + "country text not null, "
                     + "timezone_id text not null);";
-    
+
+    private static final String DROP_TABLE = "drop table if exists cities";
+
     private static final String DATABASE_NAME = "cities";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private Context mContext;
     
@@ -69,7 +71,7 @@ class CityDatabase extends SQLiteOpenHelper {
         final int asciiNameColumn = ih.getColumnIndex(Cities.ASCII_NAME);
         final int latitudeColumn = ih.getColumnIndex(Cities.LATITUDE);
         final int longitudeColumn = ih.getColumnIndex(Cities.LONGITUDE);
-        final int countryColumn = ih.getColumnIndex(Cities.COUNTRY_CODE);
+        final int countryColumn = ih.getColumnIndex(Cities.COUNTRY);
         final int timezoneColumn = ih.getColumnIndex(Cities.TIMEZONE_ID);
 
         try {
@@ -109,6 +111,8 @@ class CityDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // no upgrades yet
+        db.execSQL(DROP_TABLE);
+        db.execSQL(DATABASE_CREATE);
+        insertData(db);
     }
 }
