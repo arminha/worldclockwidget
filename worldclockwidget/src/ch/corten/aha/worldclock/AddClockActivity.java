@@ -118,7 +118,8 @@ public class AddClockActivity extends SherlockFragmentActivity {
             String selection = null;
             if (!TextUtils.isEmpty(mCurFilter)) {
                 selection = Cities.ASCII_NAME + " like '%" + mCurFilter + "%' or " 
-                        + Cities.NAME + " like '%" + mCurFilter + "%'"; 
+                        + Cities.NAME + " like '%" + mCurFilter + "%' or "
+                        + Cities.COUNTRY + " like '%" + mCurFilter + "%'"; 
             }
             return new CursorLoader(getActivity(), Cities.CONTENT_URI,
                     CITY_PROJECTION, selection, null, null);
