@@ -110,6 +110,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             };
             setListAdapter(mAdapter);
             setListShown(false);
+            getListView().setFastScrollEnabled(true);
             getLoaderManager().initLoader(0, null, this);
         }
 
