@@ -17,6 +17,7 @@
 package ch.corten.aha.worldclock.provider;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -53,10 +54,22 @@ class CityDatabase extends SQLiteOpenHelper {
     private boolean mNeedsVacuum;
     
     public CityDatabase(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, getName(context), null, DATABASE_VERSION);
+        cleanupOldDataBase(context); 
         mContext = context;
     }
-    
+
+    private static String getName(Context context) {
+        return context.getCacheDir().getPath() + File.separator + DATABASE_NAME;
+    }
+
+    private static void cleanupOldDataBase(Context context) {
+        File oldDb = context.getDatabasePath(DATABASE_NAME);
+        if (oldDb.exists()) {
+            oldDb.delete();
+        }
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE);
