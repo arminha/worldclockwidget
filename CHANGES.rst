@@ -1,4 +1,11 @@
 
+1.4.8:
+
+* Customizable widget colors (including transparent backgrounds).
+* Added a GMT clock.
+* Improve city selection: search by country name, fast scrolling.
+* Bug fixes
+
 1.4.7:
 
 * Yahoo! Weather is now the default source for weather data.
