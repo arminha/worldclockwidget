@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import csv
+import locale
 
 #TODO individual population levels
 
@@ -81,8 +82,9 @@ def main():
         i = 1;
         # sort countries by name
         for country in sorted(ci.countries.values(), key=lambda c:c['name']):
+            locale.setlocale(locale.LC_ALL, '')
             # sort cities by name (1st column)
-            for city in sorted(country['cities'], key=lambda c:c[0]):
+            for city in sorted(country['cities'], key=lambda c:locale.strxfrm(c[0])):
                 city.insert(0, i)
                 i = i + 1
                 writer.writerow(city)
