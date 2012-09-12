@@ -81,6 +81,9 @@ public class YahooWeatherService implements WeatherService {
         if (woeid == null) {
             return null;
         }
+        if (woeid.length() == 0) {
+            return new Observation();
+        }
         
         String query = "w=" + woeid + "&u=c";
         try {

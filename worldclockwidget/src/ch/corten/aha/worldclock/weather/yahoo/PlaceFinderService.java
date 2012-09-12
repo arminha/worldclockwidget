@@ -72,7 +72,7 @@ class PlaceFinderService {
         InputSource source = new InputSource(in);
         try {
             String woeid = (String) xPath.evaluate("/ResultSet/Result[1]/woeid", source, XPathConstants.STRING);
-            if (woeid != null && woeid.length() > 0) {
+            if (woeid != null) {
                 return woeid;
             }
         } catch (XPathExpressionException e) {
