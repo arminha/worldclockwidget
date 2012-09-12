@@ -88,6 +88,8 @@ def main():
                 city.insert(0, i)
                 i = i + 1
                 writer.writerow(city)
+        # add GMT
+        writer.writerow([i, 'GMT', 'UTC Zulu', '0', '0', 'Greenwich Mean Time', 'GMT'])
 
 def select_row(ci, row):
     return int(row[POPULATION]) > 100000 or ci.is_capital(row)
