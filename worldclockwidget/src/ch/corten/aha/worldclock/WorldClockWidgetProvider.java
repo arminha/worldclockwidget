@@ -17,6 +17,7 @@
 package ch.corten.aha.worldclock;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -107,6 +108,11 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
 
     @Override
     protected void onClockTick(Context context) {
+        // update on the hour
+        Calendar cal = Calendar.getInstance();
+        if (cal.get(Calendar.MINUTE) == 0) {
+            Clocks.updateOrder(context);
+        }
         // Get the widget manager and ids for this widget provider, then call the shared
         // clock update method.
         ComponentName thisAppWidget = new ComponentName(context.getPackageName(), getClass().getName());

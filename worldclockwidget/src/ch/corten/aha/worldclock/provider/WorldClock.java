@@ -16,10 +16,15 @@
 
 package ch.corten.aha.worldclock.provider;
 
+import java.util.TimeZone;
+
+import ch.corten.aha.worldclock.TimeZoneInfo;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -95,8 +100,33 @@ public class WorldClock {
             int count = context.getContentResolver().update(uri, values, null, null);
             return count > 0;
         }
+
+        public static boolean updateOrder(Context context) {
+            ContentResolver cr = context.getContentResolver();
+            Cursor c = cr.query(CONTENT_URI, new String[] { _ID, TIMEZONE_ID, TIME_DIFF }, null, null, _ID);
+            int count = 0;
+            try {
+                while (c.moveToNext()) {
+                    String timeZoneId = c.getString(c.getColumnIndex(TIMEZONE_ID));
+                    int storedDiff = c.getInt(c.getColumnIndex(TIME_DIFF));
+                    TimeZone tz = TimeZone.getTimeZone(timeZoneId);
+                    int diff = TimeZoneInfo.getTimeDifference(tz);
+                    if (storedDiff != diff) {
+                        // update entry
+                        long id = c.getLong(c.getColumnIndex(_ID));
+                        Uri uri = ContentUris.withAppendedId(CONTENT_URI, id);
+                        ContentValues values = new ContentValues();
+                        values.put(TIME_DIFF, diff);
+                        count += cr.update(uri, values, null, null);
+                    }
+                }
+            } finally {
+                c.close();
+            }
+            return count > 0;
+        }
     }
-    
+
     public static class Cities {
         static final String TABLE_NAME = "cities";
         

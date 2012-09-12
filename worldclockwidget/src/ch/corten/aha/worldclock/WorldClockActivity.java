@@ -120,6 +120,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             }
             
             getLoaderManager().initLoader(0, null, this);
+            Clocks.updateOrder(getActivity());
             updateWeather(false);
         }
         

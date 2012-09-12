@@ -16,6 +16,10 @@
 
 package ch.corten.aha.worldclock;
 
+import java.util.Calendar;
+
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -81,6 +85,11 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
     
     @Override
     protected void onClockTick(Context context) {
+        Calendar cal = Calendar.getInstance();
+        // update on the hour
+        if (cal.get(Calendar.MINUTE) == 0) {
+            Clocks.updateOrder(context);
+        }
         final AppWidgetManager mgr = AppWidgetManager.getInstance(context);
         final ComponentName cn = new ComponentName(context, WeatherWidgetProvider.class);
         mgr.notifyAppWidgetViewDataChanged(mgr.getAppWidgetIds(cn), R.id.grid_view);
