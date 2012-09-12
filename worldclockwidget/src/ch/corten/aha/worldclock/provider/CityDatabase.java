@@ -50,6 +50,7 @@ class CityDatabase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     private Context mContext;
+    private boolean mNeedsVacuum;
     
     public CityDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -112,8 +113,17 @@ class CityDatabase extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DROP_TABLE);
-        db.execSQL("VACUUM");
         db.execSQL(DATABASE_CREATE);
         insertData(db);
+        mNeedsVacuum = true;
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        if (mNeedsVacuum) {
+            mNeedsVacuum = false;
+            db.execSQL("VACUUM");
+        }
+        super.onOpen(db);
     }
 }
