@@ -122,8 +122,20 @@ public class WeatherWidgetService extends RemoteViewsService {
                 if (customColors) {
                     int color = prefs.getInt(mContext.getString(R.string.background_color_key), Color.BLACK);
                     RemoteViewUtil.setBackgroundColor(rv, R.id.widget_item, color);
+
+                    int foreground = prefs.getInt(mContext.getString(R.string.foreground_color_key), Color.WHITE);
+                    rv.setTextColor(R.id.city_text, foreground);
+                    rv.setTextColor(R.id.time_text, foreground);
+                    rv.setTextColor(R.id.condition_text, foreground);
+                    rv.setTextColor(R.id.temp_text, foreground);
                 } else {
                     RemoteViewUtil.setBackground(rv, R.id.widget_item, R.drawable.appwidget_dark_bg);
+
+                    int defaultColor = 0xffbebebe;
+                    rv.setTextColor(R.id.city_text, Color.WHITE);
+                    rv.setTextColor(R.id.time_text, defaultColor);
+                    rv.setTextColor(R.id.condition_text, defaultColor);
+                    rv.setTextColor(R.id.temp_text, Color.WHITE);
                 }
             }
             return rv;

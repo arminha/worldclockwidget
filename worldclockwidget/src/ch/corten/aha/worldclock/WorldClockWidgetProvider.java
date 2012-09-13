@@ -107,11 +107,17 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
             }
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean customColors = prefs.getBoolean(context.getString(R.string.use_custom_colors_key), false);
+            int textColor = Color.WHITE;
             if (customColors) {
                 int color = prefs.getInt(context.getString(R.string.background_color_key), Color.BLACK);
                 RemoteViewUtil.setBackgroundColor(views, R.id.app_widget, color);
+                textColor = prefs.getInt(context.getString(R.string.foreground_color_key), Color.WHITE);
             } else {
                 RemoteViewUtil.setBackground(views, R.id.app_widget, R.drawable.appwidget_dark_bg);
+            }
+            for (int i = 0; i < CITY_IDS.length; i++) {
+                views.setTextColor(CITY_IDS[i], textColor);
+                views.setTextColor(TIME_IDS[i], textColor);
             }
         } finally {
             cursor.close();

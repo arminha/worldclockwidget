@@ -21,4 +21,5 @@
     <string name="default_weather_source">yahoo</string>
     <string name="use_custom_colors_key">use_custom_colors</string>
     <string name="background_color_key">custom_background_color</string>
+    <string name="foreground_color_key">custom_foreground_color</string>
 </resources>
