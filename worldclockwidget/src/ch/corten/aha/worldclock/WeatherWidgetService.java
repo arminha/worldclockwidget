@@ -26,7 +26,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -95,6 +100,9 @@ public class WeatherWidgetService extends RemoteViewsService {
             }
 
             if (mCursor.moveToPosition(position)) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+                boolean customColors = prefs.getBoolean(mContext.getString(R.string.use_custom_colors_key), false);
+
                 rv.setTextViewText(R.id.city_text, mCursor.getString(mCursor.getColumnIndex(Clocks.CITY)));
                 
                 String id = mCursor.getString(mCursor.getColumnIndex(Clocks.TIMEZONE_ID));
@@ -112,13 +120,13 @@ public class WeatherWidgetService extends RemoteViewsService {
                 int condCode = mCursor.getInt(mCursor.getColumnIndex(Clocks.CONDITION_CODE));
                 double lat = mCursor.getDouble(mCursor.getColumnIndex(Clocks.LATITUDE));
                 double lon = mCursor.getDouble(mCursor.getColumnIndex(Clocks.LONGITUDE));
-                rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode, lon, lat));
+                if (!customColors) {
+                    rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode, lon, lat));
+                }
 
                 Intent intent = new Intent();
                 rv.setOnClickFillInIntent(R.id.widget_item, intent);
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-                boolean customColors = prefs.getBoolean(mContext.getString(R.string.use_custom_colors_key), false);
                 if (customColors) {
                     int color = prefs.getInt(mContext.getString(R.string.background_color_key), Color.BLACK);
                     RemoteViewUtil.setBackgroundColor(rv, R.id.widget_item, color);
@@ -128,6 +136,20 @@ public class WeatherWidgetService extends RemoteViewsService {
                     rv.setTextColor(R.id.time_text, foreground);
                     rv.setTextColor(R.id.condition_text, foreground);
                     rv.setTextColor(R.id.temp_text, foreground);
+
+                    int res = WeatherIcons.getIcon(condCode, lon, lat);
+                    if (foreground != Color.WHITE) {
+                        Drawable drawable = mContext.getResources().getDrawable(res);
+                        Bitmap bmp = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Config.ARGB_8888);
+                        drawable.setColorFilter(foreground, Mode.MULTIPLY);
+                        Canvas canvas = new Canvas(bmp);
+                        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                        drawable.draw(canvas);
+                        drawable.setColorFilter(null);
+                        rv.setImageViewBitmap(R.id.condition_image, bmp);
+                    } else {
+                        rv.setImageViewResource(R.id.condition_image, WeatherIcons.getIcon(condCode, lon, lat));
+                    }
                 } else {
                     RemoteViewUtil.setBackground(rv, R.id.widget_item, R.drawable.appwidget_dark_bg);
 
