@@ -29,7 +29,7 @@ def get_out_file(in_file):
     return out_file
 
 def main(argv):
-    if len(argv) == 0:
+    if len(argv) == 1:
         input_files = glob.glob('ic_*.svg') + glob.glob('weather_*.svg')
     else:
         input_files = argv[1:]
