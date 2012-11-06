@@ -51,7 +51,7 @@ class PlaceFinderService {
             try {
                 if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                     InputStream in = new BufferedInputStream(conn.getInputStream());
-                    return readWOEID(in);
+                    return fixInvalidWoeids(latitude, longitude, readWOEID(in));
                 }
             } finally {
                 conn.disconnect();
@@ -67,6 +67,16 @@ class PlaceFinderService {
         return null;
     }
 
+    static String fixInvalidWoeids(double latitude, double longitude, String woeid) {
+        // fix Macau bug of Yahoo PlaceFinder API
+        if ("609135".equals(woeid) &&
+                latitude > 22.0 && latitude < 22.3 && 
+                longitude > 113.4 && longitude < 113.7) {
+            return "20070017";
+        }
+        return woeid;
+    }
+    
     private static String readWOEID(InputStream in) {
         XPath xPath = XPathFactory.newInstance().newXPath();
         InputSource source = new InputSource(in);

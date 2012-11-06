@@ -38,7 +38,8 @@ class WoeidCache {
         Cursor c = db.query(TABLE, new String[] { "woeid" }, "latitude = ? and longitude = ?", selectionArgs, null, null, null);
         try {
             if (c.moveToFirst()) {
-                return c.getString(c.getColumnIndex("woeid"));
+                final String woeid = c.getString(c.getColumnIndex("woeid"));
+                return PlaceFinderService.fixInvalidWoeids(latitude, longitude, woeid);
             } else {
                 return null;
             }
