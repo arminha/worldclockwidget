@@ -117,13 +117,16 @@ public class AddClockActivity extends SherlockFragmentActivity {
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             String selection = null;
+            String[] selectionArgs = null;
             if (!TextUtils.isEmpty(mCurFilter)) {
-                selection = Cities.ASCII_NAME + " like '%" + mCurFilter + "%' or " 
-                        + Cities.NAME + " like '%" + mCurFilter + "%' or "
-                        + Cities.COUNTRY + " like '%" + mCurFilter + "%'"; 
+                String search = "%" + mCurFilter + "%";
+                selection = Cities.ASCII_NAME + " like ? or " 
+                        + Cities.NAME + " like ? or "
+                        + Cities.COUNTRY + " like ?";
+                selectionArgs = new String[] { search, search, search };
             }
             return new CursorLoader(getActivity(), Cities.CONTENT_URI,
-                    CITY_PROJECTION, selection, null, null);
+                    CITY_PROJECTION, selection, selectionArgs, null);
         }
         
         @Override
