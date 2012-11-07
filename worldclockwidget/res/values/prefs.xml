@@ -34,4 +34,6 @@
         <item name="never">-1</item>
     </string-array>
     <string name="default_weather_purge_time">7200000</string>
+
+    <string name="disable_automatic_weather_update_key">disable_automatic_update</string>
 </resources>

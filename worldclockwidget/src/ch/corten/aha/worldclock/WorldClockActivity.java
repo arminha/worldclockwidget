@@ -277,6 +277,11 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         }
 
         private void updateWeather(boolean immediately) {
+            // check if automatic update is enabled
+            if (!immediately && !automaticWeatherUpdate()) {
+                return;
+            }
+
             Intent service = new Intent(getActivity(), UpdateWeatherService.class);
             int updateInterval;
             if (immediately) {
@@ -288,6 +293,12 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             getActivity().startService(service);
         }
         
+        private boolean automaticWeatherUpdate() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            boolean disableUpdate = prefs.getBoolean(getString(R.string.disable_automatic_weather_update_key), false);
+            return !disableUpdate;
+        }
+
         private void addClock() {
             Intent intent = new Intent(getActivity(), AddClockActivity.class);
             startActivityForResult(intent, 0);

@@ -40,12 +40,23 @@ public class UpdateWeatherService extends IntentService {
     public static final String WEATHER_DATA_UPDATE_INTERVAL = "updateInterval";
     public static final int DEFAULT_WEATHER_DATA_UPDATE_INTERVAL = 900000; // 15 minutes
 
+    public static final String BACKGROUND_UPDATE = "backgroundUpdate";
+
     public UpdateWeatherService() {
         super("UpdateWeather-service");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        boolean backgroundUpdate = intent.getBooleanExtra(BACKGROUND_UPDATE, false);
+        if (backgroundUpdate) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean disableUpdate = prefs.getBoolean(getString(R.string.disable_automatic_update), false);
+            if (disableUpdate) {
+                return;
+            }
+        }
+
         int purgeAfter = intent.getIntExtra(WEATHER_DATA_PURGE_AFTER,
                 getPurgeAfterPreference());
         int updateInterval = intent.getIntExtra(WEATHER_DATA_UPDATE_INTERVAL,
@@ -76,10 +87,10 @@ public class UpdateWeatherService extends IntentService {
         Context context = getApplicationContext();
         ContentResolver resolver = context.getContentResolver();
         String[] projection = {
-            Clocks._ID,
-            Clocks.LATITUDE,
-            Clocks.LONGITUDE,
-            Clocks.LAST_UPDATE
+                Clocks._ID,
+                Clocks.LATITUDE,
+                Clocks.LONGITUDE,
+                Clocks.LAST_UPDATE
         };
         String query = null;
         if (updateInterval > 0) {
@@ -103,7 +114,7 @@ public class UpdateWeatherService extends IntentService {
                 double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
                 long id = c.getLong(c.getColumnIndex(Clocks._ID));
                 WeatherObservation observation = service.getWeather(lat, lon);
-                
+
                 if (observation != null && Clocks.updateWeather(context, id, observation)) {
                     count++;
                 }

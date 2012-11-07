@@ -32,32 +32,33 @@ import android.widget.RemoteViews;
 public class WeatherWidgetProvider extends ClockWidgetProvider {
 
     public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.WEATHER_WIDGET_TICK";
-    
+
     public WeatherWidgetProvider() {
         super(CLOCK_TICK_ACTION);
     }
-    
+
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
-        
+
         // enable weather update service
         AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarm.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(),
                 AlarmManager.INTERVAL_HOUR, createWeatherUpdateIntent(context));
     }
-    
+
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        
+
         // disable weather update service
         AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarm.cancel(createWeatherUpdateIntent(context));
     }
-    
+
     private PendingIntent createWeatherUpdateIntent(Context context) {
         Intent service = new Intent(context, UpdateWeatherService.class);
+        service.putExtra(UpdateWeatherService.BACKGROUND_UPDATE, true);
         return PendingIntent.getService(context, 0, service, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
@@ -74,7 +75,7 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.weather_widget);
         rv.setRemoteAdapter(appWidgetId, R.id.grid_view, intent);
         rv.setEmptyView(R.id.grid_view, R.id.empty_view);
-        
+
         Intent i = new Intent(context, WorldClockActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, i, 0);
         rv.setPendingIntentTemplate(R.id.grid_view, pendingIntent);
@@ -82,7 +83,7 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
 
         appWidgetManager.updateAppWidget(appWidgetId, rv);
     }
-    
+
     @Override
     protected void onClockTick(Context context) {
         Calendar cal = Calendar.getInstance();
