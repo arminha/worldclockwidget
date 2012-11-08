@@ -48,4 +48,6 @@
     <string name="use_custom_colors">Use custom colors</string>
     <string name="background">Background</string>
     <string name="foreground">Foreground</string>
+    <string name="change_background_color">Change background color and transparency</string>
+    <string name="change_foreground_color">Change foreground color</string>
 </resources>

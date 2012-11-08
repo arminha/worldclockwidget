@@ -32,12 +32,14 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:title="@string/background"
             android:key="@string/background_color_key"
+            android:summary="@string/change_background_color"
             android:defaultValue="@android:color/black"
             android:dependency="@string/use_custom_colors_key"
             alphaSlider="true" />
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:title="@string/foreground"
             android:key="@string/foreground_color_key"
+            android:summary="@string/change_foreground_color"
             android:defaultValue="@android:color/white"
             android:dependency="@string/use_custom_colors_key"
             alphaSlider="false" />
