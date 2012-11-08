@@ -50,4 +50,14 @@
     <string name="foreground">Foreground</string>
     <string name="change_background_color">Change background color and transparency</string>
     <string name="change_foreground_color">Change foreground color</string>
+    <string-array name="weather_purge_times">
+        <item name="2hours">2 hours</item>
+        <item name="4hours">4 hours</item>
+        <item name="6hours">6 hours</item>
+        <item name="12hours">12 hours</item>
+        <item name="24hours">24 hours</item>
+        <item name="never">Never</item>
+    </string-array>
+    <string name="weather_data_purge_time">Remove old data after</string>
+    <string name="weather_data_purge_time_summary">Time after which old weather data is removed</string>
 </resources>

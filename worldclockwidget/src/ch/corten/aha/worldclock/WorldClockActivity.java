@@ -281,7 +281,6 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             int updateInterval;
             if (immediately) {
                 updateInterval = 0;
-                service.putExtra(UpdateWeatherService.WEATHER_DATA_PURGE_AFTER, 300000);
             } else {
                 updateInterval = WEATHER_UPDATE_INTERVAL;
             }

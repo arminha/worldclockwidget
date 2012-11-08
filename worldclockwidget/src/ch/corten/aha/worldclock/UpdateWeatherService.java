@@ -47,7 +47,7 @@ public class UpdateWeatherService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         int purgeAfter = intent.getIntExtra(WEATHER_DATA_PURGE_AFTER,
-                DEFAULT_WEATHER_DATA_PURGE_AFTER);
+                getPurgeAfterPreference());
         int updateInterval = intent.getIntExtra(WEATHER_DATA_UPDATE_INTERVAL,
                 DEFAULT_WEATHER_DATA_UPDATE_INTERVAL);
         final long currentTime = System.currentTimeMillis();
@@ -55,9 +55,21 @@ public class UpdateWeatherService extends IntentService {
         // TODO check connectivity before update
         updateData(updateInterval, currentTime);
 
-        purgeOldData(purgeAfter, currentTime);
-        
+        if (purgeAfter >= 0) {
+            purgeOldData(purgeAfter, currentTime);
+        }
+
         sendWidgetRefresh();
+    }
+
+    private int getPurgeAfterPreference() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String purgeAfterString = prefs.getString(getString(R.string.weather_purge_time_key), null);
+        int purgeAfter = DEFAULT_WEATHER_DATA_PURGE_AFTER;
+        if (purgeAfterString != null) {
+            purgeAfter = Integer.parseInt(purgeAfterString);
+        }
+        return purgeAfter;
     }
 
     private int updateData(int updateInterval,long currentTime) {

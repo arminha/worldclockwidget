@@ -22,6 +22,13 @@
             android:entryValues="@array/weather_source_values"
             android:entries="@array/weather_sources"
             android:defaultValue="@string/default_weather_source"/>
+        <ListPreference
+            android:title="@string/weather_data_purge_time"
+            android:key="@string/weather_purge_time_key"
+            android:summary="@string/weather_data_purge_time_summary"
+            android:entries="@array/weather_purge_times"
+            android:entryValues="@array/weather_purge_time_values"
+            android:defaultValue="@string/default_weather_purge_time" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/widget">
