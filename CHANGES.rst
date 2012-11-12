@@ -1,4 +1,12 @@
 
+1.4.9:
+
+* Add option to disable automatic update of weather conditions.
+* Add option to keep old weather data.
+* Remove unnecessary widget updates to improve battery usage.
+* Display correct weather conditions in Macau, MO.
+* Bug fixes
+
 1.4.8:
 
 * Customizable widget colors (including transparent backgrounds).
