@@ -26,6 +26,7 @@ import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -139,5 +140,10 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
         for (int appWidgetID: ids) {
             updateAppWidget(context, appWidgetManager, appWidgetID);
         }
+    }
+
+    @Override
+    protected Class<? extends BroadcastReceiver> systemEventReceiver() {
+        return WorldClockWidgetSystemReceiver.class;
     }
 }

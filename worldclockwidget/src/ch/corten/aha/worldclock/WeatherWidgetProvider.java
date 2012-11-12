@@ -23,6 +23,7 @@ import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -94,5 +95,10 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         final AppWidgetManager mgr = AppWidgetManager.getInstance(context);
         final ComponentName cn = new ComponentName(context, WeatherWidgetProvider.class);
         mgr.notifyAppWidgetViewDataChanged(mgr.getAppWidgetIds(cn), R.id.grid_view);
+    }
+    
+    @Override
+    protected Class<? extends BroadcastReceiver> systemEventReceiver() {
+        return WeatherWidgetSystemReceiver.class;
     }
 }

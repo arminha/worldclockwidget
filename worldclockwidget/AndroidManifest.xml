@@ -54,6 +54,13 @@
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/world_clock_appwidget_info" />
         </receiver>
+        <receiver android:name=".WorldClockWidgetSystemReceiver"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".WeatherWidgetProvider"
             android:exported="true"
             android:label="@string/weather_widget_name"
@@ -75,6 +82,13 @@
 			</intent-filter>
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/weather_appwidget_info" />
+        </receiver>
+        <receiver android:name=".WeatherWidgetSystemReceiver"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
         </receiver>
         <service android:name=".WeatherWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS"
