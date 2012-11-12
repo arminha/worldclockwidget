@@ -24,6 +24,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.os.PowerManager;
 
 public abstract class ClockWidgetProvider extends AppWidgetProvider {
     
@@ -71,7 +72,10 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
         super.onReceive(context, intent);
         if (WIDGET_DATA_CHANGED_ACTION.equals(intent.getAction())
                 || mClockTickAction.equals(intent.getAction())) {
-            onClockTick(context);
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            if (pm.isScreenOn()) {
+                onClockTick(context);
+            }
         }
     }
     
