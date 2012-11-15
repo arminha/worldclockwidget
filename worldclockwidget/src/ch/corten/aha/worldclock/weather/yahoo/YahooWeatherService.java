@@ -122,7 +122,9 @@ public class YahooWeatherService implements WeatherService {
                 obs.setConditionCode((String) xPath.evaluate("item/yweather:condition/@code", item, XPathConstants.STRING));
                 obs.setTemperature((Double) xPath.evaluate("item/yweather:condition/@temp", item, XPathConstants.NUMBER));
                 obs.setWindSpeed((Double) xPath.evaluate("yweather:wind/@speed", item, XPathConstants.NUMBER));
-                obs.setWindDirection((Double) xPath.evaluate("yweather:wind/@direction", item, XPathConstants.NUMBER));
+                if (obs.getWindSpeed() > 0) {
+                    obs.setWindDirection((Double) xPath.evaluate("yweather:wind/@direction", item, XPathConstants.NUMBER));
+                }
                 obs.setHumidity((Double) xPath.evaluate("yweather:atmosphere/@humidity", item, XPathConstants.NUMBER));
                 return obs;
             } else {

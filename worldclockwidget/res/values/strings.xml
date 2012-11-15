@@ -29,6 +29,7 @@
     <string name="wind_speed_unit">Wind speed unit</string>
     <string name="humidity">Humidity</string>
     <string name="wind_format">Wind: {0} at {1}</string>
+    <string name="wind_format_no_direction">Wind: {1}</string>
     <string name="weather">Weather</string>
     <string name="activity_title">World Clock</string>
     <string name="clock_widget_name">World Clock</string>

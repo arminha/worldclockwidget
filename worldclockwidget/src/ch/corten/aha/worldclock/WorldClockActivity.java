@@ -394,7 +394,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 double windSpeed = cursor.getDouble(cursor.getColumnIndex(Clocks.WIND_SPEED));
                 String speed = BindHelper.getSpeed(mContext, windSpeed);
                 String windDirection = cursor.getString(cursor.getColumnIndex(Clocks.WIND_DIRECTION));
-                text = MessageFormat.format(mContext.getText(R.string.wind_format).toString(), windDirection, speed);
+                String format = mContext.getText(
+                        windDirection != null ? R.string.wind_format : R.string.wind_format_no_direction).toString();
+                text = MessageFormat.format(format, windDirection, speed);
             }
             BindHelper.setText(view, R.id.wind_text, text);
         }
