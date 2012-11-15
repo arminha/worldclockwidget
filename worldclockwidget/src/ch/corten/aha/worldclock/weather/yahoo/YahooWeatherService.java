@@ -26,7 +26,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Date;
 import java.util.Iterator;
 
 import javax.xml.XMLConstants;
@@ -43,6 +42,7 @@ import org.xml.sax.InputSource;
 import android.content.Context;
 import android.util.Log;
 import android.util.SparseIntArray;
+import ch.corten.aha.worldclock.weather.AbstractObservation;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
 
@@ -177,7 +177,7 @@ public class YahooWeatherService implements WeatherService {
         }
     }
 
-    private static class Observation implements WeatherObservation {
+    private static class Observation extends AbstractObservation {
         private static final SparseIntArray CONDITION_CODES;
         static {
             SparseIntArray map = new SparseIntArray();
@@ -233,25 +233,13 @@ public class YahooWeatherService implements WeatherService {
             CONDITION_CODES = map; 
         }
 
-        private Double mTemperature;
-        private Date mUpdateTime;
-        private String mCondition;
-        private int mConditionCode;
-        private Double mWindSpeed;
-        private String mWindDirection;
-        private Double mHumidity;
-
         public Observation() {
-            mUpdateTime = new Date();
-        }
-
-        public void setHumidity(Double humidity) {
-            mHumidity = humidity;
+            super();
         }
 
         public void setWindDirection(Double direction) {
+            String dir = null;
             if (direction != null) {
-                String dir;
                 if (direction < 22.5) {
                     dir = "N";
                 } else if (direction < 67.5) {
@@ -271,29 +259,12 @@ public class YahooWeatherService implements WeatherService {
                 } else {
                     dir = "N";
                 }
-                mWindDirection = dir;
-            } else {
-                mWindDirection = null;
             }
-        }
-
-        public void setWindSpeed(Double speed) {
-            mWindSpeed = speed;
+            setWindDirection(dir);
         }
 
         public Observation(String errorMsg) {
-            mUpdateTime = new Date();
-            mCondition = errorMsg;
-            mConditionCode = ERROR;
-        }
-
-        @Override
-        public Double getTemperature() {
-            return mTemperature;
-        }
-
-        public void setTemperature(double temperature) {
-            mTemperature = temperature;
+            super(errorMsg);
         }
 
         public void setConditionCode(String codeAsString) {
@@ -301,45 +272,11 @@ public class YahooWeatherService implements WeatherService {
                 int yahooCode = Integer.parseInt(codeAsString);
                 Integer code = CONDITION_CODES.get(yahooCode);
                 if (code != null) {
-                    mConditionCode = code;
+                    setConditionCode(code);
                 } else {
-                    mConditionCode = NA;
+                    setConditionCode(NA);
                 }
             }
-        }
-
-        public void setWeatherCondition(String condition) {
-            mCondition = condition;
-        }
-
-        @Override
-        public int getConditionCode() {
-            return mConditionCode;
-        }
-
-        @Override
-        public Double getHumidity() {
-            return mHumidity;
-        }
-
-        @Override
-        public Date getUpdateTime() {
-            return mUpdateTime;
-        }
-
-        @Override
-        public String getWeatherCondition() {
-            return mCondition;
-        }
-
-        @Override
-        public String getWindDirection() {
-            return mWindDirection;
-        }
-
-        @Override
-        public Double getWindSpeed() {
-            return mWindSpeed;
         }
     }
 
