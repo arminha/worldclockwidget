@@ -16,8 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.util.Calendar;
-
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 import android.app.AlarmManager;
@@ -87,9 +85,9 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
 
     @Override
     protected void onClockTick(Context context) {
-        Calendar cal = Calendar.getInstance();
         // update on the hour
-        if (cal.get(Calendar.MINUTE) == 0) {
+        final long minutes = System.currentTimeMillis() / (60000);
+        if (minutes % 60 == 0) {
             Clocks.updateOrder(context);
         }
         final AppWidgetManager mgr = AppWidgetManager.getInstance(context);
