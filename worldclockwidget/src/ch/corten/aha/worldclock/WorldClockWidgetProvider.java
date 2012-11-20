@@ -37,15 +37,19 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 public class WorldClockWidgetProvider extends ClockWidgetProvider {
-    
+
     public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.CLOCK_WIDGET_TICK";
-    
+
     public WorldClockWidgetProvider() {
         super(CLOCK_TICK_ACTION);
     }
-    
+
     @Override
     protected void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
+        updateAppWidgetStatic(context, appWidgetManager, appWidgetId);
+    }
+
+    private static void updateAppWidgetStatic(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
         // Create an Intent to launch WorldClockActivity
         Intent intent = new Intent(context, WorldClockActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
@@ -57,35 +61,35 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
 
         // update view
         updateViews(context, views);
-        
+
         // Tell the AppWidgetManager to perform an update on the current app widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
-    
+
     private static final String[] PROJECTION = {
         Clocks.TIMEZONE_ID,
         Clocks.CITY
     };
-    
+
     private static final int[] CITY_IDS = {
         R.id.city_text1,
         R.id.city_text2,
         R.id.city_text3,
         R.id.city_text4,
     };
-    
+
     private static final int[] TIME_IDS = {
         R.id.time_text1,
         R.id.time_text2,
         R.id.time_text3,
         R.id.time_text4,
     };
-    
+
     private static void updateViews(Context context, RemoteViews views) {
         Cursor cursor = context.getContentResolver().query(Clocks.CONTENT_URI,
                 PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
                 Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC");
-        
+
         try {
             int n = 0;
             DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
@@ -126,6 +130,11 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
 
     @Override
     protected void onClockTick(Context context) {
+        Intent service = new Intent(context, WorldClockWidgetService.class);
+        context.startService(service);
+    }
+
+    static void updateTime(Context context) {
         // update on the hour
         final long minutes = System.currentTimeMillis() / (60000);
         if (minutes % 60 == 0) {
@@ -133,11 +142,11 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
         }
         // Get the widget manager and ids for this widget provider, then call the shared
         // clock update method.
-        ComponentName thisAppWidget = new ComponentName(context.getPackageName(), getClass().getName());
+        ComponentName thisAppWidget = new ComponentName(context.getPackageName(), WorldClockWidgetProvider.class.getName());
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int ids[] = appWidgetManager.getAppWidgetIds(thisAppWidget);
         for (int appWidgetID: ids) {
-            updateAppWidget(context, appWidgetManager, appWidgetID);
+            updateAppWidgetStatic(context, appWidgetManager, appWidgetID);
         }
     }
 

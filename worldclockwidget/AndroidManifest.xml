@@ -54,6 +54,8 @@
 			<meta-data android:name="android.appwidget.provider"
                android:resource="@xml/world_clock_appwidget_info" />
         </receiver>
+        <service android:name=".WorldClockWidgetService"
+            android:exported="false" />
         <receiver android:name=".WorldClockWidgetSystemReceiver"
             android:exported="true"
             android:enabled="false">
