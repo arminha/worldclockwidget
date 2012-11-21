@@ -31,50 +31,53 @@ public class BindHelper {
         TextView textView = (TextView) view.findViewById(resource);
         textView.setText(cursor.getString(cursor.getColumnIndex(column)));
     }
-    
+
     public static void setText(View view, int resource, String text) {
         TextView textView = (TextView) view.findViewById(resource);
         textView.setText(text);
     }
-    
+
     public static final String CELSIUS = "C";
     public static final String FAHRENHEIT = "F";
-    
-    private static final String TEMP_FORMAT = "{0,number,#}°{1}";
-    private static final String TEMP_NA_FORMAT = "--°{1}";
-    
+
     public static void bindTemperature(Context context, View view, Cursor cursor, int resource) {
         TextView tempText = (TextView) view.findViewById(resource);
         tempText.setText(getTemperature(context, cursor, true));
     }
-    
+
     public static String getTemperature(Context context, Cursor cursor, boolean addUnit) {
         int index = cursor.getColumnIndex(Clocks.TEMPERATURE);
-        String format = cursor.isNull(index) ? TEMP_NA_FORMAT : TEMP_FORMAT;
-        double temperature = cursor.getDouble(index);
+        StringBuffer sb = new StringBuffer(5);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String unit = prefs.getString(context.getString(R.string.temp_unit_key), CELSIUS);
-        String unitString = addUnit ? unit : "";
-        String text;
-        if (unit.equals(CELSIUS)) {
-            text = MessageFormat.format(format, temperature, unitString);
-        } else if (unit.equals(FAHRENHEIT)) {
-            double fTemperature = Math.round(temperature * 9.0 / 5.0 + 32);
-            text = MessageFormat.format(format, fTemperature, unitString);
+        if (cursor.isNull(index)) {
+            sb.append("--");
         } else {
-            throw new RuntimeException("Invalid value: " + unit);
+            final double temperature = cursor.getDouble(index);
+            if (unit.equals(CELSIUS)) {
+                sb.append(temperature);
+            } else if (unit.equals(FAHRENHEIT)) {
+                final double fTemperature = Math.round(temperature * 9.0 / 5.0 + 32);
+                sb.append(fTemperature);
+            } else {
+                throw new RuntimeException("Invalid value: " + unit);
+            }
         }
-        return text;
+        sb.append('°');
+        if (addUnit) {
+            sb.append(unit);
+        }
+        return sb.toString();
     }
-    
+
     private static final String KMH = "kmh";
     private static final String MPH = "mph";
     private static final String MS = "ms";
-    
+
     private static final String KMH_FORMAT = "{0,number,#} km/h";
     private static final String MPH_FORMAT = "{0,number,#} mph";
     private static final String MS_FORMAT = "{0,number,#} m/s";
-    
+
     public static String getSpeed(Context context, double windSpeed) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String unit = prefs.getString(context.getString(R.string.wind_speed_unit_key), KMH);
