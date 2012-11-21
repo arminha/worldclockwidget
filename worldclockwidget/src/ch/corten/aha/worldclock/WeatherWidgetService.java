@@ -46,6 +46,7 @@ public class WeatherWidgetService extends RemoteViewsService {
     static class WeatherWidgetViewsFactory implements RemoteViewsFactory {
         private Context mContext;
         private Cursor mCursor;
+        private DateFormat mTimeFormat;
 
         public WeatherWidgetViewsFactory(Context context) {
             mContext = context;
@@ -76,6 +77,8 @@ public class WeatherWidgetService extends RemoteViewsService {
             mCursor = mContext.getContentResolver().query(Clocks.CONTENT_URI,
                     PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
                     Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC");
+
+            mTimeFormat = android.text.format.DateFormat.getTimeFormat(mContext);
         }
 
         @Override
@@ -106,10 +109,9 @@ public class WeatherWidgetService extends RemoteViewsService {
                 rv.setTextViewText(R.id.city_text, mCursor.getString(mCursor.getColumnIndex(Clocks.CITY)));
                 
                 String id = mCursor.getString(mCursor.getColumnIndex(Clocks.TIMEZONE_ID));
-                DateFormat df = android.text.format.DateFormat.getTimeFormat(mContext);
                 Date date = new Date();
                 TimeZone tz = TimeZone.getTimeZone(id);
-                rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, df, true));
+                rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
 
                 rv.setTextViewText(R.id.condition_text, mCursor
                         .getString(mCursor.getColumnIndex(Clocks.WEATHER_CONDITION)));
