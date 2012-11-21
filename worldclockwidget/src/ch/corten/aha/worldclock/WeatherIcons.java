@@ -98,7 +98,9 @@ public class WeatherIcons {
     
     private static final double RAD_TO_DEG = 180 / Math.PI;
     private static final double DEG_TO_RAD = Math.PI / 180;
-    
+
+    private static final Calendar UTC_CALENDAR = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+
     /**
      * Compute the current coordinates of the sun at the given point
      * and return weather it is night or day.
@@ -124,7 +126,7 @@ public class WeatherIcons {
         }
         final double deltaRad = Math.asin(Math.sin(epsilon * DEG_TO_RAD)
                 * Math.sin(Delta * DEG_TO_RAD));
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        Calendar cal = (Calendar) UTC_CALENDAR.clone();
         cal.setTimeInMillis(currentTimeMillis);
         cal.set(Calendar.HOUR_OF_DAY, 0);
         cal.set(Calendar.MINUTE, 0);
