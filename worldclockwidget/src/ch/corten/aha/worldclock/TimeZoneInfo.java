@@ -57,17 +57,16 @@ public class TimeZoneInfo {
         return tz.getDisplayName();
     }
 
-    private static final String WEEKDAY_FORMAT = "EEE";
+    private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE");
     
     public static String showTime(TimeZone tz, Date date, DateFormat df, boolean addWeekday) {
         df.setTimeZone(tz);
         String time = df.format(date);
         if (addWeekday) {
-            SimpleDateFormat dayFormat = new SimpleDateFormat(WEEKDAY_FORMAT);
-            SimpleDateFormat dayFormat2 = new SimpleDateFormat(WEEKDAY_FORMAT);
+            DateFormat dayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
             dayFormat.setTimeZone(tz);
             String day = dayFormat.format(date);
-            if (!day.equals(dayFormat2.format(date))) {
+            if (!day.equals(WEEKDAY_FORMAT.format(date))) {
                 time += " " + day;
             }
         }
