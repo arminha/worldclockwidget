@@ -79,17 +79,14 @@ def main():
                 ci.add_city(newrow)
     with open(output_file, 'wb') as w:
         writer = csv.writer(w, delimiter='\t')
-        i = 1;
         # sort countries by name
         for country in sorted(ci.countries.values(), key=lambda c:c['name']):
             locale.setlocale(locale.LC_ALL, '')
             # sort cities by name (1st column)
             for city in sorted(country['cities'], key=lambda c:locale.strxfrm(c[0])):
-                city.insert(0, i)
-                i = i + 1
                 writer.writerow(city)
         # add GMT
-        writer.writerow([i, 'GMT', 'UTC Zulu', '0', '0', 'Greenwich Mean Time', 'GMT'])
+        writer.writerow(['GMT', 'UTC Zulu', '0', '0', 'Greenwich Mean Time', 'GMT'])
 
 def select_row(ci, row):
     return int(row[POPULATION]) > 100000 or ci.is_capital(row)

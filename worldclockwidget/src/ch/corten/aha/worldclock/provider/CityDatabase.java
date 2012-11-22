@@ -95,18 +95,19 @@ class CityDatabase extends SQLiteOpenHelper {
             InputStream stream = am.open(CITY_DATA_CSV, AssetManager.ACCESS_STREAMING);
             BufferedReader in = new BufferedReader(new InputStreamReader(stream));
             String line = in.readLine();
+            long id = 1;
             while (line != null) {
                 // insert data set
                 ih.prepareForInsert();
                 
                 String[] rawValues = p.split(line, -1);
-                ih.bind(idColumn, Long.parseLong(rawValues[0]));
-                ih.bind(nameColumn, rawValues[1]);
-                ih.bind(asciiNameColumn, rawValues[2]);
-                ih.bind(latitudeColumn, Double.parseDouble(rawValues[3]));
-                ih.bind(longitudeColumn, Double.parseDouble(rawValues[4]));
-                ih.bind(countryColumn, rawValues[5]);
-                ih.bind(timezoneColumn,rawValues[6]);
+                ih.bind(idColumn, id++);
+                ih.bind(nameColumn, rawValues[0]);
+                ih.bind(asciiNameColumn, rawValues[1]);
+                ih.bind(latitudeColumn, Double.parseDouble(rawValues[2]));
+                ih.bind(longitudeColumn, Double.parseDouble(rawValues[3]));
+                ih.bind(countryColumn, rawValues[4]);
+                ih.bind(timezoneColumn,rawValues[5]);
                 ih.execute();
                 
                 // next data set
