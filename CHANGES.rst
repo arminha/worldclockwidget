@@ -1,4 +1,10 @@
 
+1.4.10:
+
+* Add MSN weather source and remove broken Google weather.
+* Update city database.
+* Performance and battery usage improvements.
+
 1.4.9:
 
 * Add option to disable automatic update of weather conditions.
