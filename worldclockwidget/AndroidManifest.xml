@@ -27,6 +27,9 @@
         <screen android:screenSize="xlarge" android:screenDensity="mdpi"/>
         <screen android:screenSize="xlarge" android:screenDensity="hdpi"/>
         <screen android:screenSize="xlarge" android:screenDensity="xhdpi"/>
+
+        <!-- Nexus 7 -->
+        <screen android:screenSize="large" android:screenDensity="213" />
     </compatible-screens>
 
     <application
