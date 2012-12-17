@@ -23,6 +23,9 @@ import android.util.AttributeSet;
 import android.widget.Checkable;
 import android.widget.FrameLayout;
 
+/**
+ * A frame to create checkable list items in Android Versions older than Honeycomb.
+ */
 public class CheckableFrameLayout extends FrameLayout implements Checkable {
     private boolean mChecked;
     
@@ -44,6 +47,7 @@ public class CheckableFrameLayout extends FrameLayout implements Checkable {
         return mChecked;
     }
     
+    @SuppressWarnings("deprecation")
     @Override
     public void setChecked(boolean checked) {
         mChecked = checked;
