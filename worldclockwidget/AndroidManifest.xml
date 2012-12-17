@@ -4,7 +4,7 @@
     android:versionCode="16"
     android:versionName="1.4.10">
 
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="15" />
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -83,6 +83,7 @@
         <provider
             android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
             android:authorities="ch.corten.aha.worldclock.provider"
+            android:exported="true"
             android:writePermission="ch.corten.aha.worldclock.permission.WRITE_APP_DATA" />
         <activity
             android:name=".WorldClockActivity"
