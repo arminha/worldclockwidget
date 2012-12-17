@@ -19,6 +19,7 @@ package ch.corten.aha.worldclock;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class TimeZoneInfo {
@@ -57,7 +58,7 @@ public class TimeZoneInfo {
         return tz.getDisplayName();
     }
 
-    private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE");
+    private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE", Locale.US);
     
     public static String showTime(TimeZone tz, Date date, DateFormat df, boolean addWeekday) {
         df.setTimeZone(tz);

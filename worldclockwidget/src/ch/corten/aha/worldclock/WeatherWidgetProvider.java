@@ -18,6 +18,7 @@ package ch.corten.aha.worldclock;
 
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
+import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -26,8 +27,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.widget.RemoteViews;
 
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class WeatherWidgetProvider extends ClockWidgetProvider {
 
     public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.WEATHER_WIDGET_TICK";

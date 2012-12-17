@@ -22,6 +22,7 @@ import java.util.TimeZone;
 
 import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,12 +33,14 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class WeatherWidgetService extends RemoteViewsService {
 
     @Override
