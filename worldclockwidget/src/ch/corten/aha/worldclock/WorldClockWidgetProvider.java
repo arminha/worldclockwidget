@@ -32,6 +32,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -97,17 +99,26 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
             while (cursor.moveToNext() && n < CITY_IDS.length) {
                 String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
                 String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
-                TimeZone tz = TimeZone.getTimeZone(id);
-                df.setTimeZone(tz);
                 views.setTextViewText(CITY_IDS[n], city);
-                views.setTextViewText(TIME_IDS[n], df.format(date));
+                if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+                    TimeZone tz = TimeZone.getTimeZone(id);
+                    df.setTimeZone(tz);
+                    views.setTextViewText(TIME_IDS[n], df.format(date));
+                } else {
+                    views.setViewVisibility(TIME_IDS[n], View.VISIBLE);
+                    RemoteViewUtil.setTextClockTimeZone(views, TIME_IDS[n], id);
+                }
                 n++;
             }
             int showEmptyText = (n == 0) ? View.VISIBLE : View.INVISIBLE;
             views.setViewVisibility(R.id.empty_text, showEmptyText);
             for (; n < CITY_IDS.length; n++) {
                 views.setTextViewText(CITY_IDS[n], "");
-                views.setTextViewText(TIME_IDS[n], "");
+                if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+                    views.setTextViewText(TIME_IDS[n], "");
+                } else {
+                    views.setViewVisibility(TIME_IDS[n], View.INVISIBLE);
+                }
             }
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean customColors = prefs.getBoolean(context.getString(R.string.use_custom_colors_key), false);

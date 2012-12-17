@@ -27,6 +27,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.PowerManager;
 
 public abstract class ClockWidgetProvider extends AppWidgetProvider {
@@ -52,35 +54,39 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
-        AlarmManager alarmManager = (AlarmManager) context
-                .getSystemService(Context.ALARM_SERVICE);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.MILLISECOND, 0);
-        calendar.add(Calendar.SECOND, 60);
-        calendar.set(Calendar.SECOND, 0);
-        alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
-                60000, createClockTickIntent(context));
-
-        Class<? extends BroadcastReceiver> receiver = systemEventReceiver();
-        if (receiver != null) {
-            PackageManager pm = context.getApplicationContext().getPackageManager();
-            ComponentName component = new ComponentName(context, receiver);
-            pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+            AlarmManager alarmManager = (AlarmManager) context
+                    .getSystemService(Context.ALARM_SERVICE);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.MILLISECOND, 0);
+            calendar.add(Calendar.SECOND, 60);
+            calendar.set(Calendar.SECOND, 0);
+            alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
+                    60000, createClockTickIntent(context));
+    
+            Class<? extends BroadcastReceiver> receiver = systemEventReceiver();
+            if (receiver != null) {
+                PackageManager pm = context.getApplicationContext().getPackageManager();
+                ComponentName component = new ComponentName(context, receiver);
+                pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+            }
         }
     }
 
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(createClockTickIntent(context));
-        
-        Class<? extends BroadcastReceiver> receiver = systemEventReceiver();
-        if (receiver != null) {
-            PackageManager pm = context.getApplicationContext().getPackageManager();
-            ComponentName component = new ComponentName(context, receiver);
-            pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.DONT_KILL_APP);
+        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+            AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+            alarmManager.cancel(createClockTickIntent(context));
+            
+            Class<? extends BroadcastReceiver> receiver = systemEventReceiver();
+            if (receiver != null) {
+                PackageManager pm = context.getApplicationContext().getPackageManager();
+                ComponentName component = new ComponentName(context, receiver);
+                pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.DONT_KILL_APP);
+            }
         }
     }
 
@@ -88,7 +94,7 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (WIDGET_DATA_CHANGED_ACTION.equals(intent.getAction())
-                || mClockTickAction.equals(intent.getAction())) {
+                || (mClockTickAction.equals(intent.getAction()) && VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1)) {
             PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
             if (pm.isScreenOn()) {
                 onClockTick(context);

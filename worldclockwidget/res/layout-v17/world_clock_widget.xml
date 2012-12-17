@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/widget_padding">
+
+    <FrameLayout
+        android:id="@+id/app_widget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/appwidget_dark_bg"
+        tools:ignore="Overdraw,UselessParent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/widget_padding_vertical"
+            android:paddingLeft="@dimen/widget_padding_horizontal"
+            android:paddingRight="@dimen/widget_padding_horizontal"
+            android:paddingTop="@dimen/widget_padding_vertical"
+            tools:ignore="UselessParent" >
+
+            <TextView
+                android:id="@+id/city_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/time_text1"
+                android:singleLine="true"
+                android:textColor="@android:color/white" />
+
+            <TextClock
+                android:id="@+id/time_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:format24Hour="kk:mm"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/city_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/city_text1"
+                android:layout_toLeftOf="@+id/time_text2"
+                android:singleLine="true"
+                android:textColor="@android:color/white" />
+
+            <TextClock
+                android:id="@+id/time_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/city_text2"
+                android:layout_alignBottom="@id/city_text2"
+                android:layout_alignParentRight="true"
+                android:format24Hour="kk:mm"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/city_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/city_text2"
+                android:layout_toLeftOf="@+id/time_text3"
+                android:singleLine="true"
+                android:textColor="@android:color/white" />
+
+            <TextClock
+                android:id="@+id/time_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/city_text3"
+                android:layout_alignBottom="@id/city_text3"
+                android:layout_alignParentRight="true"
+                android:format24Hour="kk:mm"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/city_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/city_text3"
+                android:layout_toLeftOf="@+id/time_text4"
+                android:singleLine="true"
+                android:textColor="@android:color/white" />
+
+            <TextClock
+                android:id="@+id/time_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/city_text4"
+                android:layout_alignBottom="@id/city_text4"
+                android:layout_alignParentRight="true"
+                android:format24Hour="kk:mm"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/add_city"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </FrameLayout>
+</FrameLayout>

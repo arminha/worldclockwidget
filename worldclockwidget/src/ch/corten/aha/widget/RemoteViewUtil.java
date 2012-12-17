@@ -10,4 +10,8 @@ public class RemoteViewUtil {
     public static void setBackground(RemoteViews rv, int viewId, int resource) {
         rv.setInt(viewId, "setBackgroundResource", resource);
     }
+
+    public static void setTextClockTimeZone(RemoteViews rv, int viewId, String timeZone) {
+        rv.setString(viewId, "setTimeZone", timeZone);
+    }
 }

@@ -32,6 +32,8 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -109,9 +111,13 @@ public class WeatherWidgetService extends RemoteViewsService {
                 rv.setTextViewText(R.id.city_text, mCursor.getString(mCursor.getColumnIndex(Clocks.CITY)));
                 
                 String id = mCursor.getString(mCursor.getColumnIndex(Clocks.TIMEZONE_ID));
-                Date date = new Date();
-                TimeZone tz = TimeZone.getTimeZone(id);
-                rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
+                if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+                    Date date = new Date();
+                    TimeZone tz = TimeZone.getTimeZone(id);
+                    rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
+                } else {
+                    RemoteViewUtil.setTextClockTimeZone(rv, R.id.time_text, id);
+                }
 
                 rv.setTextViewText(R.id.condition_text, mCursor
                         .getString(mCursor.getColumnIndex(Clocks.WEATHER_CONDITION)));
