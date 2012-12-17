@@ -96,7 +96,9 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
             int n = 0;
             DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
             Date date = new Date();
-            while (cursor.moveToNext() && n < CITY_IDS.length) {
+            final int maxEntries = context.getResources().getInteger(R.integer.worldclock_widget_max_entries);
+            while (cursor.moveToNext() && n < CITY_IDS.length
+                    && n < maxEntries) {
                 String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
                 String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
                 views.setTextViewText(CITY_IDS[n], city);

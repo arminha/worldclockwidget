@@ -8,5 +8,6 @@
     <dimen name="weather_grid_item_padding_horizontal">6dp</dimen>
     <dimen name="weather_grid_vertival_spacing">8dp</dimen>
     <dimen name="weather_grid_horizontal_spacing">10dp</dimen>
+    <integer name="worldclock_widget_max_entries">3</integer>
 
 </resources>
