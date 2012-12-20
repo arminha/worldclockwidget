@@ -1,4 +1,10 @@
 
+1.4.11:
+
+* The weather widget can be added to the lock screen on Android 4.2
+* Make app compatible with Nexus 7
+* Some bug fixes for tablets
+
 1.4.10:
 
 * Add MSN weather source and remove broken Google weather.
