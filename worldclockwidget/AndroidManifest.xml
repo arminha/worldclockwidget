@@ -121,6 +121,208 @@
         <activity
             android:name=".WorldClockPreferenceActivity"
             android:exported="false" />
+
+        <!-- compatibility weather widgets -->
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider2x1"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_2x1" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_2x1_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider2x2"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_2x2" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_2x2_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider2x3"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_2x3" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_2x3_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider2x4"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_2x4" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_2x4_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider4x1"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_4x1" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_4x1_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider4x2"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_4x2" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_4x2_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider4x3"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_4x3" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_4x3_info" />
+        </receiver>
+        <receiver
+            android:name=".compatibility.WeatherWidgetProvider4x4"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="true"
+            android:label="@string/weather_widget_name_4x4" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_4x4_info" />
+        </receiver>
     </application>
 
 </manifest>

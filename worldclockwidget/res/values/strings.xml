@@ -63,4 +63,12 @@
     <string name="weather_data_purge_time_summary">When old weather data is removed</string>
     <string name="disable_automatic_update">No automatic update</string>
     <string name="disable_automatic_update_of_weather_conditions">Disable automatic update of weather conditions</string>
+    <string name="weather_widget_name_2x1">World Clock &amp; Weather 2x1</string>
+    <string name="weather_widget_name_2x2">World Clock &amp; Weather 2x2</string>
+    <string name="weather_widget_name_2x3">World Clock &amp; Weather 2x3</string>
+    <string name="weather_widget_name_2x4">World Clock &amp; Weather 2x4</string>
+    <string name="weather_widget_name_4x1">World Clock &amp; Weather 4x1</string>
+    <string name="weather_widget_name_4x2">World Clock &amp; Weather 4x2</string>
+    <string name="weather_widget_name_4x3">World Clock &amp; Weather 4x3</string>
+    <string name="weather_widget_name_4x4">World Clock &amp; Weather 4x4</string>
 </resources>

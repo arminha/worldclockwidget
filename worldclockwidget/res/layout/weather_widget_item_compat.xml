@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/weather_grid_vertival_spacing"
+    android:background="@drawable/appwidget_dark_bg" >
+
+    <include layout="@layout/weather_widget_item_merge" />
+
+</FrameLayout>

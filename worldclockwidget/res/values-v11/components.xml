@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="enable_weather_widget">true</bool>
+    <bool name="enable_compat_widgets">false</bool>
 </resources>
