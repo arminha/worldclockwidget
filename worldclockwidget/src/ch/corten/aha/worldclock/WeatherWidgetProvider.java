@@ -19,10 +19,8 @@ package ch.corten.aha.worldclock;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 import android.annotation.TargetApi;
-import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -31,37 +29,10 @@ import android.os.Build;
 import android.widget.RemoteViews;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class WeatherWidgetProvider extends ClockWidgetProvider {
+public class WeatherWidgetProvider extends AbstractWeatherWidgetProvider {
 
-    public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.WEATHER_WIDGET_TICK";
-
-    public WeatherWidgetProvider() {
-        super(CLOCK_TICK_ACTION);
-    }
-
-    @Override
-    public void onEnabled(Context context) {
-        super.onEnabled(context);
-
-        // enable weather update service
-        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarm.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(),
-                AlarmManager.INTERVAL_HOUR, createWeatherUpdateIntent(context));
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-        super.onDisabled(context);
-
-        // disable weather update service
-        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarm.cancel(createWeatherUpdateIntent(context));
-    }
-
-    private PendingIntent createWeatherUpdateIntent(Context context) {
-        Intent service = new Intent(context, UpdateWeatherService.class);
-        service.putExtra(UpdateWeatherService.BACKGROUND_UPDATE, true);
-        return PendingIntent.getService(context, 0, service, PendingIntent.FLAG_UPDATE_CURRENT);
+    static {
+        registerWeatherWidget(WeatherWidgetProvider.class);
     }
 
     @Override
@@ -96,10 +67,5 @@ public class WeatherWidgetProvider extends ClockWidgetProvider {
         final AppWidgetManager mgr = AppWidgetManager.getInstance(context);
         final ComponentName cn = new ComponentName(context, WeatherWidgetProvider.class);
         mgr.notifyAppWidgetViewDataChanged(mgr.getAppWidgetIds(cn), R.id.grid_view);
-    }
-    
-    @Override
-    protected Class<? extends BroadcastReceiver> systemEventReceiver() {
-        return WeatherWidgetSystemReceiver.class;
     }
 }

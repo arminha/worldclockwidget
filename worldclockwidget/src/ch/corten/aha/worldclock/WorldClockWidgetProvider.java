@@ -25,7 +25,6 @@ import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -40,10 +39,8 @@ import android.widget.RemoteViews;
 
 public class WorldClockWidgetProvider extends ClockWidgetProvider {
 
-    public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.CLOCK_WIDGET_TICK";
-
-    public WorldClockWidgetProvider() {
-        super(CLOCK_TICK_ACTION);
+    static {
+        registerClockWidget(WorldClockWidgetProvider.class);
     }
 
     @Override
@@ -161,10 +158,5 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
         for (int appWidgetID: ids) {
             updateAppWidgetStatic(context, appWidgetManager, appWidgetID);
         }
-    }
-
-    @Override
-    protected Class<? extends BroadcastReceiver> systemEventReceiver() {
-        return WorldClockWidgetSystemReceiver.class;
     }
 }

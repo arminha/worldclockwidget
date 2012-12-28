@@ -2,95 +2,113 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ch.corten.aha.worldclock"
     android:versionCode="17"
-    android:versionName="1.4.11">
+    android:versionName="1.4.11" >
 
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <permission android:name="ch.corten.aha.worldclock.permission.WRITE_APP_DATA"
+    <permission
+        android:name="ch.corten.aha.worldclock.permission.WRITE_APP_DATA"
         android:protectionLevel="signature" />
 
     <application
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock"
-        android:allowBackup="true">
-        <receiver android:name=".WorldClockWidgetProvider"
+        android:theme="@style/Theme.Sherlock" >
+
+        <!-- clock widget -->
+        <receiver
+            android:name=".WorldClockWidgetProvider"
             android:exported="true"
-            android:label="@string/clock_widget_name">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="ch.corten.aha.worldclock.CLOCK_WIDGET_TICK"/>
-			</intent-filter>
-			<meta-data android:name="android.appwidget.provider"
-               android:resource="@xml/world_clock_appwidget_info" />
+            android:label="@string/clock_widget_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/world_clock_appwidget_info" />
         </receiver>
-        <service android:name=".WorldClockWidgetService"
+
+        <service
+            android:name=".WorldClockWidgetService"
             android:exported="false" />
-        <receiver android:name=".WorldClockWidgetSystemReceiver"
-            android:exported="true"
-            android:enabled="false">
+
+        <receiver
+            android:name=".ClockWidgetSystemReceiver"
+            android:enabled="false"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".WeatherWidgetProvider"
+
+        <!-- weather widget -->
+        <receiver
+            android:name=".WeatherWidgetProvider"
+            android:enabled="@bool/enable_weather_widget"
             android:exported="true"
-            android:label="@string/weather_widget_name"
-            android:enabled="@bool/enable_weather_widget">
+            android:label="@string/weather_widget_name" >
             <intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
-			</intent-filter>
-			<intent-filter>
-			    <action android:name="ch.corten.aha.worldclock.WEATHER_WIDGET_TICK"/>
-			</intent-filter>
-			<meta-data android:name="android.appwidget.provider"
-               android:resource="@xml/weather_appwidget_info" />
-        </receiver>
-        <receiver android:name=".WeatherWidgetSystemReceiver"
-            android:exported="true"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.WIDGET_DATA_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ch.corten.aha.worldclock.CLOCK_TICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget_info" />
         </receiver>
-        <service android:name=".WeatherWidgetService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"
+
+        <service
+            android:name=".WeatherWidgetService"
+            android:enabled="@bool/enable_weather_widget"
             android:exported="false"
-            android:enabled="@bool/enable_weather_widget" />
-        <service android:name=".UpdateWeatherService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <service
+            android:name=".UpdateWeatherService"
             android:exported="false" />
+
+        <!-- data provider -->
         <provider
             android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
             android:authorities="ch.corten.aha.worldclock.provider"
             android:exported="true"
             android:writePermission="ch.corten.aha.worldclock.permission.WRITE_APP_DATA" />
+
+        <!-- activities -->
         <activity
             android:name=".WorldClockActivity"
-            android:label="@string/activity_title">
+            android:label="@string/activity_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -100,7 +118,7 @@
         <activity
             android:name=".EditClockActivity"
             android:exported="false" />
-        <activity 
+        <activity
             android:name=".WorldClockPreferenceActivity"
             android:exported="false" />
     </application>

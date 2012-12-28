@@ -16,7 +16,9 @@
 
 package ch.corten.aha.worldclock;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -35,12 +37,14 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
 
     public static final String WIDGET_DATA_CHANGED_ACTION = "ch.corten.aha.worldclock.WIDGET_DATA_CHANGED";
 
-    private final String mClockTickAction;
+    public static final String CLOCK_TICK_ACTION = "ch.corten.aha.worldclock.CLOCK_TICK";
 
-    public ClockWidgetProvider(String clockTickAction) {
-        mClockTickAction = clockTickAction; 
+    private static final List<Class<? extends AppWidgetProvider>> WIDGET_PROVIDERS = new ArrayList<Class<? extends AppWidgetProvider>>();
+    
+    protected static void registerClockWidget(Class<? extends ClockWidgetProvider> provider) {
+        WIDGET_PROVIDERS.add(provider);
     }
-
+    
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
             int[] appWidgetIds) {
@@ -65,28 +69,24 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
             alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
                     60000, createClockTickIntent(context));
     
-            Class<? extends BroadcastReceiver> receiver = systemEventReceiver();
-            if (receiver != null) {
-                PackageManager pm = context.getApplicationContext().getPackageManager();
-                ComponentName component = new ComponentName(context, receiver);
-                pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-            }
+            Class<? extends BroadcastReceiver> receiver = ClockWidgetSystemReceiver.class;
+            PackageManager pm = context.getApplicationContext().getPackageManager();
+            ComponentName component = new ComponentName(context, receiver);
+            pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
         }
     }
 
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1 && !isAnyWidgetActive(context, WIDGET_PROVIDERS)) {
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             alarmManager.cancel(createClockTickIntent(context));
             
-            Class<? extends BroadcastReceiver> receiver = systemEventReceiver();
-            if (receiver != null) {
-                PackageManager pm = context.getApplicationContext().getPackageManager();
-                ComponentName component = new ComponentName(context, receiver);
-                pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.DONT_KILL_APP);
-            }
+            Class<? extends BroadcastReceiver> receiver = ClockWidgetSystemReceiver.class;
+            PackageManager pm = context.getApplicationContext().getPackageManager();
+            ComponentName component = new ComponentName(context, receiver);
+            pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.DONT_KILL_APP);
         }
     }
 
@@ -94,7 +94,7 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (WIDGET_DATA_CHANGED_ACTION.equals(intent.getAction())
-                || (mClockTickAction.equals(intent.getAction()) && VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1)) {
+                || (CLOCK_TICK_ACTION.equals(intent.getAction()) && VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1)) {
             PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
             if (pm.isScreenOn()) {
                 onClockTick(context);
@@ -106,17 +106,21 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
 
     protected abstract void onClockTick(Context context);
 
-    /**
-     * Returns a {@link BroadcastReceiver} that listens to system events for this widget.
-     * The receiver must be registered in the manifest file. It must be disabled by default.
-     * It will be enabled only if a widget is used.
-     * @return
-     */
-    protected abstract Class<? extends BroadcastReceiver> systemEventReceiver();
-
     private PendingIntent createClockTickIntent(Context context) {
-        Intent intent = new Intent(mClockTickAction);
+        Intent intent = new Intent(CLOCK_TICK_ACTION);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
         return pendingIntent;
+    }
+    
+    protected boolean isAnyWidgetActive(Context context, List<Class<? extends AppWidgetProvider>> classes) {
+        AppWidgetManager awm = AppWidgetManager.getInstance(context);
+        for (Class<? extends AppWidgetProvider> clazz : classes) {
+            ComponentName provider = new ComponentName(context, clazz);
+            int[] ids = awm.getAppWidgetIds(provider);
+            if (ids.length > 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }
