@@ -1,4 +1,9 @@
 
+1.5.0:
+* The weather widget is now available on Gingerbread devices.
+* Update city database
+* Bug fixes
+
 1.4.11:
 
 * The weather widget can be added to the lock screen on Android 4.2
