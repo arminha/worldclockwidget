@@ -128,14 +128,14 @@ GA	GAB	266	GB	Gabon	Libreville	267667	1545255	AF	.ga	XAF	Franc	241			fr-GA	24005
 GB	GBR	826	UK	United Kingdom	London	244820	62348447	EU	.uk	GBP	Pound	44	@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA	^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$	en-GB,cy-GB,gd	2635167	IE	
 GD	GRD	308	GJ	Grenada	St. George's	344	107818	NA	.gd	XCD	Dollar	+1-473			en-GD	3580239		
 GE	GEO	268	GG	Georgia	Tbilisi	69700	4630000	AS	.ge	GEL	Lari	995	####	^(\d{4})$	ka,ru,hy,az	614540	AM,AZ,TR,RU	
-GF	GUF	254	FG	French Guiana	Cayenne	91000	195506	SA	.gf	EUR	Euro	594	#####	^((97)|(98)3\d{2})$	fr-GF	3381670	SR,BR	
+GF	GUF	254	FG	French Guiana	Cayenne	91000	195506	SA	.gf	EUR	Euro	594	#####	^((97|98)3\d{2})$	fr-GF	3381670	SR,BR	
 GG	GGY	831	GK	Guernsey	St Peter Port	78	65228	EU	.gg	GBP	Pound	+44-1481	@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA	^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$	en,fr	3042362		
 GH	GHA	288	GH	Ghana	Accra	239460	24339838	AF	.gh	GHS	Cedi	233			en-GH,ak,ee,tw	2300660	CI,TG,BF	
 GI	GIB	292	GI	Gibraltar	Gibraltar	6.5	27884	EU	.gi	GIP	Pound	350			en-GI,es,it,pt	2411586	ES	
 GL	GRL	304	GL	Greenland	Nuuk	2166086	56375	NA	.gl	DKK	Krone	299	####	^(\d{4})$	kl,da-GL,en	3425505		
 GM	GMB	270	GA	Gambia	Banjul	11300	1593256	AF	.gm	GMD	Dalasi	220			en-GM,mnk,wof,wo,ff	2413451	SN	
 GN	GIN	324	GV	Guinea	Conakry	245857	10324025	AF	.gn	GNF	Franc	224			fr-GN	2420477	LR,SN,SL,CI,GW,ML	
-GP	GLP	312	GP	Guadeloupe	Basse-Terre	1780	443000	NA	.gp	EUR	Euro	590	#####	^((97)|(98)\d{3})$	fr-GP	3579143	AN	
+GP	GLP	312	GP	Guadeloupe	Basse-Terre	1780	443000	NA	.gp	EUR	Euro	590	#####	^((97|98)\d{3})$	fr-GP	3579143	AN	
 GQ	GNQ	226	EK	Equatorial Guinea	Malabo	28051	1014999	AF	.gq	XAF	Franc	240			es-GQ,fr	2309096	GA,CM	
 GR	GRC	300	GR	Greece	Athens	131940	11000000	EU	.gr	EUR	Euro	30	### ##	^(\d{5})$	el-GR,en,fr	390903	AL,MK,TR,BG	
 GS	SGS	239	SX	South Georgia and the South Sandwich Islands	Grytviken	3903	30	AN	.gs	GBP	Pound				en	3474415		
@@ -216,7 +216,7 @@ NF	NFK	574	NF	Norfolk Island	Kingston	34.6	1828	OC	.nf	AUD	Dollar	672			en-NF	21
 NG	NGA	566	NI	Nigeria	Abuja	923768	154000000	AF	.ng	NGN	Naira	234	######	^(\d{6})$	en-NG,ha,yo,ig,ff	2328926	TD,NE,BJ,CM	
 NI	NIC	558	NU	Nicaragua	Managua	129494	5995928	NA	.ni	NIO	Cordoba	505	###-###-#	^(\d{7})$	es-NI,en	3617476	CR,HN	
 NL	NLD	528	NL	Netherlands	Amsterdam	41526	16645000	EU	.nl	EUR	Euro	31	#### @@	^(\d{4}[A-Z]{2})$	nl-NL,fy-NL	2750405	DE,BE	
-NO	NOR	578	NO	Norway	Oslo	324220	4985870	EU	.no	NOK	Krone	47	####	^(\d{4})$	no,nb,nn,se,fi	3144096	FI,RU,SE	
+NO	NOR	578	NO	Norway	Oslo	324220	5009150	EU	.no	NOK	Krone	47	####	^(\d{4})$	no,nb,nn,se,fi	3144096	FI,RU,SE	
 NP	NPL	524	NP	Nepal	Kathmandu	140800	28951852	AS	.np	NPR	Rupee	977	#####	^(\d{5})$	ne,en	1282988	CN,IN	
 NR	NRU	520	NR	Nauru	Yaren	21	10065	OC	.nr	AUD	Dollar	674			na,en-NR	2110425		
 NU	NIU	570	NE	Niue	Alofi	260	2166	OC	.nu	NZD	Dollar	683			niu,en-NU	4036232		
@@ -224,7 +224,7 @@ NZ	NZL	554	NZ	New Zealand	Wellington	268680	4252277	OC	.nz	NZD	Dollar	64	####	^(
 OM	OMN	512	MU	Oman	Muscat	212460	2967717	AS	.om	OMR	Rial	968	###	^(\d{3})$	ar-OM,en,bal,ur	286963	SA,YE,AE	
 PA	PAN	591	PM	Panama	Panama City	78200	3410676	NA	.pa	PAB	Balboa	507			es-PA,en	3703430	CR,CO	
 PE	PER	604	PE	Peru	Lima	1285220	29907003	SA	.pe	PEN	Sol	51			es-PE,qu,ay	3932488	EC,CL,BO,BR,CO	
-PF	PYF	258	FP	French Polynesia	Papeete	4167	270485	OC	.pf	XPF	Franc	689	#####	^((97)|(98)7\d{2})$	fr-PF,ty	4030656		
+PF	PYF	258	FP	French Polynesia	Papeete	4167	270485	OC	.pf	XPF	Franc	689	#####	^((97|98)7\d{2})$	fr-PF,ty	4030656		
 PG	PNG	598	PP	Papua New Guinea	Port Moresby	462840	6064515	OC	.pg	PGK	Kina	675	###	^(\d{3})$	en-PG,ho,meu,tpi	2088628	ID	
 PH	PHL	608	RP	Philippines	Manila	300000	99900177	AS	.ph	PHP	Peso	63	####	^(\d{4})$	tl,en-PH,fil	1694008		
 PK	PAK	586	PK	Pakistan	Islamabad	803940	184404791	AS	.pk	PKR	Rupee	92	#####	^(\d{5})$	ur-PK,en-PK,pa,sd,ps,brh	1168579	CN,AF,IR,IN	
@@ -237,7 +237,7 @@ PT	PRT	620	PO	Portugal	Lisbon	92391	10676000	EU	.pt	EUR	Euro	351	####-###	^(\d{7
 PW	PLW	585	PS	Palau	Melekeok	458	19907	OC	.pw	USD	Dollar	680	96940	^(96940)$	pau,sov,en-PW,tox,ja,fil,zh	1559582		
 PY	PRY	600	PA	Paraguay	Asuncion	406750	6375830	SA	.py	PYG	Guarani	595	####	^(\d{4})$	es-PY,gn	3437598	BO,BR,AR	
 QA	QAT	634	QA	Qatar	Doha	11437	840926	AS	.qa	QAR	Rial	974			ar-QA,es	289688	SA	
-RE	REU	638	RE	Reunion	Saint-Denis	2517	776948	AF	.re	EUR	Euro	262	#####	^((97)|(98)(4|7|8)\d{2})$	fr-RE	935317		
+RE	REU	638	RE	Reunion	Saint-Denis	2517	776948	AF	.re	EUR	Euro	262	#####	^((97|98)(4|7|8)\d{2})$	fr-RE	935317		
 RO	ROU	642	RO	Romania	Bucharest	237500	21959278	EU	.ro	RON	Leu	40	######	^(\d{6})$	ro,hu,rom	798549	MD,HU,UA,CS,BG,RS	
 RS	SRB	688	RI	Serbia	Belgrade	88361	7344847	EU	.rs	RSD	Dinar	381	######	^(\d{6})$	sr,hu,bs,rom	6290252	AL,HU,MK,RO,HR,BA,BG,ME,XK	
 RU	RUS	643	RS	Russia	Moscow	1.71E+007	140702000	EU	.ru	RUB	Ruble	7	######	^(\d{6})$	ru,tt,xal,cau,ady,kv,ce,tyv,cv,udm,tut,mns,bua,myv,mdf,chm,ba,inh,tut,kbd,krc,ava,sah,nog	2017370	GE,CN,BY,UA,KZ,LV,PL,EE,LT,FI,MN,NO,AZ,KP	
@@ -282,7 +282,7 @@ TZ	TZA	834	TZ	Tanzania	Dodoma	945087	41892895	AF	.tz	TZS	Shilling	255			sw-TZ,en
 UA	UKR	804	UP	Ukraine	Kiev	603700	45415596	EU	.ua	UAH	Hryvnia	380	#####	^(\d{5})$	uk,ru-UA,rom,pl,hu	690791	PL,MD,HU,SK,BY,RO,RU	
 UG	UGA	800	UG	Uganda	Kampala	236040	33398682	AF	.ug	UGX	Shilling	256			en-UG,lg,sw,ar	226074	TZ,KE,SS,CD,RW	
 UM	UMI	581		United States Minor Outlying Islands		0	0	OC	.um	USD	Dollar 	1			en-UM	5854968		
-US	USA	840	US	United States	Washington	9629091	310232863	NA	.us	USD	Dollar	1	#####-####	^(\d{9})$	en-US,es-US,haw,fr	6252001	CA,MX,CU	
+US	USA	840	US	United States	Washington	9629091	310232863	NA	.us	USD	Dollar	1	#####-####	^\d{5}(-\d{4})?$	en-US,es-US,haw,fr	6252001	CA,MX,CU	
 UY	URY	858	UY	Uruguay	Montevideo	176220	3477000	SA	.uy	UYU	Peso	598	#####	^(\d{5})$	es-UY	3439705	BR,AR	
 UZ	UZB	860	UZ	Uzbekistan	Tashkent	447400	27865738	AS	.uz	UZS	Som	998	######	^(\d{6})$	uz,ru,tg	1512440	TM,AF,KG,TJ,KZ	
 VA	VAT	336	VT	Vatican	Vatican City	0.44	921	EU	.va	EUR	Euro	379			la,it,fr	3164670	IT	
