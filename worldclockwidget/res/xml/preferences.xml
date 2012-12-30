@@ -59,6 +59,13 @@
 
     <PreferenceCategory android:title="Attributions">
         <Preference
+            android:title="Special thanks to vyick"
+            android:summary="for beta testing and feature suggestions!" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://vyick.wordpress.com/" />
+        </Preference>
+        <Preference
             android:title="Yahoo! Weather"
             android:summary="Weather data is provided by Yahoo! Weather." />
         <Preference
