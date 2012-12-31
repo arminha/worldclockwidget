@@ -27,6 +27,10 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 public class TwoColumnWeatherWidgetProvider extends CompatWeatherWidgetProvider {
+    protected TwoColumnWeatherWidgetProvider(int size) {
+        super(size);
+    }
+
     @Override
     protected RemoteViews updateViews(Context context, PendingIntent pendingIntent) {
         int[] columns = new int[] { R.id.column_one, R.id.column_two };
@@ -48,9 +52,9 @@ public class TwoColumnWeatherWidgetProvider extends CompatWeatherWidgetProvider 
                     RemoteViews itemView = new RemoteViews(context.getPackageName(), R.layout.weather_widget_item_compat);
                     WeatherWidget.updateItemView(context, c, itemView, timeFormat);
                     itemView.setOnClickPendingIntent(R.id.widget_item, pendingIntent);
-                    rv.addView(columns[i], itemView);
-                    i = (i + 1) % columns.length;
-                } while (c.moveToNext());
+                    rv.addView(columns[i % columns.length], itemView);
+                    i++;
+                } while (c.moveToNext() && i < getSize());
             } else {
                 rv.setViewVisibility(R.id.empty_view, View.VISIBLE);
                 rv.setViewVisibility(R.id.grid_view, View.GONE);

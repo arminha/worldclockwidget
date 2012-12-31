@@ -22,4 +22,8 @@ public class WeatherWidgetProvider2x3 extends CompatWeatherWidgetProvider {
         registerWeatherWidget(WeatherWidgetProvider2x3.class);
     }
 
+    public WeatherWidgetProvider2x3() {
+        super(3);
+    }
+
 }

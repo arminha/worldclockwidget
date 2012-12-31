@@ -22,4 +22,8 @@ public class WeatherWidgetProvider4x1 extends TwoColumnWeatherWidgetProvider {
         registerWeatherWidget(WeatherWidgetProvider4x1.class);
     }
 
+    public WeatherWidgetProvider4x1() {
+        super(2);
+    }
+
 }

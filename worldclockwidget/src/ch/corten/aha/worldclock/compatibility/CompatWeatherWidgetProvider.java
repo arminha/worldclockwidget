@@ -33,6 +33,16 @@ import ch.corten.aha.worldclock.WorldClockActivity;
 
 public abstract class CompatWeatherWidgetProvider extends AbstractWeatherWidgetProvider {
 
+    private final int mSize;
+
+    protected CompatWeatherWidgetProvider(int size) {
+        mSize = size;
+    }
+
+    public int getSize() {
+        return mSize;
+    }
+
     @Override
     protected void onClockTick(Context context) {
         // Get the widget manager and ids for this widget provider, then call the shared
@@ -67,13 +77,15 @@ public abstract class CompatWeatherWidgetProvider extends AbstractWeatherWidgetP
                 // we have an item
                 rv.setViewVisibility(R.id.empty_view, View.GONE);
                 rv.setViewVisibility(R.id.column_one, View.VISIBLE);
+                int i = 0;
 
                 do {
                     RemoteViews itemView = new RemoteViews(context.getPackageName(), R.layout.weather_widget_item_compat);
                     WeatherWidget.updateItemView(context, c, itemView, timeFormat);
                     itemView.setOnClickPendingIntent(R.id.widget_item, pendingIntent);
                     rv.addView(R.id.column_one, itemView);
-                } while (c.moveToNext());
+                    i++;
+                } while (c.moveToNext() && i < mSize);
             } else {
                 rv.setViewVisibility(R.id.empty_view, View.VISIBLE);
                 rv.setViewVisibility(R.id.column_one, View.GONE);
