@@ -23,7 +23,7 @@ public class WeatherWidgetProvider2x2 extends CompatWeatherWidgetProvider {
     }
 
     public WeatherWidgetProvider2x2() {
-        super(2);
+        super(2, LAYOUT_ONE_COLUMN);
     }
 
 }

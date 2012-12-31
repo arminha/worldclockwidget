@@ -16,31 +16,23 @@
 
 package ch.corten.aha.worldclock.compatibility;
 
-import java.text.DateFormat;
-
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.view.View;
-import android.widget.RemoteViews;
 import ch.corten.aha.worldclock.AbstractWeatherWidgetProvider;
-import ch.corten.aha.worldclock.R;
-import ch.corten.aha.worldclock.WeatherWidget;
-import ch.corten.aha.worldclock.WorldClockActivity;
 
 public abstract class CompatWeatherWidgetProvider extends AbstractWeatherWidgetProvider {
 
     private final int mSize;
+    private final int mLayout;
 
-    protected CompatWeatherWidgetProvider(int size) {
+    public static final int LAYOUT_ONE_COLUMN = 1;
+    public static final int LAYOUT_TWO_COLUMNS = 2;
+
+    protected CompatWeatherWidgetProvider(int size, int layout) {
         mSize = size;
-    }
-
-    public int getSize() {
-        return mSize;
+        mLayout = layout;
     }
 
     @Override
@@ -57,42 +49,10 @@ public abstract class CompatWeatherWidgetProvider extends AbstractWeatherWidgetP
 
     @Override
     protected void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
-        // Create an Intent to launch WorldClockActivity
-        Intent intent = new Intent(context, WorldClockActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-
-        RemoteViews rv = updateViews(context, pendingIntent);
-
-        appWidgetManager.updateAppWidget(appWidgetId, rv);
-    }
-
-    protected RemoteViews updateViews(Context context, PendingIntent pendingIntent) {
-        RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.weather_widget_compat);
-        rv.removeAllViews(R.id.column_one);
-        rv.setOnClickPendingIntent(R.id.empty_view, pendingIntent);
-        Cursor c = WeatherWidget.getData(context);
-        try {
-            DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(context);
-            if (c.moveToNext()) {
-                // we have an item
-                rv.setViewVisibility(R.id.empty_view, View.GONE);
-                rv.setViewVisibility(R.id.column_one, View.VISIBLE);
-                int i = 0;
-
-                do {
-                    RemoteViews itemView = new RemoteViews(context.getPackageName(), R.layout.weather_widget_item_compat);
-                    WeatherWidget.updateItemView(context, c, itemView, timeFormat);
-                    itemView.setOnClickPendingIntent(R.id.widget_item, pendingIntent);
-                    rv.addView(R.id.column_one, itemView);
-                    i++;
-                } while (c.moveToNext() && i < mSize);
-            } else {
-                rv.setViewVisibility(R.id.empty_view, View.VISIBLE);
-                rv.setViewVisibility(R.id.column_one, View.GONE);
-            }
-        } finally {
-            c.close();
-        }
-        return rv;
+        Intent service = new Intent(context, CompatWeatherWidgetService.class);
+        service.putExtra(CompatWeatherWidgetService.APP_WIDGET_ID, appWidgetId);
+        service.putExtra(CompatWeatherWidgetService.LAYOUT, mLayout);
+        service.putExtra(CompatWeatherWidgetService.SIZE, mSize);
+        context.startService(service);
     }
 }

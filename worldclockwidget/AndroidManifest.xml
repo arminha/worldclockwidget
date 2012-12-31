@@ -323,6 +323,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/weather_appwidget_4x4_info" />
         </receiver>
+        <service
+            android:name=".compatibility.CompatWeatherWidgetService"
+            android:enabled="@bool/enable_compat_widgets"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -16,14 +16,14 @@
 
 package ch.corten.aha.worldclock.compatibility;
 
-public class WeatherWidgetProvider4x1 extends TwoColumnWeatherWidgetProvider {
+public class WeatherWidgetProvider4x1 extends CompatWeatherWidgetProvider {
 
     static {
         registerWeatherWidget(WeatherWidgetProvider4x1.class);
     }
 
     public WeatherWidgetProvider4x1() {
-        super(2);
+        super(2, LAYOUT_TWO_COLUMNS);
     }
 
 }
