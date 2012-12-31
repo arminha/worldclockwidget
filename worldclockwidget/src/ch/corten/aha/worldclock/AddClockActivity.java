@@ -16,7 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.lang.reflect.Method;
 import java.util.TimeZone;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -24,7 +23,8 @@ import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
+import com.actionbarsherlock.widget.SearchView;
+import com.actionbarsherlock.widget.SearchView.OnQueryTextListener;
 
 import ch.corten.aha.worldclock.provider.WorldClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Cities;
@@ -32,7 +32,6 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.LoaderManager;
@@ -40,14 +39,8 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.ResourceCursorAdapter;
-import android.support.v4.widget.SearchViewCompat;
-import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -57,7 +50,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.add_city);
-        
+
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
@@ -65,7 +58,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             fm.beginTransaction().add(android.R.id.content, listFragment).commit();
         }
     }
-    
+
     @Override
     public boolean onSearchRequested() {
         FragmentManager fm = getSupportFragmentManager();
@@ -74,12 +67,11 @@ public class AddClockActivity extends SherlockFragmentActivity {
         fragment.startSearch();
         return true;
     }
-    
+
     public static class TimeZoneListFragment extends SherlockListFragment implements
-            LoaderManager.LoaderCallbacks<Cursor> {
+    LoaderManager.LoaderCallbacks<Cursor> {
         private CursorAdapter mAdapter;
-        private View mSearchView;
-        private MenuItem mSearchItem;
+        private SearchView mSearchView;
         private String mCurFilter;
 
         private static final String[] CITY_PROJECTION = {
@@ -87,16 +79,16 @@ public class AddClockActivity extends SherlockFragmentActivity {
             Cities.NAME,
             Cities.COUNTRY,
             Cities.TIMEZONE_ID
-            };
-        
+        };
+
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             setHasOptionsMenu(true);
-            
+
             // use constructor available in gingerbread
             mAdapter = new ResourceCursorAdapter(getActivity(), R.layout.time_zone_item, null) {
-                
+
                 @Override
                 public void bindView(View view, Context context, Cursor cursor) {
                     BindHelper.bindText(view, cursor, R.id.city_text, Cities.NAME);
@@ -128,12 +120,12 @@ public class AddClockActivity extends SherlockFragmentActivity {
             return new CursorLoader(getActivity(), Cities.CONTENT_URI,
                     CITY_PROJECTION, selection, selectionArgs, null);
         }
-        
+
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {
             mAdapter.changeCursor(null);
         }
-        
+
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
             mAdapter.changeCursor(data);
@@ -144,80 +136,29 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 setListShownNoAnimation(true);
             }
         }
-        
-        private static boolean isHoneycomb() {
-            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
-        }
-        
+
         public void startSearch() {
-            if (isHoneycomb()) {
-                Class<? extends View> svClass = mSearchView.getClass();
-                try {
-                    Method method = svClass.getMethod("setIconified", boolean.class);
-                    method.invoke(mSearchView, false);
-                    mSearchView.requestFocus();
-                } catch (Exception e) {
-                    Log.e("AddClockActivity", e.getMessage(), e);
-                }
-            } else {
-                mSearchItem.expandActionView();
-            }
+            mSearchView.setIconified(false);
+            mSearchView.requestFocus();
         }
 
         @Override
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Place an action bar item for searching.
             inflater.inflate(R.menu.timezone_list, menu);
-            mSearchItem = menu.findItem(R.id.menu_search);
-            mSearchView = SearchViewCompat.newSearchView(getActivity());
-            if (mSearchView != null) {
-                mSearchItem.setActionView(mSearchView);
-                SearchViewCompat.setOnQueryTextListener(mSearchView, new OnQueryTextListenerCompat() {
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        return TimeZoneListFragment.this.onQueryTextChange(newText);
-                    }
-                    
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        return TimeZoneListFragment.this.onQueryTextSubmit(query);
-                    }
-                });
-            } else { // pre Honeycomb create our own search view
-                mSearchItem.setActionView(R.layout.collapsible_search_view);
-                mSearchView = mSearchItem.getActionView();
-                mSearchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-                final EditText editText = (EditText) mSearchView;
-                mSearchItem.setOnActionExpandListener(new OnActionExpandListener() {
-                    
-                    @Override
-                    public boolean onMenuItemActionExpand(MenuItem item) {
-                        return true;
-                    }
-                    
-                    @Override
-                    public boolean onMenuItemActionCollapse(MenuItem item) {
-                        editText.setText("");
-                        return true;
-                    }
-                });
-                editText.addTextChangedListener(new TextWatcher() {
-                    
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    }
-                    
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count,
-                            int after) {
-                    }
-                    
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        onQueryTextChange(s.toString());
-                    }
-                });
-            }
+            MenuItem searchItem = menu.findItem(R.id.menu_search);
+            mSearchView = (SearchView) searchItem.getActionView();
+            mSearchView.setOnQueryTextListener(new OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return TimeZoneListFragment.this.onQueryTextChange(newText);
+                }
+
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return TimeZoneListFragment.this.onQueryTextSubmit(query);
+                }
+            });
         }
 
         private static final String[] ADD_CITY_PROJECTION = {
@@ -227,7 +168,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             Cities.COUNTRY,
             Cities.TIMEZONE_ID
         };
-        
+
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
             super.onListItemClick(l, v, position, id);
