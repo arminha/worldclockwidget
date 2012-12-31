@@ -12,6 +12,26 @@
 
 # Add any project specific keep options here:
 
+-dontobfuscate
+-dontpreverify
+-verbose
+-optimizationpasses 5
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable
+
+-keep class android.support.v4.content.Loader
+-keep class android.support.v4.widget.CursorAdapter
+
+-keep class android.support.v4.app.** { *; }
+-keep interface android.support.v4.app.** { *; }
+-keep class com.actionbarsherlock.** { *; }
+-keep interface com.actionbarsherlock.** { *; }
+
+-keepattributes *Annotation*
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
