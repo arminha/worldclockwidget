@@ -10,7 +10,7 @@ Features
 * Show local time and weather conditions in more than 4000 places.
 * Add your own places: Add a place in the same time zone and change its name and coordinates.
 * A compact clock widget, displaying the local time in your favorite locations.
-* A resizable widget, showing the time and weather (not available for Gingerbread devices)
+* A resizable widget, showing the time and weather
 * Simple and clean UI
 
 Remarks
@@ -44,9 +44,18 @@ Using the Yahoo weather service requires an application id for the Yahoo PlaceFi
 
 Once you have an application id, write it into a file called ``./worldclockwidget/assets/yahooAppId``. The app will read the id from this file.
 
+Libraries
+---------
+
+The app uses and includes the following libraries:
+
+* `ActionBarSherlock <http://actionbarsherlock.com/>`_ (also on `GitHub <https://github.com/JakeWharton/ActionBarSherlock>`__)
+* `ColorPickerPreference <https://github.com/attenzione/android-ColorPickerPreference>`_
+
 Attributions
 ------------
 
+* Special thanks to `vyick <http://vyick.wordpress.com/>`_ for beta testing and feature suggestions!
 * Weather data is provided by `Yahoo! Weather <http://weather.yahoo.com/>`_.
 * The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
 * Time zone and geographical data is from `Geonames.org <http://www.geonames.org/>`_.
