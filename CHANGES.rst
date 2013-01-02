@@ -1,5 +1,6 @@
 
 1.5.0:
+
 * The weather widget is now available on Gingerbread devices.
 * Update city database
 * Bug fixes
