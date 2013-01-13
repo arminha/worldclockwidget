@@ -50,6 +50,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.add_city);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
@@ -159,6 +160,15 @@ public class AddClockActivity extends SherlockFragmentActivity {
                     return TimeZoneListFragment.this.onQueryTextSubmit(query);
                 }
             });
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            if (item.getItemId() == android.R.id.home) {
+                getActivity().finish();
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
         }
 
         private static final String[] ADD_CITY_PROJECTION = {
