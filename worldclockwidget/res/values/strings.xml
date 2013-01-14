@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">World Clock &amp; Weather</string>
     <string name="add_city">Add City</string>
+    <string name="world_clock_settings">World Clock Settings</string>
     <string name="no_clock_defined">Use the menu to add cities.</string>
 	<string name="n_selcted_format">{0} selected</string>
 	<string name="delete">Delete</string>
