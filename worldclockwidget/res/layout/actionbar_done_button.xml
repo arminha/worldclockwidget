@@ -1,5 +1,6 @@
 <!--
   Copyright 2012 Roman Nurik
+  Copyright 2013 Armin Häberling (adaption to ActionBarSherlock)
   
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -15,13 +16,13 @@
   -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="?android:actionButtonStyle"
+    style="@style/Widget.Sherlock.ActionButton"
     android:id="@+id/actionbar_done"
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1">
 
-    <TextView style="?android:actionBarTabTextStyle"
+    <TextView style="@style/Widget.Sherlock.ActionBar.TabText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
