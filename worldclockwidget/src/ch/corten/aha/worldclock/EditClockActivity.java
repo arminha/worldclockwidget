@@ -32,16 +32,41 @@ import android.widget.EditText;
 
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 public class EditClockActivity extends SherlockFragmentActivity {
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.edit_clock);
-        
+        ActionBar actionBar = getSupportActionBar();
+        LayoutInflater inflator = (LayoutInflater) actionBar
+                .getThemedContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View customActionBarView = inflator.inflate(R.layout.actionbar_custom_view_done_discard, null);
+        customActionBarView.findViewById(R.id.actionbar_discard)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+        customActionBarView.findViewById(R.id.actionbar_done)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getFragment().done();
+                    }
+                });
+
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
+                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE
+                        | ActionBar.DISPLAY_SHOW_HOME);
+        actionBar.setCustomView(customActionBarView, new ActionBar.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
@@ -49,20 +74,12 @@ public class EditClockActivity extends SherlockFragmentActivity {
             fm.beginTransaction().add(android.R.id.content, fragment).commit();
         }
     }
-    
+
     private EditClockFragment getFragment() {
         FragmentManager fm = getSupportFragmentManager();
         return (EditClockFragment) fm.findFragmentById(android.R.id.content);
     }
-    
-    public void ok(View view) {
-        getFragment().ok(view);
-    }
-    
-    public void cancel(View view) {
-        getFragment().cancel(view);
-    }
-    
+
     public static class EditClockFragment extends SherlockFragment {
         private static final String[] PROJECTION = {
             Clocks.CITY,
@@ -77,7 +94,7 @@ public class EditClockActivity extends SherlockFragmentActivity {
         private EditText mLatitudeText;
         private EditText mLongitudeText;
         private CheckBox mUseInWidgetCheckBox;
-        
+
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
@@ -90,7 +107,7 @@ public class EditClockActivity extends SherlockFragmentActivity {
             Cursor c = getActivity().getContentResolver().query(uri, PROJECTION, null, null, null);
             try {
                 c.moveToFirst();
-                
+
                 mCityText = (EditText) getView().findViewById(R.id.city_edittext);
                 mCityText.setText(c.getString(c.getColumnIndex(Clocks.CITY)));
                 mDescText = (EditText) getView().findViewById(R.id.description_edittext);
@@ -105,19 +122,19 @@ public class EditClockActivity extends SherlockFragmentActivity {
                 c.close();
             }
         }
-        
+
         @Override
         public void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             outState.putLong(Clocks._ID, mId);
         }
-        
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             return inflater.inflate(R.layout.edit_clock, null);
         }
-        
+
         private static double parseNumber(Editable editable) {
             try {
                 return Double.parseDouble(editable.toString().trim());
@@ -126,20 +143,16 @@ public class EditClockActivity extends SherlockFragmentActivity {
                 return 0.0;
             }
         }
-        
+
         private static String printNumber(double d) {
             return Double.toString(d);
         }
-        
-        public void cancel(View view) {
-            getActivity().finish();
-        }
-        
-        public void ok(View view) {
+
+        public void done() {
             saveChanges();
             getActivity().finish();
         }
-        
+
         private void saveChanges() {
             Uri uri = ContentUris.withAppendedId(Clocks.CONTENT_URI, mId);
             ContentValues values = new ContentValues();

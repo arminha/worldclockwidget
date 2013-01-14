@@ -11,6 +11,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:textAllCaps="true"
 	        android:text="@string/city" />
 
 	    <EditText
@@ -18,14 +19,17 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="textCapWords"
-	        android:imeOptions="flagNoExtractUi">
+	        android:hint="@string/city"
+	        android:imeOptions="flagNoExtractUi"
+	        android:inputType="textCapWords" >
+
 	        <requestFocus />
 	    </EditText>
 
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:textAllCaps="true"
 	        android:text="@string/description" />
 
 	    <EditText
@@ -33,12 +37,14 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="textCapWords"
-	        android:imeOptions="flagNoExtractUi" />
+	        android:hint="@string/description"
+	        android:imeOptions="flagNoExtractUi"
+	        android:inputType="textCapWords" />
 
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:textAllCaps="true"
 	        android:text="@string/latitude" />
 
 	    <EditText
@@ -46,12 +52,14 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="numberSigned|numberDecimal"
-	        android:imeOptions="flagNoExtractUi" />
+	        android:hint="@string/latitude"
+	        android:imeOptions="flagNoExtractUi"
+	        android:inputType="numberSigned|numberDecimal" />
 
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:textAllCaps="true"
 	        android:text="@string/longitude" />
 
 	    <EditText
@@ -59,36 +67,17 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:inputType="numberSigned|numberDecimal"
-	        android:imeOptions="flagNoExtractUi" />
+	        android:hint="@string/longitude"
+	        android:imeOptions="flagNoExtractUi"
+	        android:inputType="numberSigned|numberDecimal" />
 
 	    <CheckBox
 	        android:id="@+id/use_in_widget_checkbox"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/display_in_widget" />
-
-	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" >
-
-	        <Button
-	            android:id="@+id/cancel_button"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_weight="1"
-	            android:text="@android:string/cancel"
-	            android:onClick="cancel" />
-
-	        <Button
-	            android:id="@+id/ok_button"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_weight="1"
-	            android:text="@android:string/ok"
-	            android:onClick="ok" />
-
-	    </LinearLayout>
+	        android:text="@string/display_in_widget"
+	        android:textAllCaps="true"
+	        android:textColor="?android:attr/textColorSecondary" />
 
 	</LinearLayout>
 

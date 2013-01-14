@@ -14,7 +14,6 @@
 	<string name="longitude">Longitude</string>
 	<string name="display_in_widget">Display in widget</string>
 	<string name="description">Description</string>
-	<string name="edit_clock">Edit Clock</string>
 	<string name="refresh">Refresh</string>
     <string-array name="speed_units">
         <item name="kmh">km/h</item>
@@ -72,4 +71,6 @@
     <string name="weather_widget_name_4x2">World Clock &amp; Weather 4x2</string>
     <string name="weather_widget_name_4x3">World Clock &amp; Weather 4x3</string>
     <string name="weather_widget_name_4x4">World Clock &amp; Weather 4x4</string>
+    <string name="done">Done</string>
+    <string name="discard">Discard</string>
 </resources>
