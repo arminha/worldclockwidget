@@ -16,6 +16,8 @@
 
 package ch.corten.aha.worldclock;
 
+import java.util.TimeZone;
+
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -30,6 +32,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
@@ -89,7 +92,8 @@ public class EditClockActivity extends SherlockFragmentActivity {
             Clocks.AREA,
             Clocks.LATITUDE,
             Clocks.LONGITUDE,
-            Clocks.USE_IN_WIDGET
+            Clocks.USE_IN_WIDGET,
+            Clocks.TIMEZONE_ID
         };
         private long mId;
         private EditText mCityText;
@@ -111,16 +115,21 @@ public class EditClockActivity extends SherlockFragmentActivity {
             try {
                 c.moveToFirst();
 
-                mCityText = (EditText) getView().findViewById(R.id.city_edittext);
+                View view = getView();
+                mCityText = (EditText) view.findViewById(R.id.city_edittext);
                 mCityText.setText(c.getString(c.getColumnIndex(Clocks.CITY)));
-                mDescText = (EditText) getView().findViewById(R.id.description_edittext);
+                mDescText = (EditText) view.findViewById(R.id.description_edittext);
                 mDescText.setText(c.getString(c.getColumnIndex(Clocks.AREA)));
-                mLatitudeText = (EditText) getView().findViewById(R.id.latitude_edittext);
+                mLatitudeText = (EditText) view.findViewById(R.id.latitude_edittext);
                 mLatitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LATITUDE))));
-                mLongitudeText = (EditText) getView().findViewById(R.id.longitude_edittext);
+                mLongitudeText = (EditText) view.findViewById(R.id.longitude_edittext);
                 mLongitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LONGITUDE))));
-                mUseInWidgetCheckBox = (CheckBox) getView().findViewById(R.id.use_in_widget_checkbox);
+                mUseInWidgetCheckBox = (CheckBox) view.findViewById(R.id.use_in_widget_checkbox);
                 mUseInWidgetCheckBox.setChecked(c.getInt(c.getColumnIndex(Clocks.USE_IN_WIDGET)) != 0);
+                String id = c.getString(c.getColumnIndex(Clocks.TIMEZONE_ID));
+                TimeZone tz = TimeZone.getTimeZone(id);
+                ((TextView) view.findViewById(R.id.time_zone_name)).setText(TimeZoneInfo.getDescription(tz));
+                ((TextView) view.findViewById(R.id.time_zone_details)).setText(TimeZoneInfo.getTimeDifferenceString(tz));
 
                 if (SANS_ICE_CREAM) {
                     // capitalize text of the checkbox - pre ics does not support textAllCaps.
