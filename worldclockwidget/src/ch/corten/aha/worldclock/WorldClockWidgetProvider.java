@@ -31,13 +31,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
 
 public class WorldClockWidgetProvider extends ClockWidgetProvider {
+    private static final boolean SANS_JELLY_BEAN_MR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1;
 
     static {
         registerClockWidget(WorldClockWidgetProvider.class);
@@ -99,7 +99,7 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
                 String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
                 String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
                 views.setTextViewText(CITY_IDS[n], city);
-                if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+                if (SANS_JELLY_BEAN_MR1) {
                     TimeZone tz = TimeZone.getTimeZone(id);
                     df.setTimeZone(tz);
                     views.setTextViewText(TIME_IDS[n], df.format(date));
@@ -113,7 +113,7 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
             views.setViewVisibility(R.id.empty_text, showEmptyText);
             for (; n < CITY_IDS.length; n++) {
                 views.setTextViewText(CITY_IDS[n], "");
-                if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+                if (SANS_JELLY_BEAN_MR1) {
                     views.setTextViewText(TIME_IDS[n], "");
                 } else {
                     views.setViewVisibility(TIME_IDS[n], View.INVISIBLE);

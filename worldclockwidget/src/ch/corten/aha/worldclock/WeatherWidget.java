@@ -29,14 +29,15 @@ import android.graphics.Color;
 import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 public class WeatherWidget {
+    private static final boolean SANS_JELLY_BEAN_MR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1;
+
     private static final String[] PROJECTION = {
         Clocks._ID,
         Clocks.TIMEZONE_ID,
@@ -47,7 +48,7 @@ public class WeatherWidget {
         Clocks.LATITUDE,
         Clocks.LONGITUDE
     };
-    
+
     public static Cursor getData(Context context) {
         return context.getContentResolver().query(Clocks.CONTENT_URI,
                 PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
@@ -59,9 +60,9 @@ public class WeatherWidget {
         boolean customColors = prefs.getBoolean(context.getString(R.string.use_custom_colors_key), false);
 
         rv.setTextViewText(R.id.city_text, cursor.getString(cursor.getColumnIndex(Clocks.CITY)));
-        
+
         String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
-        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+        if (SANS_JELLY_BEAN_MR1) {
             Date date = new Date();
             TimeZone tz = TimeZone.getTimeZone(id);
             rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
@@ -71,7 +72,7 @@ public class WeatherWidget {
 
         rv.setTextViewText(R.id.condition_text, cursor
                 .getString(cursor.getColumnIndex(Clocks.WEATHER_CONDITION)));
-        
+
         String temperature = BindHelper.getTemperature(context, cursor, false);
         rv.setTextViewText(R.id.temp_text, temperature);
 

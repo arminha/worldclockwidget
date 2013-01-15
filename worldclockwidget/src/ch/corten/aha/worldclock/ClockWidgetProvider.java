@@ -29,11 +29,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
+import android.os.Build;
 import android.os.PowerManager;
 
 public abstract class ClockWidgetProvider extends AppWidgetProvider {
+    private static final boolean SANS_JELLY_BEAN_MR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1;
 
     public static final String WIDGET_DATA_CHANGED_ACTION = "ch.corten.aha.worldclock.WIDGET_DATA_CHANGED";
 
@@ -58,7 +58,7 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
-        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1) {
+        if (SANS_JELLY_BEAN_MR1) {
             AlarmManager alarmManager = (AlarmManager) context
                     .getSystemService(Context.ALARM_SERVICE);
             Calendar calendar = Calendar.getInstance();
@@ -79,7 +79,7 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        if (VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1 && !isAnyWidgetActive(context, WIDGET_PROVIDERS)) {
+        if (SANS_JELLY_BEAN_MR1 && !isAnyWidgetActive(context, WIDGET_PROVIDERS)) {
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             alarmManager.cancel(createClockTickIntent(context));
             
@@ -94,7 +94,7 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (WIDGET_DATA_CHANGED_ACTION.equals(intent.getAction())
-                || (CLOCK_TICK_ACTION.equals(intent.getAction()) && VERSION.SDK_INT < VERSION_CODES.JELLY_BEAN_MR1)) {
+                || (SANS_JELLY_BEAN_MR1 && CLOCK_TICK_ACTION.equals(intent.getAction()))) {
             PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
             if (pm.isScreenOn()) {
                 onClockTick(context);
