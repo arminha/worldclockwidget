@@ -23,7 +23,8 @@
 	        android:ems="10"
 	        android:hint="@string/city"
 	        android:imeOptions="flagNoExtractUi"
-	        android:inputType="textCapWords" >
+	        android:inputType="textCapWords"
+	        style="@style/EditTextHoloCompat" >
 
 	        <requestFocus />
 	    </EditText>
@@ -43,7 +44,8 @@
 	        android:ems="10"
 	        android:hint="@string/description"
 	        android:imeOptions="flagNoExtractUi"
-	        android:inputType="textCapWords" />
+	        android:inputType="textCapWords"
+	        style="@style/EditTextHoloCompat" />
 
 	    <ch.corten.aha.widget.CapitalizingTextView
 	        android:layout_width="wrap_content"
@@ -60,7 +62,8 @@
 	        android:ems="10"
 	        android:hint="@string/latitude"
 	        android:imeOptions="flagNoExtractUi"
-	        android:inputType="numberSigned|numberDecimal" />
+	        android:inputType="numberSigned|numberDecimal"
+	        style="@style/EditTextHoloCompat" />
 
 	    <ch.corten.aha.widget.CapitalizingTextView
 	        android:layout_width="wrap_content"
@@ -77,7 +80,8 @@
 	        android:ems="10"
 	        android:hint="@string/longitude"
 	        android:imeOptions="flagNoExtractUi"
-	        android:inputType="numberSigned|numberDecimal" />
+	        android:inputType="numberSigned|numberDecimal"
+	        style="@style/EditTextHoloCompat" />
 
 	    <CheckBox
 	        android:id="@+id/use_in_widget_checkbox"
@@ -86,7 +90,8 @@
 	        android:layout_marginTop="8dp"
 	        android:text="@string/display_in_widget"
 	        android:textAllCaps="true"
-	        android:textColor="?android:attr/textColorSecondary" />
+	        android:textColor="?android:attr/textColorSecondary"
+	        style="@style/CheckBoxHoloCompat" />
 
 	    <ch.corten.aha.widget.CapitalizingTextView
 	        android:layout_width="wrap_content"
