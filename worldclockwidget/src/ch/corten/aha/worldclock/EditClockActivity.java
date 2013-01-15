@@ -20,6 +20,7 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
@@ -81,6 +82,8 @@ public class EditClockActivity extends SherlockFragmentActivity {
     }
 
     public static class EditClockFragment extends SherlockFragment {
+        private static final boolean SANS_ICE_CREAM = Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+
         private static final String[] PROJECTION = {
             Clocks.CITY,
             Clocks.AREA,
@@ -118,6 +121,11 @@ public class EditClockActivity extends SherlockFragmentActivity {
                 mLongitudeText.setText(printNumber(c.getDouble(c.getColumnIndex(Clocks.LONGITUDE))));
                 mUseInWidgetCheckBox = (CheckBox) getView().findViewById(R.id.use_in_widget_checkbox);
                 mUseInWidgetCheckBox.setChecked(c.getInt(c.getColumnIndex(Clocks.USE_IN_WIDGET)) != 0);
+
+                if (SANS_ICE_CREAM) {
+                    // capitalize text of the checkbox - pre ics does not support textAllCaps.
+                    mUseInWidgetCheckBox.setText(mUseInWidgetCheckBox.getText().toString().toUpperCase());
+                }
             } finally {
                 c.close();
             }
