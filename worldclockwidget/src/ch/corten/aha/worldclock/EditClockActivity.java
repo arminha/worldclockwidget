@@ -21,6 +21,7 @@ import java.util.TimeZone;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -135,6 +136,9 @@ public class EditClockActivity extends SherlockFragmentActivity {
                     // capitalize text of the checkbox - pre ics does not support textAllCaps.
                     mUseInWidgetCheckBox.setText(mUseInWidgetCheckBox.getText().toString().toUpperCase());
                 }
+            } catch (CursorIndexOutOfBoundsException e) {
+                // item is not in the database any more
+                this.getActivity().finish();
             } finally {
                 c.close();
             }
