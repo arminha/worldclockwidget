@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-	<item android:id="@+id/menu_edit"
-	    android:title="@string/edit"
-	    android:icon="@drawable/ic_menu_edit"
-	    android:showAsAction="ifRoom|withText" />
-	<item android:id="@+id/menu_delete"
-	    android:title="@string/delete"
+
+    <item
+        android:id="@+id/menu_up"
+        android:icon="@drawable/ic_cab_up"
+        android:menuCategory="secondary"
+        android:showAsAction="ifRoom"
+        android:title="Move Up"/>
+    <item
+        android:id="@+id/menu_down"
+        android:icon="@drawable/ic_cab_down"
+        android:menuCategory="secondary"
+        android:showAsAction="ifRoom"
+        android:title="Move Down"/>
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@drawable/ic_menu_edit"
+        android:showAsAction="ifRoom"
+        android:title="@string/edit"/>
+    <item
+        android:id="@+id/menu_delete"
         android:icon="@drawable/ic_menu_delete"
-        android:showAsAction="ifRoom|withText" />
+        android:showAsAction="always"
+        android:title="@string/delete"/>
+
 </menu>

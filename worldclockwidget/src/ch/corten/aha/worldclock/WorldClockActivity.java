@@ -196,11 +196,26 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 MenuItem editItem = menu.findItem(R.id.menu_edit);
+                MenuItem upItem = menu.findItem(R.id.menu_up);
+                MenuItem downItem = menu.findItem(R.id.menu_down);
                 boolean oneSelected = getListView().getCheckedItemIds().length == 1;
-                if (editItem.isVisible() == oneSelected) {
+                // TODO read setting
+                boolean reorderEnabled = oneSelected && getListView().getCount() > 1;
+                boolean changed = setVisible(editItem, oneSelected);
+                changed = changed || setVisible(upItem, reorderEnabled);
+                changed = changed || setVisible(downItem, reorderEnabled);
+                if (changed) {
+                    // fixes entries in the overflow menu
+                    mode.invalidate();
+                }
+                return changed;
+            }
+
+            private boolean setVisible(MenuItem item, boolean visible) {
+                if (item.isVisible() == visible) {
                     return false;
                 } else {
-                    editItem.setVisible(oneSelected);
+                    item.setVisible(visible);
                     return true;
                 }
             }
@@ -216,6 +231,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                     editClock();
                     mode.finish();
                     return true;
+                case R.id.menu_up:
+                case R.id.menu_down:
+                    // TODO move item
                 default:
                     return false;
                 }
