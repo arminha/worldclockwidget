@@ -73,4 +73,7 @@
     <string name="weather_widget_name_4x4">World Clock &amp; Weather 4x4</string>
     <string name="done">Done</string>
     <string name="discard">Discard</string>
+    <string name="general">General</string>
+    <string name="automatically_sort_cities">Automatically sort cities</string>
+    <string name="disable_to_sort_cities_manually">Disable to sort cities manually</string>
 </resources>

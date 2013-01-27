@@ -75,6 +75,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         private CursorAdapter mAdapter;
         private ActionMode mMode;
         private OnSharedPreferenceChangeListener mSpChange;
+        private boolean mAutoSortClocks;
 
         private static final String[] CLOCKS_PROJECTION = {
             Clocks._ID,
@@ -127,11 +128,13 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         private void registerPreferenceChanged() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             final Context context = getActivity();
+            mAutoSortClocks = prefs.getBoolean(context.getString(R.string.auto_sort_clocks_key), true);
             mSpChange = new OnSharedPreferenceChangeListener() {
                 
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                         String key) {
+                    mAutoSortClocks = sharedPreferences.getBoolean(context.getString(R.string.auto_sort_clocks_key), true);
                     getLoaderManager().restartLoader(0, null, ClockListFragment.this);
                     sendWidgetRefresh(context);
                 }
@@ -199,8 +202,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 MenuItem upItem = menu.findItem(R.id.menu_up);
                 MenuItem downItem = menu.findItem(R.id.menu_down);
                 boolean oneSelected = getListView().getCheckedItemIds().length == 1;
-                // TODO read setting
-                boolean reorderEnabled = oneSelected && getListView().getCount() > 1;
+                boolean reorderEnabled = !mAutoSortClocks && oneSelected && getListView().getCount() > 1;
                 boolean changed = setVisible(editItem, oneSelected);
                 changed = changed || setVisible(upItem, reorderEnabled);
                 changed = changed || setVisible(downItem, reorderEnabled);

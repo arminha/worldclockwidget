@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="@string/general">
+        <CheckBoxPreference
+            android:title="@string/automatically_sort_cities"
+            android:key="@string/auto_sort_clocks_key"
+            android:summary="@string/disable_to_sort_cities_manually"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    
     <PreferenceCategory android:title="@string/weather">
         <ListPreference
             android:title="@string/temperature_unit"
