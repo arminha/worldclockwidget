@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/menu_add"
-        android:title="@string/add"
+
+    <item
+        android:id="@+id/menu_add"
         android:icon="@drawable/ic_menu_add"
-        android:showAsAction="ifRoom|withText" />
-    <item android:id="@+id/menu_refresh"
-        android:title="@string/refresh"
+        android:showAsAction="ifRoom"
+        android:title="@string/add"/>
+    <item
+        android:id="@+id/menu_refresh"
         android:icon="@drawable/ic_menu_refresh"
-        android:showAsAction="ifRoom|withText" />
-    <item android:id="@+id/menu_preferences"
-        android:title="@string/preferences"
+        android:showAsAction="always"
+        android:title="@string/refresh"/>
+    <item
+        android:id="@+id/menu_preferences"
         android:icon="@drawable/ic_menu_preferences"
-        android:showAsAction="ifRoom|withText" />
+        android:menuCategory="secondary"
+        android:showAsAction="ifRoom"
+        android:title="@string/preferences"/>
+
 </menu>
