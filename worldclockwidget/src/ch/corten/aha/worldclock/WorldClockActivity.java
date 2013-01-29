@@ -39,6 +39,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
@@ -56,7 +57,8 @@ import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
 public class WorldClockActivity extends SherlockFragmentActivity {
-    
+    private static final boolean IS_GINGERBREAD = Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
+
     private static final int WEATHER_UPDATE_INTERVAL = 900000; // 15 minutes
 
     @Override
@@ -370,6 +372,18 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 setListShownNoAnimation(true);
             }
             if (mMode != null) {
+                if (IS_GINGERBREAD) {
+                    // update checked item after move
+                    ListView list = getListView();
+                    long[] ids = list.getCheckedItemIds();
+                    if (ids.length == 1) {
+                        long checkedId = ids[0];
+                        for (int i = 0; i < list.getCount(); i++) {
+                            long id = list.getAdapter().getItemId(i);
+                            list.setItemChecked(i, checkedId == id);
+                        }
+                    }
+                }
                 mMode.invalidate();
             }
         }
