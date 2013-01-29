@@ -29,15 +29,15 @@ class WorldClockDatabase extends SQLiteOpenHelper {
                     + "area text not null, "
                     + "time_diff integer not null, "
                     + "use_in_widget integer not null default 1);";
-    
+
     private static final String DATABASE_UPDATE_2 = 
             "alter table clocks add column use_in_widget integer not null default 1";
-    
+
     private static final String[] DATABASE_UPDATE_3 = {
             "alter table clocks add column latitude real not null default 0;",
             "alter table clocks add column longitude real not null default 0;"
     };
-    
+
     /*
      * Add columns for weather
      */
@@ -51,13 +51,21 @@ class WorldClockDatabase extends SQLiteOpenHelper {
         "alter table clocks add column last_update integer default 0;",
     };
 
+    /*
+     * Add column for manual sort order
+     */
+    private static final String DATABASE_UPDATE_5 =
+            "alter table clocks add column order_key integer not null default 0";
+    private static final String DATABASE_UPDATE_5_INITIAL_VALUES =
+            "update clocks set order_key = _id";
+
     private static final String DATABASE_NAME = "worldclock";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     public WorldClockDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-    
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE);
@@ -67,8 +75,9 @@ class WorldClockDatabase extends SQLiteOpenHelper {
         for (String stmt : DATABASE_UPDATE_4) {
             db.execSQL(stmt);
         }
+        db.execSQL(DATABASE_UPDATE_5);
     }
-    
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 2 && newVersion >= 2) {
@@ -83,6 +92,11 @@ class WorldClockDatabase extends SQLiteOpenHelper {
             for (String stmt : DATABASE_UPDATE_4) {
                 db.execSQL(stmt);
             }
+        }
+        if (oldVersion < 5 && newVersion >= 5) {
+            db.execSQL(DATABASE_UPDATE_5);
+            // set initial values
+            db.execSQL(DATABASE_UPDATE_5_INITIAL_VALUES);
         }
     }
 }

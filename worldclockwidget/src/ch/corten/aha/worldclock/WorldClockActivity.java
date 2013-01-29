@@ -28,7 +28,9 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import ch.corten.aha.widget.DigitalClock;
+import ch.corten.aha.worldclock.provider.WorldClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks.MoveTarget;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -234,8 +236,11 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                     mode.finish();
                     return true;
                 case R.id.menu_up:
+                    moveSelected(MoveTarget.UP);
+                    return true;
                 case R.id.menu_down:
-                    // TODO move item
+                    moveSelected(MoveTarget.DOWN);
+                    return true;
                 default:
                     return false;
                 }
@@ -251,7 +256,13 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 }
             }
         }
-        
+
+        private void moveSelected(MoveTarget target) {
+            long id = getListView().getCheckedItemIds()[0];
+            WorldClock.Clocks.move(getActivity(), id, target);
+            sendWidgetRefresh(getActivity());
+        }
+
         private void deleteSelectedItems() {
             long[] itemIds = getListView().getCheckedItemIds();
             Uri baseUri = Clocks.CONTENT_URI;
@@ -342,8 +353,11 @@ public class WorldClockActivity extends SherlockFragmentActivity {
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+            String sortOrder = mAutoSortClocks
+                            ? Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC" 
+                            : Clocks.ORDER_KEY + " ASC";
             return new CursorLoader(getActivity(), Clocks.CONTENT_URI,
-                    CLOCKS_PROJECTION, null, null, Clocks.TIME_DIFF  + " ASC, " + Clocks.CITY + " ASC");
+                    CLOCKS_PROJECTION, null, null, sortOrder);
         }
 
         @Override

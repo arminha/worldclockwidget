@@ -31,15 +31,20 @@ import android.provider.BaseColumns;
 public class WorldClock {
     public static final String AUTHORITY = "ch.corten.aha.worldclock.provider";
     public static final Uri AUTHORITY_URI = Uri.parse("content://" + AUTHORITY);
-    
+
     public static class Clocks implements BaseColumns {
+        public static enum MoveTarget {
+            UP,
+            DOWN
+        }
+
         static final String TABLE_NAME = "clocks";
-        
+
         public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, TABLE_NAME);
-        
+
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + TABLE_NAME;
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd." + AUTHORITY + "." + TABLE_NAME;
-        
+
         public static final String _ID = BaseColumns._ID;
         public static final String TIMEZONE_ID = "timezone_id";
         public static final String CITY = "city";
@@ -48,7 +53,9 @@ public class WorldClock {
         public static final String USE_IN_WIDGET = "use_in_widget";
         public static final String LATITUDE = "latitude";
         public static final String LONGITUDE = "longitude";
-        
+
+        public static final String ORDER_KEY = "order_key";
+
         /*
          * Add columns for weather
          */
@@ -59,7 +66,7 @@ public class WorldClock {
         public static final String WEATHER_CONDITION = "weather_condition";
         public static final String CONDITION_CODE = "condition_code";
         public static final String LAST_UPDATE = "last_update";
-        
+
         /**
          * Create a new clock.
          * 
@@ -82,10 +89,79 @@ public class WorldClock {
             initialValues.put(TIME_DIFF, timeDiff);
             initialValues.put(LATITUDE, latitude);
             initialValues.put(LONGITUDE, longitude);
-            
-            context.getContentResolver().insert(CONTENT_URI, initialValues);
+
+            ContentResolver cr = context.getContentResolver();
+            long orderKey;
+            Cursor c = cr.query(CONTENT_URI, new String[] { "MAX(order_key) as max_order_key" }, null, null, null);
+            try {
+                if (c.moveToFirst()) {
+                    orderKey = c.getLong(c.getColumnIndex("max_order_key")) + 1;
+                } else {
+                    orderKey = 0;
+                }
+            } finally {
+                c.close();
+            }
+            initialValues.put(ORDER_KEY, orderKey);
+
+            cr.insert(CONTENT_URI, initialValues);
         }
-        
+
+        public static void move(Context context, long id, MoveTarget target) {
+            ContentResolver cr = context.getContentResolver();
+            long orderKey = getOrderKey(cr, id);
+            long otherOrderKey;
+            long otherId;
+
+            String selection;
+            String sortOrder;
+            switch (target) {
+            case DOWN:
+                selection = ORDER_KEY + " > ?";
+                sortOrder = ORDER_KEY + " ASC";
+                break;
+            case UP:
+                selection = ORDER_KEY + " < ?";
+                sortOrder = ORDER_KEY + " DESC";
+                break;
+            default:
+                throw new RuntimeException("unknown target: " + target);
+            }
+            Cursor c = cr.query(CONTENT_URI, new String[] { _ID, ORDER_KEY }, selection , new String[] { Long.toString(orderKey) }, sortOrder);
+            try {
+                if (c.moveToFirst()) {
+                    otherId = c.getLong(c.getColumnIndex(_ID));
+                    otherOrderKey = c.getLong(c.getColumnIndex(ORDER_KEY));
+                } else {
+                    // move not possible
+                    return;
+                }
+            } finally {
+                c.close();
+            }
+
+            setOrderKey(cr, id, otherOrderKey);
+            setOrderKey(cr, otherId, orderKey);
+        }
+
+        private static void setOrderKey(ContentResolver cr, long id, long orderKey) {
+            ContentValues values = new ContentValues();
+            values.put(ORDER_KEY, orderKey);
+            Uri uri = ContentUris.withAppendedId(CONTENT_URI, id);
+            cr.update(uri, values, null, null);
+        }
+
+        private static long getOrderKey(ContentResolver cr, long id) {
+            Uri uri = ContentUris.withAppendedId(CONTENT_URI, id);
+            Cursor c = cr.query(uri, new String[] { ORDER_KEY }, null, null, null);
+            try {
+                c.moveToNext();
+                return c.getLong(c.getColumnIndex(ORDER_KEY));
+            } finally {
+                c.close();
+            }
+        }
+
         public static boolean updateWeather(Context context, long id, WeatherObservation obs) {
             ContentValues values = new ContentValues();
             values.put(TEMPERATURE, obs.getTemperature());
@@ -95,7 +171,7 @@ public class WorldClock {
             values.put(WEATHER_CONDITION, obs.getWeatherCondition());
             values.put(CONDITION_CODE, obs.getConditionCode());
             values.put(LAST_UPDATE, obs.getUpdateTime().getTime());
-            
+
             Uri uri = ContentUris.withAppendedId(CONTENT_URI, id);
             int count = context.getContentResolver().update(uri, values, null, null);
             return count > 0;
@@ -129,15 +205,12 @@ public class WorldClock {
 
     public static class Cities {
         static final String TABLE_NAME = "cities";
-        
+
         public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, TABLE_NAME);
-        
+
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + TABLE_NAME;
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd." + AUTHORITY + "." + TABLE_NAME;
-        
-        /**
-         * The geonameid of the city
-         */
+
         public static final String _ID = BaseColumns._ID;
         public static final String NAME = "name";
         public static final String ASCII_NAME = "asciiname";
