@@ -85,9 +85,9 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
     };
 
     private static void updateViews(Context context, RemoteViews views) {
-        Cursor cursor = context.getContentResolver().query(Clocks.CONTENT_URI,
-                PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
-                Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean autoSort = prefs.getBoolean(context.getString(R.string.auto_sort_clocks_key), true);
+        Cursor cursor = Clocks.widgetList(context, PROJECTION, autoSort);
 
         try {
             int n = 0;
@@ -119,7 +119,6 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
                     views.setViewVisibility(TIME_IDS[n], View.INVISIBLE);
                 }
             }
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean customColors = prefs.getBoolean(context.getString(R.string.use_custom_colors_key), false);
             int textColor = Color.WHITE;
             if (customColors) {

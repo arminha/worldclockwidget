@@ -201,6 +201,14 @@ public class WorldClock {
             }
             return count > 0;
         }
+
+        public static Cursor widgetList(Context context, String[] projection, boolean autoSort) {
+            String sortOrder = autoSort
+                    ? Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC"
+                    : Clocks.ORDER_KEY + " ASC";
+            return context.getContentResolver().query(Clocks.CONTENT_URI,
+                    projection, Clocks.USE_IN_WIDGET + " = 1", null, sortOrder);
+        }
     }
 
     public static class Cities {

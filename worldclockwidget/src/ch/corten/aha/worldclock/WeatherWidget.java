@@ -50,9 +50,9 @@ public class WeatherWidget {
     };
 
     public static Cursor getData(Context context) {
-        return context.getContentResolver().query(Clocks.CONTENT_URI,
-                PROJECTION, Clocks.USE_IN_WIDGET + " = 1", null,
-                Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean autoSort = prefs.getBoolean(context.getString(R.string.auto_sort_clocks_key), true);
+        return Clocks.widgetList(context, PROJECTION, autoSort);
     }
 
     public static void updateItemView(Context context, Cursor cursor, RemoteViews rv, DateFormat mTimeFormat) {
