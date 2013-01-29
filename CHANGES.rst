@@ -1,4 +1,10 @@
 
+1.5.1:
+
+* Add an option to manually reorder cities.
+* Minor UI update (use default Holo icons, edit screen uses a Holo layout)
+* Bug fixes
+
 1.5.0:
 
 * The weather widget is now available on Gingerbread devices.
