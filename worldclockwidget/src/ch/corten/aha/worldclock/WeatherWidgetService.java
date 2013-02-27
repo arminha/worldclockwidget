@@ -55,7 +55,18 @@ public class WeatherWidgetService extends RemoteViewsService {
                 mCursor.close();
             }
             mCursor = WeatherWidget.getData(mContext);
+            setTimeFormat();
+        }
+
+        private void setTimeFormat() {
             mTimeFormat = android.text.format.DateFormat.getTimeFormat(mContext);
+        }
+
+        private DateFormat getTimeFormat() {
+            if (mTimeFormat == null) {
+                setTimeFormat();
+            }
+            return mTimeFormat;
         }
 
         @Override
@@ -67,7 +78,11 @@ public class WeatherWidgetService extends RemoteViewsService {
 
         @Override
         public int getCount() {
-            return mCursor.getCount();
+            if (mCursor == null) {
+                return 0;
+            } else {
+                return mCursor.getCount();
+            }
         }
 
         @Override
@@ -80,7 +95,7 @@ public class WeatherWidgetService extends RemoteViewsService {
             }
 
             if (mCursor.moveToPosition(position)) {
-                WeatherWidget.updateItemView(mContext, mCursor, rv, mTimeFormat);
+                WeatherWidget.updateItemView(mContext, mCursor, rv, getTimeFormat());
                 Intent intent = new Intent();
                 rv.setOnClickFillInIntent(R.id.widget_item, intent);
             }
