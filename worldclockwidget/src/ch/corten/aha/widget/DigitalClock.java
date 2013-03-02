@@ -26,6 +26,7 @@ import android.provider.Settings;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -50,7 +51,7 @@ public class DigitalClock extends TextView implements PauseListener {
     private boolean mAttached = false;
     private PauseSource mPauseSource = null;
 
-    private String mFormat;
+    private DateFormat mDateFormat;
     private TimeZone mTimeZone;
 
     public DigitalClock(Context context) {
@@ -158,19 +159,18 @@ public class DigitalClock extends TextView implements PauseListener {
 
     private void setFormat() {
         if (get24HourMode()) {
-            mFormat = m24;
+            mDateFormat = new SimpleDateFormat(m24);
         } else {
-            mFormat = m12;
+            mDateFormat = new SimpleDateFormat(m12);
         }
     }
 
     private void updateClock() {
         mCalendar.setTimeInMillis(System.currentTimeMillis());
-        java.text.DateFormat df = new SimpleDateFormat(mFormat);
         if (mTimeZone != null) {
-            df.setTimeZone(mTimeZone);
+            mDateFormat.setTimeZone(mTimeZone);
         }
-        setText(df.format(mCalendar.getTime()));
+        setText(mDateFormat.format(mCalendar.getTime()));
         invalidate();
     }
 
