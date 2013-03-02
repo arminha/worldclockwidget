@@ -85,10 +85,17 @@ public class DigitalClock extends TextView implements PauseListener {
         }
 
         mFormatChangeObserver = new FormatChangeObserver();
+        registerObserver();
+        setFormat();
+    }
+
+    private void registerObserver() {
         getContext().getContentResolver().registerContentObserver(
                 Settings.System.CONTENT_URI, true, mFormatChangeObserver);
+    }
 
-        setFormat();
+    private void unregisterObserver() {
+        getContext().getContentResolver().unregisterContentObserver(mFormatChangeObserver);
     }
 
     @Override
@@ -129,6 +136,7 @@ public class DigitalClock extends TextView implements PauseListener {
     public void onPause() {
         if (mState == STATE_ATTACHED_ACTIVE) {
             mState = STATE_ATTACHED_PAUSED;
+            unregisterObserver();
         }
     }
 
@@ -137,6 +145,8 @@ public class DigitalClock extends TextView implements PauseListener {
         if (mState == STATE_ATTACHED_PAUSED) {
             mState = STATE_ATTACHED_ACTIVE;
             mTicker.run();
+            registerObserver();
+            setFormat();
         }
     }
 
