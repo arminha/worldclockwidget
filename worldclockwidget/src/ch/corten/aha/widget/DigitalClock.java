@@ -39,6 +39,10 @@ import java.util.TimeZone;
  */
 public class DigitalClock extends TextView implements PauseListener {
 
+    private static final int STATE_DETACHED = 0;
+    private static final int STATE_ATTACHED_ACTIVE = 1;
+    private static final int STATE_ATTACHED_PAUSED = 2;
+
     Calendar mCalendar;
     private final static String m12 = "h:mm:ss aa";
     private final static String m24 = "H:mm:ss";
@@ -47,8 +51,10 @@ public class DigitalClock extends TextView implements PauseListener {
     private Runnable mTicker;
     private Handler mHandler;
 
-    private boolean mTickerStopped = false;
-    private boolean mAttached = false;
+    /**
+     * Internal state: the clock is running if it is {@link #STATE_ATTACHED_ACTIVE}
+     */
+    private int mState = STATE_DETACHED;
     private PauseSource mPauseSource = null;
 
     private DateFormat mDateFormat;
@@ -87,8 +93,7 @@ public class DigitalClock extends TextView implements PauseListener {
 
     @Override
     protected void onAttachedToWindow() {
-        mAttached = true;
-        mTickerStopped = false;
+        mState = STATE_ATTACHED_ACTIVE;
         if (mPauseSource != null) {
             mPauseSource.addPauseListener(this);
         }
@@ -101,7 +106,7 @@ public class DigitalClock extends TextView implements PauseListener {
         mTicker = new Runnable() {
             @Override
             public void run() {
-                if (mTickerStopped) return;
+                if (mState != STATE_ATTACHED_ACTIVE) return;
                 updateClock();
                 long now = SystemClock.uptimeMillis();
                 long next = now + (1000 - now % 1000);
@@ -114,8 +119,7 @@ public class DigitalClock extends TextView implements PauseListener {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        mTickerStopped = true;
-        mAttached = false;
+        mState = STATE_DETACHED;
         if (mPauseSource != null) {
             mPauseSource.removePauseListener(this);
         }
@@ -123,17 +127,16 @@ public class DigitalClock extends TextView implements PauseListener {
 
     @Override
     public void onPause() {
-        mTickerStopped = true;
+        if (mState == STATE_ATTACHED_ACTIVE) {
+            mState = STATE_ATTACHED_PAUSED;
+        }
     }
 
     @Override
     public void onResume() {
-        if (mAttached) {
-            // restart ticker
-            if (mTickerStopped) {
-                mTickerStopped = false;
-                mTicker.run();
-            }
+        if (mState == STATE_ATTACHED_PAUSED) {
+            mState = STATE_ATTACHED_ACTIVE;
+            mTicker.run();
         }
     }
 
@@ -145,7 +148,7 @@ public class DigitalClock extends TextView implements PauseListener {
             return;
         }
         mPauseSource = pauseSource;
-        if (mAttached) {
+        if (mState != STATE_DETACHED) {
             pauseSource.addPauseListener(this);
         }
     }
