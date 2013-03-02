@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
  * Copyright (C) 2012 Armin Häberling (support for time zones)
+ * Copyright (C) 2013 Armin Häberling (pause and resume)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +36,7 @@ import java.util.TimeZone;
  * FIXME: implement separate views for hours/minutes/seconds, so
  * proportional fonts don't shake rendering
  */
-public class DigitalClock extends TextView {
+public class DigitalClock extends TextView implements PauseListener {
 
     Calendar mCalendar;
     private final static String m12 = "h:mm:ss aa";
@@ -44,8 +45,10 @@ public class DigitalClock extends TextView {
 
     private Runnable mTicker;
     private Handler mHandler;
-    
+
     private boolean mTickerStopped = false;
+    private boolean mAttached = false;
+    private PauseSource mPauseSource = null;
 
     private String mFormat;
     private TimeZone mTimeZone;
@@ -59,7 +62,7 @@ public class DigitalClock extends TextView {
         super(context, attrs);
         initClock(context);
     }
-    
+
     public TimeZone getTimeZone() {
         return mTimeZone;
     }
@@ -83,7 +86,11 @@ public class DigitalClock extends TextView {
 
     @Override
     protected void onAttachedToWindow() {
+        mAttached = true;
         mTickerStopped = false;
+        if (mPauseSource != null) {
+            mPauseSource.addPauseListener(this);
+        }
         super.onAttachedToWindow();
         mHandler = new Handler();
 
@@ -91,14 +98,15 @@ public class DigitalClock extends TextView {
          * requests a tick on the next hard-second boundary
          */
         mTicker = new Runnable() {
-                public void run() {
-                    if (mTickerStopped) return;
-                    updateClock();
-                    long now = SystemClock.uptimeMillis();
-                    long next = now + (1000 - now % 1000);
-                    mHandler.postAtTime(mTicker, next);
-                }
-            };
+            @Override
+            public void run() {
+                if (mTickerStopped) return;
+                updateClock();
+                long now = SystemClock.uptimeMillis();
+                long next = now + (1000 - now % 1000);
+                mHandler.postAtTime(mTicker, next);
+            }
+        };
         mTicker.run();
     }
 
@@ -106,6 +114,39 @@ public class DigitalClock extends TextView {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mTickerStopped = true;
+        mAttached = false;
+        if (mPauseSource != null) {
+            mPauseSource.removePauseListener(this);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        mTickerStopped = true;
+    }
+
+    @Override
+    public void onResume() {
+        if (mAttached) {
+            // restart ticker
+            if (mTickerStopped) {
+                mTickerStopped = false;
+                mTicker.run();
+            }
+        }
+    }
+
+    public void setPauseSource(PauseSource pauseSource) {
+        if (pauseSource == null) {
+            throw new IllegalArgumentException("pauseSource must not be null.");
+        }
+        if (mPauseSource != null) {
+            return;
+        }
+        mPauseSource = pauseSource;
+        if (mAttached) {
+            pauseSource.addPauseListener(this);
+        }
     }
 
     /**

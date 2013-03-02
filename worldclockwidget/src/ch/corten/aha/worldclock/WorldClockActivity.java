@@ -17,7 +17,9 @@
 package ch.corten.aha.worldclock;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -28,6 +30,8 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import ch.corten.aha.widget.DigitalClock;
+import ch.corten.aha.widget.PauseListener;
+import ch.corten.aha.widget.PauseSource;
 import ch.corten.aha.worldclock.provider.WorldClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks.MoveTarget;
@@ -48,6 +52,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
@@ -64,7 +69,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         FragmentManager fm = getSupportFragmentManager();
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
@@ -74,12 +79,13 @@ public class WorldClockActivity extends SherlockFragmentActivity {
     }
 
     public static class ClockListFragment extends SherlockListFragment implements
-            LoaderManager.LoaderCallbacks<Cursor> {
+    LoaderManager.LoaderCallbacks<Cursor>, PauseSource {
 
         private CursorAdapter mAdapter;
         private ActionMode mMode;
         private OnSharedPreferenceChangeListener mSpChange;
         private boolean mAutoSortClocks;
+        private final List<PauseListener> mListeners = new ArrayList<PauseListener>();
 
         private static final String[] CLOCKS_PROJECTION = {
             Clocks._ID,
@@ -95,7 +101,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             Clocks.CONDITION_CODE,
             Clocks.LATITUDE,
             Clocks.LONGITUDE
-            };
+        };
 
         private static final String CAB = "cab";
 
@@ -105,11 +111,11 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             setEmptyText(getText(R.string.no_clock_defined));
             setHasOptionsMenu(true);
 
-            mAdapter = new ClockCursorAdapter(getActivity(), R.layout.world_clock_item, null);
+            mAdapter = new ClockCursorAdapter(getActivity(), R.layout.world_clock_item, null, this);
             setListAdapter(mAdapter);
 
             setListShown(false);
-            
+
             ListView listView = getListView();
             setupCabOld(listView);
             registerPreferenceChanged();
@@ -123,18 +129,18 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                     mMode.invalidate();
                 }
             }
-            
+
             getLoaderManager().initLoader(0, null, this);
             Clocks.updateOrder(getActivity());
             updateWeather(false);
         }
-        
+
         private void registerPreferenceChanged() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             final Context context = getActivity();
             mAutoSortClocks = prefs.getBoolean(context.getString(R.string.auto_sort_clocks_key), true);
             mSpChange = new OnSharedPreferenceChangeListener() {
-                
+
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                         String key) {
@@ -145,13 +151,13 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             };
             prefs.registerOnSharedPreferenceChangeListener(mSpChange);
         }
-        
+
         private void unregisterPreferenceChanged() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             prefs.unregisterOnSharedPreferenceChangeListener(mSpChange);
             mSpChange = null;
         }
-        
+
         @Override
         public void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
@@ -160,13 +166,39 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 outState.putCharSequence(CAB, mMode.getTitle());
             }
         }
-        
+
         @Override
         public void onDestroy() {
             super.onDestroy();
             unregisterPreferenceChanged();
         }
-        
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            for (PauseListener listener : mListeners) {
+                listener.onPause();
+            }
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            for (PauseListener listener : mListeners) {
+                listener.onResume();
+            }
+        }
+
+        @Override
+        public void addPauseListener(PauseListener listener) {
+            mListeners.add(listener);
+        }
+
+        @Override
+        public void removePauseListener(PauseListener listener) {
+            mListeners.remove(listener);
+        };
+
         private void setupCabOld(ListView listView) {
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
             listView.setOnItemClickListener(new OnItemClickListener() {
@@ -174,7 +206,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 public void onItemClick(AdapterView<?> parent, View view,
                         int position, long id) {
                     long[] checked = getListView().getCheckedItemIds();
-                    
+
                     if (checked.length > 0) {
                         if (mMode == null) {
                             mMode = getSherlockActivity().startActionMode(new ModeCallback());
@@ -190,7 +222,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
                 }
             });
         }
-        
+
         private class ModeCallback implements ActionMode.Callback {
 
             @Override
@@ -252,7 +284,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             public void onDestroyActionMode(ActionMode mode) {
                 for (int i = 0; i < getListAdapter().getCount(); i++)
                     getListView().setItemChecked(i, false);
-     
+
                 if (mode == mMode) {
                     mMode = null;
                 }
@@ -286,7 +318,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             super.onCreateOptionsMenu(menu, inflater);
             inflater.inflate(R.menu.clock_list, menu);
         }
-        
+
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
@@ -325,7 +357,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             service.putExtra(UpdateWeatherService.WEATHER_DATA_UPDATE_INTERVAL, updateInterval);
             getActivity().startService(service);
         }
-        
+
         private boolean automaticWeatherUpdate() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             boolean disableUpdate = prefs.getBoolean(getString(R.string.disable_automatic_weather_update_key), false);
@@ -336,14 +368,14 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             Intent intent = new Intent(getActivity(), AddClockActivity.class);
             startActivityForResult(intent, 0);
         }
-        
+
         private void editClock() {
             long id = getListView().getCheckedItemIds()[0];
             Intent intent = new Intent(getActivity(), EditClockActivity.class);
             intent.putExtra(Clocks._ID, id);
             startActivityForResult(intent, 0);
         }
-        
+
         @Override
         public void onActivityResult(int requestCode, int resultCode,
                 Intent data) {
@@ -393,34 +425,44 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             mAdapter.changeCursor(null);
         }
     }
-    
+
     private final static class ClockCursorAdapter extends ResourceCursorAdapter {
-        private Context mContext;
-        
+        private final Context mContext;
+        private final PauseSource mPauseSource;
+
         @SuppressWarnings("deprecation")
-        private ClockCursorAdapter(Context context, int layout, Cursor c) {
-            // use constructor available in gingerbread 
+        private ClockCursorAdapter(Context context, int layout, Cursor c, PauseSource pauseSource) {
+            // use constructor available in gingerbread
             super(context, layout, c);
             mContext = context;
+            mPauseSource = pauseSource;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = super.getView(position, convertView, parent);
+            DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
+            clock.setPauseSource(mPauseSource);
+            return view;
         }
 
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             BindHelper.bindText(view, cursor, R.id.city_text, Clocks.CITY);
             BindHelper.bindText(view, cursor, R.id.area_text, Clocks.AREA);
-            
+
             String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
             TimeZone timeZone = TimeZone.getTimeZone(timeZoneId);
             java.text.DateFormat df = DateFormat.getDateFormat(context);
             df.setTimeZone(timeZone);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
             dateText.setText(df.format(new Date()));
-            
+
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
             timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(timeZone));
             DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
             clock.setTimeZone(timeZone);
-            
+
             BindHelper.bindTemperature(context, view, cursor, R.id.temp_text);
             BindHelper.bindText(view, cursor, R.id.condition_text, Clocks.WEATHER_CONDITION);
             ImageView condImage = (ImageView) view.findViewById(R.id.condition_image);
@@ -428,7 +470,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             double lat = cursor.getDouble(cursor.getColumnIndex(Clocks.LATITUDE));
             double lon = cursor.getDouble(cursor.getColumnIndex(Clocks.LONGITUDE));
             condImage.setImageResource(WeatherIcons.getIcon(condCode, lon, lat));
-            
+
             bindHumidity(view, cursor);
             bindWind(view, cursor);
         }
