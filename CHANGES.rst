@@ -1,4 +1,8 @@
 
+1.5.2:
+
+* Bug fixes
+
 1.5.1:
 
 * Add an option to manually reorder cities.
