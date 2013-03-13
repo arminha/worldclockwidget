@@ -45,6 +45,8 @@ public class BindHelper {
         tempText.setText(getTemperature(context, cursor, true));
     }
 
+    private static final String TEMPARATURE_FORMAT = "{0,number,0.0}";
+
     public static String getTemperature(Context context, Cursor cursor, boolean addUnit) {
         int index = cursor.getColumnIndex(Clocks.TEMPERATURE);
         StringBuffer sb = new StringBuffer(5);
@@ -55,10 +57,10 @@ public class BindHelper {
         } else {
             final double temperature = cursor.getDouble(index);
             if (unit.equals(CELSIUS)) {
-                sb.append(temperature);
+                sb.append(MessageFormat.format(TEMPARATURE_FORMAT, temperature));
             } else if (unit.equals(FAHRENHEIT)) {
                 final double fTemperature = Math.round(temperature * 9.0 / 5.0 + 32);
-                sb.append(fTemperature);
+                sb.append(MessageFormat.format(TEMPARATURE_FORMAT, fTemperature));
             } else {
                 throw new RuntimeException("Invalid value: " + unit);
             }
@@ -87,7 +89,7 @@ public class BindHelper {
             double mphSpeed = Math.round(windSpeed * 0.621371192);
             return MessageFormat.format(MPH_FORMAT, mphSpeed);
         } else if (unit.equals(MS)) {
-            double msSpeed = Math.round(windSpeed / 3.6); 
+            double msSpeed = Math.round(windSpeed / 3.6);
             return MessageFormat.format(MS_FORMAT, msSpeed);
         } else {
             throw new RuntimeException("Invalid value: " + unit);
