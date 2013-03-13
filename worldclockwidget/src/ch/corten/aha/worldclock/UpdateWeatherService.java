@@ -22,6 +22,7 @@ import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
 import ch.corten.aha.worldclock.weather.msn.MsnWeatherService;
+import ch.corten.aha.worldclock.weather.owm.OwmWeatherService;
 import ch.corten.aha.worldclock.weather.yahoo.YahooWeatherService;
 import android.app.IntentService;
 import android.content.ContentResolver;
@@ -103,6 +104,8 @@ public class UpdateWeatherService extends IntentService {
         String provider = prefs.getString(context.getString(R.string.weather_source_key), "yahoo");
         if (provider.equals("msn")) {
             service = new MsnWeatherService(true);
+        } else if (provider.equals("owm")) {
+            service = new OwmWeatherService();
         } else {
             service = new YahooWeatherService(context);
         }
