@@ -117,7 +117,7 @@ public class OwmWeatherService implements WeatherService {
                 String name = reader.nextName();
                 if ("id".equals(name)) {
                     id = reader.nextInt();
-                } else if ("main".equals(name)) {
+                } else if ("description".equals(name)) {
                     condition = reader.nextString();
                 } else {
                     reader.skipValue();
@@ -170,16 +170,17 @@ public class OwmWeatherService implements WeatherService {
     }
 
     private static class Condition {
-        private final String condition;
+        private final String description;
         private final WeatherConditionType type;
 
-        public Condition(int id, String condition) {
-            this.condition = condition;
+        public Condition(int id, String description) {
+            // TODO choose description based on the type
+            this.description = capitalize(description);
             this.type = WeatherConditionType.fromId(id);
         }
 
         public String getCondition() {
-            return condition;
+            return description;
         }
 
         public int getCode() {
@@ -188,6 +189,10 @@ public class OwmWeatherService implements WeatherService {
 
         public int getPriority() {
             return type.getPriority();
+        }
+
+        private static String capitalize(String description) {
+            return description.substring(0, 1).toUpperCase() + description.substring(1).toLowerCase();
         }
     }
 
