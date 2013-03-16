@@ -10,10 +10,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.util.JsonReader;
 import android.util.Log;
-import android.util.SparseIntArray;
 
 import ch.corten.aha.worldclock.weather.AbstractObservation;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
@@ -107,26 +108,25 @@ public class OwmWeatherService implements WeatherService {
 
     private void readWeather(JsonReader reader, Observation observation) throws IOException {
         reader.beginArray();
-        if (reader.hasNext()) {
+        while (reader.hasNext()) {
             // read first condition
             reader.beginObject();
+            int id = 0;
+            String condition = null;
             while (reader.hasNext()) {
                 String name = reader.nextName();
                 if ("id".equals(name)) {
-                    int id = reader.nextInt();
-                    observation.setConditionCode(id);
+                    id = reader.nextInt();
                 } else if ("main".equals(name)) {
-                    String condition = reader.nextString();
-                    observation.setWeatherCondition(condition);
+                    condition = reader.nextString();
                 } else {
                     reader.skipValue();
                 }
             }
+            if (condition != null && id != 0) {
+                observation.addCondition(new Condition(id, condition));
+            }
             reader.endObject();
-        }
-        while (reader.hasNext()) {
-            // TODO read weather condition
-            reader.skipValue();
         }
         reader.endArray();
     }
@@ -169,61 +169,30 @@ public class OwmWeatherService implements WeatherService {
     public void close() {
     }
 
-    private static class Observation extends AbstractObservation {
-        private static final SparseIntArray CONDITION_CODES;
+    private static class Condition {
+        private final String condition;
+        private final WeatherConditionType type;
 
-        static {
-            SparseIntArray map = new SparseIntArray();
-            map.put(200, THUNDERSTORM); //  thunderstorm with light rain
-            map.put(201, THUNDERSTORM); //  thunderstorm with rain
-            map.put(202, THUNDERSTORM); //  thunderstorm with heavy rain
-            map.put(210, CHANCE_OF_TSTORM); // light thunderstorm
-            map.put(211, THUNDERSTORM); // thunderstorm
-            map.put(212, THUNDERSTORM); // heavy thunderstorm
-            map.put(221, THUNDERSTORM); // ragged thunderstorm
-            map.put(230, THUNDERSTORM); // thunderstorm with light drizzle
-            map.put(231, THUNDERSTORM); // thunderstorm with drizzle
-            map.put(232, THUNDERSTORM); // thunderstorm with heavy drizzle
-            map.put(300, DRIZZLE); // light intensity drizzle
-            map.put(301, DRIZZLE); // drizzle
-            map.put(302, DRIZZLE); // heavy intensity drizzle
-            map.put(310, DRIZZLE); // light intensity drizzle rain
-            map.put(311, DRIZZLE); // drizzle rain
-            map.put(312, RAIN); // heavy intensity drizzle rain
-            map.put(321, SHOWERS); // shower drizzle
-            map.put(500, LIGHT_RAIN); // light rain
-            map.put(501, RAIN); // moderate rain
-            map.put(502, HEAVY_RAIN); // heavy intensity rain
-            map.put(503, HEAVY_RAIN); // very heavy rain
-            map.put(504, HEAVY_RAIN); // extreme rain
-            map.put(511, FREEZING_DRIZZLE); // freezing rain
-            map.put(520, LIGHT_RAIN); // light intensity shower rain
-            map.put(521, SHOWERS); // shower rain
-            map.put(522, RAIN); // heavy intensity shower rain
-            map.put(600, LIGHT_SNOW); // light snow
-            map.put(601, SNOW); // snow
-            map.put(602, SNOW); // heavy snow
-            map.put(611, SLEET); // sleet
-            map.put(621, CHANCE_OF_SNOW); // shower snow
-            map.put(701, MIST); // mist
-            map.put(711, SMOKE); // smoke
-            map.put(721, HAZE); // haze
-            map.put(731, DUST); // Sand/Dust Whirls
-            map.put(741, FOG); // Fog
-            map.put(800, CLEAR); // sky is clear
-            map.put(801, MOSTLY_SUNNY); // few clouds
-            map.put(802, PARTLY_CLOUDY); // scattered clouds
-            map.put(803, CLOUDY); // broken clouds
-            map.put(804, OVERCAST); // overcast clouds
-            map.put(900, STORM); // tornado
-            map.put(901, HURRICANE); // tropical storm
-            map.put(902, HURRICANE); // hurricane
-            map.put(903, ICY); // cold
-            map.put(904, HOT); // hot
-            map.put(905, STORM); // windy
-            map.put(906, HAIL); // hail
-            CONDITION_CODES = map;
+        public Condition(int id, String condition) {
+            this.condition = condition;
+            this.type = WeatherConditionType.fromId(id);
         }
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public int getCode() {
+            return type.getConditionCode();
+        }
+
+        public int getPriority() {
+            return type.getPriority();
+        }
+    }
+
+    private static class Observation extends AbstractObservation {
+        private final List<Condition> conditions = new ArrayList<Condition>();
 
         public void setWindDirection(Double direction) {
             String dir = null;
@@ -251,10 +220,41 @@ public class OwmWeatherService implements WeatherService {
             setWindDirection(dir);
         }
 
+        public void addCondition(Condition condition) {
+            conditions.add(condition);
+        }
+
         @Override
-        public void setConditionCode(int id) {
-            Integer code = CONDITION_CODES.get(id);
-            super.setConditionCode(code);
+        public int getConditionCode() {
+            int maxPriority = -1;
+            int code = NA;
+            for (Condition condition : conditions) {
+                if (condition.getPriority() > maxPriority) {
+                    maxPriority = condition.getPriority();
+                    code = condition.getCode();
+                }
+            }
+            return code;
+        }
+
+        @Override
+        public String getWeatherCondition() {
+            int maxPriority = -1;
+            for (Condition condition : conditions) {
+                if (condition.getPriority() > maxPriority) {
+                    maxPriority = condition.getPriority();
+                }
+            }
+            StringBuffer result = new StringBuffer();
+            for (Condition condition : conditions) {
+                if (condition.getPriority() == maxPriority) {
+                    if (result.length() > 0) {
+                        result.append(", ");
+                    }
+                    result.append(condition.getCondition());
+                }
+            }
+            return result.toString();
         }
     }
 }
