@@ -25,7 +25,7 @@ public class WeatherIcons {
     public static int getIcon(int conditionCode) {
         return getIcon(conditionCode, false);
     }
-    
+
     public static int getIcon(int conditionCode, boolean night) {
         switch (conditionCode) {
         case WeatherObservation.ERROR:
@@ -33,6 +33,7 @@ public class WeatherIcons {
             return R.drawable.weather_na;
         case WeatherObservation.SUNNY:
         case WeatherObservation.CLEAR:
+        case WeatherObservation.HOT:
             return night ? R.drawable.weather_clear_night
                     : R.drawable.weather_clear;
         case WeatherObservation.PARTLY_SUNNY:
@@ -55,6 +56,7 @@ public class WeatherIcons {
             return R.drawable.weather_cloudy;
         case WeatherObservation.RAIN:
         case WeatherObservation.HEAVY_RAIN:
+        case WeatherObservation.HURRICANE:
             return R.drawable.weather_rain;
         case WeatherObservation.HAIL:
             return R.drawable.weather_hail;
@@ -83,19 +85,20 @@ public class WeatherIcons {
         case WeatherObservation.CHANCE_OF_STORM:
         case WeatherObservation.STORM:
         case WeatherObservation.DUST:
+        case WeatherObservation.WINDY:
             return R.drawable.weather_storm;
         default:
             return R.drawable.weather_na;
         }
     }
-    
+
     public static int getIcon(int conditionCode, double longitude, double latitude) {
         return getIcon(conditionCode, isNight(longitude, latitude));
     }
-    
+
     private static final long UNIX_STD_EQUINOX = 946728000;
     private static final double MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-    
+
     private static final double RAD_TO_DEG = 180 / Math.PI;
     private static final double DEG_TO_RAD = Math.PI / 180;
 
@@ -148,13 +151,13 @@ public class WeatherIcons {
                         * Math.sin(latitude * DEG_TO_RAD));
         return h < 0;
     }
-    
+
     private static double hourOfDay(Calendar cal) {
         final int hours = cal.get(Calendar.HOUR_OF_DAY);
         final int minutes = cal.get(Calendar.MINUTE);
         final int seconds = cal.get(Calendar.SECOND);
         final int milliseconds = cal.get(Calendar.MILLISECOND);
-        
+
         return hours + (minutes / 60.0) + (seconds / 3600.0) + (milliseconds / 3600000.0);
     }
 }

@@ -158,8 +158,8 @@ public class MsnWeatherService implements WeatherService {
             map.put(20, FOG);
             map.put(21, HAZE);
             map.put(22, SMOKE);
-            map.put(23, STORM); // windy
-            map.put(24, STORM); // windy
+            map.put(23, WINDY); // windy
+            map.put(24, WINDY); // windy
             map.put(25, ICY);
             map.put(26, CLOUDY);
             map.put(27, MOSTLY_CLOUDY);
@@ -171,7 +171,7 @@ public class MsnWeatherService implements WeatherService {
             map.put(33, MOSTLY_SUNNY);
             map.put(34, MOSTLY_SUNNY);
             map.put(35, THUNDERSTORM);
-            map.put(36, SUNNY); // hot
+            map.put(36, HOT); // hot
             map.put(37, CHANCE_OF_TSTORM);
             map.put(38, CHANCE_OF_TSTORM);
             map.put(39, CHANCE_OF_RAIN);

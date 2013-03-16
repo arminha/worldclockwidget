@@ -56,36 +56,39 @@ public interface WeatherObservation {
     static final int HAIL = 33;
     static final int DRIZZLE = 34;
     static final int HEAVY_RAIN = 35;
-    
+    static final int HOT = 36;
+    static final int WINDY = 37;
+    static final int HURRICANE = 38;
+
     /**
      * Time of this update
      */
     Date getUpdateTime();
-    
+
     /**
      * Current temperature in Celsius
      */
     Double getTemperature();
-    
+
     /**
      * Wind speed in km/h
      */
     Double getWindSpeed();
-    
+
     /**
      * Wind direction in degrees
      */
     String getWindDirection();
-    
+
     /**
      * Humidity in percent
      */
     Double getHumidity();
-    
+
     /**
      * Description of the weather conditions
      */
     String getWeatherCondition();
-    
+
     int getConditionCode();
 }
