@@ -37,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:format24Hour="kk:mm"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -57,6 +58,7 @@
                 android:layout_alignBottom="@id/city_text2"
                 android:layout_alignParentRight="true"
                 android:format24Hour="kk:mm"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -77,6 +79,7 @@
                 android:layout_alignBottom="@id/city_text3"
                 android:layout_alignParentRight="true"
                 android:format24Hour="kk:mm"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -97,6 +100,7 @@
                 android:layout_alignBottom="@id/city_text4"
                 android:layout_alignParentRight="true"
                 android:format24Hour="kk:mm"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/white" />
 
             <TextView
