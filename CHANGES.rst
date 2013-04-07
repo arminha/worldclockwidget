@@ -1,4 +1,10 @@
 
+1.5.3:
+
+* Update the Yahoo weather service to handle changes by Yahoo on the server side. This fixes the issue that newly added cities didn't get weather data.
+* Update city database
+* Bug fixes
+
 1.5.2:
 
 * Bug fixes
