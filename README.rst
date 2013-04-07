@@ -13,12 +13,7 @@ Features
 * A resizable widget, showing the time and weather
 * Simple and clean UI
 
-Remarks
--------
-
 The Internet connectivity permission is **only** used to retrieve current weather conditions.
-
-Please help to improve this application. We very much appreciate your feedback.
 
 Download
 --------
@@ -35,7 +30,9 @@ Screenshots
 Building
 --------
 
-To build the app change to the *worldclockwidget* folder and run ``ant debug`` or ``ant release`` to create a debug or a release build.
+The build system uses `Ant <http://ant.apache.org/>`_ version 1.8 or later.
+
+To build the app change to the ``worldclockwidget`` folder and run ``ant debug`` or ``ant release`` to create a debug or a release build.
 
 Libraries
 ---------
