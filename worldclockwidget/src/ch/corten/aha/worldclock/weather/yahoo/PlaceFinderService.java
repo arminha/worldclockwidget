@@ -24,6 +24,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.MessageFormat;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -36,16 +37,18 @@ import android.util.Log;
 
 class PlaceFinderService {
     private static final String TAG = "PlaceFinderService";
-    private final String mAppId;
 
-    public PlaceFinderService(String appId) {
-        mAppId = appId;
-    }
+    private static final String YQL_QUERY = "select woeid from geo.placefinder where text=\"{0},{1}\" and gflags=\"R\"";
+    private static final String QUERY = "q={0}&format=xml";
+    private static final String PATH = "/v1/public/yql";
+    private static final String SERVER = "query.yahooapis.com";
 
     public String reverseGeoCode(double latitude, double longitude) {
-        String query = "q=" + latitude + ", " + longitude + "&gflags=R&appid=" + mAppId;
+        String yql = MessageFormat.format(YQL_QUERY, latitude, longitude);
+
         try {
-            java.net.URI uri = new URI("http", "where.yahooapis.com", "/geocode", query, null);
+            String query = MessageFormat.format(QUERY, yql);
+            java.net.URI uri = new URI("http", SERVER, PATH, query, null);
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
@@ -70,18 +73,18 @@ class PlaceFinderService {
     static String fixInvalidWoeids(double latitude, double longitude, String woeid) {
         // fix Macau bug of Yahoo PlaceFinder API
         if ("609135".equals(woeid) &&
-                latitude > 22.0 && latitude < 22.3 && 
+                latitude > 22.0 && latitude < 22.3 &&
                 longitude > 113.4 && longitude < 113.7) {
             return "20070017";
         }
         return woeid;
     }
-    
+
     private static String readWOEID(InputStream in) {
         XPath xPath = XPathFactory.newInstance().newXPath();
         InputSource source = new InputSource(in);
         try {
-            String woeid = (String) xPath.evaluate("/ResultSet/Result[1]/woeid", source, XPathConstants.STRING);
+            String woeid = (String) xPath.evaluate("//woeid[1]/text()", source, XPathConstants.STRING);
             if (woeid != null) {
                 return woeid;
             }

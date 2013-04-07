@@ -2,4 +2,3 @@ bin/
 gen/
 local.properties
 lint.xml
-assets/yahooAppId

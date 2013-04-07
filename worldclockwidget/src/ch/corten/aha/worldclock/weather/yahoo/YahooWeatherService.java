@@ -17,10 +17,8 @@
 package ch.corten.aha.worldclock.weather.yahoo;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -51,30 +49,17 @@ public class YahooWeatherService implements WeatherService {
     private static final String TAG = "WeatherService";
     private final PlaceFinderService mPlaceFinder;
     private final WoeidCache mCache;
-    
+
     public YahooWeatherService(Context context) {
-        mPlaceFinder = new PlaceFinderService(getAppId(context));
+        mPlaceFinder = new PlaceFinderService();
         mCache = new WoeidCache(context);
-    }
-    
-    private static String getAppId(Context context) {
-        try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(context.getAssets().open("yahooAppId")));
-            String key = in.readLine();
-            if (key != null) {
-                return key;
-            }
-        } catch (IOException e) {
-            Log.e(TAG, "unable to load AppId", e);
-        }
-        return "NOAPPID";
     }
 
     @Override
     public void close() {
         mCache.close();
     }
-    
+
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
         String woeid = getWOEID(latitude, longitude);
@@ -84,7 +69,7 @@ public class YahooWeatherService implements WeatherService {
         if (woeid.length() == 0) {
             return new Observation();
         }
-        
+
         String query = "w=" + woeid + "&u=c";
         try {
             java.net.URI uri = new URI("http", "weather.yahooapis.com", "/forecastrss", query, null);
@@ -230,7 +215,7 @@ public class YahooWeatherService implements WeatherService {
             map.put(46, SNOW_SHOWERS);
             map.put(47, CHANCE_OF_TSTORM);
             map.put(3200, NA);
-            CONDITION_CODES = map; 
+            CONDITION_CODES = map;
         }
 
         public Observation() {

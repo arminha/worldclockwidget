@@ -37,13 +37,6 @@ Building
 
 To build the app change to the *worldclockwidget* folder and run ``ant debug`` or ``ant release`` to create a debug or a release build.
 
-Yahoo App Id
-############
-
-Using the Yahoo weather service requires an application id for the Yahoo PlaceFinder API. You can create one on the `PlaceFinder page <http://developer.yahoo.com/geo/placefinder/guide/>`_. Just click on *Create Project*.
-
-Once you have an application id, write it into a file called ``./worldclockwidget/assets/yahooAppId``. The app will read the id from this file.
-
 Libraries
 ---------
 
