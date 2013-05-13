@@ -26,12 +26,13 @@ import android.database.sqlite.SQLiteDatabase;
 class WoeidCache {
 
     private static final String TABLE = "woeid_cache";
+    private static final int VERSION = 2;
     private final Storage mStorage;
-    
+
     public WoeidCache(Context context) {
         mStorage = new Storage(context);
     }
-    
+
     public String get(double latitude, double longitude) {
         SQLiteDatabase db = mStorage.getDatabase();
         String[] selectionArgs = new String[] { Double.toString(latitude), Double.toString(longitude) };
@@ -47,7 +48,7 @@ class WoeidCache {
             c.close();
         }
     }
-    
+
     public void put(double latitude, double longitude, String woeid) {
         SQLiteDatabase db = mStorage.getDatabase();
         ContentValues values = new ContentValues();
@@ -61,26 +62,27 @@ class WoeidCache {
             db.insert(TABLE, null, values);
         }
     }
-    
+
     public void close() {
         mStorage.close();
     }
-    
+
     private static class Storage {
         private static final String FILENAME = "woeid";
-        
+
         private static final String DATABASE_CREATE =
                 "create table woeid_cache (latitude real not null, "
                         + "longitude real not null, "
                         + "woeid text not null);";
+        private static final String CLEAR_DATABASE = "delete from woeid_cache;";
 
         private SQLiteDatabase mDatabase;
         private final Context mContext;
-        
+
         public Storage(Context context) {
             mContext = context;
         }
-        
+
         public synchronized SQLiteDatabase getDatabase() {
             if (mDatabase != null) {
                 if (!mDatabase.isOpen()) {
@@ -89,26 +91,33 @@ class WoeidCache {
             }
 
             if (mDatabase == null) {
-                String path = mContext.getCacheDir().getPath() + File.separator + FILENAME; 
+                String path = mContext.getCacheDir().getPath() + File.separator + FILENAME;
                 SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(path, null);
                 if (db.getVersion() == 0) {
                     onCreate(db);
-                    db.setVersion(1);
+                    db.setVersion(VERSION);
+                } else if (db.getVersion() < VERSION) {
+                    onUpdate(db, db.getVersion(), VERSION);
+                    db.setVersion(VERSION);
                 }
                 mDatabase = db;
             }
             return mDatabase;
         }
-        
+
         public synchronized void close() {
             if (mDatabase != null && mDatabase.isOpen()) {
                 mDatabase.close();
                 mDatabase = null;
             }
         }
-        
+
         protected void onCreate(SQLiteDatabase db) {
             db.execSQL(DATABASE_CREATE);
+        }
+
+        public void onUpdate(SQLiteDatabase db, int version2, int version3) {
+            db.execSQL(CLEAR_DATABASE);
         }
     }
 }
