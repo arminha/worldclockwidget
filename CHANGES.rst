@@ -1,4 +1,8 @@
 
+1.5.5:
+
+* Fix regression introduced with the fix in version 1.5.4.
+
 1.5.4:
 
 * Fix a bug in the Yahoo weather service.
