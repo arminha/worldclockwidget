@@ -38,7 +38,7 @@ import android.util.Log;
 class PlaceFinderService {
     private static final String TAG = "PlaceFinderService";
 
-    private static final String YQL_QUERY = "select woeid from geo.placefinder where text=\"{0, number, 0.00000},{1, number, 0.00000}\" and gflags=\"R\"";
+    private static final String YQL_QUERY = "select woeid from geo.placefinder where text=\"{0, number,0.00###},{1, number,0.00###}\" and gflags=\"R\"";
     private static final String QUERY = "q={0}&format=xml";
     private static final String PATH = "/v1/public/yql";
     private static final String SERVER = "query.yahooapis.com";
