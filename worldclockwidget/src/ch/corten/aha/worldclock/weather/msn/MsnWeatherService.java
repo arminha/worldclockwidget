@@ -87,16 +87,16 @@ public class MsnWeatherService implements WeatherService {
     /**
      * <code>
      * <current temperature="10"
-     *          skycode="32" 
-     *          skytext="Klar" 
-     *          date="2012-10-16" 
-     *          day="Dienstag" 
-     *          shortday="Di" 
-     *          observationtime="12:50:00" 
-     *          observationpoint="Dubendorf Airport" 
-     *          feelslike="10" 
-     *          humidity="66" 
-     *          windspeed="4" 
+     *          skycode="32"
+     *          skytext="Klar"
+     *          date="2012-10-16"
+     *          day="Dienstag"
+     *          shortday="Di"
+     *          observationtime="12:50:00"
+     *          observationpoint="Dubendorf Airport"
+     *          feelslike="10"
+     *          humidity="66"
+     *          windspeed="4"
      *          winddisplay="4 km/h"/>
      * </code>
      * 
@@ -135,7 +135,7 @@ public class MsnWeatherService implements WeatherService {
 
         static {
             SparseIntArray map = new SparseIntArray();
-            map.put(0, THUNDERSTORM); 
+            map.put(0, THUNDERSTORM);
             map.put(1, THUNDERSTORM);
             map.put(2, THUNDERSTORM);
             map.put(3, THUNDERSTORM);
@@ -144,14 +144,14 @@ public class MsnWeatherService implements WeatherService {
             map.put(6, SLEET);
             map.put(7, RAIN_AND_SNOW);
             map.put(8, ICY);
-            map.put(9, ICY);  
-            map.put(10, RAIN_AND_SNOW); 
+            map.put(9, DRIZZLE); // light rain (sprinkles)
+            map.put(10, RAIN_AND_SNOW);
             map.put(11, LIGHT_RAIN);
             map.put(12, RAIN);
             map.put(13, LIGHT_SNOW);
-            map.put(14, SNOW); 
-            map.put(15, SNOW); // blizzard 
-            map.put(16, SNOW); 
+            map.put(14, SNOW);
+            map.put(15, SNOW); // blizzard
+            map.put(16, SNOW);
             map.put(17, THUNDERSTORM);
             map.put(18, SHOWERS);
             map.put(19, DUST);
@@ -164,7 +164,7 @@ public class MsnWeatherService implements WeatherService {
             map.put(26, CLOUDY);
             map.put(27, MOSTLY_CLOUDY);
             map.put(28, MOSTLY_CLOUDY);
-            map.put(29, MOSTLY_CLOUDY); 
+            map.put(29, MOSTLY_CLOUDY);
             map.put(30, MOSTLY_CLOUDY);
             map.put(31, SUNNY);
             map.put(32, SUNNY);
@@ -173,10 +173,10 @@ public class MsnWeatherService implements WeatherService {
             map.put(35, THUNDERSTORM);
             map.put(36, SUNNY); // hot
             map.put(37, CHANCE_OF_TSTORM);
-            map.put(38, CHANCE_OF_TSTORM); 
+            map.put(38, CHANCE_OF_TSTORM);
             map.put(39, CHANCE_OF_RAIN);
             map.put(40, SHOWERS);
-            map.put(41, CHANCE_OF_SNOW);  
+            map.put(41, CHANCE_OF_SNOW);
             map.put(42, SNOW);
             map.put(43, SNOW);
             map.put(44, NA);
@@ -184,7 +184,7 @@ public class MsnWeatherService implements WeatherService {
             map.put(46, CHANCE_OF_SNOW);
             map.put(47, CHANCE_OF_TSTORM);
             CONDITION_CODES = map;
-        }        
+        }
 
         public Observation() {
             super();
