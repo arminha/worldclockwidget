@@ -62,12 +62,13 @@ public class WeatherWidget {
         rv.setTextViewText(R.id.city_text, cursor.getString(cursor.getColumnIndex(Clocks.CITY)));
 
         String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
+        Date date = new Date();
+        TimeZone tz = TimeZone.getTimeZone(id);
         if (SANS_JELLY_BEAN_MR1) {
-            Date date = new Date();
-            TimeZone tz = TimeZone.getTimeZone(id);
             rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
         } else {
             RemoteViewUtil.setTextClockTimeZone(rv, R.id.time_text, id);
+            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferenWeekday(tz, date));
         }
 
         rv.setTextViewText(R.id.condition_text, cursor

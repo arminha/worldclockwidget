@@ -59,18 +59,23 @@ public class TimeZoneInfo {
     }
 
     private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE", Locale.US);
-    
+
     public static String showTime(TimeZone tz, Date date, DateFormat df, boolean addWeekday) {
         df.setTimeZone(tz);
         String time = df.format(date);
         if (addWeekday) {
-            DateFormat dayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
-            dayFormat.setTimeZone(tz);
-            String day = dayFormat.format(date);
-            if (!day.equals(WEEKDAY_FORMAT.format(date))) {
-                time += " " + day;
-            }
+            time += showDifferenWeekday(tz, date);
         }
         return time;
+    }
+
+    public static String showDifferenWeekday(TimeZone tz, Date date) {
+        DateFormat dayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
+        dayFormat.setTimeZone(tz);
+        String day = dayFormat.format(date);
+        if (!day.equals(WEEKDAY_FORMAT.format(date))) {
+            return " " + day;
+        }
+        return "";
     }
 }
