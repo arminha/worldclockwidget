@@ -1917,7 +1917,7 @@ Ternate	Ternate	0.8	127.4	Indonesia	Asia/Jayapura
 Ungaran	Ungaran	-7.13972	110.405	Indonesia	Asia/Jakarta
 Weru	Weru	-6.711	108.5037	Indonesia	Asia/Jakarta
 Yogyakarta	Yogyakarta	-7.78278	110.36083	Indonesia	Asia/Jakarta
-Ābādān	Abadan	30.3392	48.3043	Iran	Asia/Tehran
+Abadan	Abadan	30.3392	48.3043	Iran	Asia/Tehran
 Ahvāz	Ahvaz	31.3203	48.6693	Iran	Asia/Tehran
 Āmol	Amol	36.46961	52.35072	Iran	Asia/Tehran
 Arāk	Arak	34.09174	49.68916	Iran	Asia/Tehran
@@ -1960,12 +1960,12 @@ Neyshābūr	Neyshabur	36.21329	58.79576	Iran	Asia/Tehran
 Orūmīyeh	Orumiyeh	37.55274	45.07605	Iran	Asia/Tehran
 Pārsābād	Parsabad	39.6482	47.9174	Iran	Asia/Tehran
 Qarchak	Qarchak	35.42867	51.57544	Iran	Asia/Tehran
-Qazvīn	Qazvin	36.2797	50.0049	Iran	Asia/Tehran
+Qazvin	Qazvin	36.26877	50.0041	Iran	Asia/Tehran
 Qom	Qom	34.6401	50.8764	Iran	Asia/Tehran
 Qūchān	Quchan	37.106	58.50955	Iran	Asia/Tehran
 Rafsanjān	Rafsanjan	30.4067	55.9939	Iran	Asia/Tehran
 Rasht	Rasht	37.28077	49.58319	Iran	Asia/Tehran
-Sabzevār	Sabzevar	36.2126	57.68191	Iran	Asia/Tehran
+Sabzevar	Sabzevar	36.2126	57.68191	Iran	Asia/Tehran
 Sanandaj	Sanandaj	35.31495	46.99883	Iran	Asia/Tehran
 Saqqez	Saqqez	36.24992	46.2735	Iran	Asia/Tehran
 Sari	Sari	36.56332	53.06009	Iran	Asia/Tehran
@@ -2784,7 +2784,7 @@ Warri	Warri	5.51667	5.75	Nigeria	Africa/Lagos
 Zaria	Zaria	11.11128	7.7227	Nigeria	Africa/Lagos
 Alofi	Alofi	-19.05952	-169.91867	Niue	Pacific/Niue
 Kingston	Kingston	-29.05459	167.96628	Norfolk Island	Pacific/Norfolk
-Ch’ŏngjin	Ch'ongjin	41.79556	129.77583	North Korea	Asia/Pyongyang
+Chongjin	Chongjin	41.79556	129.77583	North Korea	Asia/Pyongyang
 Haeju	Haeju	38.04056	125.71472	North Korea	Asia/Pyongyang
 Hamhŭng	Hamhung	39.91833	127.53639	North Korea	Asia/Pyongyang
 Hŭngnam	Hungnam	39.83167	127.61861	North Korea	Asia/Pyongyang
@@ -2820,7 +2820,7 @@ Chiniot	Chiniot	31.72	72.97889	Pakistan	Asia/Karachi
 Chishtiān Mandi	Chishtian Mandi	29.8	72.86667	Pakistan	Asia/Karachi
 Dādu	Dadu	26.73286	67.77631	Pakistan	Asia/Karachi
 Daska	Daska	32.32426	74.34974	Pakistan	Asia/Karachi
-Dera Ghāzi Khān	Dera Ghazi Khan	30.05614	70.63477	Pakistan	Asia/Karachi
+Dera Ghazi Khan	Dera Ghazi Khan	30.05614	70.63477	Pakistan	Asia/Karachi
 Dera Ismāīl Khān	Dera Ismail Khan	31.83269	70.9024	Pakistan	Asia/Karachi
 Faisalābād	Faisalabad	31.41667	73.08333	Pakistan	Asia/Karachi
 Gojra	Gojra	31.14874	72.68656	Pakistan	Asia/Karachi
@@ -2850,7 +2850,6 @@ Mandi Bahāuddīn	Mandi Bahauddin	32.58339	73.48432	Pakistan	Asia/Karachi
 Mardān	Mardan	34.20195	72.05254	Pakistan	Asia/Karachi
 Mingāora	Mingaora	34.77584	72.36249	Pakistan	Asia/Karachi
 Mirpur Khas	Mirpur Khas	25.5251	69.0159	Pakistan	Asia/Karachi
-Montgomery	Montgomery	30.66667	73.1	Pakistan	Asia/Karachi
 Multān	Multan	30.19556	71.47528	Pakistan	Asia/Karachi
 Murīdke	Muridke	31.8025	74.26167	Pakistan	Asia/Karachi
 Muzaffargarh	Muzaffargarh	30.07537	71.19213	Pakistan	Asia/Karachi
@@ -2861,6 +2860,7 @@ Peshāwar	Peshawar	34.008	71.57849	Pakistan	Asia/Karachi
 Quetta	Quetta	30.199	67.00971	Pakistan	Asia/Karachi
 Rāwalpindi	Rawalpindi	33.6007	73.0679	Pakistan	Asia/Karachi
 Sādiqābād	Sadiqabad	28.30623	70.13065	Pakistan	Asia/Karachi
+Sahiwal	Sahiwal	30.66667	73.1	Pakistan	Asia/Karachi
 Sargodha	Sargodha	32.08361	72.67111	Pakistan	Asia/Karachi
 Shahkot	Shahkot	31.5709	73.48531	Pakistan	Asia/Karachi
 Sheikhupura	Sheikhupura	31.71306	73.97833	Pakistan	Asia/Karachi
@@ -3597,7 +3597,7 @@ Al Bāb	Al Bab	36.36994	37.51788	Syria	Asia/Damascus
 Aleppo	Aleppo	36.20124	37.16117	Syria	Asia/Damascus
 Ar Raqqah	Ar Raqqah	35.95283	39.00788	Syria	Asia/Damascus
 Damascus	Damascus	33.5102	36.29128	Syria	Asia/Damascus
-Dayr az Zawr	Dayr az Zawr	35.33588	40.14084	Syria	Asia/Damascus
+Deir ez-Zor	Deir ez-Zor	35.33588	40.14084	Syria	Asia/Damascus
 Douma	Douma	33.57175	36.4027	Syria	Asia/Damascus
 Ḩamāh	Hamah	35.13179	36.75783	Syria	Asia/Damascus
 Homs	Homs	34.72682	36.72339	Syria	Asia/Damascus
@@ -3823,22 +3823,8 @@ Cardiff	Cardiff	51.48	-3.18	United Kingdom	Europe/London
 Chelmsford	Chelmsford	51.73575	0.46958	United Kingdom	Europe/London
 Cheltenham	Cheltenham	51.9	-2.08333	United Kingdom	Europe/London
 City of London	City of London	51.51279	-0.09184	United Kingdom	Europe/London
-Colchester	Colchester	51.88921	0.90421	United Kingdom	Europe/London
-Coventry	Coventry	52.40656	-1.51217	United Kingdom	Europe/London
-Crawley	Crawley	51.11303	-0.18312	United Kingdom	Europe/London
-Dagenham	Dagenham	51.55	0.16667	United Kingdom	Europe/London
-Derby	Derby	52.92277	-1.47663	United Kingdom	Europe/London
-Dudley	Dudley	52.5	-2.08333	United Kingdom	Europe/London
-Dundee	Dundee	56.5	-2.96667	United Kingdom	Europe/London
-Eastbourne	Eastbourne	50.76871	0.28453	United Kingdom	Europe/London
-Edinburgh	Edinburgh	55.95206	-3.19648	United Kingdom	Europe/London
-Exeter	Exeter	50.7236	-3.52751	United Kingdom	Europe/London
-Gillingham	Gillingham	51.38914	0.54863	United Kingdom	Europe/London
-Glasgow	Glasgow	55.86515	-4.25763	United Kingdom	Europe/London
-Gloucester	Gloucester	51.86568	-2.2431	United Kingdom	Europe/London
-Huddersfield	Huddersfield	53.64904	-1.78416	United Kingdom	Europe/London
 Hull	Hull	53.7446	-0.33525	United Kingdom	Europe/London
-Ipswich	Ipswich	52.05917	1.15545	United Kingdom	Europe/London
+Irvine	Irvine	51.88921	0.90421	United Kingdom	Europe/London
 Islington	Islington	51.53622	-0.10304	United Kingdom	Europe/London
 Leeds	Leeds	53.79648	-1.54785	United Kingdom	Europe/London
 Leicester	Leicester	52.6386	-1.13169	United Kingdom	Europe/London
@@ -3886,7 +3872,6 @@ York	York	53.95763	-1.08271	United Kingdom	Europe/London
 Abilene	Abilene	32.44874	-99.73314	United States	America/Chicago
 Akron	Akron	41.08144	-81.51901	United States	America/New_York
 Albuquerque	Albuquerque	35.08449	-106.65114	United States	America/Denver
-Alexandria	Alexandria	38.80484	-77.04692	United States	America/New_York
 Allentown	Allentown	40.60843	-75.49018	United States	America/New_York
 Amarillo	Amarillo	35.222	-101.8313	United States	America/Chicago
 Amherst	Amherst	42.97839	-78.79976	United States	America/New_York
@@ -3895,7 +3880,6 @@ Anchorage	Anchorage	61.21806	-149.90028	United States	America/Anchorage
 Ann Arbor	Ann Arbor	42.27756	-83.74088	United States	America/Detroit
 Antioch	Antioch	38.00492	-121.80579	United States	America/Los_Angeles
 Arlington	Arlington	32.73569	-97.10807	United States	America/Chicago
-Arlington	Arlington	38.88101	-77.10428	United States	America/New_York
 Arvada	Arvada	39.80276	-105.08748	United States	America/Denver
 Athens	Athens	33.96095	-83.37794	United States	America/New_York
 Atlanta	Atlanta	33.749	-84.38798	United States	America/New_York
@@ -3930,7 +3914,6 @@ Chandler	Chandler	33.30616	-111.84125	United States	America/Phoenix
 Charleston	Charleston	32.77657	-79.93092	United States	America/New_York
 Charlotte	Charlotte	35.22709	-80.84313	United States	America/New_York
 Chattanooga	Chattanooga	35.04563	-85.30968	United States	America/New_York
-Chesapeake	Chesapeake	36.81904	-76.27494	United States	America/New_York
 Chicago	Chicago	41.85003	-87.65005	United States	America/Chicago
 Chula Vista	Chula Vista	32.64005	-117.0842	United States	America/Los_Angeles
 Cincinnati	Cincinnati	39.162	-84.45689	United States	America/New_York
@@ -3957,7 +3940,6 @@ Detroit	Detroit	42.33143	-83.04575	United States	America/Detroit
 Downey	Downey	33.94001	-118.13257	United States	America/Los_Angeles
 Durham	Durham	35.99403	-78.89862	United States	America/New_York
 East Chattanooga	East Chattanooga	35.06535	-85.24912	United States	America/New_York
-East Hampton	East Hampton	37.03737	-76.33161	United States	America/New_York
 East Independence	East Independence	39.09556	-94.35523	United States	America/Chicago
 East Los Angeles	East Los Angeles	34.0239	-118.17202	United States	America/Los_Angeles
 East New York	East New York	40.66677	-73.88236	United States	America/New_York
@@ -3997,8 +3979,6 @@ Grand Rapids	Grand Rapids	42.96336	-85.66809	United States	America/Detroit
 Green Bay	Green Bay	44.51916	-88.01983	United States	America/Chicago
 Greensboro	Greensboro	36.07264	-79.79198	United States	America/New_York
 Gresham	Gresham	45.49818	-122.43148	United States	America/Los_Angeles
-Hampton	Hampton	37.02987	-76.34522	United States	America/New_York
-Hartford	Hartford	41.76371	-72.68509	United States	America/New_York
 Hayward	Hayward	37.66882	-122.0808	United States	America/Los_Angeles
 Henderson	Henderson	36.0397	-114.98194	United States	America/Los_Angeles
 Hialeah	Hialeah	25.8576	-80.27811	United States	America/New_York
@@ -4013,7 +3993,7 @@ Independence	Independence	39.09112	-94.41551	United States	America/Chicago
 Indianapolis	Indianapolis	39.76838	-86.15804	United States	America/Indiana/Indianapolis
 Inglewood	Inglewood	33.96168	-118.35313	United States	America/Los_Angeles
 Ironville	Ironville	38.45647	-82.69238	United States	America/New_York
-Irving	Irving	32.81402	-96.94889	United States	America/Chicago
+Irving	Irving	41.55815	-73.0515	United States	America/New_York
 Jackson	Jackson	32.29876	-90.18481	United States	America/Chicago
 Jacksonville	Jacksonville	30.33218	-81.65565	United States	America/New_York
 Jamaica	Jamaica	40.69149	-73.80569	United States	America/New_York
@@ -4021,12 +4001,10 @@ Jersey City	Jersey City	40.72816	-74.07764	United States	America/New_York
 Joliet	Joliet	41.52503	-88.08173	United States	America/Chicago
 Kansas City	Kansas City	39.11417	-94.62746	United States	America/Chicago
 Kansas City	Kansas City	39.09973	-94.57857	United States	America/Chicago
-Killeen	Killeen	31.11712	-97.7278	United States	America/Chicago
 Knoxville	Knoxville	35.96064	-83.92074	United States	America/New_York
 Lafayette	Lafayette	30.22409	-92.01984	United States	America/Chicago
 Lakewood	Lakewood	39.70471	-105.08137	United States	America/Denver
 Lansing	Lansing	42.73254	-84.55553	United States	America/Detroit
-Laredo	Laredo	27.50641	-99.50754	United States	America/Chicago
 Las Vegas	Las Vegas	36.17497	-115.13722	United States	America/Los_Angeles
 Lexington	Lexington	37.98869	-84.47772	United States	America/New_York
 Lexington-Fayette	Lexington-Fayette	38.0498	-84.45855	United States	America/New_York
@@ -4040,12 +4018,9 @@ Lubbock	Lubbock	33.57786	-101.85517	United States	America/Chicago
 Madison	Madison	43.07305	-89.40123	United States	America/Chicago
 Manchester	Manchester	42.99564	-71.45479	United States	America/New_York
 Manhattan	Manhattan	40.78343	-73.96625	United States	America/New_York
-McAllen	McAllen	26.20341	-98.23001	United States	America/Chicago
-McKinney	McKinney	33.19762	-96.61527	United States	America/Chicago
 Meads	Meads	38.41258	-82.70905	United States	America/New_York
 Memphis	Memphis	35.14953	-90.04898	United States	America/Chicago
 Mesa	Mesa	33.42227	-111.82264	United States	America/Phoenix
-Mesquite	Mesquite	32.7668	-96.59916	United States	America/Chicago
 Metairie	Metairie	29.98409	-90.15285	United States	America/Chicago
 Metairie Terrace	Metairie Terrace	29.97854	-90.16396	United States	America/Chicago
 Metropolitan Government of Nashville-Davidson (balance)	Metropolitan Government of Nashville-Davidson (balance)	36.17137	-86.78429	United States	America/Chicago
@@ -4064,17 +4039,13 @@ Murrieta	Murrieta	33.55391	-117.21392	United States	America/Los_Angeles
 Naperville	Naperville	41.78586	-88.14729	United States	America/Chicago
 Nashville	Nashville	36.16589	-86.78444	United States	America/Chicago
 Newark	Newark	40.73566	-74.17237	United States	America/New_York
-New Haven	New Haven	41.30815	-72.92816	United States	America/New_York
 New Orleans	New Orleans	29.95465	-90.07507	United States	America/Chicago
-Newport News	Newport News	36.97876	-76.428	United States	America/New_York
 New South Memphis	New South Memphis	35.08676	-90.05676	United States	America/Chicago
 New York City	New York City	40.71427	-74.00597	United States	America/New_York
-Norfolk	Norfolk	36.84681	-76.28522	United States	America/New_York
 Norman	Norman	35.22257	-97.43948	United States	America/Chicago
 North Glendale	North Glendale	34.16056	-118.26452	United States	America/Los_Angeles
 North Las Vegas	North Las Vegas	36.19886	-115.1175	United States	America/Los_Angeles
 North Peoria	North Peoria	40.71754	-89.58426	United States	America/Chicago
-North Stamford	North Stamford	41.13815	-73.54346	United States	America/New_York
 Norwalk	Norwalk	33.90224	-118.08173	United States	America/Los_Angeles
 Oakland	Oakland	37.80437	-122.2708	United States	America/Los_Angeles
 Oceanside	Oceanside	33.19587	-117.37948	United States	America/Los_Angeles
@@ -4090,7 +4061,6 @@ Oxnard Shores	Oxnard Shores	34.19084	-119.2415	United States	America/Los_Angeles
 Palm Bay	Palm Bay	28.03446	-80.58866	United States	America/New_York
 Palmdale	Palmdale	34.57943	-118.11646	United States	America/Los_Angeles
 Paradise	Paradise	36.09719	-115.14666	United States	America/Los_Angeles
-Pasadena	Pasadena	29.69106	-95.2091	United States	America/Chicago
 Pasadena	Pasadena	34.14778	-118.14452	United States	America/Los_Angeles
 Paterson	Paterson	40.91677	-74.17181	United States	America/New_York
 Pembroke Pines	Pembroke Pines	26.00315	-80.22394	United States	America/New_York
@@ -4099,7 +4069,6 @@ Peoria	Peoria	33.5806	-112.23738	United States	America/Phoenix
 Philadelphia	Philadelphia	39.95234	-75.16379	United States	America/New_York
 Phoenix	Phoenix	33.44838	-112.07404	United States	America/Phoenix
 Pittsburgh	Pittsburgh	40.44062	-79.99589	United States	America/New_York
-Plano	Plano	33.01984	-96.69889	United States	America/Chicago
 Pomona	Pomona	34.05529	-117.75228	United States	America/Los_Angeles
 Portland	Portland	45.52345	-122.67621	United States	America/Los_Angeles
 Port Saint Lucie	Port Saint Lucie	27.29393	-80.35033	United States	America/New_York
@@ -4109,7 +4078,6 @@ Pueblo	Pueblo	38.25445	-104.60914	United States	America/Denver
 Raleigh	Raleigh	35.7721	-78.63861	United States	America/New_York
 Rancho Cucamonga	Rancho Cucamonga	34.1064	-117.59311	United States	America/Los_Angeles
 Reno	Reno	39.52963	-119.8138	United States	America/Los_Angeles
-Richmond	Richmond	37.55376	-77.46026	United States	America/New_York
 Richmond	Richmond	37.93576	-122.34775	United States	America/Los_Angeles
 Riverside	Riverside	33.95335	-117.39616	United States	America/Los_Angeles
 Rochester	Rochester	44.02163	-92.4699	United States	America/Chicago
@@ -4122,7 +4090,6 @@ Saint Petersburg	Saint Petersburg	27.77086	-82.67927	United States	America/New_Y
 Salem	Salem	44.9429	-123.0351	United States	America/Los_Angeles
 Salinas	Salinas	36.67774	-121.6555	United States	America/Los_Angeles
 Salt Lake City	Salt Lake City	40.76078	-111.89105	United States	America/Denver
-San Antonio	San Antonio	29.42412	-98.49363	United States	America/Chicago
 San Bernardino	San Bernardino	34.10834	-117.28977	United States	America/Los_Angeles
 San Diego	San Diego	32.71533	-117.15726	United States	America/Los_Angeles
 San Francisco	San Francisco	37.77493	-122.41942	United States	America/Los_Angeles
@@ -4144,7 +4111,6 @@ Springfield	Springfield	39.80172	-89.64371	United States	America/Chicago
 Springfield	Springfield	37.21533	-93.29824	United States	America/Chicago
 Springfield	Springfield	42.10148	-72.58981	United States	America/New_York
 Spring Valley	Spring Valley	36.10803	-115.245	United States	America/Los_Angeles
-Stamford	Stamford	41.05343	-73.53873	United States	America/New_York
 Staten Island	Staten Island	40.56233	-74.13986	United States	America/New_York
 Sterling Heights	Sterling Heights	42.58031	-83.0302	United States	America/Detroit
 St. Louis	St. Louis	38.62727	-90.19789	United States	America/Chicago
@@ -4172,21 +4138,17 @@ Vallejo	Vallejo	38.10409	-122.25664	United States	America/Los_Angeles
 Vancouver	Vancouver	45.63873	-122.66149	United States	America/Los_Angeles
 Van Nuys	Van Nuys	34.18667	-118.44897	United States	America/Los_Angeles
 Victorville	Victorville	34.53611	-117.29116	United States	America/Los_Angeles
-Virginia Beach	Virginia Beach	36.85293	-75.97798	United States	America/New_York
 Visalia	Visalia	36.33023	-119.29206	United States	America/Los_Angeles
-Waco	Waco	31.54933	-97.14667	United States	America/Chicago
 Warren	Warren	42.47754	-83.0277	United States	America/Detroit
 Washington	Washington	40.70365	-89.40731	United States	America/Chicago
 Washington	Washington	37.13054	-113.50829	United States	America/Denver
 Washington, D. C.	Washington, D. C.	38.89511	-77.03637	United States	America/New_York
-Waterbury	Waterbury	41.55815	-73.0515	United States	America/New_York
 West Covina	West Covina	34.06862	-117.93895	United States	America/Los_Angeles
 West Jordan	West Jordan	40.60967	-111.9391	United States	America/Denver
 Westminster	Westminster	39.83665	-105.0372	United States	America/Denver
 West Raleigh	West Raleigh	35.78682	-78.66389	United States	America/New_York
 West Valley City	West Valley City	40.69161	-112.00105	United States	America/Denver
 Wichita	Wichita	37.69224	-97.33754	United States	America/Chicago
-Wichita Falls	Wichita Falls	33.91371	-98.49339	United States	America/Chicago
 Wilmington	Wilmington	34.22573	-77.94471	United States	America/New_York
 Winston-Salem	Winston-Salem	36.09986	-80.24422	United States	America/New_York
 Worcester	Worcester	42.26259	-71.80229	United States	America/New_York
@@ -4269,7 +4231,7 @@ Lagi	Lagi	10.66667	107.78333	Vietnam	Asia/Ho_Chi_Minh
 Long Xuyên	Long Xuyen	10.38639	105.43518	Vietnam	Asia/Ho_Chi_Minh
 Mỹ Tho	My Tho	10.36004	106.35996	Vietnam	Asia/Ho_Chi_Minh
 Nam Ðịnh	Nam Dinh	20.41667	106.16667	Vietnam	Asia/Ho_Chi_Minh
-Nha Trang	Nha Trang	12.25	109.18333	Vietnam	Asia/Ho_Chi_Minh
+Nha Trang	Nha Trang	12.24507	109.19432	Vietnam	Asia/Ho_Chi_Minh
 Phan Thiết	Phan Thiet	10.93333	108.1	Vietnam	Asia/Ho_Chi_Minh
 Pleiku	Pleiku	13.98333	108	Vietnam	Asia/Ho_Chi_Minh
 Quy Nhơn	Quy Nhon	13.76667	109.23333	Vietnam	Asia/Ho_Chi_Minh

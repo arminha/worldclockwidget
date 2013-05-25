@@ -48,14 +48,14 @@ class CityDatabase extends SQLiteOpenHelper {
     private static final String DROP_TABLE = "drop table if exists cities";
 
     private static final String DATABASE_NAME = "cities";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     private Context mContext;
     private boolean mNeedsVacuum;
-    
+
     public CityDatabase(Context context) {
         super(context, getName(context), null, DATABASE_VERSION);
-        cleanupOldDataBase(context); 
+        cleanupOldDataBase(context);
         mContext = context;
     }
 
@@ -73,10 +73,10 @@ class CityDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE);
-        
+
         insertData(db);
     }
-    
+
     private void insertData(SQLiteDatabase db) {
         Pattern p = Pattern.compile("\t");
         InsertHelper ih = new InsertHelper(db, Cities.TABLE_NAME);
@@ -89,7 +89,7 @@ class CityDatabase extends SQLiteOpenHelper {
         final int timezoneColumn = ih.getColumnIndex(Cities.TIMEZONE_ID);
 
         try {
-            // temporarily disable locking 
+            // temporarily disable locking
             db.setLockingEnabled(false);
             AssetManager am = mContext.getAssets();
             InputStream stream = am.open(CITY_DATA_CSV, AssetManager.ACCESS_STREAMING);
@@ -99,7 +99,7 @@ class CityDatabase extends SQLiteOpenHelper {
             while (line != null) {
                 // insert data set
                 ih.prepareForInsert();
-                
+
                 String[] rawValues = p.split(line, -1);
                 ih.bind(idColumn, id++);
                 ih.bind(nameColumn, rawValues[0]);
@@ -109,7 +109,7 @@ class CityDatabase extends SQLiteOpenHelper {
                 ih.bind(countryColumn, rawValues[4]);
                 ih.bind(timezoneColumn,rawValues[5]);
                 ih.execute();
-                
+
                 // next data set
                 line = in.readLine();
             }
