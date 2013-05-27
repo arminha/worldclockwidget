@@ -21,7 +21,11 @@ import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
 
 /**
- * Open Weather Map weather service.
+ * Open Weather Map weather service using the JSON API.
+ * 
+ * Documentation: http://openweathermap.org/wiki/API/JSON_API
+ * 
+ * Example URL: http://api.openweathermap.org/data/2.1/find/city?lat=51.507222&lon=-0.1275&cnt=1
  */
 public class OwmWeatherService implements WeatherService {
 

@@ -1,4 +1,10 @@
 
+1.5.6:
+
+* Open Weather Map is now available as a weather data source.
+* Bug fixes for Android 4.2
+* Update city database
+
 1.5.5:
 
 * Fix regression introduced with the fix in version 1.5.4.
