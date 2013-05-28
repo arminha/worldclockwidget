@@ -13,14 +13,15 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:divider="?android:attr/dividerVertical"
+    android:dividerPadding="12dp"
+    android:orientation="horizontal"
     android:showDividers="middle"
-    android:dividerPadding="12dp">
+    tools:ignore="NewApi">
 
     <include layout="@layout/actionbar_discard_button" />
     <include layout="@layout/actionbar_done_button" />

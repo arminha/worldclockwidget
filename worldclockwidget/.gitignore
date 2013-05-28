@@ -1,4 +1,4 @@
 bin/
 gen/
 local.properties
-lint.xml
+lint-results.xml
