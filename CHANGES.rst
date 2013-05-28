@@ -1,4 +1,8 @@
 
+1.5.7:
+
+* Fix a crash on Gingerbread devices.
+
 1.5.6:
 
 * Open Weather Map is now available as a weather data source.
