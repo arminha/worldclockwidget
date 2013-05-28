@@ -77,4 +77,7 @@
     <string name="general">General</string>
     <string name="automatically_sort_cities">Automatically sort cities</string>
     <string name="disable_to_sort_cities_manually">Disable to sort cities manually</string>
+    <string name="move_up">Move Up</string>
+    <string name="move_down">Move Down</string>
+    <string name="time_zone">Time zone</string>
 </resources>

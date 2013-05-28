@@ -25,7 +25,6 @@
     <string name="foreground_color_key">custom_foreground_color</string>
 
     <string name="weather_purge_time_key">weather_purge_time</string>
-    <string name="default_weather_purge_time"></string>
     <string-array name="weather_purge_time_values">
         <item name="2hours">7200000</item>
         <item name="4hours">14400000</item>

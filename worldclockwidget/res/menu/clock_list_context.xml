@@ -6,13 +6,13 @@
         android:icon="@drawable/ic_cab_up"
         android:menuCategory="secondary"
         android:showAsAction="ifRoom"
-        android:title="Move Up"/>
+        android:title="@string/move_up"/>
     <item
         android:id="@+id/menu_down"
         android:icon="@drawable/ic_cab_down"
         android:menuCategory="secondary"
         android:showAsAction="ifRoom"
-        android:title="Move Down"/>
+        android:title="@string/move_down"/>
     <item
         android:id="@+id/menu_edit"
         android:icon="@drawable/ic_menu_edit"

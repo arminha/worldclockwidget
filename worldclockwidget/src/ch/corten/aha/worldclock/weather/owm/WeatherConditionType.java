@@ -1,7 +1,6 @@
 package ch.corten.aha.worldclock.weather.owm;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.util.SparseArray;
 
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import static ch.corten.aha.worldclock.weather.owm.WeatherConditionPriority.*;
@@ -64,9 +63,9 @@ enum WeatherConditionType {
 
     NONE(-1, -1, WeatherObservation.NA);
 
-    private static final Map<Integer, WeatherConditionType> ID_MAP;
+    private static final SparseArray<WeatherConditionType> ID_MAP;
     static {
-        Map<Integer, WeatherConditionType> map = new HashMap<Integer, WeatherConditionType>();
+        SparseArray<WeatherConditionType> map = new SparseArray<WeatherConditionType>();
         for (WeatherConditionType type : WeatherConditionType.values()) {
             map.put(type.getId(), type);
         }
