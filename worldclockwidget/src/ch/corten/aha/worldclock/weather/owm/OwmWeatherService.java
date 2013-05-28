@@ -13,7 +13,8 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.util.JsonReader;
+import com.google.gson.stream.JsonReader;
+
 import android.util.Log;
 
 import ch.corten.aha.worldclock.weather.AbstractObservation;
