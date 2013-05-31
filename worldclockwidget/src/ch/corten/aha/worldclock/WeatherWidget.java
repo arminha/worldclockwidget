@@ -93,6 +93,9 @@ public class WeatherWidget {
             rv.setTextColor(R.id.time_text, foreground);
             rv.setTextColor(R.id.condition_text, foreground);
             rv.setTextColor(R.id.temp_text, foreground);
+            if (!SANS_JELLY_BEAN_MR1) {
+                rv.setTextColor(R.id.weekday_text, foreground);
+            }
 
             int res = WeatherIcons.getIcon(condCode, lon, lat);
             if (foreground != Color.WHITE) {
@@ -115,6 +118,9 @@ public class WeatherWidget {
             rv.setTextColor(R.id.time_text, defaultColor);
             rv.setTextColor(R.id.condition_text, defaultColor);
             rv.setTextColor(R.id.temp_text, Color.WHITE);
+            if (!SANS_JELLY_BEAN_MR1) {
+                rv.setTextColor(R.id.weekday_text, defaultColor);
+            }
         }
     }
 }
