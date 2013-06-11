@@ -18,6 +18,7 @@ package ch.corten.aha.widget;
 
 import java.util.Locale;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -51,6 +52,8 @@ public class CapitalizingTextView extends TextView {
         }
     }
 
+    @Override
+    @SuppressLint("DefaultLocale")
     public void setText(CharSequence text, BufferType type) {
         if (SANS_ICE_CREAM && mAllCaps && text != null) {
             if (IS_GINGERBREAD) {
