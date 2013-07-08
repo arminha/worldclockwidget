@@ -73,7 +73,8 @@ public class TimeZoneInfo {
         DateFormat dayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
         dayFormat.setTimeZone(tz);
         String day = dayFormat.format(date);
-        if (!day.equals(WEEKDAY_FORMAT.format(date))) {
+        DateFormat localDayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
+        if (!day.equals(localDayFormat.format(date))) {
             return " " + day;
         }
         return "";
