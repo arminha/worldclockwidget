@@ -43,6 +43,13 @@ public class UpdateWeatherService extends IntentService {
 
     public static final String BACKGROUND_UPDATE = "backgroundUpdate";
 
+    private static final String[] UPDATE_PROJECTION = new String[] {
+        Clocks._ID,
+        Clocks.LATITUDE,
+        Clocks.LONGITUDE,
+        Clocks.LAST_UPDATE
+    };
+
     public UpdateWeatherService() {
         super("UpdateWeather-service");
     }
@@ -86,18 +93,10 @@ public class UpdateWeatherService extends IntentService {
 
     private int updateData(int updateInterval,long currentTime) {
         Context context = getApplicationContext();
-        ContentResolver resolver = context.getContentResolver();
-        String[] projection = {
-                Clocks._ID,
-                Clocks.LATITUDE,
-                Clocks.LONGITUDE,
-                Clocks.LAST_UPDATE
-        };
         String query = null;
         if (updateInterval > 0) {
             query = Clocks.LAST_UPDATE + " < " + (currentTime - updateInterval);
         }
-        int count = 0;
 
         WeatherService service;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -110,7 +109,17 @@ public class UpdateWeatherService extends IntentService {
             service = new YahooWeatherService(context);
         }
 
-        Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
+        try {
+            return updateDatabase(context, service, query);
+        } finally {
+            service.close();
+        }
+    }
+
+    private int updateDatabase(Context context, WeatherService service, String query) {
+        int count = 0;
+        final ContentResolver resolver = context.getContentResolver();
+        final Cursor c = resolver.query(Clocks.CONTENT_URI, UPDATE_PROJECTION, query, null, null);
         try {
             while (c.moveToNext()) {
                 double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
@@ -124,7 +133,6 @@ public class UpdateWeatherService extends IntentService {
             }
         } finally {
             c.close();
-            service.close();
         }
         return count;
     }

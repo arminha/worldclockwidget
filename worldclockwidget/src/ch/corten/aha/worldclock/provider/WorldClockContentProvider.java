@@ -32,12 +32,12 @@ public class WorldClockContentProvider extends ContentProvider {
 
     private WorldClockDatabase mClockDbHelper;
     private CityDatabase mCityDbHelper;
-    
+
     private static final int CLOCKS = 1;
     private static final int CLOCKS_ITEM = 2;
     private static final int CITIES = 3;
     private static final int CITIES_ITEM = 4;
-    
+
     private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static {
         mUriMatcher.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME, CLOCKS);
@@ -45,7 +45,7 @@ public class WorldClockContentProvider extends ContentProvider {
         mUriMatcher.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME, CITIES);
         mUriMatcher.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME + "/#", CITIES_ITEM);
     }
-    
+
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         switch (mUriMatcher.match(uri)) {
@@ -103,12 +103,12 @@ public class WorldClockContentProvider extends ContentProvider {
         return insertUri;
     }
 
-    private static RuntimeException invalidUri(Uri uri) {
-        return new RuntimeException("URI not recognized: " + uri.toString());
+    private static IllegalArgumentException invalidUri(Uri uri) {
+        return new IllegalArgumentException("URI not recognized: " + uri.toString());
     }
 
-    private static RuntimeException citiesReadOnly() {
-        return new RuntimeException("Cannot write cities, they are read-only.");
+    private static IllegalArgumentException citiesReadOnly() {
+        return new IllegalArgumentException("Cannot write cities, they are read-only.");
     }
 
     @Override
@@ -138,7 +138,7 @@ public class WorldClockContentProvider extends ContentProvider {
         default:
             throw invalidUri(uri);
         }
-        
+
         switch (match) {
         case CLOCKS:
         case CITIES:
