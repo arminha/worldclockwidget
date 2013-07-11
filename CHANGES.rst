@@ -1,4 +1,9 @@
 
+1.5.8:
+
+* Bug fixes
+* Update city database
+
 1.5.7:
 
 * Fix a crash on Gingerbread devices.
