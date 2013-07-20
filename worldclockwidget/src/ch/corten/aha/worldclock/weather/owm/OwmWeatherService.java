@@ -12,20 +12,20 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.gson.stream.JsonReader;
+import java.util.Locale;
 
 import android.util.Log;
-
 import ch.corten.aha.worldclock.weather.AbstractObservation;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
 
+import com.google.gson.stream.JsonReader;
+
 /**
  * Open Weather Map weather service using the JSON API.
- * 
+ *
  * Documentation: http://openweathermap.org/wiki/API/JSON_API
- * 
+ *
  * Example URL: http://api.openweathermap.org/data/2.1/find/city?lat=51.507222&lon=-0.1275&cnt=1
  */
 public class OwmWeatherService implements WeatherService {
@@ -197,7 +197,7 @@ public class OwmWeatherService implements WeatherService {
         }
 
         private static String capitalize(String description) {
-            return description.substring(0, 1).toUpperCase() + description.substring(1).toLowerCase();
+            return description.substring(0, 1).toUpperCase(Locale.ENGLISH) + description.substring(1).toLowerCase(Locale.ENGLISH);
         }
     }
 
