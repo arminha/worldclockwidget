@@ -20,6 +20,11 @@ countries_file = 'countryInfo.txt'
 cities_file = 'cities15000.txt'
 output_file = "../worldclockwidget/assets/city_data.csv"
 
+manually_added_cities = \
+    [('2179670', 'Wanganui')
+    ,('4168228', 'Pensacola')
+    ]
+
 class CountryInfo(object):
     def __init__(self, info_file):
         object.__init__(self)
@@ -89,7 +94,21 @@ def main():
         writer.writerow(['GMT', 'UTC Zulu', '0', '0', 'Greenwich Mean Time', 'GMT'])
 
 def select_row(ci, row):
-    return int(row[POPULATION]) > 100000 or ci.is_capital(row)
+    if int(row[POPULATION]) > 100000 or ci.is_capital(row):
+        return True
+    if is_manually_added(row):
+        return True
+    return False
+
+def is_manually_added(row):
+    for (id, name) in manually_added_cities:
+        if id == row[GEONAMEID]:
+            if name != row[ASCIINAME]:
+                print 'WARNING: name of city [%s] has changed from "%s" to "%s"' % (id, name, row[ASCIINAME])
+            print 'manually added city: %s, %s [%s]' % (row[ASCIINAME], row[ISO_CODE], id)
+            return True
+    return False
+
 
 if __name__ == "__main__":
     main()
