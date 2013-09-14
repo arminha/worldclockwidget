@@ -32,8 +32,11 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 public class UpdateWeatherService extends IntentService {
+
+    private static final String TAG = "UpdateWeatherService";
 
     public static final String WEATHER_DATA_PURGE_AFTER = "purgeAfter";
     public static final int DEFAULT_WEATHER_DATA_PURGE_AFTER = 7200000; // 2 hour
@@ -125,10 +128,14 @@ public class UpdateWeatherService extends IntentService {
                 double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
                 double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
                 long id = c.getLong(c.getColumnIndex(Clocks._ID));
-                WeatherObservation observation = service.getWeather(lat, lon);
+                try {
+                    WeatherObservation observation = service.getWeather(lat, lon);
 
-                if (observation != null && Clocks.updateWeather(context, id, observation)) {
-                    count++;
+                    if (observation != null && Clocks.updateWeather(context, id, observation)) {
+                        count++;
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "failed to retrieve/update weather for " + lat + ", " + lon, e);
                 }
             }
         } finally {
