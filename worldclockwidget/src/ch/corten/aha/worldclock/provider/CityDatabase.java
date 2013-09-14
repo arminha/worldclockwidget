@@ -48,7 +48,7 @@ class CityDatabase extends SQLiteOpenHelper {
     private static final String DROP_TABLE = "drop table if exists cities";
 
     private static final String DATABASE_NAME = "cities";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     private Context mContext;
     private boolean mNeedsVacuum;
