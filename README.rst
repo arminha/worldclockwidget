@@ -8,10 +8,11 @@ Features
 --------
 
 * Show local time and weather conditions in more than 4000 places.
-* Add your own places: Add a place in the same time zone and change its name and coordinates.
+* Add your own places: Add a place in the same time zone and change its name and coordinates to your desired location to show the actual weather condition there!
 * A compact clock widget, displaying the local time in your favorite locations.
-* A resizable widget, showing the time and weather
+* A widget showing the time and weather, which is re-sizable to show multiple locations on the home screen.
 * Simple and clean UI
+* Customizable widget colors (including transparent background)
 
 The Internet connectivity permission is **only** used to retrieve current weather conditions.
 
