@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012  Armin Häberling
+ * Copyright (C) 2012 - 2014  Armin Häberling
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -100,7 +100,9 @@ public class WorldClock {
                     orderKey = 0;
                 }
             } finally {
-                c.close();
+                if (c != null) {
+                    c.close();
+                }
             }
             initialValues.put(ORDER_KEY, orderKey);
 
@@ -137,7 +139,9 @@ public class WorldClock {
                     return;
                 }
             } finally {
-                c.close();
+                if (c != null) {
+                    c.close();
+                }
             }
 
             setOrderKey(cr, id, otherOrderKey);
@@ -158,7 +162,9 @@ public class WorldClock {
                 c.moveToNext();
                 return c.getLong(c.getColumnIndex(ORDER_KEY));
             } finally {
-                c.close();
+                if (c != null) {
+                    c.close();
+                }
             }
         }
 

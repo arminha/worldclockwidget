@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012  Armin Häberling
+ * Copyright (C) 2012 - 2014  Armin Häberling
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -140,7 +140,9 @@ public class EditClockActivity extends SherlockFragmentActivity {
                 // item is not in the database any more
                 this.getActivity().finish();
             } finally {
-                c.close();
+                if (c != null) {
+                    c.close();
+                }
             }
         }
 

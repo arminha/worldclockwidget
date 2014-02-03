@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012  Armin Häberling
+ * Copyright (C) 2012 - 2014  Armin Häberling
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -80,7 +80,9 @@ public class CompatWeatherWidgetService extends IntentService {
                 rv.setViewVisibility(getGridViewId(layout), View.GONE);
             }
         } finally {
-            c.close();
+            if (c != null) {
+                c.close();
+            }
         }
         return rv;
     }
