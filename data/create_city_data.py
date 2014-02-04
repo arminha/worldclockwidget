@@ -3,8 +3,6 @@
 import csv
 import locale
 
-#TODO individual population levels
-
 # columns in cities15000
 GEONAMEID = 0
 NAME = 1
@@ -45,6 +43,17 @@ manually_added_cities = \
     ,('2173911', 'Broken Hill')
     ,('1516048', 'Khovd')
     ]
+
+levels = {
+    'CH' : 80000,
+    'US' : 90000,
+    'CA' : 80000,
+    'AU' : 80000,
+    'CN' : 120000,
+    'IN' : 110000,
+    'AF' : 140000,
+    'CD' : 140000,
+}
 
 class CountryInfo(object):
     def __init__(self, info_file):
@@ -115,7 +124,9 @@ def main():
         writer.writerow(['GMT', 'UTC Zulu', '0', '0', 'Greenwich Mean Time', 'GMT'])
 
 def select_row(ci, row):
-    if int(row[POPULATION]) > 100000 or ci.is_capital(row):
+    if checkPopulationLevel(row):
+        return True
+    if ci.is_capital(row):
         return True
     if is_manually_added(row):
         return True
@@ -130,6 +141,11 @@ def is_manually_added(row):
             return True
     return False
 
+def checkPopulationLevel(row):
+    iso_code = row[ISO_CODE]
+    if iso_code in levels:
+        return int(row[POPULATION]) >= levels[iso_code];
+    return int(row[POPULATION]) >= 100000
 
 if __name__ == "__main__":
     main()
