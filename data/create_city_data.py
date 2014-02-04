@@ -23,6 +23,27 @@ output_file = "../worldclockwidget/assets/city_data.csv"
 manually_added_cities = \
     [('2179670', 'Wanganui')
     ,('4168228', 'Pensacola')
+    ,('6324733', 'St. John\'s')
+    ,('3042237', 'Douglas')
+    ,('3372783', 'Ponta Delgada')
+    ,('6362987', 'Ceuta')
+    ,('3838859', 'Rio Gallegos')
+    ,('3833367', 'Ushuaia')
+    ,('5955960', 'Fort St. John')
+    ,('3664321', 'Eirunepe')
+    ,('4266307', 'Vincennes')
+    ,('5554072', 'Juneau')
+    ,('3513563', 'Kralendijk')
+    ,('5690366', 'Mandan')
+    ,('6076211', 'Moncton')
+    ,('3984237', 'Santa Isabel')
+    ,('6166142', 'Thunder Bay')
+    ,('6180550', 'Whitehorse')
+    ,('6185377', 'Yellowknife')
+    ,('2032614', 'Baruun-Urt')
+    ,('2123628', 'Magadan')
+    ,('2173911', 'Broken Hill')
+    ,('1516048', 'Khovd')
     ]
 
 class CountryInfo(object):
