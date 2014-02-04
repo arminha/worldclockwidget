@@ -1,4 +1,9 @@
 
+1.5.10:
+
+* Bug fixes
+* Update city database (Adds some missing time zones: St. John's etc)
+
 1.5.9:
 
 * Bug fixes
