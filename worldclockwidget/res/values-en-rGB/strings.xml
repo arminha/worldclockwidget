@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_color_picker">Colour Picker</string>
+    <string name="press_color_to_apply">Press on colour to apply</string>
+    <string name="use_custom_colors">Use custom colours</string>
+    <string name="change_background_color">Change background colour and transparency</string>
+    <string name="change_foreground_color">Change foreground colour</string>
+</resources>
