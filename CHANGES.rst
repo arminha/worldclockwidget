@@ -1,4 +1,8 @@
 
+1.5.12:
+
+* Fix Open Weather Map
+
 1.5.11:
 
 * Use Open Weather Map as default weather source
