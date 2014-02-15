@@ -26,7 +26,7 @@ import com.google.gson.stream.JsonReader;
  *
  * Documentation: http://openweathermap.org/wiki/API/JSON_API
  *
- * Example URL: http://api.openweathermap.org/data/2.1/find/city?lat=51.507222&lon=-0.1275&cnt=1
+ * Example URL: http://api.openweathermap.org/data/2.5/weather?lat=51.507222&lon=-0.1275
  */
 public class OwmWeatherService implements WeatherService {
 
@@ -35,8 +35,8 @@ public class OwmWeatherService implements WeatherService {
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
         try {
-            String query = "lat=" + latitude + "&lon=" + longitude + "&cnt=1";
-            URI uri = new URI("http", "api.openweathermap.org", "/data/2.1/find/city", query, null);
+            String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
+            URI uri = new URI("http", "api.openweathermap.org", "/data/2.5/weather", query, null);
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
@@ -58,38 +58,15 @@ public class OwmWeatherService implements WeatherService {
         return null;
     }
 
-    /**
-     * Read JSON as described at http://openweathermap.org/wiki/API/2.1/JSON_API
-     * @param in
-     * @return
-     * @throws IOException
-     */
     private WeatherObservation readStream(InputStream in) throws IOException {
         JsonReader reader = new JsonReader(new InputStreamReader(in, Charset.forName("UTF-8")));
         Observation observation = new Observation();
-        reader.beginObject();
-        while (reader.hasNext()) {
-            String name = reader.nextName();
-            if ("list".equals(name)) {
-                reader.beginArray();
-                // read first element only
-                if (reader.hasNext()) {
-                    readWeatherData(reader, observation);
-                }
-                while (reader.hasNext()) {
-                    reader.skipValue();
-                }
-                reader.endArray();
-            } else {
-                reader.skipValue();
-            }
-        }
-        reader.endObject();
+        readWeatherData(reader, observation);
         return observation;
     }
 
     /**
-     * Reads weather data as described at http://openweathermap.org/wiki/API/2.0/Weather_Data
+     * Reads weather data as described at http://bugs.openweathermap.org/projects/api/wiki/Weather_Data
      * @param reader
      * @param observation
      * @throws IOException
@@ -141,7 +118,7 @@ public class OwmWeatherService implements WeatherService {
         while (reader.hasNext()) {
             String name = reader.nextName();
             if ("speed".equals(name)) {
-                double speed = reader.nextDouble() * 3.6;
+                double speed = reader.nextDouble();
                 observation.setWindSpeed(speed);
             } else if ("deg".equals(name)) {
                 double direction = reader.nextDouble();
@@ -158,7 +135,7 @@ public class OwmWeatherService implements WeatherService {
         while (reader.hasNext()) {
             String name = reader.nextName();
             if ("temp".equals(name)) {
-                double temp = reader.nextDouble() - 273.15;
+                double temp = reader.nextDouble();
                 observation.setTemperature(temp);
             } else if ("humidity".equals(name)) {
                 double humidity = reader.nextDouble();
