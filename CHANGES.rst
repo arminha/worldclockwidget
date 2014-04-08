@@ -1,4 +1,8 @@
 
+1.5.13:
+
+* Update city database
+
 1.5.12:
 
 * Fix Open Weather Map
