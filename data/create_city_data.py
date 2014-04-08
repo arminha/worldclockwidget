@@ -42,17 +42,20 @@ manually_added_cities = \
     ,('2123628', 'Magadan')
     ,('2173911', 'Broken Hill')
     ,('1516048', 'Khovd')
+    ,('3164603', 'Venezia')
+    ,('3166548', 'Siena')
     ]
 
 levels = {
-    'CH' : 80000,
-    'US' : 90000,
-    'CA' : 80000,
-    'AU' : 80000,
+    'CH' : 55000,
+    'US' : 80000,
+    'CA' : 60000,
+    'AU' : 70000,
     'CN' : 120000,
     'IN' : 110000,
     'AF' : 140000,
     'CD' : 140000,
+    'IT' : 70000,
 }
 
 class CountryInfo(object):
