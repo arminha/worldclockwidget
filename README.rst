@@ -47,7 +47,7 @@ Attributions
 ------------
 
 * Special thanks to `vyick <http://vyick.wordpress.com/>`_ for beta testing and feature suggestions!
-* Weather data is provided by `Yahoo! Weather <http://weather.yahoo.com/>`_, MSN or `Open Weather Map <http://openweathermap.org/>`_.
+* Weather data is provided by `Open Weather Map <http://openweathermap.org/>`_, `Yahoo Weather <https://weather.yahoo.com/>`_ or `MSN Weather <http://local.msn.com/>`_.
 * The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
 * Time zone and geographical data is from `Geonames.org <http://www.geonames.org/>`_.
 
