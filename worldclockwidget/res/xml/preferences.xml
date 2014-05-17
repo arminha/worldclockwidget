@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wc="http://schemas.android.com/apk/res/ch.corten.aha.worldclock" >
     <PreferenceCategory android:title="@string/general">
         <CheckBoxPreference
             android:title="@string/automatically_sort_cities"
@@ -66,11 +67,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about">
-        <Preference android:key="feedback" android:title="@string/feedback">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/feedbackEmail"/>
-        </Preference>
+        <ch.corten.aha.preference.MailPreference
+            android:key="feedback"
+            android:title="@string/feedback_title"
+            android:summary="@string/feedback_summary"
+            wc:recipient="@string/feedback_email"
+            wc:subject="@string/app_name" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Attributions">

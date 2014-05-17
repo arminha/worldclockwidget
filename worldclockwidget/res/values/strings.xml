@@ -80,6 +80,7 @@
     <string name="move_up">Move Up</string>
     <string name="move_down">Move Down</string>
     <string name="time_zone">Time zone</string>
-    <string name="feedback">Feedback</string>
+    <string name="feedback_title">Send Feedback</string>
+    <string name="feedback_summary">Tell us what you think</string>
     <string name="about">About</string>
 </resources>
