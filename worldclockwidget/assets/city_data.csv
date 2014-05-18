@@ -247,7 +247,7 @@ Botucatu	Botucatu	-22.88583	-48.445	Brazil	America/Sao_Paulo
 Bragança Paulista	Braganca Paulista	-22.95194	-46.54194	Brazil	America/Sao_Paulo
 Brasília	Brasilia	-15.77972	-47.92972	Brazil	America/Sao_Paulo
 Cabo	Cabo	-8.28333	-35.03333	Brazil	America/Recife
-Cabo Frio	Cabo Frio	-22.87944	-42.01861	Brazil	America/Sao_Paulo
+Cabo Frio	Cabo Frio	-22.88717	-42.02622	Brazil	America/Sao_Paulo
 Cachoeirinha	Cachoeirinha	-29.95111	-51.09389	Brazil	America/Sao_Paulo
 Cachoeiro de Itapemirim	Cachoeiro de Itapemirim	-20.84889	-41.11278	Brazil	America/Sao_Paulo
 Camaçari	Camacari	-12.6975	-38.32417	Brazil	America/Bahia
@@ -439,7 +439,7 @@ Vitória	Vitoria	-20.31944	-40.33778	Brazil	America/Sao_Paulo
 Vitória da Conquista	Vitoria da Conquista	-14.86611	-40.83944	Brazil	America/Bahia
 Vitória de Santo Antão	Vitoria de Santo Antao	-8.11806	-35.29139	Brazil	America/Recife
 Volta Redonda	Volta Redonda	-22.52306	-44.10417	Brazil	America/Sao_Paulo
-Road Town	Road Town	18.41667	-64.61667	British Virgin Islands	America/Tortola
+Road Town	Road Town	18.42693	-64.62079	British Virgin Islands	America/Tortola
 Bandar Seri Begawan	Bandar Seri Begawan	4.94029	114.94806	Brunei	Asia/Brunei
 Burgas	Burgas	42.50606	27.46781	Bulgaria	Europe/Sofia
 Pleven	Pleven	43.41667	24.61667	Bulgaria	Europe/Sofia
@@ -729,7 +729,7 @@ Jieshou	Jieshou	33.26338	115.36108	China	Asia/Shanghai
 Jieyang	Jieyang	23.5418	116.36581	China	Asia/Shanghai
 Jilin	Jilin	43.85083	126.56028	China	Asia/Harbin
 Jinan	Jinan	36.66833	116.99722	China	Asia/Shanghai
-Jinchang	Jinchang	38.49528	102.17389	China	Asia/Chongqing
+Jinchang	Jinchang	38.50062	102.19379	China	Asia/Chongqing
 Jincheng	Jincheng	35.50222	112.83278	China	Asia/Shanghai
 Jingdezhen	Jingdezhen	29.2947	117.20789	China	Asia/Shanghai
 Jingling	Jingling	30.65	113.1	China	Asia/Shanghai
@@ -822,7 +822,7 @@ Shangyu	Shangyu	30.01556	120.87111	China	Asia/Shanghai
 Shantou	Shantou	23.36814	116.71479	China	Asia/Shanghai
 Shanwei	Shanwei	22.78199	115.3475	China	Asia/Shanghai
 Shaoguan	Shaoguan	24.8	113.58333	China	Asia/Shanghai
-Shaoxing	Shaoxing	30.01102	120.57153	China	Asia/Shanghai
+Shaoxing	Shaoxing	30.00237	120.57864	China	Asia/Shanghai
 Shashi	Shashi	30.30722	112.24472	China	Asia/Shanghai
 Shenyang	Shenyang	41.79222	123.43278	China	Asia/Shanghai
 Shenzhen	Shenzhen	22.54554	114.0683	China	Asia/Shanghai
@@ -902,7 +902,7 @@ Xuanhua	Xuanhua	40.61028	115.04472	China	Asia/Shanghai
 Xuanzhou	Xuanzhou	30.9525	118.75528	China	Asia/Shanghai
 Xuchang	Xuchang	34.01667	113.81667	China	Asia/Shanghai
 Yan’an Beilu	Yan'an Beilu	44.00782	87.30461	China	Asia/Urumqi
-Yancheng	Yancheng	33.38556	120.12528	China	Asia/Shanghai
+Yancheng	Yancheng	33.3575	120.1573	China	Asia/Shanghai
 Yangchun	Yangchun	22.16667	111.78333	China	Asia/Chongqing
 Yangjiang	Yangjiang	21.85564	111.96272	China	Asia/Chongqing
 Yangquan	Yangquan	37.8575	113.56333	China	Asia/Shanghai
@@ -1028,7 +1028,7 @@ Nicosia	Nicosia	35.16667	33.36667	Cyprus	Asia/Nicosia
 Brno	Brno	49.19522	16.60796	Czech Republic	Europe/Prague
 Olomouc	Olomouc	49.59552	17.25175	Czech Republic	Europe/Prague
 Ostrava	Ostrava	49.83465	18.28204	Czech Republic	Europe/Prague
-Plzeň	Plzen	49.74747	13.37759	Czech Republic	Europe/Prague
+Pilsen	Pilsen	49.74747	13.37759	Czech Republic	Europe/Prague
 Prague	Prague	50.08804	14.42076	Czech Republic	Europe/Prague
 Bukavu	Bukavu	-2.49076	28.84281	Democratic Republic of the Congo	Africa/Lubumbashi
 Butembo	Butembo	0.14164	29.29117	Democratic Republic of the Congo	Africa/Lubumbashi
@@ -1182,9 +1182,9 @@ Perpignan	Perpignan	42.69764	2.89541	France	Europe/Paris
 Reims	Reims	49.25	4.03333	France	Europe/Paris
 Rennes	Rennes	48.11198	-1.67429	France	Europe/Paris
 Rouen	Rouen	49.44313	1.09932	France	Europe/Paris
-Saint-Étienne	Saint-Etienne	45.43333	4.4	France	Europe/Paris
+Saint-Etienne	Saint-Etienne	45.43333	4.4	France	Europe/Paris
 Saint-Quentin-en-Yvelines	Saint-Quentin-en-Yvelines	48.77186	2.01891	France	Europe/Paris
-Strasbourg	Strasbourg	48.58342	7.74296	France	Europe/Paris
+Strasbourg	Strasbourg	48.58392	7.74553	France	Europe/Paris
 Toulon	Toulon	43.11667	5.93333	France	Europe/Paris
 Toulouse	Toulouse	43.60426	1.44367	France	Europe/Paris
 Tours	Tours	47.38333	0.68333	France	Europe/Paris
@@ -1204,13 +1204,7 @@ Augsburg	Augsburg	48.37154	10.89851	Germany	Europe/Berlin
 Bergedorf	Bergedorf	53.48462	10.22904	Germany	Europe/Berlin
 Bergisch Gladbach	Bergisch Gladbach	50.9856	7.13298	Germany	Europe/Berlin
 Berlin	Berlin	52.52437	13.41053	Germany	Europe/Berlin
-Berlin Mitte	Berlin Mitte	52.52003	13.40489	Germany	Europe/Berlin
-Berlin Pankow	Berlin Pankow	52.56926	13.40186	Germany	Europe/Berlin
-Berlin Reinickendorf	Berlin Reinickendorf	52.56667	13.33333	Germany	Europe/Berlin
 Berlin Schöneberg	Berlin Schoeneberg	52.48388	13.3477	Germany	Europe/Berlin
-Berlin Spandau	Berlin Spandau	52.5511	13.19921	Germany	Europe/Berlin
-Berlin Steglitz Zehlendorf	Berlin Steglitz Zehlendorf	52.43485	13.24183	Germany	Europe/Berlin
-Berlin Wilmersdorf	Berlin Wilmersdorf	52.50097	13.29097	Germany	Europe/Berlin
 Bielefeld	Bielefeld	52.03333	8.53333	Germany	Europe/Berlin
 Bochum	Bochum	51.48165	7.21648	Germany	Europe/Berlin
 Bochum-Hordel	Bochum-Hordel	51.50168	7.1756	Germany	Europe/Berlin
@@ -1232,8 +1226,7 @@ Erlangen	Erlangen	49.59099	11.00783	Germany	Europe/Berlin
 Essen	Essen	51.45657	7.01228	Germany	Europe/Berlin
 Frankfurt am Main	Frankfurt am Main	50.11552	8.68417	Germany	Europe/Berlin
 Freiburg	Freiburg	47.9959	7.85222	Germany	Europe/Berlin
-Friedrichshain	Friedrichshain Bezirk	52.53333	13.43333	Germany	Europe/Berlin
-Friedrichshain	Friedrichshain	52.51518	13.45362	Germany	Europe/Berlin
+Friedrichshain	Friedrichshain Bezirk	52.51559	13.45482	Germany	Europe/Berlin
 Fürth	Furth	49.47593	10.98856	Germany	Europe/Berlin
 Gelsenkirchen	Gelsenkirchen	51.5075	7.12283	Germany	Europe/Berlin
 Gera	Gera	50.88029	12.08187	Germany	Europe/Berlin
@@ -1260,7 +1253,6 @@ Koblenz	Koblenz	50.35357	7.57884	Germany	Europe/Berlin
 Köln	Koeln	50.93333	6.95	Germany	Europe/Berlin
 Krefeld	Krefeld	51.33921	6.58615	Germany	Europe/Berlin
 Kreuzberg	Bezirk Kreuzberg	52.49973	13.40338	Germany	Europe/Berlin
-Kreuzberg	Kreuzberg	52.48906	13.38736	Germany	Europe/Berlin
 Leipzig	Leipzig	51.33962	12.37129	Germany	Europe/Berlin
 Leverkusen	Leverkusen	51.0303	6.98432	Germany	Europe/Berlin
 Lübeck	Luebeck	53.86893	10.68729	Germany	Europe/Berlin
@@ -1269,7 +1261,7 @@ Magdeburg	Magdeburg	52.12773	11.62916	Germany	Europe/Berlin
 Mainz	Mainz	49.98419	8.2791	Germany	Europe/Berlin
 Mannheim	Mannheim	49.49671	8.47955	Germany	Europe/Berlin
 Marienthal	Marienthal	53.56667	10.08333	Germany	Europe/Berlin
-Marzahn	Marzahn Bezirk	52.55	13.55	Germany	Europe/Berlin
+Marzahn	Marzahn	52.54525	13.56983	Germany	Europe/Berlin
 Moers	Moers	51.45342	6.6326	Germany	Europe/Berlin
 Mönchengladbach	Monchengladbach	51.18539	6.44172	Germany	Europe/Berlin
 Mülheim (Ruhr)	Muelheim (Ruhr)	51.43333	6.88333	Germany	Europe/Berlin
@@ -1816,7 +1808,7 @@ Indramayu	Indramayu	-6.32639	108.32	Indonesia	Asia/Jakarta
 Jakarta	Jakarta	-6.21462	106.84513	Indonesia	Asia/Jakarta
 Jambi City	Jambi City	-1.6	103.61667	Indonesia	Asia/Jakarta
 Jayapura	Jayapura	-2.53371	140.71813	Indonesia	Asia/Jayapura
-Jember	Jember	-8.16604	113.70317	Indonesia	Asia/Jakarta
+Jember	Jember	-8.17211	113.69953	Indonesia	Asia/Jakarta
 Jombang	Jombang	-7.54595	112.23307	Indonesia	Asia/Jakarta
 Kediri	Kediri	-7.81667	112.01667	Indonesia	Asia/Jakarta
 Kedungwuni	Kedungwuni	-6.97038	109.64794	Indonesia	Asia/Jakarta
@@ -1866,7 +1858,7 @@ Pematangsiantar	Pematangsiantar	2.9595	99.0687	Indonesia	Asia/Jakarta
 Perbaungan	Perbaungan	3.5679	98.956	Indonesia	Asia/Jakarta
 Percut	Percut	3.6253	98.864	Indonesia	Asia/Jakarta
 Plumbon	Plumbon	-6.705	108.47278	Indonesia	Asia/Jakarta
-Pontianak	Pontianak	-0.03333	109.33333	Indonesia	Asia/Pontianak
+Pontianak	Pontianak	-0.03109	109.32199	Indonesia	Asia/Pontianak
 Prabumulih	Prabumulih	-3.43447	104.23056	Indonesia	Asia/Jakarta
 Probolinggo	Probolinggo	-7.7543	113.2159	Indonesia	Asia/Jakarta
 Purwakarta	Purwakarta	-6.55694	107.44333	Indonesia	Asia/Jakarta
@@ -1883,7 +1875,7 @@ Sepatan	Sepatan	-6.11889	106.575	Indonesia	Asia/Jakarta
 Serang	Serang	-6.1149	106.1502	Indonesia	Asia/Jakarta
 Sidoarjo	Sidoarjo	-7.4478	112.7183	Indonesia	Asia/Jakarta
 Singaraja	Singaraja	-8.112	115.08818	Indonesia	Asia/Makassar
-Singkawang	Singkawang	0.9	109	Indonesia	Asia/Pontianak
+Singkawang	Singkawang	0.90925	108.98463	Indonesia	Asia/Pontianak
 Situbondo	Situbondo	-7.70623	114.00976	Indonesia	Asia/Jakarta
 Soreang	Soreang	-7.03306	107.51833	Indonesia	Asia/Jakarta
 Sorong	Sorong	-0.87956	131.26104	Indonesia	Asia/Jayapura
@@ -2016,79 +2008,79 @@ Rishon LeẔiyyon	Rishon LeZiyyon	31.97102	34.78939	Israel	Asia/Jerusalem
 Tel Aviv	Tel Aviv	32.08088	34.78057	Israel	Asia/Jerusalem
 West Jerusalem	West Jerusalem	31.78199	35.21961	Israel	Asia/Jerusalem
 Yafo	Yafo	32.05043	34.75224	Israel	Asia/Jerusalem
-Ancona	Ancona	43.59816	13.51008	Italy	Europe/Rome
-Andria	Andria	41.22984	16.30674	Italy	Europe/Rome
-Arezzo	Arezzo	43.46734	11.88261	Italy	Europe/Rome
-Bari	Bari	41.11773	16.85118	Italy	Europe/Rome
-Barletta	Barletta	41.3197	16.28662	Italy	Europe/Rome
-Bergamo	Bergamo	45.69798	9.66895	Italy	Europe/Rome
+Acilia-Castel Fusano-Ostia Antica	Acilia-Castel Fusano-Ostia Antica	41.76337	12.33078	Italy	Europe/Rome
+Ancona	Ancona	43.5942	13.50337	Italy	Europe/Rome
+Andria	Andria	41.23117	16.29797	Italy	Europe/Rome
+Arezzo	Arezzo	43.44708	11.86867	Italy	Europe/Rome
+Bari	Bari	41.11148	16.8554	Italy	Europe/Rome
+Barletta	Barletta	41.31429	16.28165	Italy	Europe/Rome
+Bergamo	Bergamo	45.69601	9.66721	Italy	Europe/Rome
 Bologna	Bologna	44.49381	11.33875	Italy	Europe/Rome
-Bolzano	Bolzano	46.49272	11.33358	Italy	Europe/Rome
-Brescia	Brescia	45.52478	10.22727	Italy	Europe/Rome
-Brindisi	Brindisi	40.62773	17.93682	Italy	Europe/Rome
+Bolzano	Bolzano	46.49067	11.33982	Italy	Europe/Rome
+Brescia	Brescia	45.53558	10.21472	Italy	Europe/Rome
+Brindisi	Brindisi	40.63215	17.93607	Italy	Europe/Rome
 Busto Arsizio	Busto Arsizio	45.61128	8.84914	Italy	Europe/Rome
-Cagliari	Cagliari	39.20738	9.13462	Italy	Europe/Rome
-Caserta	Caserta	41.07281	14.33043	Italy	Europe/Rome
-Catania	Catania	37.503	15.08638	Italy	Europe/Rome
-Catanzaro	Catanzaro	38.89079	16.5987	Italy	Europe/Rome
+Cagliari	Cagliari	39.23054	9.11917	Italy	Europe/Rome
+Caserta	Caserta	41.07619	14.34002	Italy	Europe/Rome
+Catania	Catania	37.49223	15.07041	Italy	Europe/Rome
+Catanzaro	Catanzaro	38.88247	16.60086	Italy	Europe/Rome
 Cesena	Cesena	44.1391	12.24315	Italy	Europe/Rome
-Cinisello Balsamo	Cinisello Balsamo	45.55707	9.22185	Italy	Europe/Rome
-Como	Como	45.80998	9.08744	Italy	Europe/Rome
-Ferrara	Ferrara	44.82678	11.62071	Italy	Europe/Rome
-Firenze	Firenze	43.76667	11.25	Italy	Europe/Rome
-Foggia	Foggia	41.46093	15.54925	Italy	Europe/Rome
-Forlì	Forli	44.22361	12.05278	Italy	Europe/Rome
-Gela	Gela	37.08034	14.23068	Italy	Europe/Rome
-Genoa	Genoa	44.40632	8.93386	Italy	Europe/Rome
-Giugliano in Campania	Giugliano in Campania	40.92306	14.21039	Italy	Europe/Rome
+Cinisello Balsamo	Cinisello Balsamo	45.55646	9.22104	Italy	Europe/Rome
+Como	Como	45.80079	9.08065	Italy	Europe/Rome
+Ferrara	Ferrara	44.84346	11.60868	Italy	Europe/Rome
+Florence	Florence	43.77925	11.24626	Italy	Europe/Rome
+Foggia	Foggia	41.45845	15.55188	Italy	Europe/Rome
+Forlì	Forli	44.22054	12.05245	Italy	Europe/Rome
+Gela	Gela	37.0757	14.23704	Italy	Europe/Rome
+Genoa	Genoa	44.4264	8.91519	Italy	Europe/Rome
+Giugliano in Campania	Giugliano in Campania	40.93188	14.19557	Italy	Europe/Rome
 Lamezia Terme	Lamezia Terme	38.96589	16.3092	Italy	Europe/Rome
-La Spezia	La Spezia	44.11054	9.84339	Italy	Europe/Rome
+La Spezia	La Spezia	44.11096	9.83632	Italy	Europe/Rome
 Latina	Latina	41.46614	12.9043	Italy	Europe/Rome
-Lecce	Lecce	40.35703	18.17202	Italy	Europe/Rome
+Lecce	Lecce	40.35481	18.17244	Italy	Europe/Rome
 Lido di Ostia	Lido di Ostia	41.73212	12.27654	Italy	Europe/Rome
-Livorno	Livorno	43.54264	10.316	Italy	Europe/Rome
-Lucca	Lucca	43.84357	10.50585	Italy	Europe/Rome
-Marsala	Marsala	37.79664	12.43518	Italy	Europe/Rome
-Messina	Messina	38.19327	15.54969	Italy	Europe/Rome
-Mestre	Mestre	45.49028	12.2425	Italy	Europe/Rome
+Livorno	Livorno	43.54427	10.32615	Italy	Europe/Rome
+Lucca	Lucca	43.8497	10.47234	Italy	Europe/Rome
+Marsala	Marsala	37.86736	12.4983	Italy	Europe/Rome
+Messina	Messina	38.19394	15.55256	Italy	Europe/Rome
+Mestre	Mestre	45.47152	12.24017	Italy	Europe/Rome
 Milano	Milano	45.46427	9.18951	Italy	Europe/Rome
 Modena	Modena	44.64783	10.92539	Italy	Europe/Rome
-Monza	Monza	45.58248	9.27485	Italy	Europe/Rome
-Napoli	Napoli	40.83333	14.25	Italy	Europe/Rome
-Nicastro	Nicastro	38.98333	16.31667	Italy	Europe/Rome
-Novara	Novara	45.44056	8.61684	Italy	Europe/Rome
-Padova	Padova	45.41519	11.88181	Italy	Europe/Rome
-Palermo	Palermo	38.11582	13.35976	Italy	Europe/Rome
-Parma	Parma	44.80266	10.32898	Italy	Europe/Rome
+Monza	Monza	45.58005	9.27246	Italy	Europe/Rome
+Napoli	Napoli	40.85631	14.24641	Italy	Europe/Rome
+Novara	Novara	45.44834	8.62328	Italy	Europe/Rome
+Padova	Padova	45.40797	11.88586	Italy	Europe/Rome
+Palermo	Palermo	38.13205	13.33561	Italy	Europe/Rome
+Parma	Parma	44.79935	10.32618	Italy	Europe/Rome
 Perugia	Perugia	43.1122	12.38878	Italy	Europe/Rome
-Pesaro	Pesaro	43.90357	12.89026	Italy	Europe/Rome
-Pescara	Pescara	42.46024	14.21021	Italy	Europe/Rome
-Piacenza	Piacenza	45.04676	9.69937	Italy	Europe/Rome
-Pisa	Pisa	43.71553	10.39659	Italy	Europe/Rome
-Pistoia	Pistoia	43.92125	10.92361	Italy	Europe/Rome
-Prato	Prato	43.88425	11.09092	Italy	Europe/Rome
-Ravenna	Ravenna	44.4175	12.20111	Italy	Europe/Rome
-Reggio Calabria	Reggio Calabria	38.11047	15.66129	Italy	Europe/Rome
+Pesaro	Pesaro	43.90121	12.895	Italy	Europe/Rome
+Pescara	Pescara	42.4584	14.20283	Italy	Europe/Rome
+Piacenza	Piacenza	45.04202	9.70462	Italy	Europe/Rome
+Pisa	Pisa	43.70853	10.4036	Italy	Europe/Rome
+Pistoia	Pistoia	43.93064	10.92365	Italy	Europe/Rome
+Prato	Prato	43.87309	11.08278	Italy	Europe/Rome
+Ravenna	Ravenna	44.41344	12.20121	Italy	Europe/Rome
+Reggio di Calabria	Reggio di Calabria	38.11047	15.66129	Italy	Europe/Rome
 Reggio nell'Emilia	Reggio nell'Emilia	44.69825	10.63125	Italy	Europe/Rome
-Rimini	Rimini	44.06333	12.58083	Italy	Europe/Rome
-Rome	Rome	41.89474	12.4839	Italy	Europe/Rome
-Salerno	Salerno	40.67802	14.74577	Italy	Europe/Rome
-Sassari	Sassari	40.7295	8.53364	Italy	Europe/Rome
+Rimini	Rimini	44.05755	12.56528	Italy	Europe/Rome
+Roma	Roma	41.89193	12.51133	Italy	Europe/Rome
+Salerno	Salerno	40.67545	14.79328	Italy	Europe/Rome
+Sassari	Sassari	40.72787	8.55037	Italy	Europe/Rome
 Sesto San Giovanni	Sesto San Giovanni	45.53449	9.23401	Italy	Europe/Rome
-Siena	Siena	43.32004	11.33283	Italy	Europe/Rome
-Siracusa	Siracusa	37.08515	15.273	Italy	Europe/Rome
-Taranto	Taranto	40.47611	17.22972	Italy	Europe/Rome
-Terni	Terni	42.56713	12.64987	Italy	Europe/Rome
-Torre del Greco	Torre del Greco	40.78392	14.3708	Italy	Europe/Rome
+Siena	Siena	43.32215	11.3259	Italy	Europe/Rome
+Siracusa	Siracusa	37.08415	15.27628	Italy	Europe/Rome
+Taranto	Taranto	40.41639	17.25478	Italy	Europe/Rome
+Terni	Terni	42.56184	12.63667	Italy	Europe/Rome
+Torino	Torino	45.07049	7.68682	Italy	Europe/Rome
+Torre del Greco	Torre del Greco	40.77939	14.39782	Italy	Europe/Rome
 Trento	Trento	46.06787	11.12108	Italy	Europe/Rome
-Treviso	Treviso	45.66667	12.245	Italy	Europe/Rome
-Trieste	Trieste	45.64861	13.78	Italy	Europe/Rome
-Turin	Turin	45.07049	7.68682	Italy	Europe/Rome
-Udine	Udine	46.06194	13.24222	Italy	Europe/Rome
-Varese	Varese	45.82908	8.82193	Italy	Europe/Rome
-Venezia	Venezia	45.43861	12.32667	Italy	Europe/Rome
-Verona	Verona	45.43419	10.99779	Italy	Europe/Rome
-Vicenza	Vicenza	45.55729	11.5409	Italy	Europe/Rome
+Treviso	Treviso	45.66908	12.23614	Italy	Europe/Rome
+Trieste	Trieste	45.64325	13.7903	Italy	Europe/Rome
+Udine	Udine	46.0637	13.24458	Italy	Europe/Rome
+Varese	Varese	45.81934	8.82223	Italy	Europe/Rome
+Venezia	Venezia	45.43713	12.33265	Italy	Europe/Rome
+Verona	Verona	45.4299	10.98444	Italy	Europe/Rome
+Vicenza	Vicenza	45.54672	11.5475	Italy	Europe/Rome
 Abengourou	Abengourou	6.72972	-3.49639	Ivory Coast	Africa/Abidjan
 Abidjan	Abidjan	5.30966	-4.01266	Ivory Coast	Africa/Abidjan
 Abobo	Abobo	5.41613	-4.0159	Ivory Coast	Africa/Abidjan
@@ -2163,7 +2155,7 @@ Isesaki	Isesaki	36.31667	139.2	Japan	Asia/Tokyo
 Ishinomaki	Ishinomaki	38.41667	141.3	Japan	Asia/Tokyo
 Itami	Itami	34.78427	135.40126	Japan	Asia/Tokyo
 Iwaki	Iwaki	37.05	140.88333	Japan	Asia/Tokyo
-Iwakuni	Iwakuni	34.15	132.18333	Japan	Asia/Tokyo
+Iwakuni	Iwakuni	34.16297	132.22	Japan	Asia/Tokyo
 Iwatsuki	Iwatsuki	35.95225	139.68502	Japan	Asia/Tokyo
 Izumi	Izumi	34.48333	135.43333	Japan	Asia/Tokyo
 Jōetsu	Joetsu	37.14828	138.23642	Japan	Asia/Tokyo
@@ -2189,7 +2181,7 @@ Kisarazu	Kisarazu	35.37472	139.9225	Japan	Asia/Tokyo
 Kishiwada	Kishiwada	34.46667	135.36667	Japan	Asia/Tokyo
 Kitakyūshū	Kitakyushu	33.83333	130.83333	Japan	Asia/Tokyo
 Kitami	Kitami	43.80306	143.89083	Japan	Asia/Tokyo
-Kōbe-shi	Kobe-shi	34.6913	135.183	Japan	Asia/Tokyo
+Kobe	Kobe	34.6913	135.183	Japan	Asia/Tokyo
 Kōchi-shi	Kochi-shi	33.55972	133.53111	Japan	Asia/Tokyo
 Kōfu-shi	Kofu-shi	35.66389	138.56833	Japan	Asia/Tokyo
 Kokubunji	Kokubunji	35.70222	139.47556	Japan	Asia/Tokyo
@@ -2213,7 +2205,6 @@ Matsudo	Matsudo	35.78333	139.9	Japan	Asia/Tokyo
 Matsue-shi	Matsue-shi	35.47222	133.05056	Japan	Asia/Tokyo
 Matsumoto	Matsumoto	36.23333	137.96667	Japan	Asia/Tokyo
 Matsuyama	Matsuyama	33.83916	132.76574	Japan	Asia/Tokyo
-Matsuzaka	Matsuzaka	34.56667	136.53333	Japan	Asia/Tokyo
 Minami-rinkan	Minami-rinkan	35.48333	139.45	Japan	Asia/Tokyo
 Mino	Mino	34.82691	135.47057	Japan	Asia/Tokyo
 Mishima	Mishima	35.11667	138.91667	Japan	Asia/Tokyo
@@ -2306,7 +2297,7 @@ Yamaguchi-shi	Yamaguchi-shi	34.18583	131.47139	Japan	Asia/Tokyo
 Yao	Yao	34.61667	135.6	Japan	Asia/Tokyo
 Yatsushiro	Yatsushiro	32.5	130.6	Japan	Asia/Tokyo
 Yokkaichi	Yokkaichi	34.96667	136.61667	Japan	Asia/Tokyo
-Yokohama-shi	Yokohama-shi	35.44778	139.6425	Japan	Asia/Tokyo
+Yokohama	Yokohama	35.44778	139.6425	Japan	Asia/Tokyo
 Yokosuka	Yokosuka	35.28361	139.66722	Japan	Asia/Tokyo
 Yonago	Yonago	35.43333	133.33333	Japan	Asia/Tokyo
 Yono	Yono	35.88333	139.63333	Japan	Asia/Tokyo
@@ -2329,7 +2320,6 @@ Kokshetau	Kokshetau	53.28244	69.39692	Kazakhstan	Asia/Almaty
 Kostanay	Kostanay	53.21435	63.62463	Kazakhstan	Asia/Qyzylorda
 Kyzylorda	Kyzylorda	44.85278	65.50917	Kazakhstan	Asia/Qyzylorda
 Oral	Oral	51.23333	51.36667	Kazakhstan	Asia/Oral
-Oskemen	Oskemen	49.97143	82.60586	Kazakhstan	Asia/Almaty
 Pavlodar	Pavlodar	52.27401	77.00438	Kazakhstan	Asia/Almaty
 Petropavlovsk	Petropavlovsk	54.87278	69.143	Kazakhstan	Asia/Almaty
 Rudnyy	Rudnyy	52.9729	63.11677	Kazakhstan	Asia/Qyzylorda
@@ -2339,6 +2329,7 @@ Taldykorgan	Taldykorgan	45.01556	78.37389	Kazakhstan	Asia/Almaty
 Taldyqorghan	Taldyqorghan	45	77.91667	Kazakhstan	Asia/Almaty
 Taraz	Taraz	42.9	71.36667	Kazakhstan	Asia/Almaty
 Temirtau	Temirtau	50.05494	72.96464	Kazakhstan	Asia/Almaty
+Ust-Kamenogorsk	Ust-Kamenogorsk	49.97143	82.60586	Kazakhstan	Asia/Almaty
 Zhezqazghan	Zhezqazghan	47.78333	67.76667	Kazakhstan	Asia/Almaty
 Eldoret	Eldoret	0.52036	35.26992	Kenya	Africa/Nairobi
 Kisumu	Kisumu	-0.10221	34.76171	Kenya	Africa/Nairobi
@@ -2423,16 +2414,16 @@ Kuantan	Kuantan	3.8077	103.326	Malaysia	Asia/Kuala_Lumpur
 Kuching	Kuching	1.55	110.33333	Malaysia	Asia/Kuching
 Kulim	Kulim	5.36499	100.56177	Malaysia	Asia/Kuala_Lumpur
 Lahad Datu	Lahad Datu	5.0268	118.327	Malaysia	Asia/Kuching
-Melaka	Melaka	2.196	102.2405	Malaysia	Asia/Kuala_Lumpur
+Malacca	Malacca	2.196	102.2405	Malaysia	Asia/Kuala_Lumpur
 Miri	Miri	4.4148	114.0089	Malaysia	Asia/Kuching
 Muar	Muar	2.0442	102.5689	Malaysia	Asia/Kuala_Lumpur
 Petaling Jaya	Petaling Jaya	3.10726	101.60671	Malaysia	Asia/Kuala_Lumpur
 Rawang	Rawang	3.3213	101.5767	Malaysia	Asia/Kuala_Lumpur
 Sandakan	Sandakan	5.8402	118.1179	Malaysia	Asia/Kuching
-Sekudai	Sekudai	1.53742	103.65779	Malaysia	Asia/Kuala_Lumpur
 Seremban	Seremban	2.7297	101.9381	Malaysia	Asia/Kuala_Lumpur
 Shah Alam	Shah Alam	3.08507	101.53281	Malaysia	Asia/Kuala_Lumpur
 Sibu	Sibu	2.3	111.81667	Malaysia	Asia/Kuching
+Skudai	Skudai	1.53742	103.65779	Malaysia	Asia/Kuala_Lumpur
 Subang Jaya	Subang Jaya	3.04384	101.58062	Malaysia	Asia/Kuala_Lumpur
 Sungai Petani	Sungai Petani	5.647	100.48772	Malaysia	Asia/Kuala_Lumpur
 Taiping	Taiping	4.85	100.73333	Malaysia	Asia/Kuala_Lumpur
@@ -2472,8 +2463,8 @@ Ciudad Guzmán	Ciudad Guzman	19.70466	-103.4617	Mexico	America/Mexico_City
 Ciudad Juárez	Ciudad Juarez	31.73333	-106.48333	Mexico	America/Ojinaga
 Ciudad López Mateos	Ciudad Lopez Mateos	19.58547	-99.26034	Mexico	America/Mexico_City
 Ciudad Madero	Ciudad Madero	22.27228	-97.83623	Mexico	America/Monterrey
-Ciudad Nezahualcóyotl	Ciudad Nezahualcoyotl	19.40061	-99.01483	Mexico	America/Mexico_City
-Ciudad Obregón	Ciudad Obregon	27.49221	-109.9395	Mexico	America/Hermosillo
+Ciudad Nezahualcoyotl	Ciudad Nezahualcoyotl	19.40061	-99.01483	Mexico	America/Mexico_City
+Ciudad Obregón	Ciudad Obregon	27.48642	-109.94083	Mexico	America/Hermosillo
 Ciudad Valles	Ciudad Valles	21.98333	-99.01667	Mexico	America/Mexico_City
 Ciudad Victoria	Ciudad Victoria	23.74174	-99.14599	Mexico	America/Monterrey
 Coacalco	Coacalco	19.63452	-99.1005	Mexico	America/Mexico_City
@@ -2494,7 +2485,7 @@ Ensenada	Ensenada	31.86612	-116.59972	Mexico	America/Tijuana
 Fresnillo de González Echeverría	Fresnillo de Gonzalez Echeverria	23.17569	-102.86942	Mexico	America/Mexico_City
 Garza García	Garza Garcia	25.65384	-100.37758	Mexico	America/Monterrey
 General Escobedo	General Escobedo	25.79516	-100.3146	Mexico	America/Monterrey
-Gómez Palacio	Gomez Palacio	25.56473	-103.4958	Mexico	America/Monterrey
+Gomez Palacio	Gomez Palacio	25.56985	-103.49588	Mexico	America/Monterrey
 Guadalajara	Guadalajara	20.66682	-103.39182	Mexico	America/Mexico_City
 Guadalupe	Guadalupe	25.67678	-100.25646	Mexico	America/Monterrey
 Gustavo A. Madero	Gustavo A. Madero	22.8694	-98.75886	Mexico	America/Monterrey
@@ -2517,8 +2508,9 @@ Los Mochis	Los Mochis	25.79116	-108.99463	Mexico	America/Mazatlan
 Los Reyes	Los Reyes	19.36356	-98.97707	Mexico	America/Mexico_City
 Magdalena Contreras	Magdalena Contreras	19.33212	-99.21118	Mexico	America/Mexico_City
 Manzanillo	Manzanillo	19.11695	-104.34214	Mexico	America/Mexico_City
+Manzanillo	Manzanillo	19.05222	-104.31583	Mexico	America/Mexico_City
 Martínez de La Torre	Martinez de La Torre	20.07067	-97.05825	Mexico	America/Mexico_City
-Matamoros	Matamoros	25.52699	-103.22847	Mexico	America/Monterrey
+Matamoros	Matamoros	25.52699	-103.2285	Mexico	America/Monterrey
 Mazatlán	Mazatlan	23.2329	-106.40616	Mexico	America/Mazatlan
 Mérida	Merida	20.9767	-89.62059	Mexico	America/Merida
 Metepec	Metepec	19.26169	-99.59844	Mexico	America/Mexico_City
@@ -2531,6 +2523,7 @@ Monclova	Monclova	26.90687	-101.42056	Mexico	America/Monterrey
 Monterrey	Monterrey	25.67506	-100.31846	Mexico	America/Monterrey
 Morelia	Morelia	19.70078	-101.18443	Mexico	America/Mexico_City
 Naucalpan de Juárez	Naucalpan de Juarez	19.47851	-99.23963	Mexico	America/Mexico_City
+Naucalpan de Juárez	Naucalpan de Juarez	19.39694	-99.27667	Mexico	America/Mexico_City
 Navojoa	Navojoa	27.07015	-109.44391	Mexico	America/Hermosillo
 Nicolás Romero	Nicolas Romero	19.63658	-99.30682	Mexico	America/Mexico_City
 Nogales	Nogales	31.30862	-110.94217	Mexico	America/Hermosillo
@@ -2558,6 +2551,7 @@ San Pedro Garza Garcia	San Pedro Garza Garcia	25.65716	-100.40268	Mexico	America
 Santa Catarina	Santa Catarina	25.67325	-100.45813	Mexico	America/Monterrey
 Santa María Chimalhuacán	Santa Maria Chimalhuacan	19.42155	-98.95038	Mexico	America/Mexico_City
 Santiago de Querétaro	Santiago de Queretaro	20.58806	-100.38806	Mexico	America/Mexico_City
+Soledad de Graciano Sánchez	Soledad de Graciano Sanchez	22.18306	-100.94083	Mexico	America/Mexico_City
 Soledad Díez Gutiérrez	Soledad Diez Gutierrez	22.18778	-100.94192	Mexico	America/Mexico_City
 Tampico	Tampico	22.27817	-97.86772	Mexico	America/Monterrey
 Tampico	Tampico	22.25528	-97.86861	Mexico	America/Monterrey
@@ -2566,7 +2560,7 @@ Tapachula	Tapachula	14.90696	-92.26185	Mexico	America/Mexico_City
 Tehuacán	Tehuacan	18.46148	-97.39282	Mexico	America/Mexico_City
 Temapache	Temapache	21.06611	-97.64207	Mexico	America/Mexico_City
 Tepic	Tepic	21.5008	-104.88936	Mexico	America/Mazatlan
-Texcoco de Mora	Texcoco de Mora	19.51158	-98.88374	Mexico	America/Mexico_City
+Texcoco de Mora	Texcoco de Mora	19.51194	-98.88293	Mexico	America/Mexico_City
 Tijuana	Tijuana	32.5027	-117.00371	Mexico	America/Tijuana
 Tlahuac	Tlahuac	19.28348	-99.00317	Mexico	America/Mexico_City
 Tlalnepantla	Tlalnepantla	19.54005	-99.19538	Mexico	America/Mexico_City
@@ -2574,7 +2568,7 @@ Tlalpan	Tlalpan	19.29708	-99.16787	Mexico	America/Mexico_City
 Tlaquepaque	Tlaquepaque	20.6409	-103.29327	Mexico	America/Mexico_City
 Toluca	Toluca	19.28786	-99.65324	Mexico	America/Mexico_City
 Tonalá	Tonala	20.62445	-103.23423	Mexico	America/Mexico_City
-Torreón	Torreon	25.54333	-103.4176	Mexico	America/Monterrey
+Torreon	Torreon	25.54389	-103.41898	Mexico	America/Monterrey
 Tulancingo	Tulancingo	20.08363	-98.36332	Mexico	America/Mexico_City
 Tuxpan de Rodríguez Cano	Tuxpan de Rodriguez Cano	20.95773	-97.40798	Mexico	America/Mexico_City
 Tuxtla Gutiérrez	Tuxtla Gutierrez	16.75469	-93.11485	Mexico	America/Mexico_City
@@ -2916,6 +2910,7 @@ Huánuco	Huanuco	-9.93062	-76.24223	Peru	America/Lima
 Ica	Ica	-14.06777	-75.72861	Peru	America/Lima
 Iquitos	Iquitos	-3.74912	-73.25383	Peru	America/Lima
 Juliaca	Juliaca	-15.5	-70.13333	Peru	America/Lima
+La Mochica baja	La Mochica baja	-8.09187	-79.03357	Peru	America/Lima
 Lima	Lima	-12.04318	-77.02824	Peru	America/Lima
 Piura	Piura	-5.19449	-80.63282	Peru	America/Lima
 Pucallpa	Pucallpa	-8.37915	-74.55387	Peru	America/Lima
@@ -3014,7 +3009,7 @@ Adamstown	Adamstown	-25.06597	-130.10147	Pitcairn	Pacific/Pitcairn
 Bemowo	Bemowo	52.2546	20.90844	Poland	Europe/Warsaw
 Białystok	Bialystok	53.13333	23.16433	Poland	Europe/Warsaw
 Bielany	Bielany	52.29242	20.93531	Poland	Europe/Warsaw
-Bielsko-Biała	Bielsko-Biala	49.82245	19.04686	Poland	Europe/Warsaw
+Bielsko-Biala	Bielsko-Biala	49.82245	19.04686	Poland	Europe/Warsaw
 Bydgoszcz	Bydgoszcz	53.1235	18.00762	Poland	Europe/Warsaw
 Bytom	Bytom	50.34802	18.93282	Poland	Europe/Warsaw
 Chorzów	Chorzow	50.30582	18.9742	Poland	Europe/Warsaw
@@ -3230,13 +3225,12 @@ Orekhovo-Zuyevo	Orekhovo-Zuyevo	55.80672	38.96178	Russia	Europe/Moscow
 Orël	Orel	52.96508	36.0785	Russia	Europe/Moscow
 Orenburg	Orenburg	51.7727	55.0988	Russia	Asia/Yekaterinburg
 Orsk	Orsk	51.20487	58.56685	Russia	Asia/Yekaterinburg
-Ozërsk	Ozersk	55.75556	60.70278	Russia	Asia/Yekaterinburg
 Penza	Penza	53.20066	45.00464	Russia	Europe/Moscow
 Perm	Perm	58.01046	56.25017	Russia	Asia/Yekaterinburg
 Perovo	Perovo	55.73501	37.79088	Russia	Europe/Moscow
 Pervoural’sk	Pervoural'sk	56.90528	59.94361	Russia	Asia/Yekaterinburg
 Petrogradka	Petrogradka	59.96567	30.31154	Russia	Europe/Moscow
-Petropavlovsk-Kamchatskiy	Petropavlovsk-Kamchatskiy	53.04444	158.65076	Russia	Asia/Kamchatka
+Petropavlovsk-Kamchatsky	Petropavlovsk-Kamchatsky	53.04444	158.65076	Russia	Asia/Kamchatka
 Petrozavodsk	Petrozavodsk	61.78491	34.34691	Russia	Europe/Moscow
 Podol’sk	Podol'sk	55.42418	37.55472	Russia	Europe/Moscow
 Presnenskiy	Presnenskiy	55.75	37.55	Russia	Europe/Moscow
@@ -3349,7 +3343,7 @@ Najrān	Najran	17.4924	44.12766	Saudi Arabia	Asia/Riyadh
 Riyadh	Riyadh	24.68773	46.72185	Saudi Arabia	Asia/Riyadh
 Sakākā	Sakaka	29.96974	40.20641	Saudi Arabia	Asia/Riyadh
 Sulţānah	Sultanah	24.49258	39.58572	Saudi Arabia	Asia/Riyadh
-Tabūk	Tabuk	28.38333	36.58333	Saudi Arabia	Asia/Riyadh
+Tabūk	Tabuk	28.3998	36.5715	Saudi Arabia	Asia/Riyadh
 Ta’if	Ta'if	21.27028	40.41583	Saudi Arabia	Asia/Riyadh
 Unaizah	Unaizah	26.08427	43.99355	Saudi Arabia	Asia/Riyadh
 Yanbu‘ al Baḩr	Yanbu` al Bahr	24.08912	38.06374	Saudi Arabia	Asia/Riyadh
@@ -3397,6 +3391,7 @@ Brits	Brits	-25.63473	27.78022	South Africa	Africa/Johannesburg
 Cape Town	Cape Town	-33.92584	18.42322	South Africa	Africa/Johannesburg
 Carletonville	Carletonville	-26.36094	27.39767	South Africa	Africa/Johannesburg
 Centurion	Centurion	-25.85891	28.18577	South Africa	Africa/Johannesburg
+Diepsloot	Diepsloot	-25.93312	28.01213	South Africa	Africa/Johannesburg
 Durban	Durban	-29.8579	31.0292	South Africa	Africa/Johannesburg
 East London	East London	-33.01529	27.91162	South Africa	Africa/Johannesburg
 eMbalenhle	eMbalenhle	-26.53333	29.06667	South Africa	Africa/Johannesburg
@@ -3446,6 +3441,7 @@ Anyang-si	Anyang-si	37.3925	126.92694	South Korea	Asia/Seoul
 Bucheon-si	Bucheon-si	37.49889	126.78306	South Korea	Asia/Seoul
 Busan	Busan	35.10278	129.04028	South Korea	Asia/Seoul
 Changwon	Changwon	35.22806	128.68111	South Korea	Asia/Seoul
+Cheonan	Cheonan	36.8065	127.1522	South Korea	Asia/Seoul
 Cheongju-si	Cheongju-si	36.63722	127.48972	South Korea	Asia/Seoul
 Chinju	Chinju	35.19278	128.08472	South Korea	Asia/Seoul
 Chuncheon	Chuncheon	37.87472	127.73417	South Korea	Asia/Seoul
@@ -3473,11 +3469,11 @@ Kyonju	Kyonju	35.84278	129.21167	South Korea	Asia/Seoul
 Moppo	Moppo	34.79361	126.38861	South Korea	Asia/Seoul
 Osan	Osan	37.15222	127.07056	South Korea	Asia/Seoul
 Pohang	Pohang	36.03222	129.365	South Korea	Asia/Seoul
+Seogwipo	Seogwipo	33.25333	126.56181	South Korea	Asia/Seoul
 Seongnam-si	Seongnam-si	37.43861	127.13778	South Korea	Asia/Seoul
 Seoul	Seoul	37.566	126.9784	South Korea	Asia/Seoul
 Suncheon	Suncheon	34.94808	127.48947	South Korea	Asia/Seoul
 Suwon-si	Suwon-si	37.29111	127.00889	South Korea	Asia/Seoul
-Tenan	Tenan	36.8065	127.1522	South Korea	Asia/Seoul
 Tonghae	Tonghae	37.54389	129.10694	South Korea	Asia/Seoul
 Uijeongbu-si	Uijeongbu-si	37.7415	127.0474	South Korea	Asia/Seoul
 Ulsan	Ulsan	35.53722	129.31667	South Korea	Asia/Seoul
@@ -3787,8 +3783,8 @@ Chernihiv	Chernihiv	51.50551	31.28488	Ukraine	Europe/Kiev
 Chernivtsi	Chernivtsi	48.29149	25.94034	Ukraine	Europe/Kiev
 Dniprodzerzhyns’k	Dniprodzerzhyns'k	48.51134	34.6021	Ukraine	Europe/Kiev
 Dnipropetrovsk	Dnipropetrovsk	48.45	34.98333	Ukraine	Europe/Kiev
-Donets’k	Donets'k	48.023	37.80224	Ukraine	Europe/Kiev
-Horlivka	Horlivka	48.34698	38.05419	Ukraine	Europe/Kiev
+Donetsk	Donetsk	48.023	37.80224	Ukraine	Europe/Kiev
+Horlivka	Horlivka	48.33576	38.05325	Ukraine	Europe/Kiev
 Ivano-Frankivs’k	Ivano-Frankivs'k	48.9215	24.70972	Ukraine	Europe/Kiev
 Kamieniec Podolski	Kamieniec Podolski	48.6845	26.58559	Ukraine	Europe/Kiev
 Kerch	Kerch	45.3607	36.4706	Ukraine	Europe/Simferopol
@@ -3801,7 +3797,7 @@ Kramators’k	Kramators'k	48.72305	37.55629	Ukraine	Europe/Kiev
 Kremenchuk	Kremenchuk	49.06802	33.42041	Ukraine	Europe/Kiev
 Kryvyy Rih	Kryvyy Rih	47.90966	33.38044	Ukraine	Europe/Kiev
 Lisichansk	Lisichansk	48.90485	38.44207	Ukraine	Europe/Zaporozhye
-Luhans’k	Luhans'k	48.56705	39.31706	Ukraine	Europe/Zaporozhye
+Luhansk	Luhansk	48.56705	39.31706	Ukraine	Europe/Zaporozhye
 Luts’k	Luts'k	50.75932	25.34244	Ukraine	Europe/Kiev
 L'viv	L'viv	49.83826	24.02324	Ukraine	Europe/Kiev
 Makiyivka	Makiyivka	48.04782	37.92576	Ukraine	Europe/Kiev
@@ -3818,7 +3814,7 @@ Sevastopol	Sevastopol	44.58883	33.5224	Ukraine	Europe/Simferopol
 Simferopol	Simferopol	44.95719	34.11079	Ukraine	Europe/Simferopol
 Sloviansk	Sloviansk	48.86667	37.61667	Ukraine	Europe/Kiev
 Sumy	Sumy	50.9216	34.80029	Ukraine	Europe/Kiev
-Syeverodonets’k	Syeverodonets'k	48.94832	38.49166	Ukraine	Europe/Zaporozhye
+Syevyerodonets’k	Syevyerodonets'k	48.94832	38.49166	Ukraine	Europe/Zaporozhye
 Ternopil’	Ternopil'	49.55589	25.60556	Ukraine	Europe/Kiev
 Uzhhorod	Uzhhorod	48.61667	22.3	Ukraine	Europe/Uzhgorod
 Vinnytsya	Vinnytsya	49.23278	28.48097	Ukraine	Europe/Kiev
@@ -3876,11 +3872,11 @@ Portsmouth	Portsmouth	50.79899	-1.09125	United Kingdom	Europe/London
 Preston	Preston	53.76667	-2.71667	United Kingdom	Europe/London
 Reading	Reading	51.45625	-0.97113	United Kingdom	Europe/London
 Rotherham	Rotherham	53.43012	-1.35678	United Kingdom	Europe/London
-Saint Helens	Saint Helens	53.45	-2.73333	United Kingdom	Europe/London
 Sheffield	Sheffield	53.38297	-1.4659	United Kingdom	Europe/London
 Slough	Slough	51.50949	-0.59541	United Kingdom	Europe/London
 Southampton	Southampton	50.90395	-1.40428	United Kingdom	Europe/London
 Southend-on-Sea	Southend-on-Sea	51.53782	0.71433	United Kingdom	Europe/London
+St Helens	St Helens	53.45	-2.73333	United Kingdom	Europe/London
 Stockport	Stockport	53.40979	-2.15761	United Kingdom	Europe/London
 Stoke-on-Trent	Stoke-on-Trent	53.00415	-2.18538	United Kingdom	Europe/London
 Telford	Telford	52.67659	-2.44926	United Kingdom	Europe/London
@@ -3927,7 +3923,6 @@ Bloomington	Bloomington	39.16532	-86.52639	United States	America/Indiana/Indiana
 Bloomington	Bloomington	44.8408	-93.29828	United States	America/Chicago
 Boca Raton	Boca Raton	26.35869	-80.0831	United States	America/New_York
 Boise	Boise	43.6135	-116.20345	United States	America/Boise
-Borough of Bronx	Borough of Bronx	40.84985	-73.86641	United States	America/New_York
 Borough of Queens	Borough of Queens	40.68149	-73.83652	United States	America/New_York
 Boston	Boston	42.35843	-71.05977	United States	America/New_York
 Boulder	Boulder	40.01499	-105.27055	United States	America/Denver
@@ -4251,6 +4246,7 @@ Tampa	Tampa	27.94752	-82.45843	United States	America/New_York
 Temecula	Temecula	33.49364	-117.14836	United States	America/Los_Angeles
 Tempe	Tempe	33.41477	-111.90931	United States	America/Phoenix
 Tempe Junction	Tempe Junction	33.41421	-111.94348	United States	America/Phoenix
+The Bronx	The Bronx	40.84985	-73.86641	United States	America/New_York
 Thornton	Thornton	39.86804	-104.97192	United States	America/Denver
 Thousand Oaks	Thousand Oaks	34.17056	-118.83759	United States	America/Los_Angeles
 Toledo	Toledo	41.66394	-83.55521	United States	America/New_York
@@ -4366,11 +4362,11 @@ Haiphong	Haiphong	20.86481	106.68345	Vietnam	Asia/Ho_Chi_Minh
 Hanoi	Hanoi	21.0245	105.84117	Vietnam	Asia/Ho_Chi_Minh
 Ho Chi Minh City	Ho Chi Minh City	10.82302	106.62965	Vietnam	Asia/Ho_Chi_Minh
 Huế	Hue	16.4619	107.59546	Vietnam	Asia/Ho_Chi_Minh
-Lagi	Lagi	10.66667	107.78333	Vietnam	Asia/Ho_Chi_Minh
+La Gi	La Gi	10.65993	107.77206	Vietnam	Asia/Ho_Chi_Minh
 Long Xuyên	Long Xuyen	10.38639	105.43518	Vietnam	Asia/Ho_Chi_Minh
 Mỹ Tho	My Tho	10.36004	106.35996	Vietnam	Asia/Ho_Chi_Minh
 Nha Trang	Nha Trang	12.24507	109.19432	Vietnam	Asia/Ho_Chi_Minh
-Phan Thiết	Phan Thiet	10.93333	108.1	Vietnam	Asia/Ho_Chi_Minh
+Phan Thiết	Phan Thiet	10.92889	108.10208	Vietnam	Asia/Ho_Chi_Minh
 Pleiku	Pleiku	13.98333	108	Vietnam	Asia/Ho_Chi_Minh
 Qui Nhon	Qui Nhon	13.77648	109.22367	Vietnam	Asia/Ho_Chi_Minh
 Rạch Giá	Rach Gia	10.01667	105.08333	Vietnam	Asia/Ho_Chi_Minh
