@@ -38,6 +38,7 @@
             android:defaultValue="false" />
         <ListPreference
             android:title="@string/weather_data_purge_time"
+            android:dialogTitle="@string/weather_data_purge_time_dialog"
             android:key="@string/weather_purge_time_key"
             android:summary="@string/weather_data_purge_time_summary"
             android:entries="@array/weather_purge_times"
