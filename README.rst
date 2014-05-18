@@ -43,11 +43,11 @@ The app uses and includes the following libraries:
 * `ActionBarSherlock <http://actionbarsherlock.com/>`_ (also on `GitHub <https://github.com/JakeWharton/ActionBarSherlock>`__)
 * `ColorPickerPreference <https://github.com/attenzione/android-ColorPickerPreference>`_
 
-Attributions
-------------
+Acknowledgments
+---------------
 
 * Special thanks to `vyick <http://vyick.wordpress.com/>`_ for beta testing and feature suggestions!
 * Weather data is provided by `Open Weather Map <http://openweathermap.org/>`_, `Yahoo Weather <https://weather.yahoo.com/>`_ or `MSN Weather <http://local.msn.com/>`_.
 * The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
-* Time zone and geographical data is from `Geonames.org <http://www.geonames.org/>`_.
+* Time zone and geographical data is provided by `GeoNames <http://www.geonames.org/>`_.
 
