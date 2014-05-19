@@ -1,4 +1,9 @@
 
+1.6.0:
+
+* New send feedback option
+* New about dialog
+
 1.5.13:
 
 * Update city database
