@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">World Clock &amp; Weather</string>
     <string name="add_city">Add City</string>
     <string name="world_clock_settings">World Clock Settings</string>
     <string name="no_clock_defined">Use the menu to add cities.</string>
-	<string name="n_selcted_format">{0} selected</string>
-	<string name="delete">Delete</string>
-	<string name="add">Add</string>
-	<string name="edit">Edit</string>
-	<string name="search">Search</string>
-	<string name="city">City</string>
-	<string name="latitude">Latitude</string>
-	<string name="longitude">Longitude</string>
-	<string name="display_in_widget">Display in widget</string>
-	<string name="description">Description</string>
-	<string name="refresh">Refresh</string>
+    <string name="n_selcted_format">{0} selected</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="search">Search</string>
+    <string name="city">City</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="display_in_widget">Display in widget</string>
+    <string name="description">Description</string>
+    <string name="refresh">Refresh</string>
+
     <string-array name="speed_units">
         <item name="kmh">km/h</item>
         <item name="mph">mph</item>
@@ -24,6 +26,7 @@
         <item name="celsius">°C</item>
         <item name="fahrenheit">°F</item>
     </string-array>
+
     <string name="preferences">Preferences</string>
     <string name="temperature_unit">Temperature unit</string>
     <string name="wind_speed_unit">Wind speed unit</string>
@@ -38,11 +41,13 @@
     <string name="change_temperature_unit">Change temperature unit</string>
     <string name="change_wind_speed_unit">Change wind speed unit</string>
     <string name="weather_source">Weather data source</string>
+
     <string-array name="weather_sources">
         <item name="owm">Open Weather Map</item>
         <item name="yahoo">Yahoo Weather</item>
         <item name="msn">MSN Weather</item>
     </string-array>
+
     <string name="change_source_of_weather_data">Change source of weather data</string>
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color to apply</string>
@@ -52,6 +57,7 @@
     <string name="foreground">Foreground</string>
     <string name="change_background_color">Change background color and transparency</string>
     <string name="change_foreground_color">Change foreground color</string>
+
     <string-array name="weather_purge_times">
         <item name="2hours">2 hours</item>
         <item name="4hours">4 hours</item>
@@ -60,6 +66,7 @@
         <item name="24hours">24 hours</item>
         <item name="never">Never</item>
     </string-array>
+
     <string name="weather_data_purge_time">Purge old data after</string>
     <string name="weather_data_purge_time_summary">When old weather data is removed</string>
     <string name="disable_automatic_update">No automatic update</string>
@@ -83,4 +90,16 @@
     <string name="feedback_title">Send Feedback</string>
     <string name="feedback_summary">Tell us what you think</string>
     <string name="about">About</string>
+    <string name="version_caption">Version</string>
+    <string name="license_caption">License</string>
+    <string name="project_page_caption">Project page</string>
+    <string name="developer_caption">Developed by</string>
+    <string name="acknowledgements_caption">Acknowledgements</string>
+    <string name="license_text">GPL Version 3 or later</string>
+    <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
+    <string name="developer_text">Armin Häberling\nSpecial thanks to <a href="https://vyick.wordpress.com/">vyick</a> for beta testing and her suggestions!</string>
+    <string name="acknowledgement_weather">Weather data is provided by <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> or <a href="http://local.msn.com/">MSN Weather</a>.</string>
+    <string name="acknowledgement_icons">Weather icons are based on <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> from Alessio Atzeni.</string>
+    <string name="acknowledgement_geonames">Time zone and geographical data is provided by <a href="http://www.geonames.org/">GeoNames</a>.</string>
+
 </resources>

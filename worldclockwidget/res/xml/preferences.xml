@@ -73,24 +73,12 @@
             android:summary="@string/feedback_summary"
             wc:recipient="@string/feedback_email"
             wc:subject="@string/app_name" />
+        <ch.corten.aha.preference.AboutPreference
+            android:title="About World Clock &amp; Weather"
+            android:dialogTitle="About World Clock &amp; Weather"
+            android:dialogLayout="@layout/about_dialog"
+            android:positiveButtonText="Close"
+            android:negativeButtonText="@null" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Attributions">
-        <Preference
-            android:title="Special thanks to vyick"
-            android:summary="for beta testing and feature suggestions!" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://vyick.wordpress.com/" />
-        </Preference>
-        <Preference
-            android:title="Yahoo! Weather"
-            android:summary="Weather data is provided by Yahoo! Weather." />
-        <Preference
-            android:title="Meteocons"
-            android:summary="The weather icons are based on Meteocons from Alessio Atzeni." />
-        <Preference 
-            android:title="Geonames.org"
-            android:summary="Time zone and geographical data is from Geonames.org" />
-    </PreferenceCategory>
 </PreferenceScreen>
