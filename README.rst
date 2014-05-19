@@ -43,8 +43,8 @@ The app uses and includes the following libraries:
 * `ActionBarSherlock <http://actionbarsherlock.com/>`_ (also on `GitHub <https://github.com/JakeWharton/ActionBarSherlock>`__)
 * `ColorPickerPreference <https://github.com/attenzione/android-ColorPickerPreference>`_
 
-Acknowledgments
----------------
+Acknowledgements
+----------------
 
 * Special thanks to `vyick <http://vyick.wordpress.com/>`_ for beta testing and feature suggestions!
 * Weather data is provided by `Open Weather Map <http://openweathermap.org/>`_, `Yahoo Weather <https://weather.yahoo.com/>`_ or `MSN Weather <http://local.msn.com/>`_.
