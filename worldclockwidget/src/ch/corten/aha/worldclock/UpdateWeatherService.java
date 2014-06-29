@@ -123,23 +123,23 @@ public class UpdateWeatherService extends IntentService {
         int count = 0;
         final ContentResolver resolver = context.getContentResolver();
         final Cursor c = resolver.query(Clocks.CONTENT_URI, UPDATE_PROJECTION, query, null, null);
-        try {
-            while (c.moveToNext()) {
-                double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
-                double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
-                long id = c.getLong(c.getColumnIndex(Clocks._ID));
-                try {
-                    WeatherObservation observation = service.getWeather(lat, lon);
+        if (c != null) {
+            try {
+                while (c.moveToNext()) {
+                    double lat = c.getDouble(c.getColumnIndex(Clocks.LATITUDE));
+                    double lon = c.getDouble(c.getColumnIndex(Clocks.LONGITUDE));
+                    long id = c.getLong(c.getColumnIndex(Clocks._ID));
+                    try {
+                        WeatherObservation observation = service.getWeather(lat, lon);
 
-                    if (observation != null && Clocks.updateWeather(context, id, observation)) {
-                        count++;
+                        if (observation != null && Clocks.updateWeather(context, id, observation)) {
+                            count++;
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "failed to retrieve/update weather for " + lat + ", " + lon, e);
                     }
-                } catch (Exception e) {
-                    Log.e(TAG, "failed to retrieve/update weather for " + lat + ", " + lon, e);
                 }
-            }
-        } finally {
-            if (c != null) {
+            } finally {
                 c.close();
             }
         }
