@@ -28,6 +28,9 @@
 
 -keepattributes *Annotation*
 
+## hack for Actionbarsherlock 4.4.0, see https://github.com/JakeWharton/ActionBarSherlock/issues/1001 ##
+-dontwarn com.actionbarsherlock.internal.**
+
 -keepclassmembers class **.R$* {
     public static <fields>;
 }
