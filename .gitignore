@@ -6,3 +6,8 @@
 
 # don't add apks
 /apk
+
+# Gradle
+/.gradle/
+build/
+gradle.properties
