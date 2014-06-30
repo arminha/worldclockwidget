@@ -16,7 +16,7 @@ TIMEZONE = 17
 
 countries_file = 'countryInfo.txt'
 cities_file = 'cities15000.txt'
-output_file = "../worldclockwidget/assets/city_data.csv"
+output_file = "../worldclockwidget/src/main/assets/city_data.csv"
 
 manually_added_cities = \
     [('2179670', 'Wanganui')

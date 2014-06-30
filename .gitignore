@@ -1,5 +1,6 @@
 *.class
 *.pyc
+local.properties
 
 # don't accidentially add keystores
 *.keystore
