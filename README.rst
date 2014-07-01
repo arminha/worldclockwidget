@@ -31,9 +31,8 @@ Screenshots
 Building
 --------
 
-The build system uses `Ant <http://ant.apache.org/>`_ version 1.8 or later.
-
-To build the app change to the ``worldclockwidget`` folder and run ``ant debug`` or ``ant release`` to create a debug or a release build.
+We use `Gradle <http://www.gradle.org/>`__.
+Run ``./gradlew assembleDebug`` to create a debug build or ``./gradlew assembleRelease`` to create a release build.
 
 Libraries
 ---------
@@ -42,6 +41,7 @@ The app uses and includes the following libraries:
 
 * `ActionBarSherlock <http://actionbarsherlock.com/>`_ (also on `GitHub <https://github.com/JakeWharton/ActionBarSherlock>`__)
 * `ColorPickerPreference <https://github.com/attenzione/android-ColorPickerPreference>`_
+* `google-gson <https://code.google.com/p/google-gson/>`_
 
 Acknowledgements
 ----------------
