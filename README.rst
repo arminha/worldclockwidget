@@ -4,6 +4,9 @@ World Clock & Weather
 A simple application to display the local time and current weather conditions in places all over the world.
 It comes with two home screen widgets which show weather and time or time only.
 
+.. image:: https://travis-ci.org/arminha/worldclockwidget.svg?branch=master
+    :target: https://travis-ci.org/arminha/worldclockwidget
+
 Features
 --------
 
