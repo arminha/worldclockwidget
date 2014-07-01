@@ -24,10 +24,24 @@ android {
         targetSdkVersion 19
     }
 
+    if (project.hasProperty('signingKeyStoreFile')) {
+        signingConfigs {
+            release {
+                storeFile     file(signingKeyStoreFile)
+                storePassword signingKeyStorePassword
+                keyAlias      signingKeyAlias
+                keyPassword   signingKeyPassword
+            }
+        }
+    }
+
     buildTypes {
         release {
             runProguard true
             proguardFile 'proguard-project.txt'
+            if (project.hasProperty('signingKeyStoreFile')) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }
