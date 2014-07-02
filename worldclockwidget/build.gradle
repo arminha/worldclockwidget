@@ -60,6 +60,11 @@ android {
             abortOnError false
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
 }
 
 def getBuildSuffix(versionName, versionCode) {
