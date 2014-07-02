@@ -12,9 +12,7 @@ buildscript {
 apply plugin: 'android-sdk-manager'
 apply plugin: 'android'
 
-apply plugin: 'checkstyle'
-apply plugin: 'findbugs'
-apply plugin: 'pmd'
+apply from: rootProject.file('gradle/codequality.gradle')
 
 android {
     compileSdkVersion 19
@@ -67,13 +65,6 @@ dependencies{
 ///////////////////////////////////////////////////
 // Checkstyle
 
-checkstyle {
-    ignoreFailures = true
-    toolVersion = '5.7'
-    showViolations = false
-    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
-}
-
 task checkstyleDebug(type: Checkstyle, dependsOn: 'compileDebugJava') {
     source = fileTree('src/main/java/')
     classpath = files('build/intermediates/classes/debug')
@@ -83,20 +74,6 @@ check.dependsOn checkstyleDebug
 
 ///////////////////////////////////////////////////
 // Findbugs
-
-findbugs {
-    toolVersion = "2.0.3"
-    ignoreFailures = true
-}
-
-if (!rootProject.hasProperty("findbugsReportXml") || findbugsReportXml != 'true') {
-    tasks.withType(FindBugs) {
-        reports {
-            xml.enabled = false
-            html.enabled = true
-        }
-    }
-}
 
 task findbugsDebug(type: FindBugs, dependsOn: 'compileDebugJava') {
     source = fileTree('src/main/java/')
@@ -109,11 +86,6 @@ check.dependsOn findbugsDebug
 
 ///////////////////////////////////////////////////
 // PMD
-
-pmd {
-    ignoreFailures = true
-    toolVersion = '5.0.5'
-}
 
 task pmd(type: Pmd) {
     source = fileTree('src/main/java/')

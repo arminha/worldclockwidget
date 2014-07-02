@@ -1,0 +1,43 @@
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'checkstyle'
+
+/////////////////
+// findbugs
+
+findbugs {
+    toolVersion = "2.0.3"
+    ignoreFailures = true
+}
+
+if (!rootProject.hasProperty("findbugsReportXml") || findbugsReportXml != 'true') {
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+    }
+}
+
+/////////////////
+// pmd
+
+pmd {
+    ignoreFailures = true
+    toolVersion = '5.0.5'
+}
+
+/////////////////
+// checkstyle
+
+checkstyle {
+    ignoreFailures = true
+    toolVersion = '5.7'
+    showViolations = false
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
+// different rule file for tests
+tasks.matching({ task -> task.getName().endsWith("Test")}).withType(Checkstyle) {
+    configFile = rootProject.file('config/checkstyle/checkstyle-test.xml')
+}
