@@ -14,6 +14,7 @@ apply plugin: 'android'
 
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
+apply plugin: 'pmd'
 
 android {
     compileSdkVersion 19
@@ -105,3 +106,17 @@ task findbugsDebug(type: FindBugs, dependsOn: 'compileDebugJava') {
     excludeFilter = rootProject.file('config/findbugs/androidExcludeFilter.xml')
 }
 check.dependsOn findbugsDebug
+
+///////////////////////////////////////////////////
+// PMD
+
+pmd {
+    ignoreFailures = true
+    toolVersion = '5.0.5'
+}
+
+task pmd(type: Pmd) {
+    source = fileTree('src/main/java/')
+    ruleSets = ['java-basic', 'java-braces', 'java-android']
+}
+check.dependsOn 'pmd'
