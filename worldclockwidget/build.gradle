@@ -13,6 +13,7 @@ apply plugin: 'android-sdk-manager'
 apply plugin: 'android'
 
 apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
 
 android {
     compileSdkVersion 19
@@ -77,3 +78,30 @@ task checkstyleDebug(type: Checkstyle, dependsOn: 'compileDebugJava') {
     classpath = files('build/intermediates/classes/debug')
 }
 check.dependsOn checkstyleDebug
+
+
+///////////////////////////////////////////////////
+// Findbugs
+
+findbugs {
+    toolVersion = "2.0.3"
+    ignoreFailures = true
+}
+
+if (!rootProject.hasProperty("findbugsReportXml") || findbugsReportXml != 'true') {
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+    }
+}
+
+task findbugsDebug(type: FindBugs, dependsOn: 'compileDebugJava') {
+    source = fileTree('src/main/java/')
+    classes = fileTree('build/intermediates/classes/debug')
+    classpath = files() // empty classpath!
+    effort = 'max'
+    excludeFilter = rootProject.file('config/findbugs/androidExcludeFilter.xml')
+}
+check.dependsOn findbugsDebug

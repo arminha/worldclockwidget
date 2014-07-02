@@ -1,0 +1,23 @@
+<FindBugsFilter>
+    <!-- Exclude auto generated android R file from being checked -->
+    <Match>
+        <Class name="~([a-zA-Z0-9._]*\.R\$)[a-z]*" />
+        <Bug pattern="NM_CLASS_NAMING_CONVENTION" />
+    </Match>
+    <Match>
+        <Class name="~([a-zA-Z0-9._]*\.R\$)[a-z]*" />
+        <Bug pattern="NM_FIELD_NAMING_CONVENTION" />
+    </Match>
+    <Match>
+        <Class name="~([a-zA-Z0-9._]*\.R\$)[a-z]*" />
+        <Bug pattern="MS_MUTABLE_ARRAY" />
+    </Match>
+    <Match>
+        <Class name="~([a-zA-Z0-9._]*\.R\$)[a-z]*" />
+        <Bug pattern="MS_PKGPROTECT" />
+    </Match>
+    <Match>
+        <Class name="~([a-zA-Z0-9._]*\.Manifest\$)[a-z]*" />
+        <Bug pattern="NM_CLASS_NAMING_CONVENTION" />
+    </Match>
+</FindBugsFilter>
