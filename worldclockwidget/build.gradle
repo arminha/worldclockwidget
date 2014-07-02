@@ -12,6 +12,8 @@ buildscript {
 apply plugin: 'android-sdk-manager'
 apply plugin: 'android'
 
+apply plugin: 'checkstyle'
+
 android {
     compileSdkVersion 19
     buildToolsVersion "19.1.0"
@@ -59,3 +61,19 @@ dependencies{
     compile 'com.google.code.gson:gson:2.2.4'
 }
 
+
+///////////////////////////////////////////////////
+// Checkstyle
+
+checkstyle {
+    ignoreFailures = true
+    toolVersion = '5.7'
+    showViolations = false
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
+task checkstyleDebug(type: Checkstyle, dependsOn: 'compileDebugJava') {
+    source = fileTree('src/main/java/')
+    classpath = files('build/intermediates/classes/debug')
+}
+check.dependsOn checkstyleDebug
