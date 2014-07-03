@@ -24,6 +24,12 @@ android {
 
         minSdkVersion 10
         targetSdkVersion 19
+
+        def buildSuffix = getBuildSuffix(versionName, versionCode)
+        applicationVariants.all { variant ->
+            def file = variant.outputFile
+            variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + buildSuffix + ".apk"))
+        }
     }
 
     if (project.hasProperty('signingKeyStoreFile')) {
@@ -52,6 +58,14 @@ android {
             abortOnError false
         }
     }
+}
+
+def getBuildSuffix(versionName, versionCode) {
+    def suffix = versionName + '-' + versionCode
+    if (System.getenv()['BUILD_NUMBER'] != null) {
+        suffix += '-b' + System.getenv()['BUILD_NUMBER']
+    }
+    return suffix
 }
 
 ///////////////////////////////////////////////////
