@@ -46,6 +46,12 @@ android {
             }
         }
     }
+
+    if (rootProject.hasProperty("lintAbortOnError") && lintAbortOnError == 'false') {
+        lintOptions {
+            abortOnError false
+        }
+    }
 }
 
 ///////////////////////////////////////////////////
