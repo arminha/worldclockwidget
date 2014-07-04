@@ -10,7 +10,7 @@ buildscript {
 }
 
 apply plugin: 'android-sdk-manager'
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 apply from: rootProject.file('gradle/codequality.gradle')
 
