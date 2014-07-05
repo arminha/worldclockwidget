@@ -71,6 +71,7 @@ class PlaceFinderService {
     }
 
     static String fixInvalidWoeids(double latitude, double longitude, String woeid) {
+        // CHECKSTYLE IGNORE MagicNumberCheck
         // fix Macau bug of Yahoo PlaceFinder API
         if ("609135".equals(woeid)
                 && latitude > 22.0 && latitude < 22.3
@@ -83,6 +84,7 @@ class PlaceFinderService {
                 && longitude > 89.50 && longitude < 89.91) {
             return "2344792";
         }
+        // CHECKSTYLE END IGNORE MagicNumberCheck
         return woeid;
     }
 

@@ -66,7 +66,8 @@ public class OwmWeatherService implements WeatherService {
     }
 
     /**
-     * Reads weather data as described at http://bugs.openweathermap.org/projects/api/wiki/Weather_Data
+     * Reads weather data as described at http://bugs.openweathermap.org/projects/api/wiki/Weather_Data.
+     *
      * @param reader
      * @param observation
      * @throws IOException
@@ -174,7 +175,8 @@ public class OwmWeatherService implements WeatherService {
         }
 
         private static String capitalize(String description) {
-            return description.substring(0, 1).toUpperCase(Locale.ENGLISH) + description.substring(1).toLowerCase(Locale.ENGLISH);
+            return description.substring(0, 1).toUpperCase(Locale.ENGLISH)
+                    + description.substring(1).toLowerCase(Locale.ENGLISH);
         }
     }
 
@@ -184,6 +186,7 @@ public class OwmWeatherService implements WeatherService {
         public void setWindDirection(Double direction) {
             String dir = null;
             if (direction != null) {
+                // CHECKSTYLE IGNORE MagicNumberCheck
                 if (direction < 22.5) {
                     dir = "N";
                 } else if (direction < 67.5) {
@@ -203,6 +206,7 @@ public class OwmWeatherService implements WeatherService {
                 } else {
                     dir = "N";
                 }
+                // CHECKSTYLE END IGNORE MagicNumberCheck
             }
             setWindDirection(dir);
         }

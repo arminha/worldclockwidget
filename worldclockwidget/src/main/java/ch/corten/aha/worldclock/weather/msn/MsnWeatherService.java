@@ -84,8 +84,7 @@ public class MsnWeatherService implements WeatherService {
         return null;
     }
 
-    /**
-     * <code>
+    /*
      * <current temperature="10"
      *          skycode="32"
      *          skytext="Klar"
@@ -98,10 +97,6 @@ public class MsnWeatherService implements WeatherService {
      *          humidity="66"
      *          windspeed="4"
      *          winddisplay="4 km/h"/>
-     * </code>
-     * 
-     * @param in
-     * @return
      */
     private WeatherObservation readStream(InputStream in) {
         XPath xPath = XPathFactory.newInstance().newXPath();
@@ -134,6 +129,7 @@ public class MsnWeatherService implements WeatherService {
         private static final SparseIntArray CONDITION_CODES;
 
         static {
+            // CHECKSTYLE IGNORE MagicNumberCheck
             SparseIntArray map = new SparseIntArray();
             map.put(0, THUNDERSTORM);
             map.put(1, THUNDERSTORM);
@@ -184,6 +180,7 @@ public class MsnWeatherService implements WeatherService {
             map.put(46, CHANCE_OF_SNOW);
             map.put(47, CHANCE_OF_TSTORM);
             CONDITION_CODES = map;
+            // CHECKSTYLE END IGNORE MagicNumberCheck
         }
 
         public Observation() {

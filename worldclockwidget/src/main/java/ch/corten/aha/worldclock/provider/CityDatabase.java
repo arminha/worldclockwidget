@@ -65,10 +65,8 @@ class CityDatabase extends SQLiteOpenHelper {
 
     private static void cleanupOldDataBase(Context context) {
         File oldDb = context.getDatabasePath(DATABASE_NAME);
-        if (oldDb.exists()) {
-            if (!oldDb.delete()) {
-                Log.e("CityDatabase", "Unable to delete old database");
-            }
+        if (oldDb.exists() && !oldDb.delete()) {
+            Log.e("CityDatabase", "Unable to delete old database");
         }
     }
 
@@ -102,6 +100,7 @@ class CityDatabase extends SQLiteOpenHelper {
                 // insert data set
                 ih.prepareForInsert();
 
+                // CHECKSTYLE IGNORE MagicNumberCheck
                 String[] rawValues = p.split(line, -1);
                 ih.bind(idColumn, id++);
                 ih.bind(nameColumn, rawValues[0]);
@@ -111,6 +110,7 @@ class CityDatabase extends SQLiteOpenHelper {
                 ih.bind(countryColumn, rawValues[4]);
                 ih.bind(timezoneColumn, rawValues[5]);
                 ih.execute();
+                // CHECKSTYLE END IGNORE MagicNumberCheck
 
                 // next data set
                 line = in.readLine();

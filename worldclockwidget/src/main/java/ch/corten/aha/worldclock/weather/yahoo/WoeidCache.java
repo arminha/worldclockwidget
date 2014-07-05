@@ -86,10 +86,8 @@ class WoeidCache {
         }
 
         public synchronized SQLiteDatabase getDatabase() {
-            if (mDatabase != null) {
-                if (!mDatabase.isOpen()) {
-                    mDatabase = null;
-                }
+            if (mDatabase != null && !mDatabase.isOpen()) {
+                mDatabase = null;
             }
 
             if (mDatabase == null) {

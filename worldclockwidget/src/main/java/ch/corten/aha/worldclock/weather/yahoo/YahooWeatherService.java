@@ -167,6 +167,7 @@ public class YahooWeatherService implements WeatherService {
     private static class Observation extends AbstractObservation {
         private static final SparseIntArray CONDITION_CODES;
         static {
+            // CHECKSTYLE IGNORE MagicNumberCheck
             SparseIntArray map = new SparseIntArray();
             map.put(0, STORM);
             map.put(1, HEAVY_RAIN);
@@ -218,6 +219,7 @@ public class YahooWeatherService implements WeatherService {
             map.put(47, CHANCE_OF_TSTORM);
             map.put(3200, NA);
             CONDITION_CODES = map;
+            // CHECKSTYLE END IGNORE MagicNumberCheck
         }
 
         public Observation() {
@@ -227,6 +229,7 @@ public class YahooWeatherService implements WeatherService {
         public void setWindDirection(Double direction) {
             String dir = null;
             if (direction != null) {
+                // CHECKSTYLE IGNORE MagicNumberCheck
                 if (direction < 22.5) {
                     dir = "N";
                 } else if (direction < 67.5) {
@@ -246,6 +249,7 @@ public class YahooWeatherService implements WeatherService {
                 } else {
                     dir = "N";
                 }
+                // CHECKSTYLE END IGNORE MagicNumberCheck
             }
             setWindDirection(dir);
         }
