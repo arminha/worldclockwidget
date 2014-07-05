@@ -66,7 +66,9 @@ class CityDatabase extends SQLiteOpenHelper {
     private static void cleanupOldDataBase(Context context) {
         File oldDb = context.getDatabasePath(DATABASE_NAME);
         if (oldDb.exists()) {
-            oldDb.delete();
+            if (!oldDb.delete()) {
+                Log.e("CityDatabase", "Unable to delete old database");
+            }
         }
     }
 
@@ -93,7 +95,7 @@ class CityDatabase extends SQLiteOpenHelper {
             db.setLockingEnabled(false);
             AssetManager am = mContext.getAssets();
             InputStream stream = am.open(CITY_DATA_CSV, AssetManager.ACCESS_STREAMING);
-            BufferedReader in = new BufferedReader(new InputStreamReader(stream));
+            BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
             String line = in.readLine();
             long id = 1;
             while (line != null) {
