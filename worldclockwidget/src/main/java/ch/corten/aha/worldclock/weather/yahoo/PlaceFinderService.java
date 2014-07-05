@@ -72,15 +72,15 @@ class PlaceFinderService {
 
     static String fixInvalidWoeids(double latitude, double longitude, String woeid) {
         // fix Macau bug of Yahoo PlaceFinder API
-        if ("609135".equals(woeid) &&
-                latitude > 22.0 && latitude < 22.3 &&
-                longitude > 113.4 && longitude < 113.7) {
+        if ("609135".equals(woeid)
+                && latitude > 22.0 && latitude < 22.3
+                && longitude > 113.4 && longitude < 113.7) {
             return "20070017";
         }
         // Khulna bug: the city's woeid has no weather data.
-        if ("1915118".equals(woeid) &&
-                latitude > 22.75 && latitude < 22.86 &&
-                longitude > 89.50 && longitude < 89.91) {
+        if ("1915118".equals(woeid)
+                && latitude > 22.75 && latitude < 22.86
+                && longitude > 89.50 && longitude < 89.91) {
             return "2344792";
         }
         return woeid;

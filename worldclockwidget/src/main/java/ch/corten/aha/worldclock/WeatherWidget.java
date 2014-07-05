@@ -35,7 +35,11 @@ import android.widget.RemoteViews;
 import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
-public class WeatherWidget {
+public final class WeatherWidget {
+
+    private WeatherWidget() {
+    }
+
     private static final boolean SANS_JELLY_BEAN_MR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1;
 
     private static final String[] PROJECTION = {

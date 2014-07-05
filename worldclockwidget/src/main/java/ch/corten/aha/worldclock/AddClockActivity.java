@@ -113,7 +113,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             String[] selectionArgs = null;
             if (!TextUtils.isEmpty(mCurFilter)) {
                 String search = "%" + mCurFilter + "%";
-                selection = Cities.ASCII_NAME + " like ? or " 
+                selection = Cities.ASCII_NAME + " like ? or "
                         + Cities.NAME + " like ? or "
                         + Cities.COUNTRY + " like ?";
                 selectionArgs = new String[] { search, search, search };

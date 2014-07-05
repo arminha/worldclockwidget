@@ -28,7 +28,7 @@ import android.widget.FrameLayout;
  */
 public class CheckableFrameLayout extends FrameLayout implements Checkable {
     private boolean mChecked;
-    
+
     public CheckableFrameLayout(Context context, AttributeSet attrs,
             int defStyle) {
         super(context, attrs, defStyle);
@@ -46,7 +46,7 @@ public class CheckableFrameLayout extends FrameLayout implements Checkable {
     public boolean isChecked() {
         return mChecked;
     }
-    
+
     @SuppressWarnings("deprecation")
     @Override
     public void setChecked(boolean checked) {
@@ -58,7 +58,7 @@ public class CheckableFrameLayout extends FrameLayout implements Checkable {
             setBackgroundDrawable(new ColorDrawable(android.R.color.transparent));
         }
     }
-    
+
     @Override
     public void toggle() {
         setChecked(!mChecked);

@@ -155,7 +155,7 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
         // clock update method.
         ComponentName thisAppWidget = new ComponentName(context.getPackageName(), WorldClockWidgetProvider.class.getName());
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int ids[] = appWidgetManager.getAppWidgetIds(thisAppWidget);
+        int[] ids = appWidgetManager.getAppWidgetIds(thisAppWidget);
         for (int appWidgetID: ids) {
             updateAppWidgetStatic(context, appWidgetManager, appWidgetID);
         }

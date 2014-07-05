@@ -34,11 +34,11 @@ public class CompatWeatherWidgetService extends IntentService {
     public static final String LAYOUT = "layout";
     public static final String SIZE = "size";
     public static final String APP_WIDGET_ID = "app_widget_id";
-    
+
     public CompatWeatherWidgetService() {
         super("CompatWeatherWidgetService");
     }
-    
+
     @Override
     protected void onHandleIntent(Intent intent) {
         int appWidgetId = intent.getIntExtra(APP_WIDGET_ID, 0);
@@ -50,7 +50,7 @@ public class CompatWeatherWidgetService extends IntentService {
         AppWidgetManager awm = AppWidgetManager.getInstance(this);
         awm.updateAppWidget(appWidgetId, rv);
     }
-    
+
     protected RemoteViews updateViews(int size, int layout) {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, WorldClockActivity.class), 0);
         RemoteViews rv = getRemoteViews(layout);
@@ -97,7 +97,7 @@ public class CompatWeatherWidgetService extends IntentService {
             throw new RuntimeException("Invalid layout: " + layout);
         }
     }
-    
+
     private RemoteViews getRemoteViews(int layout) {
         switch (layout) {
         case CompatWeatherWidgetProvider.LAYOUT_ONE_COLUMN:
@@ -108,7 +108,7 @@ public class CompatWeatherWidgetService extends IntentService {
             throw new RuntimeException("Invalid layout: " + layout);
         }
     }
-    
+
     private int getGridViewId(int layout) {
         switch (layout) {
         case CompatWeatherWidgetProvider.LAYOUT_ONE_COLUMN:

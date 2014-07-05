@@ -89,7 +89,7 @@ public abstract class ClockWidgetProvider extends AppWidgetProvider {
     public void onDisabled(Context context) {
         super.onDisabled(context);
         if (!isAnyWidgetActive(context, WIDGET_PROVIDERS)) {
-            AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             alarmManager.cancel(createClockTickIntent(context));
 
             Class<? extends BroadcastReceiver> receiver = ClockWidgetSystemReceiver.class;

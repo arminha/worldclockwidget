@@ -27,7 +27,7 @@ import android.content.Intent;
 
 public abstract class AbstractWeatherWidgetProvider extends ClockWidgetProvider {
 
-    private static final List<Class<? extends AppWidgetProvider>> WEATHER_WIDGET_PROVIDERS = new ArrayList<Class<? extends AppWidgetProvider>>(); 
+    private static final List<Class<? extends AppWidgetProvider>> WEATHER_WIDGET_PROVIDERS = new ArrayList<Class<? extends AppWidgetProvider>>();
 
     protected static void registerWeatherWidget(Class<? extends AbstractWeatherWidgetProvider> provider) {
         registerClockWidget(provider);
@@ -56,7 +56,7 @@ public abstract class AbstractWeatherWidgetProvider extends ClockWidgetProvider 
         alarm.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(),
                 AlarmManager.INTERVAL_HOUR, createWeatherUpdateIntent(context));
     }
-    
+
     /**
      * disable weather update service
      */

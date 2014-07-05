@@ -94,7 +94,7 @@ public class UpdateWeatherService extends IntentService {
         return purgeAfter;
     }
 
-    private int updateData(int updateInterval,long currentTime) {
+    private int updateData(int updateInterval, long currentTime) {
         Context context = getApplicationContext();
         String query = null;
         if (updateInterval > 0) {

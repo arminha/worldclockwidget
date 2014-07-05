@@ -22,7 +22,11 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class TimeZoneInfo {
+public final class TimeZoneInfo {
+
+    private TimeZoneInfo() {
+    }
+
     public static int getTimeDifference(TimeZone tz) {
         int milliseconds = tz.getOffset(System.currentTimeMillis());
         return milliseconds / 60000;

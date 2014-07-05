@@ -43,9 +43,9 @@ public class DigitalClock extends TextView implements PauseListener {
     private static final int STATE_ATTACHED_ACTIVE = 1;
     private static final int STATE_ATTACHED_PAUSED = 2;
 
-    Calendar mCalendar;
-    private final static String m12 = "h:mm:ss aa";
-    private final static String m24 = "H:mm:ss";
+    private Calendar mCalendar;
+    private static final String M12 = "h:mm:ss aa";
+    private static final String M24 = "H:mm:ss";
     private FormatChangeObserver mFormatChangeObserver;
 
     private Runnable mTicker;
@@ -113,7 +113,9 @@ public class DigitalClock extends TextView implements PauseListener {
         mTicker = new Runnable() {
             @Override
             public void run() {
-                if (mState != STATE_ATTACHED_ACTIVE) return;
+                if (mState != STATE_ATTACHED_ACTIVE) {
+                    return;
+                }
                 updateClock();
                 long now = SystemClock.uptimeMillis();
                 long next = now + (1000 - now % 1000);
@@ -172,9 +174,9 @@ public class DigitalClock extends TextView implements PauseListener {
 
     private void setFormat() {
         if (get24HourMode()) {
-            mDateFormat = new SimpleDateFormat(m24);
+            mDateFormat = new SimpleDateFormat(M24);
         } else {
-            mDateFormat = new SimpleDateFormat(m12);
+            mDateFormat = new SimpleDateFormat(M12);
         }
     }
 

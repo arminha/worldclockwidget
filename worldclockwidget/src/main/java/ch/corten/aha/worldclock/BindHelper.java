@@ -26,7 +26,11 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.TextView;
 
-public class BindHelper {
+public final class BindHelper {
+
+    private BindHelper() {
+    }
+
     public static void bindText(View view, Cursor cursor, int resource, String column) {
         TextView textView = (TextView) view.findViewById(resource);
         textView.setText(cursor.getString(cursor.getColumnIndex(column)));
@@ -45,7 +49,7 @@ public class BindHelper {
         tempText.setText(getTemperature(context, cursor, true));
     }
 
-    private static final String TEMPARATURE_FORMAT = "{0,number,0.0}";
+    private static final String TEMPERATURE_FORMAT = "{0,number,0.0}";
 
     public static String getTemperature(Context context, Cursor cursor, boolean addUnit) {
         int index = cursor.getColumnIndex(Clocks.TEMPERATURE);
@@ -57,10 +61,10 @@ public class BindHelper {
         } else {
             final double temperature = cursor.getDouble(index);
             if (unit.equals(CELSIUS)) {
-                sb.append(MessageFormat.format(TEMPARATURE_FORMAT, temperature));
+                sb.append(MessageFormat.format(TEMPERATURE_FORMAT, temperature));
             } else if (unit.equals(FAHRENHEIT)) {
                 final double fTemperature = Math.round(temperature * 9.0 / 5.0 + 32);
-                sb.append(MessageFormat.format(TEMPARATURE_FORMAT, fTemperature));
+                sb.append(MessageFormat.format(TEMPERATURE_FORMAT, fTemperature));
             } else {
                 throw new RuntimeException("Invalid value: " + unit);
             }

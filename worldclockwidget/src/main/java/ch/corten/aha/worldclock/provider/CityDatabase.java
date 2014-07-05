@@ -107,7 +107,7 @@ class CityDatabase extends SQLiteOpenHelper {
                 ih.bind(latitudeColumn, Double.parseDouble(rawValues[2]));
                 ih.bind(longitudeColumn, Double.parseDouble(rawValues[3]));
                 ih.bind(countryColumn, rawValues[4]);
-                ih.bind(timezoneColumn,rawValues[5]);
+                ih.bind(timezoneColumn, rawValues[5]);
                 ih.execute();
 
                 // next data set

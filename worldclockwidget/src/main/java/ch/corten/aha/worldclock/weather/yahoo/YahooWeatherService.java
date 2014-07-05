@@ -137,7 +137,9 @@ public class YahooWeatherService implements WeatherService {
 
         @Override
         public String getNamespaceURI(String prefix) {
-            if (prefix == null) throw new IllegalArgumentException("prefix must not be null");
+            if (prefix == null) {
+                throw new IllegalArgumentException("prefix must not be null");
+            }
             if ("yweather".equals(prefix)) {
                 return "http://xml.weather.yahoo.com/ns/rss/1.0";
             } else if (XMLConstants.XML_NS_PREFIX.equals(prefix)) {

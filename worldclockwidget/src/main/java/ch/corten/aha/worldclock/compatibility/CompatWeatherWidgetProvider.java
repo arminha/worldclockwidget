@@ -41,7 +41,7 @@ public abstract class CompatWeatherWidgetProvider extends AbstractWeatherWidgetP
         // clock update method.
         ComponentName thisAppWidget = new ComponentName(context.getPackageName(), getClass().getName());
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int ids[] = appWidgetManager.getAppWidgetIds(thisAppWidget);
+        int[] ids = appWidgetManager.getAppWidgetIds(thisAppWidget);
         for (int appWidgetID: ids) {
             updateAppWidget(context, appWidgetManager, appWidgetID);
         }

@@ -38,17 +38,17 @@ public class WorldClockContentProvider extends ContentProvider {
     private static final int CITIES = 3;
     private static final int CITIES_ITEM = 4;
 
-    private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    private static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
     static {
-        mUriMatcher.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME, CLOCKS);
-        mUriMatcher.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME + "/#", CLOCKS_ITEM);
-        mUriMatcher.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME, CITIES);
-        mUriMatcher.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME + "/#", CITIES_ITEM);
+        URI_MATCHER.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME, CLOCKS);
+        URI_MATCHER.addURI(WorldClock.AUTHORITY, Clocks.TABLE_NAME + "/#", CLOCKS_ITEM);
+        URI_MATCHER.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME, CITIES);
+        URI_MATCHER.addURI(WorldClock.AUTHORITY, Cities.TABLE_NAME + "/#", CITIES_ITEM);
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        switch (mUriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
         case CLOCKS:
             break;
         case CLOCKS_ITEM:
@@ -71,7 +71,7 @@ public class WorldClockContentProvider extends ContentProvider {
 
     @Override
     public String getType(Uri uri) {
-        switch (mUriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
         case CLOCKS:
             return Clocks.CONTENT_TYPE;
         case CLOCKS_ITEM:
@@ -87,7 +87,7 @@ public class WorldClockContentProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        switch (mUriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
         case CLOCKS:
             break;
         case CITIES:
@@ -123,7 +123,7 @@ public class WorldClockContentProvider extends ContentProvider {
             String[] selectionArgs, String sortOrder) {
         String table;
         SQLiteOpenHelper helper;
-        int match = mUriMatcher.match(uri);
+        int match = URI_MATCHER.match(uri);
         switch (match) {
         case CLOCKS:
         case CLOCKS_ITEM:
@@ -142,7 +142,9 @@ public class WorldClockContentProvider extends ContentProvider {
         switch (match) {
         case CLOCKS:
         case CITIES:
-            if (TextUtils.isEmpty(sortOrder)) sortOrder = "_ID ASC";
+            if (TextUtils.isEmpty(sortOrder)) {
+                sortOrder = "_ID ASC";
+            }
             break;
         case CITIES_ITEM:
         case CLOCKS_ITEM:
@@ -161,7 +163,7 @@ public class WorldClockContentProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection,
             String[] selectionArgs) {
-        switch (mUriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
         case CLOCKS:
             break;
         case CLOCKS_ITEM:

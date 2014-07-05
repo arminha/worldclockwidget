@@ -21,7 +21,11 @@ import java.util.TimeZone;
 
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 
-public class WeatherIcons {
+public final class WeatherIcons {
+
+    private WeatherIcons() {
+    }
+
     public static int getIcon(int conditionCode) {
         return getIcon(conditionCode, false);
     }
@@ -115,20 +119,20 @@ public class WeatherIcons {
     public static boolean isNight(double longitude, double latitude) {
         final long currentTimeMillis = System.currentTimeMillis();
         final double n = (currentTimeMillis - UNIX_STD_EQUINOX) / MILLISECONDS_PER_DAY;
-        final double L = (280.460 + (360 / 365.2422) * n) % 360;
+        final double l = (280.460 + (360 / 365.2422) * n) % 360;
         final double g = (357.528 + (360 / 365.2596) * n) % 360;
-        final double Delta = L + 1.915 * Math.sin(g * DEG_TO_RAD)
+        final double delta = l + 1.915 * Math.sin(g * DEG_TO_RAD)
                 + 0.02 * Math.sin(2 * g * DEG_TO_RAD);
         final double epsilon = 23.439 - 0.0000004 * n;
         double alpha = RAD_TO_DEG
                 * Math.atan(Math.cos(epsilon * DEG_TO_RAD)
-                        * Math.sin(Delta * DEG_TO_RAD)
-                        / Math.cos(Delta * DEG_TO_RAD));
-        if (Math.cos(Delta * DEG_TO_RAD) < 0) {
+                        * Math.sin(delta * DEG_TO_RAD)
+                        / Math.cos(delta * DEG_TO_RAD));
+        if (Math.cos(delta * DEG_TO_RAD) < 0) {
             alpha = alpha + 180;
         }
         final double deltaRad = Math.asin(Math.sin(epsilon * DEG_TO_RAD)
-                * Math.sin(Delta * DEG_TO_RAD));
+                * Math.sin(delta * DEG_TO_RAD));
         Calendar cal = (Calendar) UTC_CALENDAR.clone();
         cal.setTimeInMillis(currentTimeMillis);
         cal.set(Calendar.HOUR_OF_DAY, 0);
@@ -136,11 +140,11 @@ public class WeatherIcons {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
         final double n0 = (cal.getTimeInMillis() - UNIX_STD_EQUINOX) / MILLISECONDS_PER_DAY;
-        final double T0 = n0 / 36525;
+        final double t0 = n0 / 36525;
         cal.setTimeInMillis(currentTimeMillis);
-        final double T = hourOfDay(cal);
-        final double omega_hG = (6.697376 + 2400.05134 * T0 + 1.002738 * T) % 24;
-        final double omegaG = omega_hG * 15;
+        final double t = hourOfDay(cal);
+        final double omegaHG = (6.697376 + 2400.05134 * t0 + 1.002738 * t) % 24;
+        final double omegaG = omegaHG * 15;
         final double omega = omegaG + longitude;
         final double tau = omega - alpha;
         final double h = RAD_TO_DEG

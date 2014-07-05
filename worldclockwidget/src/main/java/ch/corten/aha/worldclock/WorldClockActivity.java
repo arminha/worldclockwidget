@@ -282,8 +282,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-                for (int i = 0; i < getListAdapter().getCount(); i++)
+                for (int i = 0; i < getListAdapter().getCount(); i++) {
                     getListView().setItemChecked(i, false);
+                }
 
                 if (mode == mMode) {
                     mMode = null;
@@ -426,7 +427,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         }
     }
 
-    private final static class ClockCursorAdapter extends ResourceCursorAdapter {
+    private static final class ClockCursorAdapter extends ResourceCursorAdapter {
         private final Context mContext;
         private final PauseSource mPauseSource;
 

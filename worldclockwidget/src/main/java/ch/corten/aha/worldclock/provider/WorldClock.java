@@ -28,7 +28,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-public class WorldClock {
+public final class WorldClock {
+
+    private WorldClock() {
+    }
+
     public static final String AUTHORITY = "ch.corten.aha.worldclock.provider";
     public static final Uri AUTHORITY_URI = Uri.parse("content://" + AUTHORITY);
 
@@ -70,7 +74,7 @@ public class WorldClock {
         /**
          * Create a new clock.
          * 
-         * @param timeZone
+         * @param timeZoneId
          *            the time zone id
          * @param city
          *            the city
