@@ -38,101 +38,100 @@ import android.view.View;
  * to select a color. A slider for the alpha channel is
  * also available. Enable it by setting
  * setAlphaSliderVisible(boolean) to true.
+ *
  * @author Daniel Nilsson
  */
 public class ColorPickerView extends View {
 
-    private static final int	PANEL_SAT_VAL = 0;
-    private static final int	PANEL_HUE = 1;
-    private static final int	PANEL_ALPHA = 2;
+    private static final int PANEL_SAT_VAL = 0;
+    private static final int PANEL_HUE = 1;
+    private static final int PANEL_ALPHA = 2;
 
     /**
      * The width in pixels of the border
      * surrounding all color panels.
      */
-    private static final float	BORDER_WIDTH_PX = 1;
+    private static final float BORDER_WIDTH_PX = 1;
 
     /**
      * The width in dp of the hue panel.
      */
-    private float 		HUE_PANEL_WIDTH = 30f;
+    private float HUE_PANEL_WIDTH = 30f;
     /**
      * The height in dp of the alpha panel.
      */
-    private float		ALPHA_PANEL_HEIGHT = 20f;
+    private float ALPHA_PANEL_HEIGHT = 20f;
     /**
      * The distance in dp between the different
      * color panels.
      */
-    private float 		PANEL_SPACING = 10f;
+    private float PANEL_SPACING = 10f;
     /**
      * The radius in dp of the color palette tracker circle.
      */
-    private float 		PALETTE_CIRCLE_TRACKER_RADIUS = 5f;
+    private float PALETTE_CIRCLE_TRACKER_RADIUS = 5f;
     /**
      * The dp which the tracker of the hue or alpha panel
      * will extend outside of its bounds.
      */
-    private float		RECTANGLE_TRACKER_OFFSET = 2f;
+    private float RECTANGLE_TRACKER_OFFSET = 2f;
 
+    private float mDensity = 1f;
 
-    private float 		mDensity = 1f;
+    private OnColorChangedListener mListener;
 
-    private OnColorChangedListener	mListener;
+    private Paint mSatValPaint;
+    private Paint mSatValTrackerPaint;
 
-    private Paint 		mSatValPaint;
-    private Paint		mSatValTrackerPaint;
+    private Paint mHuePaint;
+    private Paint mHueTrackerPaint;
 
-    private Paint		mHuePaint;
-    private Paint		mHueTrackerPaint;
+    private Paint mAlphaPaint;
+    private Paint mAlphaTextPaint;
 
-    private Paint		mAlphaPaint;
-    private Paint		mAlphaTextPaint;
+    private Paint mBorderPaint;
 
-    private Paint		mBorderPaint;
+    private Shader mValShader;
+    private Shader mSatShader;
+    private Shader mHueShader;
+    private Shader mAlphaShader;
 
-    private Shader		mValShader;
-    private Shader		mSatShader;
-    private Shader		mHueShader;
-    private Shader		mAlphaShader;
+    private int mAlpha = 0xff;
+    private float mHue = 360f;
+    private float mSat = 0f;
+    private float mVal = 0f;
 
-    private int			mAlpha = 0xff;
-    private float		mHue = 360f;
-    private float 		mSat = 0f;
-    private float 		mVal = 0f;
-
-    private String		mAlphaSliderText = "";
-    private int 		mSliderTrackerColor = 0xff1c1c1c;
-    private int 		mBorderColor = 0xff6E6E6E;
-    private boolean		mShowAlphaPanel = false;
+    private String mAlphaSliderText = "";
+    private int mSliderTrackerColor = 0xff1c1c1c;
+    private int mBorderColor = 0xff6E6E6E;
+    private boolean mShowAlphaPanel = false;
 
     /*
      * To remember which panel that has the "focus" when
      * processing hardware button data.
      */
-    private int			mLastTouchedPanel = PANEL_SAT_VAL;
+    private int mLastTouchedPanel = PANEL_SAT_VAL;
 
     /**
      * Offset from the edge we must have or else
      * the finger tracker will get clipped when
      * it is drawn outside of the view.
      */
-    private float 		mDrawingOffset;
-
+    private float mDrawingOffset;
 
     /*
      * Distance form the edges of the view
      * of where we are allowed to draw.
      */
-    private RectF	mDrawingRect;
+    private RectF mDrawingRect;
 
-    private RectF	mSatValRect;
-    private RectF 	mHueRect;
-    private RectF	mAlphaRect;
+    private RectF mSatValRect;
+    private RectF mHueRect;
+    private RectF mAlphaRect;
 
-    private AlphaPatternDrawable	mAlphaPattern;
+    private AlphaPatternDrawable mAlphaPattern;
 
-    private Point	mStartTouchPoint = null;
+    private Point mStartTouchPoint = null;
 
     public interface OnColorChangedListener {
         void onColorChanged(int color);
@@ -232,7 +231,7 @@ public class ColorPickerView extends View {
 
     private void drawSatValPanel(Canvas canvas) {
 
-        final RectF	rect = mSatValRect;
+        final RectF rect = mSatValRect;
 
         if (BORDER_WIDTH_PX > 0) {
             mBorderPaint.setColor(mBorderColor);
@@ -738,7 +737,7 @@ public class ColorPickerView extends View {
 
     private void setUpSatValRect() {
 
-        final RectF	dRect = mDrawingRect;
+        final RectF dRect = mDrawingRect;
         float panelSide = dRect.height() - BORDER_WIDTH_PX * 2;
 
         if (mShowAlphaPanel) {
@@ -754,7 +753,7 @@ public class ColorPickerView extends View {
     }
 
     private void setUpHueRect() {
-        final RectF	dRect = mDrawingRect;
+        final RectF dRect = mDrawingRect;
 
         float left = dRect.right - HUE_PANEL_WIDTH + BORDER_WIDTH_PX;
         float top = dRect.top + BORDER_WIDTH_PX;
@@ -770,7 +769,7 @@ public class ColorPickerView extends View {
             return;
         }
 
-        final RectF	dRect = mDrawingRect;
+        final RectF dRect = mDrawingRect;
 
         float left = dRect.left + BORDER_WIDTH_PX;
         float top = dRect.bottom - ALPHA_PANEL_HEIGHT + BORDER_WIDTH_PX;

@@ -44,7 +44,7 @@ public class AlphaPatternDrawable extends Drawable {
     /**
      * Bitmap in which the pattern will be cached.
      */
-    private Bitmap		mBitmap;
+    private Bitmap mBitmap;
 
     public AlphaPatternDrawable(int rectangleSize) {
         mRectangleSize = rectangleSize;
@@ -79,7 +79,7 @@ public class AlphaPatternDrawable extends Drawable {
         int height = bounds.height();
         int width = bounds.width();
 
-        numRectanglesHorizontal = (int) Math.ceil(((double) width / mRectangleSize));
+        numRectanglesHorizontal = (int) Math.ceil((double) width / mRectangleSize);
         numRectanglesVertical = (int) Math.ceil((double) height / mRectangleSize);
 
         generatePatternBitmap();
