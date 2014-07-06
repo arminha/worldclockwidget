@@ -61,7 +61,7 @@ public class AboutPreference extends DialogPreference {
             String versionName = BuildConfig.VERSION_NAME;
             int versionCode = BuildConfig.VERSION_CODE;
             String buildTag = BuildConfig.BUILD_TAG;
-            versionText.setText(versionName + " (" + versionCode + "-" + buildTag +")");
+            versionText.setText(versionName + " (" + versionCode + "-" + buildTag + ")");
         }
     }
 
