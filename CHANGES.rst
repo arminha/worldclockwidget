@@ -1,4 +1,8 @@
 
+1.6.1:
+
+* Bug fixes
+
 1.6.0:
 
 * New send feedback option
