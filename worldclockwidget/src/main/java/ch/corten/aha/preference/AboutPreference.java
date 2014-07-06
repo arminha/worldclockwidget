@@ -16,19 +16,16 @@
 
 package ch.corten.aha.preference;
 
+import ch.corten.aha.worldclock.BuildConfig;
 import ch.corten.aha.worldclock.R;
 import android.content.Context;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.preference.DialogPreference;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 public class AboutPreference extends DialogPreference {
-
-    private static final String TAG = "AboutPreference";
 
     public AboutPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -61,13 +58,10 @@ public class AboutPreference extends DialogPreference {
         View v = view.findViewById(R.id.version_text);
         if (v != null && v instanceof TextView) {
             TextView versionText = (TextView) v;
-            Context context = getContext();
-            try {
-                String versionName = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                versionText.setText(versionName);
-            } catch (NameNotFoundException e) {
-                Log.e(TAG, e.getMessage(), e);
-            }
+            String versionName = BuildConfig.VERSION_NAME;
+            int versionCode = BuildConfig.VERSION_CODE;
+            String buildTag = BuildConfig.BUILD_TAG;
+            versionText.setText(versionName + " (" + versionCode + "-" + buildTag +")");
         }
     }
 

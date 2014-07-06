@@ -25,6 +25,8 @@ android {
         minSdkVersion 10
         targetSdkVersion 19
 
+        buildConfigField 'String', 'BUILD_TAG', '"' + getBuildTag() + '"'
+
         def buildSuffix = getBuildSuffix(versionName, versionCode)
         applicationVariants.all { variant ->
             def file = variant.outputFile
@@ -66,6 +68,17 @@ def getBuildSuffix(versionName, versionCode) {
         suffix += '-b' + System.getenv()['BUILD_NUMBER']
     }
     return suffix
+}
+
+def getBuildTag() {
+    def tag = ''
+    if (System.getenv()['BUILD_NUMBER'] != null) {
+        tag += 'b' + System.getenv()['BUILD_NUMBER']
+    } else {
+        tag += 'l'
+    }
+    tag += '@' + new Date().format('yyyyMMdd')
+    return tag
 }
 
 ///////////////////////////////////////////////////
