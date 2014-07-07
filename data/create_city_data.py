@@ -56,6 +56,7 @@ levels = {
     'AF' : 140000,
     'CD' : 140000,
     'IT' : 70000,
+    'HR' : 60000,
 }
 
 class CountryInfo(object):
