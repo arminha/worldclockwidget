@@ -16,8 +16,6 @@
 
 package ch.corten.aha.worldclock.provider;
 
-import ch.corten.aha.worldclock.provider.WorldClock.Cities;
-import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -27,6 +25,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.text.TextUtils;
+
+import ch.corten.aha.worldclock.provider.WorldClock.Cities;
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 public class WorldClockContentProvider extends ContentProvider {
 
@@ -61,7 +62,7 @@ public class WorldClockContentProvider extends ContentProvider {
             throw invalidUri(uri);
         }
 
-        SQLiteDatabase db = mClockDbHelper.getWritableDatabase();
+        SQLiteDatabase db = getClockDbHelper().getWritableDatabase();
         int deleted = db.delete(Clocks.TABLE_NAME, selection, selectionArgs);
         if (deleted > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
@@ -96,7 +97,7 @@ public class WorldClockContentProvider extends ContentProvider {
             throw invalidUri(uri);
         }
 
-        SQLiteDatabase db = mClockDbHelper.getWritableDatabase();
+        SQLiteDatabase db = getClockDbHelper().getWritableDatabase();
         long id = db.insert(Clocks.TABLE_NAME, null, values);
         Uri insertUri = ContentUris.withAppendedId(uri, id);
         getContext().getContentResolver().notifyChange(insertUri, null);
@@ -113,8 +114,6 @@ public class WorldClockContentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        mClockDbHelper = new WorldClockDatabase(getContext());
-        mCityDbHelper = new CityDatabase(getContext());
         return true;
     }
 
@@ -128,12 +127,12 @@ public class WorldClockContentProvider extends ContentProvider {
         case CLOCKS:
         case CLOCKS_ITEM:
             table = Clocks.TABLE_NAME;
-            helper = mClockDbHelper;
+            helper = getClockDbHelper();
             break;
         case CITIES:
         case CITIES_ITEM:
             table = Cities.TABLE_NAME;
-            helper = mCityDbHelper;
+            helper = getCityDbHelper();
             break;
         default:
             throw invalidUri(uri);
@@ -176,11 +175,25 @@ public class WorldClockContentProvider extends ContentProvider {
             throw invalidUri(uri);
         }
 
-        SQLiteDatabase db = mClockDbHelper.getReadableDatabase();
+        SQLiteDatabase db = getClockDbHelper().getReadableDatabase();
         int updated = db.update(Clocks.TABLE_NAME, values, selection, selectionArgs);
         if (updated > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
         return updated;
+    }
+
+    private WorldClockDatabase getClockDbHelper() {
+        if (mClockDbHelper == null) {
+            mClockDbHelper = new WorldClockDatabase(getContext());
+        }
+        return mClockDbHelper;
+    }
+
+    private CityDatabase getCityDbHelper() {
+        if (mCityDbHelper == null) {
+            mCityDbHelper = new CityDatabase(getContext());
+        }
+        return mCityDbHelper;
     }
 }
