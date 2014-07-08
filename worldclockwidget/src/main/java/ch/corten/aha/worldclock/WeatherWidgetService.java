@@ -16,9 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.text.DateFormat;
-
-import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +23,12 @@ import android.database.Cursor;
 import android.os.Build;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
+
+import java.text.DateFormat;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class WeatherWidgetService extends RemoteViewsService {
@@ -35,7 +38,17 @@ public class WeatherWidgetService extends RemoteViewsService {
         return new WeatherWidgetViewsFactory(this.getApplicationContext());
     }
 
+    /**
+     * Reads data for the app widget from the
+     * {@link ch.corten.aha.worldclock.provider.WorldClockContentProvider}.
+     * It synchronizes access to the internal {@link #mCursor} field.
+     *
+     * <p>Instances of this class are thread-safe.</p>
+     */
     static class WeatherWidgetViewsFactory implements RemoteViewsFactory {
+
+        private final ReadWriteLock mCursorLock = new ReentrantReadWriteLock();
+
         private Context mContext;
         private Cursor mCursor;
         private DateFormat mTimeFormat;
@@ -51,11 +64,21 @@ public class WeatherWidgetService extends RemoteViewsService {
         @Override
         public void onDataSetChanged() {
             // Refresh the cursor
-            if (mCursor != null) {
-                mCursor.close();
-            }
-            mCursor = WeatherWidget.getData(mContext);
+            Cursor newCursor = WeatherWidget.getData(mContext);
+            setCursor(newCursor);
             setTimeFormat();
+        }
+
+        private void setCursor(Cursor newCursor) {
+            mCursorLock.writeLock().lock();
+            try {
+                if (mCursor != null) {
+                    mCursor.close();
+                }
+                mCursor = newCursor;
+            } finally {
+                mCursorLock.writeLock().unlock();
+            }
         }
 
         private void setTimeFormat() {
@@ -71,17 +94,20 @@ public class WeatherWidgetService extends RemoteViewsService {
 
         @Override
         public void onDestroy() {
-            if (mCursor != null) {
-                mCursor.close();
-            }
+            setCursor(null);
         }
 
         @Override
         public int getCount() {
-            if (mCursor == null) {
-                return 0;
-            } else {
-                return mCursor.getCount();
+            mCursorLock.readLock().lock();
+            try {
+                if (mCursor == null) {
+                    return 0;
+                } else {
+                    return mCursor.getCount();
+                }
+            } finally {
+                mCursorLock.readLock().unlock();
             }
         }
 
@@ -94,10 +120,15 @@ public class WeatherWidgetService extends RemoteViewsService {
                 rv = new RemoteViews(mContext.getPackageName(), R.layout.weather_widget_item);
             }
 
-            if (mCursor.moveToPosition(position)) {
-                WeatherWidget.updateItemView(mContext, mCursor, rv, getTimeFormat());
-                Intent intent = new Intent();
-                rv.setOnClickFillInIntent(R.id.widget_item, intent);
+            mCursorLock.readLock().lock();
+            try {
+                if (mCursor != null && mCursor.moveToPosition(position)) {
+                    WeatherWidget.updateItemView(mContext, mCursor, rv, getTimeFormat());
+                    Intent intent = new Intent();
+                    rv.setOnClickFillInIntent(R.id.widget_item, intent);
+                }
+            } finally {
+                mCursorLock.readLock().unlock();
             }
             return rv;
         }
@@ -115,8 +146,13 @@ public class WeatherWidgetService extends RemoteViewsService {
 
         @Override
         public long getItemId(int position) {
-            if (mCursor.moveToPosition(position)) {
-                return mCursor.getLong(mCursor.getColumnIndex(Clocks._ID));
+            mCursorLock.readLock().lock();
+            try {
+                if (mCursor != null && mCursor.moveToPosition(position)) {
+                    return mCursor.getLong(mCursor.getColumnIndex(Clocks._ID));
+                }
+            } finally {
+                mCursorLock.readLock().unlock();
             }
             return -1;
         }
