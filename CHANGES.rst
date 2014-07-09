@@ -1,4 +1,9 @@
 
+1.6.2:
+
+* Bug fixes
+* Update city database
+
 1.6.1:
 
 * Bug fixes
