@@ -142,6 +142,8 @@ public class UpdateWeatherService extends IntentService {
             } finally {
                 c.close();
             }
+        } else {
+            Log.e(TAG, "failed to update database: cursor was null.");
         }
         return count;
     }
@@ -155,17 +157,19 @@ public class UpdateWeatherService extends IntentService {
         WeatherObservation obs = new EmptyObservation(getResources());
 
         Cursor c = resolver.query(Clocks.CONTENT_URI, projection, query, null, null);
-        try {
-            while (c.moveToNext()) {
-                long id = c.getLong(c.getColumnIndex(Clocks._ID));
-                if (Clocks.updateWeather(context, id, obs)) {
-                    count++;
+        if (c != null) {
+            try {
+                while (c.moveToNext()) {
+                    long id = c.getLong(c.getColumnIndex(Clocks._ID));
+                    if (Clocks.updateWeather(context, id, obs)) {
+                        count++;
+                    }
                 }
-            }
-        } finally {
-            if (c != null) {
+            } finally {
                 c.close();
             }
+        } else {
+            Log.e(TAG, "failed to purge old data: cursor was null.");
         }
         return count;
     }
