@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 /**
  * Open Weather Map weather service using the JSON API.
  *
- * Documentation: http://openweathermap.org/wiki/API/JSON_API
+ * Documentation: http://openweathermap.org/current
  *
  * Example URL: http://api.openweathermap.org/data/2.5/weather?lat=51.507222&lon=-0.1275
  */

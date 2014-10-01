@@ -44,6 +44,11 @@ import ch.corten.aha.worldclock.weather.AbstractObservation;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 import ch.corten.aha.worldclock.weather.WeatherService;
 
+/**
+ * Retrieves current weather conditions from the Yahoo Weather API.
+ *
+ * Documentation: https://developer.yahoo.com/weather/documentation.html
+ */
 public class YahooWeatherService implements WeatherService {
 
     private static final String TAG = "WeatherService";
