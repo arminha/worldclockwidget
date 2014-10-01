@@ -84,6 +84,11 @@ public class MsnWeatherService implements WeatherService {
         return null;
     }
 
+    @Override
+    public void setLanguage(String languageCode) {
+        // TODO: implement language selection
+    }
+
     /*
      * <current temperature="10"
      *          skycode="32"

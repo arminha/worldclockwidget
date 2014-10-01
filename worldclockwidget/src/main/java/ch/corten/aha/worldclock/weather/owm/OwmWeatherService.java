@@ -32,10 +32,15 @@ public class OwmWeatherService implements WeatherService {
 
     private static final String TAG = "WeatherService";
 
+    private String mLanguageCode;
+
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
         try {
             String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
+            if (mLanguageCode != null) {
+                query += "&lang=" + mLanguageCode;
+            }
             URI uri = new URI("http", "api.openweathermap.org", "/data/2.5/weather", query, null);
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -56,6 +61,34 @@ public class OwmWeatherService implements WeatherService {
             return null;
         }
         return null;
+    }
+
+    /**
+     * Supported language codes:
+     *
+     * English - en
+     * Russian - ru
+     * Italian - it
+     * Spanish - es (or sp)
+     * Ukrainian - uk (or ua)
+     * German - de
+     * Portuguese - pt
+     * Romanian - ro
+     * Polish - pl
+     * Finnish - fi
+     * Dutch - nl
+     * French - fr
+     * Bulgarian - bg
+     * Swedish - sv (or se)
+     * Chinese Traditional - zh_tw
+     * Chinese Simplified - zh (or zh_cn)
+     * Turkish - tr
+     * Croatian - hr
+     * Catalan - ca
+     */
+    @Override
+    public void setLanguage(String languageCode) {
+        this.mLanguageCode = languageCode;
     }
 
     private WeatherObservation readStream(InputStream in) throws IOException {

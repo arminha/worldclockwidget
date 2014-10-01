@@ -103,6 +103,7 @@ public class UpdateWeatherService extends IntentService {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String provider = prefs.getString(context.getString(R.string.weather_source_key), "yahoo");
         WeatherService service = new AndroidWeatherServiceFactory(context).createService(provider);
+        service.setLanguage(context.getString(R.string.weather_service_language));
 
         try {
             return updateDatabase(context, service, query);

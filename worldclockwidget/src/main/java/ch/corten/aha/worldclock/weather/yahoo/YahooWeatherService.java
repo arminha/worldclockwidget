@@ -99,6 +99,11 @@ public class YahooWeatherService implements WeatherService {
         return null;
     }
 
+    @Override
+    public void setLanguage(String languageCode) {
+        // TODO: implement language selection
+    }
+
     private WeatherObservation readStream(InputStream in) {
         XPath xPath = XPathFactory.newInstance().newXPath();
         xPath.setNamespaceContext(new YahooNamespaces());
