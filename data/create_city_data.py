@@ -42,7 +42,7 @@ manually_added_cities = \
     ,('2123628', 'Magadan')
     ,('2173911', 'Broken Hill')
     ,('1516048', 'Khovd')
-    ,('3164603', 'Venezia')
+    ,('3164603', 'Venice')
     ,('3166548', 'Siena')
     ]
 
