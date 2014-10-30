@@ -16,8 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.util.TimeZone;
-
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -35,11 +33,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+
+import org.joda.time.DateTimeZone;
+
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
 public class EditClockActivity extends SherlockFragmentActivity {
 
@@ -128,7 +128,7 @@ public class EditClockActivity extends SherlockFragmentActivity {
                 mUseInWidgetCheckBox = (CheckBox) view.findViewById(R.id.use_in_widget_checkbox);
                 mUseInWidgetCheckBox.setChecked(c.getInt(c.getColumnIndex(Clocks.USE_IN_WIDGET)) != 0);
                 String id = c.getString(c.getColumnIndex(Clocks.TIMEZONE_ID));
-                TimeZone tz = TimeZone.getTimeZone(id);
+                DateTimeZone tz = DateTimeZone.forID(id);
                 ((TextView) view.findViewById(R.id.time_zone_name)).setText(TimeZoneInfo.getDescription(tz));
                 ((TextView) view.findViewById(R.id.time_zone_details)).setText(TimeZoneInfo.getTimeDifferenceString(tz));
 

@@ -61,6 +61,8 @@ import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
+import org.joda.time.DateTimeZone;
+
 public class WorldClockActivity extends SherlockFragmentActivity {
     private static final boolean IS_GINGERBREAD = Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
 
@@ -460,7 +462,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             dateText.setText(df.format(new Date()));
 
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
-            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(timeZone));
+            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(DateTimeZone.forTimeZone(timeZone)));
             DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
             clock.setTimeZone(timeZone);
 

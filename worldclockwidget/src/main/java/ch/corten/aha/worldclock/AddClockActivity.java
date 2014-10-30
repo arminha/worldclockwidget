@@ -16,18 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.util.TimeZone;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.SearchView;
-import com.actionbarsherlock.widget.SearchView.OnQueryTextListener;
-
-import ch.corten.aha.worldclock.provider.WorldClock;
-import ch.corten.aha.worldclock.provider.WorldClock.Cities;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
@@ -43,6 +31,19 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.SearchView;
+import com.actionbarsherlock.widget.SearchView.OnQueryTextListener;
+
+import org.joda.time.DateTimeZone;
+
+import ch.corten.aha.worldclock.provider.WorldClock;
+import ch.corten.aha.worldclock.provider.WorldClock.Cities;
 
 public class AddClockActivity extends SherlockFragmentActivity {
 
@@ -95,7 +96,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
                     BindHelper.bindText(view, cursor, R.id.city_text, Cities.NAME);
                     BindHelper.bindText(view, cursor, R.id.area_text, Cities.COUNTRY);
                     TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
-                    TimeZone tz = TimeZone.getTimeZone(cursor.getString(cursor.getColumnIndex(Cities.TIMEZONE_ID)));
+                    DateTimeZone tz = DateTimeZone.forID(cursor.getString(cursor.getColumnIndex(Cities.TIMEZONE_ID)));
                     timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
                     TextView timeZoneDescText = (TextView) view.findViewById(R.id.timezone_desc_text);
                     timeZoneDescText.setText(TimeZoneInfo.getDescription(tz));
@@ -116,7 +117,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 selection = Cities.ASCII_NAME + " like ? or "
                         + Cities.NAME + " like ? or "
                         + Cities.COUNTRY + " like ?";
-                selectionArgs = new String[] { search, search, search };
+                selectionArgs = new String[] {search, search, search};
             }
             return new CursorLoader(getActivity(), Cities.CONTENT_URI,
                     CITY_PROJECTION, selection, selectionArgs, null);
@@ -190,7 +191,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 String timeZoneId = c.getString(c.getColumnIndex(Cities.TIMEZONE_ID));
                 String city = c.getString(c.getColumnIndex(Cities.NAME));
                 String country = c.getString(c.getColumnIndex(Cities.COUNTRY));
-                int timeDiff = TimeZoneInfo.getTimeDifference(TimeZone.getTimeZone(timeZoneId));
+                int timeDiff = TimeZoneInfo.getTimeDifference(DateTimeZone.forID(timeZoneId));
                 double latitude = c.getDouble(c.getColumnIndex(Cities.LATITUDE));
                 double longitude = c.getDouble(c.getColumnIndex(Cities.LONGITUDE));
                 WorldClock.Clocks.addClock(getActivity(), timeZoneId, city,

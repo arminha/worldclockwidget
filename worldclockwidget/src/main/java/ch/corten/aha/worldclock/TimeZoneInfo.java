@@ -16,6 +16,9 @@
 
 package ch.corten.aha.worldclock;
 
+import org.joda.time.DateTimeUtils;
+import org.joda.time.DateTimeZone;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,12 +30,12 @@ public final class TimeZoneInfo {
     private TimeZoneInfo() {
     }
 
-    public static int getTimeDifference(TimeZone tz) {
-        int milliseconds = tz.getOffset(System.currentTimeMillis());
+    public static int getTimeDifference(DateTimeZone tz) {
+        int milliseconds = tz.getOffset(DateTimeUtils.currentTimeMillis());
         return milliseconds / 60000;
     }
 
-    public static String getTimeDifferenceString(TimeZone tz) {
+    public static String getTimeDifferenceString(DateTimeZone tz) {
         int minutesDiff = getTimeDifference(tz);
         StringBuilder sb = new StringBuilder();
         sb.append("GMT");
@@ -55,11 +58,13 @@ public final class TimeZoneInfo {
         return sb.toString();
     }
 
-    public static String getDescription(TimeZone tz) {
-        if (tz.useDaylightTime() && tz.inDaylightTime(new Date())) {
-            return tz.getDisplayName(true, TimeZone.LONG);
+    public static String getDescription(DateTimeZone tz) {
+        // The Java TimeZones gives a better description (and knows more time zones)
+        TimeZone timeZone = tz.toTimeZone();
+        if (timeZone.useDaylightTime() && timeZone.inDaylightTime(new Date())) {
+            return timeZone.getDisplayName(true, TimeZone.LONG);
         }
-        return tz.getDisplayName();
+        return timeZone.getDisplayName();
     }
 
     private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE", Locale.US);

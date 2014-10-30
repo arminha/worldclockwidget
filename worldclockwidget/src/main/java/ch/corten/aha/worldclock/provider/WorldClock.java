@@ -16,10 +16,6 @@
 
 package ch.corten.aha.worldclock.provider;
 
-import java.util.TimeZone;
-
-import ch.corten.aha.worldclock.TimeZoneInfo;
-import ch.corten.aha.worldclock.weather.WeatherObservation;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -27,6 +23,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+
+import org.joda.time.DateTimeZone;
+
+import ch.corten.aha.worldclock.TimeZoneInfo;
+import ch.corten.aha.worldclock.weather.WeatherObservation;
 
 public final class WorldClock {
 
@@ -96,7 +97,7 @@ public final class WorldClock {
 
             ContentResolver cr = context.getContentResolver();
             long orderKey;
-            Cursor c = cr.query(CONTENT_URI, new String[] { "MAX(order_key) as max_order_key" }, null, null, null);
+            Cursor c = cr.query(CONTENT_URI, new String[] {"MAX(order_key) as max_order_key"}, null, null, null);
             try {
                 if (c.moveToFirst()) {
                     orderKey = c.getLong(c.getColumnIndex("max_order_key")) + 1;
@@ -161,7 +162,7 @@ public final class WorldClock {
 
         private static long getOrderKey(ContentResolver cr, long id) {
             Uri uri = ContentUris.withAppendedId(CONTENT_URI, id);
-            Cursor c = cr.query(uri, new String[] { ORDER_KEY }, null, null, null);
+            Cursor c = cr.query(uri, new String[] {ORDER_KEY}, null, null, null);
             try {
                 c.moveToNext();
                 return c.getLong(c.getColumnIndex(ORDER_KEY));
@@ -190,13 +191,13 @@ public final class WorldClock {
         public static boolean updateOrder(Context context) {
             int count = 0;
             ContentResolver cr = context.getContentResolver();
-            Cursor c = cr.query(CONTENT_URI, new String[] { _ID, TIMEZONE_ID, TIME_DIFF }, null, null, _ID);
+            Cursor c = cr.query(CONTENT_URI, new String[] {_ID, TIMEZONE_ID, TIME_DIFF}, null, null, _ID);
             if (c != null) {
                 try {
                     while (c.moveToNext()) {
                         String timeZoneId = c.getString(c.getColumnIndex(TIMEZONE_ID));
                         int storedDiff = c.getInt(c.getColumnIndex(TIME_DIFF));
-                        TimeZone tz = TimeZone.getTimeZone(timeZoneId);
+                        DateTimeZone tz = DateTimeZone.forID(timeZoneId);
                         int diff = TimeZoneInfo.getTimeDifference(tz);
                         if (storedDiff != diff) {
                             // update entry
