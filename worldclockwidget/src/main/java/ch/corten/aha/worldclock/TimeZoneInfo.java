@@ -18,6 +18,8 @@ package ch.corten.aha.worldclock;
 
 import org.joda.time.DateTimeUtils;
 import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,18 @@ public final class TimeZoneInfo {
     public static int getTimeDifference(DateTimeZone tz) {
         int milliseconds = tz.getOffset(DateTimeUtils.currentTimeMillis());
         return milliseconds / 60000;
+    }
+
+    public static String formatDate(DateFormat dateFormat, DateTimeZone tz) {
+        if (dateFormat instanceof SimpleDateFormat) {
+            String pattern = ((SimpleDateFormat) dateFormat).toPattern();
+            DateTimeFormatter format = DateTimeFormat.forPattern(pattern).withZone(tz);
+            return format.print(DateTimeUtils.currentTimeMillis());
+        } else {
+            // TODO might return the wrong date
+            dateFormat.setTimeZone(tz.toTimeZone());
+            return dateFormat.format(new Date());
+        }
     }
 
     public static String getTimeDifferenceString(DateTimeZone tz) {

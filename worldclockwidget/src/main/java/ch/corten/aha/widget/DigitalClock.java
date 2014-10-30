@@ -2,6 +2,7 @@
  * Copyright (C) 2006 The Android Open Source Project
  * Copyright (C) 2012 Armin Häberling (support for time zones)
  * Copyright (C) 2013 Armin Häberling (pause and resume)
+ * Copyright (C) 2014 Armin Häberling (port to joda-time)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +27,10 @@ import android.provider.Settings;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.TimeZone;
+import org.joda.time.DateTimeUtils;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  * Like AnalogClock, but digital.  Shows seconds.
@@ -43,7 +44,6 @@ public class DigitalClock extends TextView implements PauseListener {
     private static final int STATE_ATTACHED_ACTIVE = 1;
     private static final int STATE_ATTACHED_PAUSED = 2;
 
-    private Calendar mCalendar;
     private static final String M12 = "h:mm:ss aa";
     private static final String M24 = "H:mm:ss";
     private FormatChangeObserver mFormatChangeObserver;
@@ -57,8 +57,8 @@ public class DigitalClock extends TextView implements PauseListener {
     private int mState = STATE_DETACHED;
     private PauseSource mPauseSource = null;
 
-    private DateFormat mDateFormat;
-    private TimeZone mTimeZone;
+    private DateTimeFormatter mDateFormat;
+    private DateTimeZone mTimeZone;
 
     public DigitalClock(Context context) {
         super(context);
@@ -70,20 +70,17 @@ public class DigitalClock extends TextView implements PauseListener {
         initClock(context);
     }
 
-    public TimeZone getTimeZone() {
+    public DateTimeZone getTimeZone() {
         return mTimeZone;
     }
 
-    public void setTimeZone(TimeZone timeZone) {
+    public void setTimeZone(DateTimeZone timeZone) {
         mTimeZone = timeZone;
+        setFormat();
         updateClock();
     }
 
     private void initClock(Context context) {
-        if (mCalendar == null) {
-            mCalendar = Calendar.getInstance();
-        }
-
         mFormatChangeObserver = new FormatChangeObserver();
         registerObserver();
         setFormat();
@@ -168,24 +165,16 @@ public class DigitalClock extends TextView implements PauseListener {
     /**
      * Pulls 12/24 mode from system settings
      */
-    private boolean get24HourMode() {
+    private boolean is24HourMode() {
         return android.text.format.DateFormat.is24HourFormat(getContext());
     }
 
     private void setFormat() {
-        if (get24HourMode()) {
-            mDateFormat = new SimpleDateFormat(M24);
-        } else {
-            mDateFormat = new SimpleDateFormat(M12);
-        }
+        mDateFormat = DateTimeFormat.forPattern(is24HourMode() ? M24 : M12).withZone(mTimeZone);
     }
 
     private void updateClock() {
-        mCalendar.setTimeInMillis(System.currentTimeMillis());
-        if (mTimeZone != null) {
-            mDateFormat.setTimeZone(mTimeZone);
-        }
-        setText(mDateFormat.format(mCalendar.getTime()));
+        setText(mDateFormat.print(DateTimeUtils.currentTimeMillis()));
         invalidate();
     }
 

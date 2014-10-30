@@ -16,25 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.ActionMode;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
-import ch.corten.aha.widget.DigitalClock;
-import ch.corten.aha.widget.PauseListener;
-import ch.corten.aha.widget.PauseSource;
-import ch.corten.aha.worldclock.provider.WorldClock;
-import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
-import ch.corten.aha.worldclock.provider.WorldClock.Clocks.MoveTarget;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -53,15 +34,38 @@ import android.support.v4.content.Loader;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
+import org.joda.time.DateTimeUtils;
 import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
+import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import ch.corten.aha.widget.DigitalClock;
+import ch.corten.aha.widget.PauseListener;
+import ch.corten.aha.widget.PauseSource;
+import ch.corten.aha.worldclock.provider.WorldClock;
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks.MoveTarget;
 
 public class WorldClockActivity extends SherlockFragmentActivity {
     private static final boolean IS_GINGERBREAD = Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
@@ -455,16 +459,15 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             BindHelper.bindText(view, cursor, R.id.area_text, Clocks.AREA);
 
             String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
-            TimeZone timeZone = TimeZone.getTimeZone(timeZoneId);
+            DateTimeZone tz = DateTimeZone.forID(timeZoneId);
             java.text.DateFormat df = DateFormat.getDateFormat(context);
-            df.setTimeZone(timeZone);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
-            dateText.setText(df.format(new Date()));
+            dateText.setText(TimeZoneInfo.formatDate(df, tz));
 
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
-            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(DateTimeZone.forTimeZone(timeZone)));
+            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
             DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
-            clock.setTimeZone(timeZone);
+            clock.setTimeZone(tz);
 
             BindHelper.bindTemperature(context, view, cursor, R.id.temp_text);
             BindHelper.bindText(view, cursor, R.id.condition_text, Clocks.WEATHER_CONDITION);
