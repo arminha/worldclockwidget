@@ -68,12 +68,12 @@ public final class TimeZoneInfo {
         df.setTimeZone(tz);
         String time = df.format(date);
         if (addWeekday) {
-            time += showDifferenWeekday(tz, date);
+            time += showDifferentWeekday(tz, date);
         }
         return time;
     }
 
-    public static String showDifferenWeekday(TimeZone tz, Date date) {
+    public static String showDifferentWeekday(TimeZone tz, Date date) {
         DateFormat dayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
         dayFormat.setTimeZone(tz);
         String day = dayFormat.format(date);

@@ -72,7 +72,7 @@ public final class WeatherWidget {
             rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
         } else {
             RemoteViewUtil.setTextClockTimeZone(rv, R.id.time_text, id);
-            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferenWeekday(tz, date));
+            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferentWeekday(tz, date));
         }
 
         rv.setTextViewText(R.id.condition_text, cursor
