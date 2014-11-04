@@ -69,7 +69,7 @@ public final class WeatherWidget {
         Date date = new Date();
         TimeZone tz = TimeZone.getTimeZone(id);
         if (SANS_JELLY_BEAN_MR1) {
-            rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTime(tz, date, mTimeFormat, true));
+            rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTimeWithOptionalWeekDay(tz, date, mTimeFormat));
         } else {
             RemoteViewUtil.setTextClockTimeZone(rv, R.id.time_text, id);
             rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferentWeekday(tz, date));

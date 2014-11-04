@@ -29,6 +29,8 @@ import java.util.TimeZone;
 
 public final class TimeZoneInfo {
 
+    private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE", Locale.US);
+
     private TimeZoneInfo() {
     }
 
@@ -81,14 +83,10 @@ public final class TimeZoneInfo {
         return timeZone.getDisplayName();
     }
 
-    private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE", Locale.US);
-
-    public static String showTime(TimeZone tz, Date date, DateFormat df, boolean addWeekday) {
+    public static String showTimeWithOptionalWeekDay(TimeZone tz, Date date, DateFormat df) {
         df.setTimeZone(tz);
         String time = df.format(date);
-        if (addWeekday) {
-            time += showDifferentWeekday(tz, date);
-        }
+        time += showDifferentWeekday(tz, date);
         return time;
     }
 
