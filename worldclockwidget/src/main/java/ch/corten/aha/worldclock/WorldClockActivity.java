@@ -51,13 +51,9 @@ import com.actionbarsherlock.view.MenuItem;
 
 import org.joda.time.DateTimeUtils;
 import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import ch.corten.aha.widget.DigitalClock;
@@ -395,7 +391,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             String sortOrder = mAutoSortClocks
-                            ? Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC" 
+                            ? Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC"
                             : Clocks.ORDER_KEY + " ASC";
             return new CursorLoader(getActivity(), Clocks.CONTENT_URI,
                     CLOCKS_PROJECTION, null, null, sortOrder);

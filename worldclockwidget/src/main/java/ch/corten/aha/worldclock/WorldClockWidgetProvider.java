@@ -17,7 +17,6 @@
 package ch.corten.aha.worldclock;
 
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.TimeZone;
 
 import ch.corten.aha.widget.RemoteViewUtil;

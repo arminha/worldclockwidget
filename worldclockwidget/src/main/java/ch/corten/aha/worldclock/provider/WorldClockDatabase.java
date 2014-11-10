@@ -30,7 +30,7 @@ class WorldClockDatabase extends SQLiteOpenHelper {
                     + "time_diff integer not null, "
                     + "use_in_widget integer not null default 1);";
 
-    private static final String DATABASE_UPDATE_2 = 
+    private static final String DATABASE_UPDATE_2 =
             "alter table clocks add column use_in_widget integer not null default 1";
 
     private static final String[] DATABASE_UPDATE_3 = {
