@@ -16,6 +16,8 @@
 
 package ch.corten.aha.worldclock;
 
+import android.util.Log;
+
 import org.joda.time.DateTimeUtils;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
@@ -23,13 +25,14 @@ import org.joda.time.format.DateTimeFormatter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
 import java.util.TimeZone;
 
 public final class TimeZoneInfo {
 
-    private static final DateFormat WEEKDAY_FORMAT = new SimpleDateFormat("EEE", Locale.US);
+    private static final String WEEKDAY_FORMAT = "EEE";
+    private static final String TZ_ID_TAG = "TZ-IDs";
 
     private TimeZoneInfo() {
     }
@@ -39,15 +42,14 @@ public final class TimeZoneInfo {
         return milliseconds / 60000;
     }
 
-    public static String formatDate(DateFormat dateFormat, DateTimeZone tz) {
+    public static String formatDate(DateFormat dateFormat, DateTimeZone tz, long time) {
         if (dateFormat instanceof SimpleDateFormat) {
             String pattern = ((SimpleDateFormat) dateFormat).toPattern();
             DateTimeFormatter format = DateTimeFormat.forPattern(pattern).withZone(tz);
-            return format.print(DateTimeUtils.currentTimeMillis());
+            return format.print(time);
         } else {
-            // TODO might return the wrong date
-            dateFormat.setTimeZone(tz.toTimeZone());
-            return dateFormat.format(new Date());
+            dateFormat.setTimeZone(convertToJavaTimeZone(tz, time));
+            return dateFormat.format(new Date(time));
         }
     }
 
@@ -83,19 +85,41 @@ public final class TimeZoneInfo {
         return timeZone.getDisplayName();
     }
 
-    public static String showTimeWithOptionalWeekDay(TimeZone tz, Date date, DateFormat df) {
-        df.setTimeZone(tz);
-        String time = df.format(date);
-        time += showDifferentWeekday(tz, date);
-        return time;
+    public static String showTimeWithOptionalWeekDay(DateTimeZone tz, long time, DateFormat df) {
+        return formatDate(df, tz, time) + showDifferentWeekday(tz, time);
     }
 
-    public static String showDifferentWeekday(TimeZone tz, Date date) {
-        DateFormat dayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
-        dayFormat.setTimeZone(tz);
-        String day = dayFormat.format(date);
-        DateFormat localDayFormat = (DateFormat) WEEKDAY_FORMAT.clone();
-        if (!day.equals(localDayFormat.format(date))) {
+    /**
+     * Convert a joda-time {@link org.joda.time.DateTimeZone} to an equivalent Java {@link java.util.TimeZone}.
+     *
+     * @param dateTimeZone a joda-time {@link org.joda.time.DateTimeZone}
+     * @param time         the time when the time zones should be equivalent.
+     * @return a Java {@link java.util.TimeZone} with the same offset for the given time.
+     */
+    public static TimeZone convertToJavaTimeZone(DateTimeZone dateTimeZone, long time) {
+        TimeZone timeZone = dateTimeZone.toTimeZone();
+        long offset = dateTimeZone.getOffset(time);
+        if (timeZone.getOffset(time) == offset) {
+            return timeZone;
+        }
+        String[] ids = TimeZone.getAvailableIDs((int) offset);
+        Log.d(TZ_ID_TAG, dateTimeZone.getID() + ": " + Arrays.toString(ids));
+        for (String id : ids) {
+            TimeZone tz = TimeZone.getTimeZone(id);
+            if (tz.getOffset(time) == offset) {
+                timeZone = tz;
+                Log.d(TZ_ID_TAG, "Found time zone " + tz.getID() + " for " + dateTimeZone.getID() + " with offset: " + offset);
+                break;
+            }
+        }
+        return timeZone;
+    }
+
+    public static String showDifferentWeekday(DateTimeZone tz, long time) {
+        DateTimeFormatter dayFormat = DateTimeFormat.forPattern(WEEKDAY_FORMAT).withZone(tz);
+        String day = dayFormat.print(time);
+        DateTimeFormatter localDayFormat = DateTimeFormat.forPattern(WEEKDAY_FORMAT);
+        if (!day.equals(localDayFormat.print(time))) {
             return " " + day;
         }
         return "";

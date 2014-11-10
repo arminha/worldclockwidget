@@ -462,7 +462,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             DateTimeZone tz = DateTimeZone.forID(timeZoneId);
             java.text.DateFormat df = DateFormat.getDateFormat(context);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
-            dateText.setText(TimeZoneInfo.formatDate(df, tz));
+            dateText.setText(TimeZoneInfo.formatDate(df, tz, DateTimeUtils.currentTimeMillis()));
 
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
             timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
