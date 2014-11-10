@@ -45,6 +45,7 @@ The app uses and includes the following libraries:
 * `ActionBarSherlock <http://actionbarsherlock.com/>`_ (also on `GitHub <https://github.com/JakeWharton/ActionBarSherlock>`__)
 * `ColorPickerPreference <https://github.com/attenzione/android-ColorPickerPreference>`_
 * `google-gson <https://code.google.com/p/google-gson/>`_
+* `joda-time-android <https://github.com/dlew/joda-time-android>`_
 
 Acknowledgements
 ----------------
