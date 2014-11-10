@@ -1188,7 +1188,7 @@ Perpignan	Perpignan	42.69764	2.89541	France	Europe/Paris
 Reims	Reims	49.25	4.03333	France	Europe/Paris
 Rennes	Rennes	48.11198	-1.67429	France	Europe/Paris
 Rouen	Rouen	49.44313	1.09932	France	Europe/Paris
-Saint-Étienne	Saint-Etienne	45.43333	4.4	France	Europe/Paris
+Saint-Étienne	Saint-Etienne	45.43389	4.39	France	Europe/Paris
 Saint-Quentin-en-Yvelines	Saint-Quentin-en-Yvelines	48.77186	2.01891	France	Europe/Paris
 Strasbourg	Strasbourg	48.58392	7.74553	France	Europe/Paris
 Toulon	Toulon	43.11667	5.93333	France	Europe/Paris
@@ -1202,7 +1202,7 @@ Libreville	Libreville	0.39241	9.45356	Gabon	Africa/Libreville
 Port-Gentil	Port-Gentil	-0.71933	8.78151	Gabon	Africa/Libreville
 Banjul	Banjul	13.45274	-16.57803	Gambia	Africa/Banjul
 Batumi	Batumi	41.64228	41.63392	Georgia	Asia/Tbilisi
-K'ut'aisi	K'ut'aisi	42.26791	42.69459	Georgia	Asia/Tbilisi
+Kutaisi	Kutaisi	42.26791	42.69459	Georgia	Asia/Tbilisi
 Tbilisi	Tbilisi	41.69411	44.83368	Georgia	Asia/Tbilisi
 Aachen	Aachen	50.77664	6.08342	Germany	Europe/Berlin
 Altona	Altona	53.55	9.93333	Germany	Europe/Berlin
@@ -1981,7 +1981,7 @@ Al Fāw	Al Faw	29.97421	48.47309	Iraq	Asia/Baghdad
 Al Ḩillah	Al Hillah	32.46367	44.41963	Iraq	Asia/Baghdad
 Al Kūt	Al Kut	32.5128	45.81817	Iraq	Asia/Baghdad
 Al Mawşil al Jadīdah	Al Mawsil al Jadidah	36.33091	43.09065	Iraq	Asia/Baghdad
-An Najaf al Ashraf	An Najaf al Ashraf	32.02594	44.34625	Iraq	Asia/Baghdad
+An Najaf	An Najaf	32.02594	44.34625	Iraq	Asia/Baghdad
 An Nāşirīyah	An Nasiriyah	31.05799	46.25726	Iraq	Asia/Baghdad
 As Samawah	As Samawah	31.33198	45.2944	Iraq	Asia/Baghdad
 As Sulaymānīyah	As Sulaymaniyah	35.56496	45.4329	Iraq	Asia/Baghdad
@@ -2450,7 +2450,7 @@ Nouakchott	Nouakchott	18.08581	-15.9785	Mauritania	Africa/Nouakchott
 Port Louis	Port Louis	-20.16194	57.49889	Mauritius	Indian/Mauritius
 Vacoas	Vacoas	-20.29806	57.47833	Mauritius	Indian/Mauritius
 Mamoudzou	Mamoudzou	-12.78234	45.22878	Mayotte	Indian/Mayotte
-Acapulco	Acapulco	16.86336	-99.8901	Mexico	America/Mexico_City
+Acapulco de Juárez	Acapulco de Juarez	16.86336	-99.8901	Mexico	America/Mexico_City
 Aguascalientes	Aguascalientes	21.88234	-102.28259	Mexico	America/Mexico_City
 Álvaro Obregón	Alvaro Obregon	19.35867	-99.20329	Mexico	America/Mexico_City
 Apodaca	Apodaca	25.75976	-100.16287	Mexico	America/Monterrey
@@ -2590,7 +2590,7 @@ Villahermosa	Villahermosa	17.98689	-92.93028	Mexico	America/Mexico_City
 Xalapa de Enríquez	Xalapa de Enriquez	19.53124	-96.91589	Mexico	America/Mexico_City
 Xochimilco	Xochimilco	19.25785	-99.10513	Mexico	America/Mexico_City
 Zacatecas	Zacatecas	22.76843	-102.58141	Mexico	America/Mexico_City
-Zamora de Hidalgo	Zamora de Hidalgo	19.98912	-102.28477	Mexico	America/Mexico_City
+Zamora	Zamora	19.9855	-102.28387	Mexico	America/Mexico_City
 Zapopan	Zapopan	20.72356	-103.38479	Mexico	America/Mexico_City
 Palikir - National Government Center	Palikir - National Government Center	6.92477	158.16109	Micronesia	Pacific/Pohnpei
 Bălţi	Balti	47.76167	27.92889	Moldova	Europe/Chisinau
