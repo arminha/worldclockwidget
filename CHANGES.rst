@@ -1,4 +1,9 @@
 
+1.7.0:
+
+* The app now contains a local time zone database which can be updated independently of the Android system. This solves some issues with outdated time zone databases (DST for Moscow is one example).
+* Update city database
+
 1.6.2:
 
 * Bug fixes
