@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012  Armin Häberling
+ * Copyright (C) 2012-2014  Armin Häberling
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -76,28 +76,12 @@ public final class BindHelper {
         return sb.toString();
     }
 
-    private static final String KMH = "kmh";
-    private static final String MPH = "mph";
-    private static final String MS = "ms";
-
-    private static final String KMH_FORMAT = "{0,number,#} km/h";
-    private static final String MPH_FORMAT = "{0,number,#} mph";
-    private static final String MS_FORMAT = "{0,number,#} m/s";
-
     public static String getSpeed(Context context, double windSpeed) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String unit = prefs.getString(context.getString(R.string.wind_speed_unit_key), KMH);
-        if (unit.equals(KMH)) {
-            return MessageFormat.format(KMH_FORMAT, windSpeed);
-        } else if (unit.equals(MPH)) {
-            double mphSpeed = Math.round(windSpeed * 0.621371192);
-            return MessageFormat.format(MPH_FORMAT, mphSpeed);
-        } else if (unit.equals(MS)) {
-            double msSpeed = Math.round(windSpeed / 3.6);
-            return MessageFormat.format(MS_FORMAT, msSpeed);
-        } else {
-            throw new RuntimeException("Invalid value: " + unit);
-        }
+        String unit = prefs.getString(context.getString(R.string.wind_speed_unit_key),
+                SpeedFormat.KiloMetersPerHour.getId());
+        SpeedFormat sf = SpeedFormat.fromId(unit);
+        return sf.format(windSpeed);
     }
 
 }

@@ -6,6 +6,7 @@
         <item name="kmh">kmh</item>
         <item name="mph">mph</item>
         <item name="ms">ms</item>
+        <item name="beaufort">beaufort</item>
     </string-array>
     <string name="default_speed_unit">kmh</string>
     <string-array name="temp_unit_values">

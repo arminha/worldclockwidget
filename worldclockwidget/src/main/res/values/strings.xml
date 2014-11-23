@@ -22,6 +22,7 @@
         <item name="kmh">km/h</item>
         <item name="mph">mph</item>
         <item name="ms">m/s</item>
+        <item name="beaufort">Beaufort</item>
     </string-array>
     <string-array name="temp_units">
         <item name="celsius">°C</item>
