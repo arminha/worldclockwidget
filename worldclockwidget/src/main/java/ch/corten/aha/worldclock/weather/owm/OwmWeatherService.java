@@ -120,7 +120,7 @@ public class OwmWeatherService implements WeatherService {
             String name = reader.nextName();
             if ("speed".equals(name)) {
                 double speed = reader.nextDouble();
-                observation.setWindSpeed(speed);
+                observation.setWindSpeed(speed * 3.6);
             } else if ("deg".equals(name)) {
                 double direction = reader.nextDouble();
                 observation.setWindDirection(direction);
