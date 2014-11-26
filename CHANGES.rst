@@ -1,4 +1,11 @@
 
+1.7.1:
+
+* Fix wind speeds retrieved from OpenWeatherMap.
+* Fix time-zone of Bangladesh. It has now a correct offset of +6:00 to GMT.
+* Add Beaufort as wind speed unit.
+* Add some locations in Antarctica.
+
 1.7.0:
 
 * The app now contains a local time zone database which can be updated independently of the Android system. This solves some issues with outdated time zone databases (DST for Moscow is one example).
