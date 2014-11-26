@@ -15,7 +15,7 @@ POPULATION = 14
 TIMEZONE = 17
 
 countries_file = 'countryInfo.txt'
-cities_file = 'cities15000.txt'
+cities_files = ['cities15000.txt', 'AQ.txt']
 output_file = "../worldclockwidget/src/main/assets/city_data.csv"
 
 manually_added_cities = \
@@ -44,6 +44,9 @@ manually_added_cities = \
     ,('1516048', 'Khovd')
     ,('3164603', 'Venice')
     ,('3166548', 'Siena')
+    ,('6620778', 'Palmer Station')
+    ,('6299995', 'Amundsen-Scott South Pole Station')
+    ,('6620770', 'McMurdo Station')
     ]
 
 levels = {
@@ -81,6 +84,8 @@ class CountryInfo(object):
         Returns true if the row refers to a capital.
         '''
         capital = self.countries[row[ISO_CODE]]['capital']
+        if not capital:
+            return False
         if capital == row[NAME] or capital == row[ASCIINAME]:
             return True
         for name in row[ALTERNATENAMES].split(','):
@@ -99,6 +104,13 @@ class CountryInfo(object):
         cities.append(row)
 
 def main():
+    ci = CountryInfo(countries_file)
+
+    for cities_file in cities_files:
+        read_cities_file(ci, cities_file)
+    write_output_file(ci)
+
+def read_cities_file(ci, cities_file):
     columns_to_copy = [
         NAME,
         ASCIINAME,
@@ -106,9 +118,6 @@ def main():
         LONGITUDE,
         ISO_CODE,
         TIMEZONE]
-
-    ci = CountryInfo(countries_file)
-
     with open(cities_file, 'rb') as r:
         reader = csv.reader(r, delimiter='\t')
         for row in reader:
@@ -117,6 +126,8 @@ def main():
                 for index in columns_to_copy:
                     newrow.append(row[index])
                 ci.add_city(newrow)
+
+def write_output_file(ci):
     with open(output_file, 'wb') as w:
         writer = csv.writer(w, delimiter='\t')
         # sort countries by name
