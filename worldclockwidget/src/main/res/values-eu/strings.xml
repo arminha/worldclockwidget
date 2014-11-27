@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:locale="en">
+
+    <string name="app_name">World Clock &amp; Weather</string>
+    <string name="add_city">Hiria gehitu</string>
+    <string name="world_clock_settings">World Clocken ezarpenak</string>
+    <string name="no_clock_defined">Menua erabili hiriak gehitzeko.</string>
+    <string name="n_selcted_format">{0} hautatuta</string>
+    <string name="delete">Ezabatu</string>
+    <string name="add">Gehitu</string>
+    <string name="edit">Editatu</string>
+    <string name="search">Bilatu</string>
+    <string name="city">Hiria</string>
+    <string name="latitude">Latitudea</string>
+    <string name="longitude">Longitudea</string>
+    <string name="display_in_widget">Widgetean erakutsi</string>
+    <string name="description">Deskribapena</string>
+    <string name="refresh">Freskatu</string>
+
+    <string-array name="speed_units">
+        <item name="kmh">km/h</item>
+        <item name="mph">mph</item>
+        <item name="ms">m/s</item>
+        <item name="beaufort">Beaufort</item>
+    </string-array>
+    <string-array name="temp_units">
+        <item name="celsius">°C</item>
+        <item name="fahrenheit">°F</item>
+    </string-array>
+
+    <string name="preferences">Ezarpenak</string>
+    <string name="temperature_unit">Tenperaturaren unitatea</string>
+    <string name="wind_speed_unit">Haizearen abiaduraren unitatea</string>
+    <string name="humidity">Hezetasuna</string>
+    <string name="wind_format">Haizea: {0}, {1}ko abiaduran</string>
+    <string name="wind_format_no_direction">Haizea: {1}</string>
+    <string name="weather">Eguraldia</string>
+    <string name="activity_title">Munduko erlojua</string>
+    <string name="clock_widget_name">Munduko erlojua</string>
+    <string name="weather_widget_name">World Clock &amp; Weather</string>
+    <string name="no_data_available">Ez dago daturik eskuragarri</string>
+    <string name="change_temperature_unit">Tenperatura unitatea aldatu</string>
+    <string name="change_wind_speed_unit">Haizearen abiaduraren unitatea aldatu</string>
+    <string name="weather_source">Eguraldiaren datuen jatorria</string>
+
+    <string-array name="weather_sources">
+        <item name="owm">Open Weather Map</item>
+        <item name="yahoo">Yahoo Weather</item>
+        <item name="msn">MSN Weather</item>
+    </string-array>
+
+    <string name="change_source_of_weather_data">Eguraldiaren datuen jatorria aldatu</string>
+    <string name="dialog_color_picker">Kolore hautatzailea</string>
+    <string name="press_color_to_apply">Kolorean sakatu aplikatzeko</string>
+    <string name="widget">Widget</string>
+    <string name="use_custom_colors">Kolore pertsonalizatuak erabili</string>
+    <string name="background">Atzeko planoa</string>
+    <string name="foreground">Aurreko planoa</string>
+    <string name="change_background_color">Atzeko planoko kolorea eta gardentasuna aldatu</string>
+    <string name="change_foreground_color">Aurreko planoko kolorea aldatu</string>
+
+    <string-array name="weather_purge_times">
+        <item name="2hours">2 ordu</item>
+        <item name="4hours">4 ordu</item>
+        <item name="6hours">6 ordu</item>
+        <item name="12hours">12 ordu</item>
+        <item name="24hours">24 ordu</item>
+        <item name="never">Inoiz</item>
+    </string-array>
+
+    <string name="weather_data_purge_time">Datu zaharrak purgatu</string>
+    <string name="weather_data_purge_time_dialog">Hurrengoa baino zaharragoa den eguraldi datuak purgatu</string>
+    <string name="weather_data_purge_time_summary">Eguraldi datu zaharrak noiz  kentzen diren</string>
+    <string name="disable_automatic_update">Eguneraketa automatikorik ez</string>
+    <string name="disable_automatic_update_of_weather_conditions">Eguraldi baldintzen eguneraketa automatikoa ezgaitu</string>
+    <string name="weather_widget_name_2x1">World Clock &amp; Weather 2x1</string>
+    <string name="weather_widget_name_2x2">World Clock &amp; Weather 2x2</string>
+    <string name="weather_widget_name_2x3">World Clock &amp; Weather 2x3</string>
+    <string name="weather_widget_name_2x4">World Clock &amp; Weather 2x4</string>
+    <string name="weather_widget_name_4x1">World Clock &amp; Weather 4x1</string>
+    <string name="weather_widget_name_4x2">World Clock &amp; Weather 4x2</string>
+    <string name="weather_widget_name_4x3">World Clock &amp; Weather 4x3</string>
+    <string name="weather_widget_name_4x4">World Clock &amp; Weather 4x4</string>
+    <string name="done">Eginda</string>
+    <string name="discard">Baztertu</string>
+    <string name="general">Orokorra</string>
+    <string name="automatically_sort_cities">Hiriak automatikoki ordenatu</string>
+    <string name="disable_to_sort_cities_manually">Hiriak eskuz ordenatzeko ezgaitu</string>
+    <string name="move_up">Gora mugitu</string>
+    <string name="move_down">Behera mugitu</string>
+    <string name="time_zone">Ordu eremua</string>
+    <string name="feedback_title">Iritzia bidali</string>
+    <string name="feedback_summary">Kontaiguzu pentsatzen duzuna</string>
+    <string name="about">Honi buruz</string>
+    <string name="version_caption">Bertsioa</string>
+    <string name="license_caption">Lizentzia</string>
+    <string name="project_page_caption">Proiektuaren orria</string>
+    <string name="developer_caption">Garatzailea</string>
+    <string name="acknowledgements_caption">Eskerrak</string>
+    <string name="license_text">GPL Version 3 or later</string>
+    <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
+    <string name="developer_text">Armin Häberling\nEsker bereziak <a href="https://vyick.wordpress.com/">vyick</a>entzat beta frogengatik eta bere iradokizunengatik!</string>
+    <string name="acknowledgement_weather">Eguraldi datuen hornitzaileak <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> edo <a href="http://local.msn.com/">MSN Weather</a> dira.</string>
+    <string name="acknowledgement_icons">Eguraldi ikonoak Alessio Atzeniren <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> ikonoetan oinarritu dira.</string>
+    <string name="acknowledgement_geonames">Ordu eremu eta datu geografikoen hornitzailea <a href="http://www.geonames.org/">GeoNames</a> da.</string>
+
+</resources>
