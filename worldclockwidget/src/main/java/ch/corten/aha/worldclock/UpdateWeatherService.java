@@ -16,14 +16,6 @@
 
 package ch.corten.aha.worldclock;
 
-import java.util.Date;
-
-import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
-import ch.corten.aha.worldclock.weather.WeatherObservation;
-import ch.corten.aha.worldclock.weather.WeatherService;
-import ch.corten.aha.worldclock.weather.msn.MsnWeatherService;
-import ch.corten.aha.worldclock.weather.owm.OwmWeatherService;
-import ch.corten.aha.worldclock.weather.yahoo.YahooWeatherService;
 import android.app.IntentService;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -33,6 +25,13 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import java.util.Date;
+
+import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
+import ch.corten.aha.worldclock.weather.AndroidWeatherServiceFactory;
+import ch.corten.aha.worldclock.weather.WeatherObservation;
+import ch.corten.aha.worldclock.weather.WeatherService;
 
 public class UpdateWeatherService extends IntentService {
 
@@ -101,16 +100,9 @@ public class UpdateWeatherService extends IntentService {
             query = Clocks.LAST_UPDATE + " < " + (currentTime - updateInterval);
         }
 
-        WeatherService service;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String provider = prefs.getString(context.getString(R.string.weather_source_key), "yahoo");
-        if (provider.equals("msn")) {
-            service = new MsnWeatherService(true);
-        } else if (provider.equals("owm")) {
-            service = new OwmWeatherService();
-        } else {
-            service = new YahooWeatherService(context);
-        }
+        WeatherService service = new AndroidWeatherServiceFactory(context).createService(provider);
 
         try {
             return updateDatabase(context, service, query);
@@ -151,7 +143,7 @@ public class UpdateWeatherService extends IntentService {
     private int purgeOldData(int purgeAfter, long currentTime) {
         Context context = getApplicationContext();
         ContentResolver resolver = context.getContentResolver();
-        String[] projection = { Clocks._ID };
+        String[] projection = {Clocks._ID};
         String query = Clocks.LAST_UPDATE + " < " + (currentTime - purgeAfter);
         int count = 0;
         WeatherObservation obs = new EmptyObservation(getResources());
