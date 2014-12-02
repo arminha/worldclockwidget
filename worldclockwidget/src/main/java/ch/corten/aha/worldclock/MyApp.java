@@ -21,7 +21,7 @@ import android.app.Application;
 import net.danlew.android.joda.JodaTimeAndroid;
 
 /**
- * Initializes libraries
+ * Initializes libraries.
  */
 public class MyApp extends Application {
 

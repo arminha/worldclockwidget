@@ -90,9 +90,9 @@ public class CompatWeatherWidgetService extends IntentService {
     private int[] getColumns(int layout) {
         switch (layout) {
         case CompatWeatherWidgetProvider.LAYOUT_ONE_COLUMN:
-            return new int[] { R.id.column_one };
+            return new int[] {R.id.column_one};
         case CompatWeatherWidgetProvider.LAYOUT_TWO_COLUMNS:
-            return new int[] { R.id.column_one, R.id.column_two };
+            return new int[] {R.id.column_one, R.id.column_two};
         default:
             throw new RuntimeException("Invalid layout: " + layout);
         }

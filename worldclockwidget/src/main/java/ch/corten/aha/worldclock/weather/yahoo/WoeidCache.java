@@ -35,8 +35,8 @@ class WoeidCache {
 
     public String get(double latitude, double longitude) {
         SQLiteDatabase db = mStorage.getDatabase();
-        String[] selectionArgs = new String[] { Double.toString(latitude), Double.toString(longitude) };
-        Cursor c = db.query(TABLE, new String[] { "woeid" }, "latitude = ? and longitude = ?", selectionArgs, null, null, null);
+        String[] selectionArgs = new String[] {Double.toString(latitude), Double.toString(longitude)};
+        Cursor c = db.query(TABLE, new String[] {"woeid"}, "latitude = ? and longitude = ?", selectionArgs, null, null, null);
         try {
             if (c.moveToFirst()) {
                 final String woeid = c.getString(c.getColumnIndex("woeid"));
@@ -56,7 +56,7 @@ class WoeidCache {
         ContentValues values = new ContentValues();
         values.put("woeid", woeid);
         if (get(latitude, longitude) != null) {
-            String[] whereArgs = new String[] { Double.toString(latitude), Double.toString(longitude) };
+            String[] whereArgs = new String[] {Double.toString(latitude), Double.toString(longitude)};
             db.update(TABLE, values, "latitude = ? and longitude = ?", whereArgs);
         } else {
             values.put("latitude", latitude);

@@ -52,7 +52,7 @@ public class DigitalClock extends TextView implements PauseListener {
     private Handler mHandler;
 
     /**
-     * Internal state: the clock is running if it is {@link #STATE_ATTACHED_ACTIVE}
+     * Internal state: the clock is running if it is {@link #STATE_ATTACHED_ACTIVE}.
      */
     private int mState = STATE_DETACHED;
     private PauseSource mPauseSource = null;
@@ -105,7 +105,7 @@ public class DigitalClock extends TextView implements PauseListener {
         mHandler = new Handler();
 
         /**
-         * requests a tick on the next hard-second boundary
+         * requests a tick on the next hard-second boundary.
          */
         mTicker = new Runnable() {
             @Override
@@ -163,7 +163,7 @@ public class DigitalClock extends TextView implements PauseListener {
     }
 
     /**
-     * Pulls 12/24 mode from system settings
+     * Pulls 12/24 mode from system settings.
      */
     private boolean is24HourMode() {
         return android.text.format.DateFormat.is24HourFormat(getContext());

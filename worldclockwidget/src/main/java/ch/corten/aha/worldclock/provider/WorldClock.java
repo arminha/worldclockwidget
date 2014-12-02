@@ -62,7 +62,7 @@ public final class WorldClock {
         public static final String ORDER_KEY = "order_key";
 
         /*
-         * Add columns for weather
+         * Add columns for weather.
          */
         public static final String TEMPERATURE = "temperature";
         public static final String WIND_SPEED = "wind_speed";
@@ -134,7 +134,7 @@ public final class WorldClock {
             default:
                 throw new RuntimeException("unknown target: " + target);
             }
-            Cursor c = cr.query(CONTENT_URI, new String[] { _ID, ORDER_KEY }, selection , new String[] { Long.toString(orderKey) }, sortOrder);
+            Cursor c = cr.query(CONTENT_URI, new String[] {_ID, ORDER_KEY}, selection , new String[] {Long.toString(orderKey)}, sortOrder);
             try {
                 if (c.moveToFirst()) {
                     otherId = c.getLong(c.getColumnIndex(_ID));
@@ -238,7 +238,7 @@ public final class WorldClock {
         public static final String LATITUDE = "latitude";
         public static final String LONGITUDE = "longitude";
         /**
-         * Country name
+         * Country name.
          */
         public static final String COUNTRY = "country";
         public static final String TIMEZONE_ID = "timezone_id";

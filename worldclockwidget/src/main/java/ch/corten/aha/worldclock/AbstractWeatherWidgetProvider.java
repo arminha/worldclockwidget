@@ -49,7 +49,7 @@ public abstract class AbstractWeatherWidgetProvider extends ClockWidgetProvider 
     }
 
     /**
-     * enable weather update service
+     * Enable weather update service.
      */
     private static void enableUpdateService(Context context) {
         AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -58,7 +58,7 @@ public abstract class AbstractWeatherWidgetProvider extends ClockWidgetProvider 
     }
 
     /**
-     * disable weather update service
+     * Disable weather update service.
      */
     private static void disableUpdateService(Context context) {
         AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

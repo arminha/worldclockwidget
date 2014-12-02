@@ -61,32 +61,32 @@ public interface WeatherObservation {
     int HURRICANE = 38;
 
     /**
-     * Time of this update
+     * Time of this update.
      */
     Date getUpdateTime();
 
     /**
-     * Current temperature in Celsius
+     * Current temperature in Celsius.
      */
     Double getTemperature();
 
     /**
-     * Wind speed in km/h
+     * Wind speed in km/h.
      */
     Double getWindSpeed();
 
     /**
-     * Wind direction in degrees
+     * Wind direction in degrees.
      */
     String getWindDirection();
 
     /**
-     * Humidity in percent
+     * Humidity in percent.
      */
     Double getHumidity();
 
     /**
-     * Description of the weather conditions
+     * Description of the weather conditions.
      */
     String getWeatherCondition();
 
