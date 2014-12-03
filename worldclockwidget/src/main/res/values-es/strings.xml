@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:locale="en">
+
+    <string name="app_name">World Clock &amp; Weather</string>
+    <string name="add_city">Añadir ciudad</string>
+    <string name="world_clock_settings">Configuración de World Clock</string>
+    <string name="no_clock_defined">Usa el menú para añadir ciudades.</string>
+    <string name="n_selcted_format">{0} seleccionada</string>
+    <string name="delete">Borrar</string>
+    <string name="add">Añadir</string>
+    <string name="edit">Editar</string>
+    <string name="search">Buscar</string>
+    <string name="city">Ciudad</string>
+    <string name="latitude">Latitud</string>
+    <string name="longitude">Longitud</string>
+    <string name="display_in_widget">Mostrar en widget</string>
+    <string name="description">Descripción</string>
+    <string name="refresh">Refrescar</string>
+
+    <string-array name="speed_units">
+        <item name="kmh">km/h</item>
+        <item name="mph">mph</item>
+        <item name="ms">m/s</item>
+        <item name="beaufort">Beaufort</item>
+    </string-array>
+    <string-array name="temp_units">
+        <item name="celsius">°C</item>
+        <item name="fahrenheit">°F</item>
+    </string-array>
+
+    <string name="preferences">Preferencias</string>
+    <string name="temperature_unit">Unidad de temperatura</string>
+    <string name="wind_speed_unit">Unidad de velocidad de viento</string>
+    <string name="humidity">Humedad</string>
+    <string name="wind_format">Viento: {0} a {1}</string>
+    <string name="wind_format_no_direction">Viento: {1}</string>
+    <string name="weather">Clima</string>
+    <string name="activity_title">Reloj mundial</string>
+    <string name="clock_widget_name">Reloj mundial</string>
+    <string name="weather_widget_name">World Clock &amp; Weather</string>
+    <string name="no_data_available">No hay datos disponibles</string>
+    <string name="change_temperature_unit">Cambiar unidad de temperatura</string>
+    <string name="change_wind_speed_unit">Cambiar unidad de velocidad de viento</string>
+    <string name="weather_source">Origen de datos de clima</string>
+
+    <string-array name="weather_sources">
+        <item name="owm">Open Weather Map</item>
+        <item name="yahoo">Yahoo Weather</item>
+        <item name="msn">MSN Weather</item>
+    </string-array>
+
+    <string name="change_source_of_weather_data">Cambiar el origen de los datos de clima</string>
+    <string name="dialog_color_picker">Selector de color</string>
+    <string name="press_color_to_apply">Presiona sobre un color para seleccionar</string>
+    <string name="widget">Widget</string>
+    <string name="use_custom_colors">Usar colores personalizados</string>
+    <string name="background">Fondo</string>
+    <string name="foreground">Primer plano</string>
+    <string name="change_background_color">Cambia el color de fondo y la transparencia</string>
+    <string name="change_foreground_color">Cambia el color del primer plano</string>
+
+    <string-array name="weather_purge_times">
+        <item name="2hours">2 horas</item>
+        <item name="4hours">4 horas</item>
+        <item name="6hours">6 horas</item>
+        <item name="12hours">12 horas</item>
+        <item name="24hours">24 horas</item>
+        <item name="never">Nunca</item>
+    </string-array>
+
+    <string name="weather_data_purge_time">Purgar datos antiguos</string>
+    <string name="weather_data_purge_time_dialog">Purgar datos de clima anteriores a</string>
+    <string name="weather_data_purge_time_summary">Cuando se quitan los datos de clima antiguos</string>
+    <string name="disable_automatic_update">Sin actualización automática</string>
+    <string name="disable_automatic_update_of_weather_conditions">Desactiva la actualización automática de las condiciones climatológicas</string>
+    <string name="weather_widget_name_2x1">World Clock &amp; Weather 2x1</string>
+    <string name="weather_widget_name_2x2">World Clock &amp; Weather 2x2</string>
+    <string name="weather_widget_name_2x3">World Clock &amp; Weather 2x3</string>
+    <string name="weather_widget_name_2x4">World Clock &amp; Weather 2x4</string>
+    <string name="weather_widget_name_4x1">World Clock &amp; Weather 4x1</string>
+    <string name="weather_widget_name_4x2">World Clock &amp; Weather 4x2</string>
+    <string name="weather_widget_name_4x3">World Clock &amp; Weather 4x3</string>
+    <string name="weather_widget_name_4x4">World Clock &amp; Weather 4x4</string>
+    <string name="done">Hecho</string>
+    <string name="discard">Descartar</string>
+    <string name="general">General</string>
+    <string name="automatically_sort_cities">Ordenar ciudades automáticamente</string>
+    <string name="disable_to_sort_cities_manually">Desactiva para ordenar las ciudades a mano</string>
+    <string name="move_up">Mover arriba</string>
+    <string name="move_down">Mover abajo</string>
+    <string name="time_zone">Huso horario</string>
+    <string name="feedback_title">Enviar opinión</string>
+    <string name="feedback_summary">Cuéntanos tu opinión</string>
+    <string name="about">Acerca de</string>
+    <string name="version_caption">Versión</string>
+    <string name="license_caption">Licencia</string>
+    <string name="project_page_caption">Página del proyecto</string>
+    <string name="developer_caption">Desarrollado por</string>
+    <string name="acknowledgements_caption">Agradecimientos</string>
+    <string name="license_text">GPL Version 3 or later</string>
+    <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
+    <string name="developer_text">Armin Häberling\nAgradecimiento especial para <a href="https://vyick.wordpress.com/">vyick</a> por las pruebas beta y sus sugerencias!</string>
+    <string name="acknowledgement_weather">Datos climatológicos provistos por <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> o <a href="http://local.msn.com/">MSN Weather</a>.</string>
+    <string name="acknowledgement_icons">Iconos de clima basados en <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> de Alessio Atzeni.</string>
+    <string name="acknowledgement_geonames">Huso horario e información geográfica provista por <a href="http://www.geonames.org/">GeoNames</a>.</string>
+
+</resources>
