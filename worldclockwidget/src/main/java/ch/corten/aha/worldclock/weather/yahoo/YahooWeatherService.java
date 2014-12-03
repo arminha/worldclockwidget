@@ -101,7 +101,7 @@ public class YahooWeatherService implements WeatherService {
 
     @Override
     public void setLanguage(String languageCode) {
-        // TODO: implement language selection
+        // Localisation is not supported
     }
 
     private WeatherObservation readStream(InputStream in) {
