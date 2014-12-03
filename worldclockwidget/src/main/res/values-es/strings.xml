@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" tools:locale="en">
+<resources>
 
     <string name="app_name">World Clock &amp; Weather</string>
     <string name="add_city">Añadir ciudad</string>
@@ -104,5 +103,6 @@
     <string name="acknowledgement_weather">Datos climatológicos provistos por <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> o <a href="http://local.msn.com/">MSN Weather</a>.</string>
     <string name="acknowledgement_icons">Iconos de clima basados en <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> de Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Huso horario e información geográfica provista por <a href="http://www.geonames.org/">GeoNames</a>.</string>
+    <string name="weather_service_language">es-ES</string>
 
 </resources>

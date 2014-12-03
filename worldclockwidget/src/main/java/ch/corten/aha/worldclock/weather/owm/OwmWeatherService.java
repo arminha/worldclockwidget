@@ -32,6 +32,8 @@ public class OwmWeatherService implements WeatherService {
 
     private static final String TAG = "WeatherService";
 
+    private static final String DEFAULT_LANG = "en";
+
     private String mLanguageCode;
 
     @Override
@@ -88,7 +90,13 @@ public class OwmWeatherService implements WeatherService {
      */
     @Override
     public void setLanguage(String languageCode) {
-        this.mLanguageCode = languageOnly(languageCode);
+        String language = languageOnly(languageCode);
+        this.mLanguageCode = isSupported(language) ? language : DEFAULT_LANG;
+    }
+
+    private boolean isSupported(String language) {
+        // Only basque is not supported for now
+        return !"eu".equals(language);
     }
 
     private String languageOnly(String languageCode) {
