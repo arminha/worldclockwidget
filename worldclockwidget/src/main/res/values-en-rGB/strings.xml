@@ -5,4 +5,5 @@
     <string name="use_custom_colors">Use custom colours</string>
     <string name="change_background_color">Change background colour and transparency</string>
     <string name="change_foreground_color">Change foreground colour</string>
+    <string name="weather_service_language">en-GB</string>
 </resources>

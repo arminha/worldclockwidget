@@ -49,13 +49,15 @@ public class MsnWeatherService implements WeatherService {
 
     private final boolean mUseHttps;
 
+    private String culture = "en-US";
+
     public MsnWeatherService(boolean useHttps) {
         mUseHttps = useHttps;
     }
 
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
-        String query = "weadegreetype=C&culture=en-US&weasearchstr=" + latitude + "," + longitude;
+        String query = "weadegreetype=C&culture=" + culture + "&weasearchstr=" + latitude + "," + longitude;
         try {
             java.net.URI uri;
             if (mUseHttps) {
@@ -84,9 +86,19 @@ public class MsnWeatherService implements WeatherService {
         return null;
     }
 
+    /**
+     * Known supported language codes are:
+     *
+     * en-US
+     * en-GB
+     * es-ES
+     * eu-ES
+     * de-DE
+     * de-CH
+     */
     @Override
     public void setLanguage(String languageCode) {
-        // TODO: implement language selection
+        culture = languageCode;
     }
 
     /*

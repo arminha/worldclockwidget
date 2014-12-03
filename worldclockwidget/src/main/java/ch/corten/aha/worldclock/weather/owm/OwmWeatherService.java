@@ -88,7 +88,15 @@ public class OwmWeatherService implements WeatherService {
      */
     @Override
     public void setLanguage(String languageCode) {
-        this.mLanguageCode = languageCode;
+        this.mLanguageCode = languageOnly(languageCode);
+    }
+
+    private String languageOnly(String languageCode) {
+        int index = languageCode.indexOf('-');
+        if (index > 0) {
+            return languageCode.substring(0, index);
+        }
+        return languageCode;
     }
 
     private WeatherObservation readStream(InputStream in) throws IOException {

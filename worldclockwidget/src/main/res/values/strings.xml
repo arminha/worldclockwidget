@@ -104,6 +104,6 @@
     <string name="acknowledgement_weather">Weather data is provided by <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> or <a href="http://local.msn.com/">MSN Weather</a>.</string>
     <string name="acknowledgement_icons">Weather icons are based on <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> from Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Time zone and geographical data is provided by <a href="http://www.geonames.org/">GeoNames</a>.</string>
-    <string name="weather_service_language">en</string>
+    <string name="weather_service_language">en-US</string>
 
 </resources>
