@@ -22,9 +22,8 @@ The Internet connectivity permission is **only** used to retrieve current weathe
 Download
 --------
 
-The latest version of the app is available on `Google Play`__.
-
-__ https://play.google.com/store/apps/details?id=ch.corten.aha.worldclock
+The latest version of the app is available on `Google Play <https://play.google.com/store/apps/details?id=ch.corten.aha.worldclock>`_
+and on `F-Droid <https://f-droid.org/repository/browse/?fdid=ch.corten.aha.worldclock>`_.
 
 Screenshots
 -----------
