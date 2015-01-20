@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.2'
+        classpath 'com.android.tools.build:gradle:1.0.1'
         classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
     }
 }
@@ -29,8 +29,8 @@ android {
 
         def buildSuffix = getBuildSuffix(versionName, versionCode)
         applicationVariants.all { variant ->
-            def file = variant.outputFile
-            variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + buildSuffix + ".apk"))
+            def file = variant.outputs[0].outputFile
+            variant.outputs[0].outputFile = new File(file.parent, file.name.replace(".apk", "-" + buildSuffix + ".apk"))
         }
     }
 
@@ -47,7 +47,7 @@ android {
 
     buildTypes {
         release {
-            runProguard true
+            minifyEnabled true
             proguardFile 'proguard-project.txt'
             if (project.hasProperty('signingKeyStoreFile')) {
                 signingConfig signingConfigs.release
