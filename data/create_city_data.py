@@ -47,6 +47,7 @@ manually_added_cities = \
     ,('6620778', 'Palmer Station')
     ,('6299995', 'Amundsen-Scott South Pole Station')
     ,('6620770', 'McMurdo Station')
+    ,('4062577', 'Florence')
     ]
 
 levels = {
@@ -61,6 +62,8 @@ levels = {
     'IT' : 70000,
     'HR' : 60000,
     'NZ' : 20000,
+    'ES' : 65000,
+    'VN' : 70239,
 }
 
 class CountryInfo(object):

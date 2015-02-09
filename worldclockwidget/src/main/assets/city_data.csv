@@ -3517,41 +3517,62 @@ Malakal	Malakal	9.53342	31.66049	South Sudan	Africa/Juba
 Wau	Wau	7.70286	27.9953	South Sudan	Africa/Juba
 A Coruña	A Coruna	43.37135	-8.396	Spain	Europe/Madrid
 Albacete	Albacete	38.99424	-1.85643	Spain	Europe/Madrid
+Alcalá de Guadaira	Alcala de Guadaira	37.33791	-5.83951	Spain	Europe/Madrid
 Alcalá de Henares	Alcala de Henares	40.48205	-3.35996	Spain	Europe/Madrid
 Alcobendas	Alcobendas	40.54746	-3.64197	Spain	Europe/Madrid
 Alcorcón	Alcorcon	40.34582	-3.82487	Spain	Europe/Madrid
 Algeciras	Algeciras	36.13326	-5.45051	Spain	Europe/Madrid
+Algorta	Algorta	43.34927	-3.0094	Spain	Europe/Madrid
 Alicante	Alicante	38.34517	-0.48149	Spain	Europe/Madrid
 Almería	Almeria	36.83814	-2.45974	Spain	Europe/Madrid
 Arganzuela	Arganzuela	40.40021	-3.69618	Spain	Europe/Madrid
+Arona	Arona	28.09962	-16.68102	Spain	Atlantic/Canary
+Avilés	Aviles	43.55473	-5.92483	Spain	Europe/Madrid
 Badajoz	Badajoz	38.87789	-6.97061	Spain	Europe/Madrid
 Badalona	Badalona	41.45004	2.24741	Spain	Europe/Madrid
+Barakaldo	Barakaldo	43.29564	-2.99729	Spain	Europe/Madrid
 Barcelona	Barcelona	41.38879	2.15899	Spain	Europe/Madrid
+Benidorm	Benidorm	38.53816	-0.13098	Spain	Europe/Madrid
 Bilbao	Bilbao	43.26271	-2.92528	Spain	Europe/Madrid
 Burgos	Burgos	42.35022	-3.67527	Spain	Europe/Madrid
+Cáceres	Caceres	39.47649	-6.37224	Spain	Europe/Madrid
 Cadiz	Cadiz	36.52978	-6.29465	Spain	Europe/Madrid
+Campiña	Campina	38.21896	-2.98069	Spain	Europe/Madrid
 Carabanchel	Carabanchel	40.39094	-3.7242	Spain	Europe/Madrid
 Cartagena	Cartagena	37.60512	-0.98623	Spain	Europe/Madrid
 Castelló de la Plana	Castello de la Plana	39.98333	-0.03333	Spain	Europe/Madrid
 Ceuta	Ceuta	35.88933	-5.31979	Spain	Africa/Ceuta
 Chamartín	Chamartin	40.46206	-3.6766	Spain	Europe/Madrid
 Chamberí	Chamberi	40.43404	-3.70379	Spain	Europe/Madrid
+Chiclana de la Frontera	Chiclana de la Frontera	36.41915	-6.14941	Spain	Europe/Madrid
 City Center	City Center	40.41831	-3.70275	Spain	Europe/Madrid
 Ciudad Lineal	Ciudad Lineal	40.45455	-3.64808	Spain	Europe/Madrid
+Ciudad Real	Ciudad Real	38.98626	-3.92907	Spain	Europe/Madrid
 Ciutat Vella	Ciutat Vella	41.38022	2.17319	Spain	Europe/Madrid
 Córdoba	Cordoba	37.89155	-4.77275	Spain	Europe/Madrid
+Cornellà de Llobregat	Cornella de Llobregat	41.35	2.08333	Spain	Europe/Madrid
+Coslada	Coslada	40.42378	-3.56129	Spain	Europe/Madrid
 Delicias	Delicias	41.64928	-0.90757	Spain	Europe/Madrid
 Donostia / San Sebastián	San Sebastian	43.31283	-1.97499	Spain	Europe/Madrid
 Dos Hermanas	Dos Hermanas	37.28287	-5.92088	Spain	Europe/Madrid
 Eixample	Eixample	41.38896	2.16179	Spain	Europe/Madrid
 Elche	Elche	38.26218	-0.70107	Spain	Europe/Madrid
+El Ejido	El Ejido	36.77629	-2.81456	Spain	Europe/Madrid
+El Puerto de Santa María	El Puerto de Santa Maria	36.59389	-6.23298	Spain	Europe/Madrid
+Estepona	Estepona	36.42764	-5.14589	Spain	Europe/Madrid
+Ferrol	Ferrol	43.48321	-8.23689	Spain	Europe/Madrid
 Fuencarral-El Pardo	Fuencarral-El Pardo	40.4984	-3.7314	Spain	Europe/Madrid
+Fuengirola	Fuengirola	36.53998	-4.62473	Spain	Europe/Madrid
 Fuenlabrada	Fuenlabrada	40.28419	-3.79415	Spain	Europe/Madrid
+Gandia	Gandia	38.96667	-0.18333	Spain	Europe/Madrid
 Gasteiz / Vitoria	Gasteiz / Vitoria	42.84998	-2.67268	Spain	Europe/Madrid
 Getafe	Getafe	40.30571	-3.73295	Spain	Europe/Madrid
+Getxo	Getxo	43.35689	-3.01146	Spain	Europe/Madrid
 Gijón	Gijon	43.53573	-5.66152	Spain	Europe/Madrid
+Girona	Girona	41.98311	2.82493	Spain	Europe/Madrid
 Gràcia	Gracia	41.40237	2.15641	Spain	Europe/Madrid
 Granada	Granada	37.18817	-3.60667	Spain	Europe/Madrid
+Guadalajara	Guadalajara	40.62862	-3.16185	Spain	Europe/Madrid
 Horta-Guinardó	Horta-Guinardo	41.41849	2.1677	Spain	Europe/Madrid
 Hortaleza	Hortaleza	40.47444	-3.6411	Spain	Europe/Madrid
 Huelva	Huelva	37.26638	-6.94004	Spain	Europe/Madrid
@@ -3559,52 +3580,84 @@ Jaén	Jaen	37.76922	-3.79028	Spain	Europe/Madrid
 Jerez de la Frontera	Jerez de la Frontera	36.68645	-6.13606	Spain	Europe/Madrid
 La Laguna	La Laguna	28.4853	-16.32014	Spain	Atlantic/Canary
 Las Palmas de Gran Canaria	Las Palmas de Gran Canaria	28.09973	-15.41343	Spain	Atlantic/Canary
+Las Rozas de Madrid	Las Rozas de Madrid	40.49292	-3.87371	Spain	Europe/Madrid
 Latina	Latina	40.38897	-3.74569	Spain	Europe/Madrid
 Leganés	Leganes	40.32718	-3.7635	Spain	Europe/Madrid
 León	Leon	42.60003	-5.57032	Spain	Europe/Madrid
+les Corts	les Corts	41.38712	2.13007	Spain	Europe/Madrid
 L'Hospitalet de Llobregat	L'Hospitalet de Llobregat	41.35967	2.10028	Spain	Europe/Madrid
 Lleida	Lleida	41.61674	0.62218	Spain	Europe/Madrid
 Logroño	Logrono	42.46667	-2.45	Spain	Europe/Madrid
+Lorca	Lorca	37.67119	-1.7017	Spain	Europe/Madrid
+Lugo	Lugo	43.00992	-7.55602	Spain	Europe/Madrid
 Madrid	Madrid	40.4165	-3.70256	Spain	Europe/Madrid
+Majadahonda	Majadahonda	40.47353	-3.87182	Spain	Europe/Madrid
 Málaga	Malaga	36.72016	-4.42034	Spain	Europe/Madrid
+Manresa	Manresa	41.72498	1.82656	Spain	Europe/Madrid
 Marbella	Marbella	36.51543	-4.88583	Spain	Europe/Madrid
 Mataró	Mataro	41.54211	2.4445	Spain	Europe/Madrid
+Melilla	Melilla	35.29369	-2.93833	Spain	Africa/Ceuta
+Mijas	Mijas	36.59575	-4.63728	Spain	Europe/Madrid
 Moncloa-Aravaca	Moncloa-Aravaca	40.43547	-3.7317	Spain	Europe/Madrid
 Moratalaz	Moratalaz	40.41667	-3.65	Spain	Europe/Madrid
 Móstoles	Mostoles	40.32234	-3.86496	Spain	Europe/Madrid
 Murcia	Murcia	37.98704	-1.13004	Spain	Europe/Madrid
 Nou Barris	Nou Barris	41.44163	2.17727	Spain	Europe/Madrid
+Orihuela	Orihuela	38.08483	-0.94401	Spain	Europe/Madrid
 Ourense	Ourense	42.33669	-7.86407	Spain	Europe/Madrid
 Oviedo	Oviedo	43.36029	-5.84476	Spain	Europe/Madrid
+Palencia	Palencia	42.00955	-4.52406	Spain	Europe/Madrid
 Palma	Palma	39.56939	2.65024	Spain	Europe/Madrid
 Pamplona	Pamplona	42.81687	-1.64323	Spain	Europe/Madrid
 Parla	Parla	40.23604	-3.76752	Spain	Europe/Madrid
+Ponferrada	Ponferrada	42.54664	-6.59619	Spain	Europe/Madrid
+Pontevedra	Pontevedra	42.431	-8.64435	Spain	Europe/Madrid
+Pozuelo de Alarcón	Pozuelo de Alarcon	40.43293	-3.81338	Spain	Europe/Madrid
 Puente de Vallecas	Puente de Vallecas	40.39354	-3.662	Spain	Europe/Madrid
 Retiro	Retiro	40.41317	-3.68307	Spain	Europe/Madrid
 Reus	Reus	41.15612	1.10687	Spain	Europe/Madrid
+Roquetas de Mar	Roquetas de Mar	36.76419	-2.61475	Spain	Europe/Madrid
+Rubí	Rubi	41.49226	2.03305	Spain	Europe/Madrid
 Sabadell	Sabadell	41.54329	2.10942	Spain	Europe/Madrid
+Sagunto	Sagunto	39.68333	-0.26667	Spain	Europe/Madrid
 Salamanca	Salamanca	40.96882	-5.66388	Spain	Europe/Madrid
 Salamanca	Salamanca	40.42972	-3.67975	Spain	Europe/Madrid
 San Blas	San Blas	40.43893	-3.61537	Spain	Europe/Madrid
+San Fernando	San Fernando	36.4759	-6.19817	Spain	Europe/Madrid
+Sanlúcar de Barrameda	Sanlucar de Barrameda	36.77808	-6.3515	Spain	Europe/Madrid
+San Sebastián de los Reyes	San Sebastian de los Reyes	40.54433	-3.61588	Spain	Europe/Madrid
 Santa Coloma de Gramenet	Santa Coloma de Gramenet	41.45152	2.2081	Spain	Europe/Madrid
 Santa Cruz de Tenerife	Santa Cruz de Tenerife	28.46824	-16.25462	Spain	Atlantic/Canary
 Santander	Santander	43.46472	-3.80444	Spain	Europe/Madrid
 Sant Andreu de Palomar	Sant Andreu de Palomar	41.43541	2.18982	Spain	Europe/Madrid
+Sant Boi de Llobregat	Sant Boi de Llobregat	41.34357	2.03659	Spain	Europe/Madrid
+Sant Cugat del Vallès	Sant Cugat del Valles	41.46667	2.08333	Spain	Europe/Madrid
+Santiago de Compostela	Santiago de Compostela	42.88052	-8.54569	Spain	Europe/Madrid
 Sant Martí	Sant Marti	41.41814	2.19933	Spain	Europe/Madrid
 Sants-Montjuïc	Sants-Montjuic	41.37263	2.1546	Spain	Europe/Madrid
 Sarrià-Sant Gervasi	Sarria-Sant Gervasi	41.40104	2.1394	Spain	Europe/Madrid
 Sevilla	Sevilla	37.38283	-5.97317	Spain	Europe/Madrid
+Talavera de la Reina	Talavera de la Reina	39.96348	-4.83076	Spain	Europe/Madrid
 Tarragona	Tarragona	41.11667	1.25	Spain	Europe/Madrid
 Telde	Telde	27.99243	-15.41915	Spain	Atlantic/Canary
 Terrassa	Terrassa	41.56667	2.01667	Spain	Europe/Madrid
 Tetuán de las Victorias	Tetuan de las Victorias	40.46667	-3.71667	Spain	Europe/Madrid
+Toledo	Toledo	39.8581	-4.02263	Spain	Europe/Madrid
 Torrejón de Ardoz	Torrejon de Ardoz	40.45535	-3.46973	Spain	Europe/Madrid
+Torremolinos	Torremolinos	36.62035	-4.49976	Spain	Europe/Madrid
+Torrent	Torrent	39.43705	-0.46546	Spain	Europe/Madrid
 Torrevieja	Torrevieja	37.97872	-0.68222	Spain	Europe/Madrid
 Usera	Usera	40.38866	-3.70035	Spain	Europe/Madrid
+Vaciamadrid	Vaciamadrid	40.32605	-3.51089	Spain	Europe/Madrid
 Valencia	Valencia	39.46975	-0.37739	Spain	Europe/Madrid
 Valladolid	Valladolid	41.65518	-4.72372	Spain	Europe/Madrid
+Vélez-Málaga	Velez-Malaga	36.77262	-4.10045	Spain	Europe/Madrid
+Vicálvaro	Vicalvaro	40.4	-3.6	Spain	Europe/Madrid
 Vigo	Vigo	42.23282	-8.72264	Spain	Europe/Madrid
+Vilanova i la Geltrú	Vilanova i la Geltru	41.22392	1.72511	Spain	Europe/Madrid
+Villa de Vallecas	Villa de Vallecas	40.36695	-3.60146	Spain	Europe/Madrid
 Villaverde	Villaverde	40.35	-3.7	Spain	Europe/Madrid
+Zamora	Zamora	41.50633	-5.74456	Spain	Europe/Madrid
 Zaragoza	Zaragoza	41.65606	-0.87734	Spain	Europe/Madrid
 Colombo	Colombo	6.93194	79.84778	Sri Lanka	Asia/Colombo
 Galkissa	Galkissa	6.8293	79.863	Sri Lanka	Asia/Colombo
@@ -4052,6 +4105,7 @@ Fargo	Fargo	46.87719	-96.7898	United States	America/Chicago
 Fayetteville	Fayetteville	35.05266	-78.87836	United States	America/New_York
 Federal Way	Federal Way	47.32232	-122.31262	United States	America/Los_Angeles
 Flint	Flint	43.01253	-83.68746	United States	America/Detroit
+Florence	Florence	34.79981	-87.67725	United States	America/Chicago
 Fontana	Fontana	34.09223	-117.43505	United States	America/Los_Angeles
 Fort Collins	Fort Collins	40.58526	-105.08442	United States	America/Denver
 Fort Lauderdale	Fort Lauderdale	26.12231	-80.14338	United States	America/New_York
@@ -4393,6 +4447,8 @@ Cẩm Phả Mines	Cam Pha Mines	21.01667	107.3	Vietnam	Asia/Ho_Chi_Minh
 Cam Ranh	Cam Ranh	11.92144	109.15913	Vietnam	Asia/Ho_Chi_Minh
 Cần Giuộc	Can Giuoc	10.60857	106.67135	Vietnam	Asia/Ho_Chi_Minh
 Cần Thơ	Can Tho	10.03711	105.78825	Vietnam	Asia/Ho_Chi_Minh
+Cho Dok	Cho Dok	10.7	105.11667	Vietnam	Asia/Ho_Chi_Minh
+Củ Chi	Cu Chi	10.97333	106.49325	Vietnam	Asia/Ho_Chi_Minh
 Ðà Lạt	Da Lat	11.94646	108.44193	Vietnam	Asia/Ho_Chi_Minh
 Da Nang	Da Nang	16.06778	108.22083	Vietnam	Asia/Ho_Chi_Minh
 Haiphong	Haiphong	20.86481	106.68345	Vietnam	Asia/Ho_Chi_Minh
@@ -4401,23 +4457,29 @@ Ho Chi Minh City	Ho Chi Minh City	10.82302	106.62965	Vietnam	Asia/Ho_Chi_Minh
 Huế	Hue	16.4619	107.59546	Vietnam	Asia/Ho_Chi_Minh
 La Gi	La Gi	10.65993	107.77206	Vietnam	Asia/Ho_Chi_Minh
 Long Xuyên	Long Xuyen	10.38639	105.43518	Vietnam	Asia/Ho_Chi_Minh
+Móng Cái	Mong Cai	21.52471	107.96619	Vietnam	Asia/Ho_Chi_Minh
 Mỹ Tho	My Tho	10.36004	106.35996	Vietnam	Asia/Ho_Chi_Minh
 Nha Trang	Nha Trang	12.24507	109.19432	Vietnam	Asia/Ho_Chi_Minh
+Phan Rang-Tháp Chàm	Phan Rang-Thap Cham	11.56432	108.98858	Vietnam	Asia/Ho_Chi_Minh
 Phan Thiết	Phan Thiet	10.92889	108.10208	Vietnam	Asia/Ho_Chi_Minh
 Pleiku	Pleiku	13.98333	108	Vietnam	Asia/Ho_Chi_Minh
 Qui Nhon	Qui Nhon	13.77648	109.22367	Vietnam	Asia/Ho_Chi_Minh
 Rạch Giá	Rach Gia	10.01245	105.08091	Vietnam	Asia/Ho_Chi_Minh
 Sa Pá	Sa Pa	22.34023	103.84415	Vietnam	Asia/Ho_Chi_Minh
 Sóc Trăng	Soc Trang	9.59995	105.97193	Vietnam	Asia/Ho_Chi_Minh
+Sông Cầu	Song Cau	13.4556	109.22348	Vietnam	Asia/Ho_Chi_Minh
 Thanh Hóa	Thanh Hoa	19.8	105.76667	Vietnam	Asia/Ho_Chi_Minh
 Thành phố Bạc Liêu	Thanh pho Bac Lieu	9.29414	105.72776	Vietnam	Asia/Ho_Chi_Minh
 Thành Phố Hạ Long	Thanh Pho Ha Long	20.95045	107.07336	Vietnam	Asia/Ho_Chi_Minh
 Thành Phố Hòa Bình	Thanh Pho Hoa Binh	20.81717	105.33759	Vietnam	Asia/Ho_Chi_Minh
 Thành Phố Nam Định	Thanh Pho Nam Dinh	20.43389	106.17729	Vietnam	Asia/Ho_Chi_Minh
 Thành Phố Thái Nguyên	Thanh Pho Thai Nguyen	21.59422	105.84817	Vietnam	Asia/Ho_Chi_Minh
+Thủ Dầu Một	Thu Dau Mot	10.9804	106.6519	Vietnam	Asia/Ho_Chi_Minh
+Việt Trì	Viet Tri	21.32274	105.40198	Vietnam	Asia/Ho_Chi_Minh
 Vinh	Vinh	18.67337	105.69232	Vietnam	Asia/Ho_Chi_Minh
 Vĩnh Long	Vinh Long	10.25369	105.9722	Vietnam	Asia/Ho_Chi_Minh
 Vũng Tàu	Vung Tau	10.34599	107.08426	Vietnam	Asia/Ho_Chi_Minh
+Yên Bái	Yen Bai	21.72288	104.9113	Vietnam	Asia/Ho_Chi_Minh
 Yên Vinh	Yen Vinh	18.66667	105.66667	Vietnam	Asia/Ho_Chi_Minh
 Mata-Utu	Mata-Utu	-13.28163	-176.17453	Wallis and Futuna	Pacific/Wallis
 Laâyoune / El Aaiún	Laayoune / El Aaiun	27.16224	-13.20315	Western Sahara	Africa/El_Aaiun
