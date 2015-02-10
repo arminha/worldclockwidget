@@ -122,7 +122,7 @@ def read_cities_file(ci, cities_file):
         ISO_CODE,
         TIMEZONE]
     with open(cities_file, 'rb') as r:
-        reader = csv.reader(r, delimiter='\t')
+        reader = csv.reader(r, delimiter='\t', quoting=csv.QUOTE_NONE)
         for row in reader:
             if select_row(ci, row):
                 newrow = []
@@ -132,7 +132,7 @@ def read_cities_file(ci, cities_file):
 
 def write_output_file(ci):
     with open(output_file, 'wb') as w:
-        writer = csv.writer(w, delimiter='\t')
+        writer = csv.writer(w, delimiter='\t', quoting=csv.QUOTE_NONE)
         # sort countries by name
         for country in sorted(ci.countries.values(), key=lambda c:c['name']):
             locale.setlocale(locale.LC_ALL, '')
