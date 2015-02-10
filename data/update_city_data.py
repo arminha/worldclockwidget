@@ -15,6 +15,8 @@ def main():
     citiesZip = 'cities15000.zip'
     retrieve(citiesZip)
     unzip(citiesZip)
+    retrieve('AQ.zip')
+    unzip('AQ.zip')
 
 def retrieve(fileName):
     printnln('Retrieve %s..' % fileName)
