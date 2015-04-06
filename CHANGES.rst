@@ -1,4 +1,9 @@
 
+1.7.2:
+
+* Spanish and Basque translation (contributed by Aitor Beriain)
+* Minor bug fixes
+
 1.7.1:
 
 * Fix wind speeds retrieved from OpenWeatherMap.
