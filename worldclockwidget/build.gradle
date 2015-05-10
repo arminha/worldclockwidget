@@ -15,7 +15,7 @@ apply plugin: 'com.android.application'
 apply from: rootProject.file('gradle/codequality.gradle')
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
     defaultConfig {
@@ -23,7 +23,7 @@ android {
         versionName "1.7.2"
 
         minSdkVersion 10
-        targetSdkVersion 19
+        targetSdkVersion 22
 
         buildConfigField 'String', 'BUILD_TAG', '"' + getBuildTag() + '"'
 
