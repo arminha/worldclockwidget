@@ -16,13 +16,13 @@
   -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.Sherlock.ActionButton"
+
     android:id="@+id/actionbar_discard"
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1">
 
-    <ch.corten.aha.widget.CapitalizingTextView style="@style/Widget.Sherlock.ActionBar.TabText"
+    <ch.corten.aha.widget.CapitalizingTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
