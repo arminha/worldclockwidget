@@ -22,30 +22,30 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.ResourceCursorAdapter;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.SearchView;
-import com.actionbarsherlock.widget.SearchView.OnQueryTextListener;
 
 import org.joda.time.DateTimeZone;
 
 import ch.corten.aha.worldclock.provider.WorldClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Cities;
 
-public class AddClockActivity extends SherlockFragmentActivity {
+public class AddClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
         return true;
     }
 
-    public static class TimeZoneListFragment extends SherlockListFragment implements
+    public static class TimeZoneListFragment extends ListFragment implements
     LoaderManager.LoaderCallbacks<Cursor> {
         private CursorAdapter mAdapter;
         private SearchView mSearchView;
@@ -149,7 +149,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
             // Place an action bar item for searching.
             inflater.inflate(R.menu.timezone_list, menu);
             MenuItem searchItem = menu.findItem(R.id.menu_search);
-            mSearchView = (SearchView) searchItem.getActionView();
+            mSearchView = (SearchView) MenuItemCompat.getActionView(searchItem);
             mSearchView.setOnQueryTextListener(new OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextChange(String newText) {
@@ -158,7 +158,7 @@ public class AddClockActivity extends SherlockFragmentActivity {
 
                 @Override
                 public boolean onQueryTextSubmit(String query) {
-                    return TimeZoneListFragment.this.onQueryTextSubmit(query);
+                    return false;
                 }
             });
         }
@@ -213,10 +213,6 @@ public class AddClockActivity extends SherlockFragmentActivity {
             mCurFilter = newText;
             getLoaderManager().restartLoader(0, null, this);
             return true;
-        }
-
-        public boolean onQueryTextSubmit(String query) {
-            return false;
         }
     }
 }
