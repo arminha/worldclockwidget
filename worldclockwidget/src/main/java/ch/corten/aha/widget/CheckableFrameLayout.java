@@ -52,8 +52,8 @@ public class CheckableFrameLayout extends FrameLayout implements Checkable {
     public void setChecked(boolean checked) {
         mChecked = checked;
         if (checked) {
-            Drawable drawable = getContext().getResources().getDrawable(com.actionbarsherlock.R.drawable.abs__list_activated_holo);
-            setBackgroundDrawable(drawable);
+            //Drawable drawable = getContext().getResources().getDrawable(com.actionbarsherlock.R.drawable.abs__list_activated_holo);
+            //setBackgroundDrawable(drawable);
         } else {
             setBackgroundDrawable(new ColorDrawable(android.R.color.transparent));
         }
