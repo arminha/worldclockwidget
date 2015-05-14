@@ -23,7 +23,10 @@ import android.database.CursorIndexOutOfBoundsException;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,15 +36,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-
 import org.joda.time.DateTimeZone;
 
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
-public class EditClockActivity extends SherlockFragmentActivity {
+public class EditClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +84,7 @@ public class EditClockActivity extends SherlockFragmentActivity {
         return (EditClockFragment) fm.findFragmentById(android.R.id.content);
     }
 
-    public static class EditClockFragment extends SherlockFragment {
+    public static class EditClockFragment extends Fragment {
         private static final boolean SANS_ICE_CREAM = Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH;
 
         private static final String[] PROJECTION = {
