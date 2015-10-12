@@ -1,4 +1,9 @@
 
+1.7.3:
+
+* Fix connection issue with OpenWeatherMap
+* Update city and time zone database
+
 1.7.2:
 
 * Spanish and Basque translation (contributed by Aitor Beriain)
