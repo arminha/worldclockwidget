@@ -26,6 +26,7 @@ android {
         targetSdkVersion 19
 
         buildConfigField 'String', 'BUILD_TAG', '"' + getBuildTag() + '"'
+        buildConfigField 'String', 'OWM_API_KEY', '"' + getOwmApiKey() + '"'
 
         def buildSuffix = getBuildSuffix(versionName, versionCode)
         applicationVariants.all { variant ->
@@ -84,6 +85,18 @@ def getBuildTag() {
     }
     tag += '@' + new Date().format('yyyyMMdd')
     return tag
+}
+
+def getOwmApiKey() {
+    if (project.hasProperty('owmApiKey')) {
+        return owmApiKey
+    } else {
+        def apiKeyFile = file('owm_api_key');
+        if (apiKeyFile.isFile()) {
+          return apiKeyFile.text.trim()
+        }
+    }
+    return 'NOKEY'
 }
 
 ///////////////////////////////////////////////////

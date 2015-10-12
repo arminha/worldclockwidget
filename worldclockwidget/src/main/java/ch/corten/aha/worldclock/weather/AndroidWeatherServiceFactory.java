@@ -17,7 +17,14 @@
 package ch.corten.aha.worldclock.weather;
 
 import android.content.Context;
+import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import ch.corten.aha.worldclock.BuildConfig;
 import ch.corten.aha.worldclock.weather.msn.MsnWeatherService;
 import ch.corten.aha.worldclock.weather.owm.OwmWeatherService;
 import ch.corten.aha.worldclock.weather.yahoo.YahooWeatherService;
@@ -35,7 +42,7 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
         if (provider.equals("msn")) {
             return new MsnWeatherService(true);
         } else if (provider.equals("owm")) {
-            return new OwmWeatherService();
+            return new OwmWeatherService(BuildConfig.OWM_API_KEY);
         } else {
             return new YahooWeatherService(mContext);
         }

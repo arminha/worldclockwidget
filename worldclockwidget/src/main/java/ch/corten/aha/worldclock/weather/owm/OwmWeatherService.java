@@ -35,6 +35,11 @@ public class OwmWeatherService implements WeatherService {
     private static final String DEFAULT_LANG = "en";
 
     private String mLanguageCode;
+    private String mApiKey;
+
+    public OwmWeatherService(String apiKey) {
+        mApiKey = apiKey;
+    }
 
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
@@ -42,6 +47,9 @@ public class OwmWeatherService implements WeatherService {
             String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
             if (mLanguageCode != null) {
                 query += "&lang=" + mLanguageCode;
+            }
+            if (mApiKey != null) {
+                query += "&APPID=" + mApiKey;
             }
             URI uri = new URI("http", "api.openweathermap.org", "/data/2.5/weather", query, null);
             URL url = new URL(uri.toASCIIString());
