@@ -39,7 +39,7 @@ Run ``./gradlew assembleDebug`` to create a debug build or ``./gradlew assembleR
 OpenWeatherMap API key
 ######################
 
-Using the OpenWeatherMap API requires an API key. The key is not part of the source code and can be retrieved from `OpenWeatherMap <http://openweathermap.org/api>`__. The build reads the key from the file ``./worldclockwidget/owm_api_key`` or from the Gradle project property ``owmApiKey``.
+Using the OpenWeatherMap API requires an API key. A default key is stored in the file ``./worldclockwidget/default_owm_api_key``. It can be overwritten by setting the Gradle project property ``owmApiKey``.
 
 Libraries
 ---------
