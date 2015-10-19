@@ -1,4 +1,9 @@
 
+1.7.5:
+
+* Add OpenWeatherMap API key to F-Droid build
+* Remove MSN as weather source
+
 1.7.4:
 
 * Fix connection issue with OpenWeatherMap
