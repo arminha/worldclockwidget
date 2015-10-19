@@ -55,7 +55,7 @@ Acknowledgements
 ----------------
 
 * Special thanks to `vyick <http://vyick.wordpress.com/>`_ for beta testing and feature suggestions!
-* Weather data is provided by `Open Weather Map <http://openweathermap.org/>`_, `Yahoo Weather <https://weather.yahoo.com/>`_ or `MSN Weather <http://local.msn.com/>`_.
+* Weather data is provided by `Open Weather Map <http://openweathermap.org/>`_ or `Yahoo Weather <https://weather.yahoo.com/>`_.
 * The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
 * Time zone and geographical data is provided by `GeoNames <http://www.geonames.org/>`_.
 

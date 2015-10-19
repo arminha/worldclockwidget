@@ -46,7 +46,6 @@
     <string-array name="weather_sources">
         <item name="owm">Open Weather Map</item>
         <item name="yahoo">Yahoo Weather</item>
-        <item name="msn">MSN Weather</item>
     </string-array>
 
     <string name="change_source_of_weather_data">Change source of weather data</string>
@@ -100,7 +99,7 @@
     <string name="license_text">GPL Version 3 or later</string>
     <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
     <string name="developer_text">Armin Häberling\nSpecial thanks to <a href="https://vyick.wordpress.com/">vyick</a> for beta testing and her suggestions!</string>
-    <string name="acknowledgement_weather">Weather data is provided by <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> or <a href="http://local.msn.com/">MSN Weather</a>.</string>
+    <string name="acknowledgement_weather">Weather data is provided by <a href="http://openweathermap.org/">Open Weather Map</a> or <a href="https://weather.yahoo.com/">Yahoo Weather</a>.</string>
     <string name="acknowledgement_icons">Weather icons are based on <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> from Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Time zone and geographical data is provided by <a href="http://www.geonames.org/">GeoNames</a>.</string>
     <string name="weather_service_language">en-US</string>

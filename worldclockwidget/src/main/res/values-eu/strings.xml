@@ -46,7 +46,6 @@
     <string-array name="weather_sources">
         <item name="owm">Open Weather Map</item>
         <item name="yahoo">Yahoo Weather</item>
-        <item name="msn">MSN Weather</item>
     </string-array>
 
     <string name="change_source_of_weather_data">Eguraldiaren datuen jatorria aldatu</string>
@@ -100,7 +99,7 @@
     <string name="license_text">GPL Version 3 or later</string>
     <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
     <string name="developer_text">Armin Häberling\nEsker bereziak <a href="https://vyick.wordpress.com/">vyick</a>entzat beta frogengatik eta bere iradokizunengatik!</string>
-    <string name="acknowledgement_weather">Eguraldi datuen hornitzaileak <a href="http://openweathermap.org/">Open Weather Map</a>,<a href="https://weather.yahoo.com/">Yahoo Weather</a> edo <a href="http://local.msn.com/">MSN Weather</a> dira.</string>
+    <string name="acknowledgement_weather">Eguraldi datuen hornitzaileak <a href="http://openweathermap.org/">Open Weather Map</a> edo <a href="https://weather.yahoo.com/">Yahoo Weather</a> dira.</string>
     <string name="acknowledgement_icons">Eguraldi ikonoak Alessio Atzeniren <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> ikonoetan oinarritu dira.</string>
     <string name="acknowledgement_geonames">Ordu eremu eta datu geografikoen hornitzailea <a href="http://www.geonames.org/">GeoNames</a> da.</string>
     <string name="weather_service_language">eu-ES</string>

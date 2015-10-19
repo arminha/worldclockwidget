@@ -20,7 +20,6 @@
     <string-array name="weather_source_values">
         <item name="owm">owm</item>
         <item name="yahoo">yahoo</item>
-        <item name="msn">msn</item>
     </string-array>
     <string name="default_weather_source">owm</string>
     <string name="use_custom_colors_key">use_custom_colors</string>
