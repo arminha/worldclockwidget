@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Download the latest versions of cities15000.txt and countryInfo.txt from
+Download the latest versions of cities5000.txt and countryInfo.txt from
 http://download.geonames.org/export/dump/
 '''
 
@@ -12,7 +12,7 @@ import os
 
 def main():
     retrieve('countryInfo.txt')
-    citiesZip = 'cities15000.zip'
+    citiesZip = 'cities5000.zip'
     retrieve(citiesZip)
     unzip(citiesZip)
     retrieve('AQ.zip')

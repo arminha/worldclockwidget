@@ -15,7 +15,7 @@ POPULATION = 14
 TIMEZONE = 17
 
 countries_file = 'countryInfo.txt'
-cities_files = ['cities15000.txt', 'AQ.txt']
+cities_files = ['cities5000.txt', 'AQ.txt']
 output_file = "../worldclockwidget/src/main/assets/city_data.csv"
 
 manually_added_cities = \
@@ -48,6 +48,7 @@ manually_added_cities = \
     ,('6299995', 'Amundsen-Scott South Pole Station')
     ,('6620770', 'McMurdo Station')
     ,('4062577', 'Florence')
+    ,('5877641', 'Wasilla')
     ]
 
 levels = {
@@ -89,11 +90,15 @@ class CountryInfo(object):
         capital = self.countries[row[ISO_CODE]]['capital']
         if not capital:
             return False
+        name_match = False
         if capital == row[NAME] or capital == row[ASCIINAME]:
-            return True
+            name_match = True
         for name in row[ALTERNATENAMES].split(','):
             if capital == name:
-                return True
+                name_match = True
+        if name_match:
+            population = self.countries[row[ISO_CODE]]['population']
+            return population < 3000000
         return False
 
     def add_city(self, row):
