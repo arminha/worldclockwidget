@@ -102,6 +102,8 @@
     <string name="acknowledgement_weather">Datos climatológicos provistos por <a href="http://openweathermap.org/">Open Weather Map</a> o <a href="https://weather.yahoo.com/">Yahoo Weather</a>.</string>
     <string name="acknowledgement_icons">Iconos de clima basados en <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> de Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Huso horario e información geográfica provista por <a href="http://www.geonames.org/">GeoNames</a>.</string>
+    <string name="about_title">Acerca de World Clock &amp; Weather</string>
+    <string name="close">Cierre</string>
     <string name="weather_service_language">es-ES</string>
 
 </resources>

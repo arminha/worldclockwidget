@@ -75,10 +75,10 @@
             wc:recipient="@string/feedback_email"
             wc:subject="@string/app_name" />
         <ch.corten.aha.preference.AboutPreference
-            android:title="About World Clock &amp; Weather"
-            android:dialogTitle="About World Clock &amp; Weather"
+            android:title="@string/about_title"
+            android:dialogTitle="@string/about_title"
             android:dialogLayout="@layout/about_dialog"
-            android:positiveButtonText="Close"
+            android:positiveButtonText="@string/close"
             android:negativeButtonText="@null" />
     </PreferenceCategory>
 

@@ -102,6 +102,8 @@
     <string name="acknowledgement_weather">Wetterdaten werden geliefert von <a href="http://openweathermap.org/">Open Weather Map</a> oder <a href="https://weather.yahoo.com/">Yahoo Weather</a>.</string>
     <string name="acknowledgement_icons">Die Wettersymbole basieren auf <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> von Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Verwendet Zeitzonen und Geographische Daten von <a href="http://www.geonames.org/">GeoNames</a>.</string>
+    <string name="about_title">Über Weltzeituhr &amp; Wetter</string>
+    <string name="close">Schliessen</string>
     <string name="weather_service_language">de-DE</string>
 
 </resources>
