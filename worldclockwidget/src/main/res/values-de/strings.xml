@@ -46,7 +46,6 @@
     <string-array name="weather_sources">
         <item name="owm">Open Weather Map</item>
         <item name="yahoo">Yahoo Weather</item>
-        <item name="msn">MSN Weather</item>
     </string-array>
 
     <string name="change_source_of_weather_data">Wetterdatenquelle ändern</string>
@@ -91,7 +90,7 @@
     <string name="time_zone">Zeitzone</string>
     <string name="feedback_title">Feedback senden</string>
     <string name="feedback_summary">Wir freuen uns über Ihre Meinung</string>
-    <string name="about">Über</string>
+    <string name="about">Impressum</string>
     <string name="version_caption">Version</string>
     <string name="license_caption">Lizenz</string>
     <string name="project_page_caption">Projektseite</string>
