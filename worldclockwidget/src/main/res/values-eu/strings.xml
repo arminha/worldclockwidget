@@ -102,6 +102,8 @@
     <string name="acknowledgement_weather">Eguraldi datuen hornitzaileak <a href="http://openweathermap.org/">Open Weather Map</a> edo <a href="https://weather.yahoo.com/">Yahoo Weather</a> dira.</string>
     <string name="acknowledgement_icons">Eguraldi ikonoak Alessio Atzeniren <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> ikonoetan oinarritu dira.</string>
     <string name="acknowledgement_geonames">Ordu eremu eta datu geografikoen hornitzailea <a href="http://www.geonames.org/">GeoNames</a> da.</string>
+    <string name="about_title">About World Clock &amp; Weather</string>
+    <string name="close">Close</string>
     <string name="weather_service_language">eu-ES</string>
 
 </resources>
