@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Weltzeituhr &amp; Wetter</string>
+    <string name="add_city">Ort hinzufügen</string>
+    <string name="world_clock_settings">Weltzeituhr Einstellungen</string>
+    <string name="no_clock_defined">Benutze das Menu um Orte hinzuzufügen.</string>
+    <string name="n_selcted_format">{0} ausgewählt</string>
+    <string name="delete">Löschen</string>
+    <string name="add">Hinzufügen</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="search">Suchen</string>
+    <string name="city">Ort</string>
+    <string name="latitude">Breitengrad</string>
+    <string name="longitude">Längengrad</string>
+    <string name="display_in_widget">In Widget anzeigen</string>
+    <string name="description">Beschreibung</string>
+    <string name="refresh">Aktualisieren</string>
+
+    <string-array name="speed_units">
+        <item name="kmh">km/h</item>
+        <item name="mph">mph</item>
+        <item name="ms">m/s</item>
+        <item name="beaufort">Beaufort</item>
+    </string-array>
+    <string-array name="temp_units">
+        <item name="celsius">°C</item>
+        <item name="fahrenheit">°F</item>
+    </string-array>
+
+    <string name="preferences">Einstellungen</string>
+    <string name="temperature_unit">Temperatureinheit</string>
+    <string name="wind_speed_unit">Windstärkeeinheit</string>
+    <string name="humidity">Luftfeuchtigkeit</string>
+    <string name="wind_format">Wind: {1} aus {0}</string>
+    <string name="wind_format_no_direction">Wind: {1}</string>
+    <string name="weather">Wetter</string>
+    <string name="activity_title">Weltzeituhr</string>
+    <string name="clock_widget_name">Weltzeituhr</string>
+    <string name="weather_widget_name">Weltzeituhr &amp; Wetter</string>
+    <string name="no_data_available">Keine Daten vorhanden</string>
+    <string name="change_temperature_unit">Temperatureinheit ändern</string>
+    <string name="change_wind_speed_unit">Windstärkeeinheit ändern</string>
+    <string name="weather_source">Wetterdatenquelle</string>
+
+    <string-array name="weather_sources">
+        <item name="owm">Open Weather Map</item>
+        <item name="yahoo">Yahoo Weather</item>
+        <item name="msn">MSN Weather</item>
+    </string-array>
+
+    <string name="change_source_of_weather_data">Wetterdatenquelle ändern</string>
+    <string name="dialog_color_picker">Farbauswahl</string>
+    <string name="press_color_to_apply">Farbe klicken um sie zu verwenden</string>
+    <string name="widget">Widget</string>
+    <string name="use_custom_colors">Benutzerdefinierte Farben</string>
+    <string name="background">Hintergrund</string>
+    <string name="foreground">Vordergrund</string>
+    <string name="change_background_color">Hintergrundfarbe und -transparenz ändern</string>
+    <string name="change_foreground_color">Vordergrundfarbe ändern</string>
+
+    <string-array name="weather_purge_times">
+        <item name="2hours">2 Stunden</item>
+        <item name="4hours">4 Stunden</item>
+        <item name="6hours">6 Stunden</item>
+        <item name="12hours">12 Stunden</item>
+        <item name="24hours">24 Stunden</item>
+        <item name="never">Nie</item>
+    </string-array>
+
+    <string name="weather_data_purge_time">Alte Wetterdaten entfernen</string>
+    <string name="weather_data_purge_time_dialog">Alte Wetterdaten entfernen nach</string>
+    <string name="weather_data_purge_time_summary">Nach welcher Zeit alte Wetterdaten entfernt werden</string>
+    <string name="disable_automatic_update">Keine automatische Aktualisierung</string>
+    <string name="disable_automatic_update_of_weather_conditions">Deaktiviere das automatische Aktualisieren der Wetterbedingungen</string>
+    <string name="weather_widget_name_2x1">Weltzeituhr &amp; Wetter 2x1</string>
+    <string name="weather_widget_name_2x2">Weltzeituhr &amp; Wetter 2x2</string>
+    <string name="weather_widget_name_2x3">Weltzeituhr &amp; Wetter 2x3</string>
+    <string name="weather_widget_name_2x4">Weltzeituhr &amp; Wetter 2x4</string>
+    <string name="weather_widget_name_4x1">Weltzeituhr &amp; Wetter 4x1</string>
+    <string name="weather_widget_name_4x2">Weltzeituhr &amp; Wetter 4x2</string>
+    <string name="weather_widget_name_4x3">Weltzeituhr &amp; Wetter 4x3</string>
+    <string name="weather_widget_name_4x4">Weltzeituhr &amp; Wetter 4x4</string>
+    <string name="done">Speichern</string>
+    <string name="discard">Abbrechen</string>
+    <string name="general">Allgemein</string>
+    <string name="automatically_sort_cities">Orte automatisch sortieren</string>
+    <string name="disable_to_sort_cities_manually">Deaktivieren um Orte manuell zu sortieren</string>
+    <string name="move_up">Nach oben</string>
+    <string name="move_down">Nach unten</string>
+    <string name="time_zone">Zeitzone</string>
+    <string name="feedback_title">Feedback senden</string>
+    <string name="feedback_summary">Wir freuen uns über Ihre Meinung</string>
+    <string name="about">Über</string>
+    <string name="version_caption">Version</string>
+    <string name="license_caption">Lizenz</string>
+    <string name="project_page_caption">Projektseite</string>
+    <string name="developer_caption">Entwickelt von</string>
+    <string name="acknowledgements_caption">Danksagungen</string>
+    <string name="license_text">GPL Version 3 oder neuer</string>
+    <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
+    <string name="developer_text">Armin Häberling\nSpeziellen Dank an <a href="https://vyick.wordpress.com/">vyick</a> für Beta-Testen und Verbesserungsvorschläge!</string>
+    <string name="acknowledgement_weather">Wetterdaten werden geliefert von <a href="http://openweathermap.org/">Open Weather Map</a> oder <a href="https://weather.yahoo.com/">Yahoo Weather</a>.</string>
+    <string name="acknowledgement_icons">Die Wettersymbole basieren auf <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> von Alessio Atzeni.</string>
+    <string name="acknowledgement_geonames">Verwendet Zeitzonen und Geographische Daten von <a href="http://www.geonames.org/">GeoNames</a>.</string>
+    <string name="weather_service_language">de-DE</string>
+
+</resources>
