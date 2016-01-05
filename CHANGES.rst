@@ -1,4 +1,9 @@
 
+1.8.0:
+
+* Add German translation
+* Update city and time zone database
+
 1.7.5:
 
 * Add OpenWeatherMap API key to F-Droid build
