@@ -1,4 +1,8 @@
 
+1.8.1:
+
+* Fix an issue with the Yahoo Weather API
+
 1.8.0:
 
 * Add German translation
