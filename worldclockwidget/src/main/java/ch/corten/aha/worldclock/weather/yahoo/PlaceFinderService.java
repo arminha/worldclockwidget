@@ -24,7 +24,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.text.MessageFormat;
+import java.util.Locale;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -38,16 +38,15 @@ import android.util.Log;
 class PlaceFinderService {
     private static final String TAG = "PlaceFinderService";
 
-    private static final String YQL_QUERY = "select woeid from geo.places where text=\"({0, number,0.00###},{1, number,0.00###})\"";
-    private static final String QUERY = "q={0}&format=xml";
+    private static final String YQL_QUERY = "select woeid from geo.places where text=\"(%.5f,%.5f)\"";
     private static final String PATH = "/v1/public/yql";
     private static final String SERVER = "query.yahooapis.com";
 
     public String reverseGeoCode(double latitude, double longitude) {
-        String yql = MessageFormat.format(YQL_QUERY, latitude, longitude);
+        String yql = String.format(Locale.ENGLISH, YQL_QUERY, latitude, longitude);
+        String query = "q=" + yql + "&format=xml";
 
         try {
-            String query = MessageFormat.format(QUERY, yql);
             java.net.URI uri = new URI("http", SERVER, PATH, query, null);
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

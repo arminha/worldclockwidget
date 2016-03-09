@@ -26,7 +26,7 @@ import android.database.sqlite.SQLiteDatabase;
 class WoeidCache {
 
     private static final String TABLE = "woeid_cache";
-    private static final int VERSION = 4;
+    private static final int VERSION = 5;
     private final Storage mStorage;
 
     public WoeidCache(Context context) {
