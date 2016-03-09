@@ -1,4 +1,8 @@
 
+1.8.2:
+
+* Fix a bug in Yahoo Weather affecting German and possible other non-English users
+
 1.8.1:
 
 * Fix an issue with the Yahoo Weather API
