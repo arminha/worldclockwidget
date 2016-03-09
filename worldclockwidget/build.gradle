@@ -110,7 +110,7 @@ dependencies{
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
-    compile 'net.danlew:android.joda:2.9.1'
+    compile 'net.danlew:android.joda:2.9.2'
 }
 
 
