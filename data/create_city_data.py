@@ -145,7 +145,7 @@ def write_output_file(ci):
             for city in sorted(country['cities'], key=lambda c:locale.strxfrm(c[0])):
                 writer.writerow(city)
         # add GMT
-        writer.writerow(['GMT', 'UTC Zulu', '0', '0', 'Greenwich Mean Time', 'GMT'])
+        writer.writerow(['UTC', 'GMT Zulu', '0', '0', 'Coordinated Universal Time', 'GMT'])
 
 def select_row(ci, row):
     if checkPopulationLevel(row):
