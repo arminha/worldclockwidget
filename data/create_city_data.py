@@ -51,6 +51,10 @@ manually_added_cities = \
     ,('5877641', 'Wasilla')
     ]
 
+time_zone_replacements = {
+    'Arctic/Longyearbyen': 'Europe/Oslo',
+}
+
 levels = {
     'CH' : 55000,
     'US' : 80000,
@@ -143,6 +147,8 @@ def write_output_file(ci):
             locale.setlocale(locale.LC_ALL, '')
             # sort cities by name (1st column)
             for city in sorted(country['cities'], key=lambda c:locale.strxfrm(c[0])):
+                if city[5] in time_zone_replacements:
+                    city[5] = time_zone_replacements[city[5]]
                 writer.writerow(city)
         # add GMT
         writer.writerow(['UTC', 'GMT Zulu', '0', '0', 'Coordinated Universal Time', 'GMT'])
