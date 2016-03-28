@@ -1,3 +1,8 @@
+1.8.3:
+
+* Remove Yahoo weather data source.
+* Update city and time zone database
+* Bug fixes
 
 1.8.2:
 
