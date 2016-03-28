@@ -41,14 +41,6 @@
     <string name="no_data_available">No data available</string>
     <string name="change_temperature_unit">Change temperature unit</string>
     <string name="change_wind_speed_unit">Change wind speed unit</string>
-    <string name="weather_source">Weather data source</string>
-
-    <string-array name="weather_sources">
-        <item name="owm">Open Weather Map</item>
-        <item name="yahoo">Yahoo Weather</item>
-    </string-array>
-
-    <string name="change_source_of_weather_data">Change source of weather data</string>
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color to apply</string>
     <string name="widget">Widget</string>
@@ -99,7 +91,7 @@
     <string name="license_text">GPL Version 3 or later</string>
     <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
     <string name="developer_text">Armin Häberling\nSpecial thanks to <a href="https://vyick.wordpress.com/">vyick</a> for beta testing and her suggestions!</string>
-    <string name="acknowledgement_weather">Weather data is provided by <a href="http://openweathermap.org/">Open Weather Map</a> or <a href="https://weather.yahoo.com/">Yahoo Weather</a>.</string>
+    <string name="acknowledgement_weather">Weather data is provided by <a href="http://openweathermap.org/">Open Weather Map</a>.</string>
     <string name="acknowledgement_icons">Weather icons are based on <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> from Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Time zone and geographical data is provided by <a href="http://www.geonames.org/">GeoNames</a>.</string>
     <string name="about_title">About World Clock &amp; Weather</string>

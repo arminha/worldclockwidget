@@ -16,26 +16,13 @@
 
 package ch.corten.aha.worldclock.weather;
 
-import android.content.Context;
-
 import ch.corten.aha.worldclock.BuildConfig;
 import ch.corten.aha.worldclock.weather.owm.OwmWeatherService;
-import ch.corten.aha.worldclock.weather.yahoo.YahooWeatherService;
 
 public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
 
-    private final Context mContext;
-
-    public AndroidWeatherServiceFactory(Context context) {
-        mContext = context;
-    }
-
     @Override
     public WeatherService createService(String provider) {
-        if (provider.equals("owm")) {
-            return new OwmWeatherService(BuildConfig.OWM_API_KEY);
-        } else {
-            return new YahooWeatherService(mContext);
-        }
+        return new OwmWeatherService(BuildConfig.OWM_API_KEY);
     }
 }

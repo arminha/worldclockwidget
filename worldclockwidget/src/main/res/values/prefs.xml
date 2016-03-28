@@ -16,12 +16,6 @@
     <string name="defaul_temp_unit">C</string>
     <string name="temp_unit_key">temp_unit</string>
     <string name="wind_speed_unit_key">wind_speed_unit</string>
-    <string name="weather_source_key">weather_provider</string>
-    <string-array name="weather_source_values">
-        <item name="owm">owm</item>
-        <item name="yahoo">yahoo</item>
-    </string-array>
-    <string name="default_weather_source">owm</string>
     <string name="use_custom_colors_key">use_custom_colors</string>
     <string name="background_color_key">custom_background_color</string>
     <string name="foreground_color_key">custom_foreground_color</string>

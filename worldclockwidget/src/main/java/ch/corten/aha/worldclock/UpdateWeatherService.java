@@ -100,9 +100,7 @@ public class UpdateWeatherService extends IntentService {
             query = Clocks.LAST_UPDATE + " < " + (currentTime - updateInterval);
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String provider = prefs.getString(context.getString(R.string.weather_source_key), "yahoo");
-        WeatherService service = new AndroidWeatherServiceFactory(context).createService(provider);
+        WeatherService service = new AndroidWeatherServiceFactory().createService("owm");
         service.setLanguage(context.getString(R.string.weather_service_language));
 
         try {
