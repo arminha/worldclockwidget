@@ -26,7 +26,7 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
         if (BuildConfig.ENABLE_WEATHER) {
             return new OwmWeatherService(BuildConfig.OWM_API_KEY);
         } else {
-            return new new OwmWeatherService(null);
+            return new OwmWeatherService(null);
         }
     }
 }
