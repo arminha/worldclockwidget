@@ -1,3 +1,7 @@
+1.8.5:
+
+* Disable broken weather updates
+
 1.8.4:
 
 * Update city and time zone database
