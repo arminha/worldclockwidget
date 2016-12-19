@@ -23,6 +23,10 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
 
     @Override
     public WeatherService createService(String provider) {
-        return new OwmWeatherService(BuildConfig.OWM_API_KEY);
+        if (BuildConfig.ENABLE_WEATHER) {
+            return new OwmWeatherService(BuildConfig.OWM_API_KEY);
+        } else {
+            return new new OwmWeatherService(null);
+        }
     }
 }

@@ -345,6 +345,10 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         }
 
         private void updateWeather(boolean immediately) {
+            if (!BuildConfig.ENABLE_WEATHER) {
+                return;
+            }
+
             // check if automatic update is enabled
             if (!immediately && !automaticWeatherUpdate()) {
                 return;

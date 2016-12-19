@@ -3,6 +3,8 @@ World Clock & Weather
 
 **:warning: This project is unmaintained. There will be no more patches or updates. :warning:**
 
+**:heavy_exclamation_mark: Weather updates are broken and are disabled :heavy_exclamation_mark:**
+
 A simple application to display the local time and current weather conditions in places all over the world.
 It comes with two home screen widgets which show weather and time or time only.
 

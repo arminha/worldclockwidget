@@ -27,6 +27,7 @@ android {
 
         buildConfigField 'String', 'BUILD_TAG', '"' + getBuildTag() + '"'
         buildConfigField 'String', 'OWM_API_KEY', '"' + getOpenWeatherMapApiKey() + '"'
+        buildConfigField 'boolean', 'ENABLE_WEATHER', 'false'
 
         def buildSuffix = getBuildSuffix(versionName, versionCode)
         applicationVariants.all { variant ->

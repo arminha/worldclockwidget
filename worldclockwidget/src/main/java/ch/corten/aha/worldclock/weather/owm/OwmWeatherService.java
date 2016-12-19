@@ -35,7 +35,7 @@ public class OwmWeatherService implements WeatherService {
     private static final String DEFAULT_LANG = "en";
 
     private String mLanguageCode;
-    private String mApiKey;
+    private final String mApiKey;
 
     public OwmWeatherService(String apiKey) {
         mApiKey = apiKey;
@@ -43,6 +43,9 @@ public class OwmWeatherService implements WeatherService {
 
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
+        if (mApiKey == null || mApiKey.isEmpty()) {
+            return disabledObservation();
+        }
         try {
             String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
             if (mLanguageCode != null) {
@@ -235,6 +238,12 @@ public class OwmWeatherService implements WeatherService {
             return description.substring(0, 1).toUpperCase(Locale.ENGLISH)
                     + description.substring(1).toLowerCase(Locale.ENGLISH);
         }
+    }
+
+    private Observation disabledObservation() {
+        Observation observation = new Observation();
+        observation.setWeatherCondition("Weather is disabled");
+        return observation;
     }
 
     private static class Observation extends AbstractObservation {

@@ -52,17 +52,21 @@ public abstract class AbstractWeatherWidgetProvider extends ClockWidgetProvider 
      * Enable weather update service.
      */
     private static void enableUpdateService(Context context) {
-        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarm.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(),
-                AlarmManager.INTERVAL_HOUR, createWeatherUpdateIntent(context));
+        if (BuildConfig.ENABLE_WEATHER) {
+            AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            alarm.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(),
+                    AlarmManager.INTERVAL_HOUR, createWeatherUpdateIntent(context));
+        }
     }
 
     /**
      * Disable weather update service.
      */
     private static void disableUpdateService(Context context) {
-        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarm.cancel(createWeatherUpdateIntent(context));
+        if (BuildConfig.ENABLE_WEATHER) {
+            AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            alarm.cancel(createWeatherUpdateIntent(context));
+        }
     }
 
     private static PendingIntent createWeatherUpdateIntent(Context context) {
