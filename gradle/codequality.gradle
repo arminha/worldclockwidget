@@ -6,7 +6,7 @@ apply plugin: 'checkstyle'
 // findbugs
 
 findbugs {
-    toolVersion = "2.0.3"
+    toolVersion = "3.0.1"
     ignoreFailures = true
 }
 
