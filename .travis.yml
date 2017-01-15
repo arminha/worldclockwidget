@@ -7,7 +7,7 @@ android:
     - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
     - build-tools-22.0.1
-    - android-24
+    - android-19
     - extra-android-m2repository
 
 jdk:
