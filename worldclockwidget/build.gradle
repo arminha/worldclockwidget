@@ -1,15 +1,13 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.0'
-        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
+        classpath 'com.android.tools.build:gradle:2.2.2'
     }
 }
 
-apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 
 apply from: rootProject.file('gradle/codequality.gradle')
@@ -118,17 +116,16 @@ dependencies{
 ///////////////////////////////////////////////////
 // Checkstyle
 
-task checkstyleDebug(type: Checkstyle, dependsOn: 'compileDebugJava') {
+task checkstyleDebug(type: Checkstyle, dependsOn: 'compileDebugSources') {
     source = fileTree('src/main/java/')
     classpath = files('build/intermediates/classes/debug')
 }
 check.dependsOn checkstyleDebug
 
-
 ///////////////////////////////////////////////////
 // Findbugs
 
-task findbugsDebug(type: FindBugs, dependsOn: 'compileDebugJava') {
+task findbugsDebug(type: FindBugs, dependsOn: 'compileDebugSources') {
     source = fileTree('src/main/java/')
     classes = fileTree('build/intermediates/classes/debug')
     classpath = files() // empty classpath!
