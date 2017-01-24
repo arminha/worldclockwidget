@@ -34,5 +34,5 @@
     <string name="disable_automatic_weather_update_key">disable_automatic_update</string>
     <string name="auto_sort_clocks_key">auto_sort_clocks</string>
 
-    <string name="feedback_email">armin.aha+worldclock@gmail.com</string>
+    <string name="feedback_email">widgetworldclock@gmail.com</string>
 </resources>
