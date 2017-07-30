@@ -47,6 +47,7 @@ public class OwmWeatherService implements WeatherService {
             return disabledObservation();
         }
         try {
+            Log.wtf(TAG, "Key**********************************:"+mApiKey);
             String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
             if (mLanguageCode != null) {
                 query += "&lang=" + mLanguageCode;
@@ -70,6 +71,9 @@ public class OwmWeatherService implements WeatherService {
         } catch (MalformedURLException e) {
             Log.wtf(TAG, "Invalid URL", e);
         } catch (IOException e) {
+            Log.e(TAG, "Failed to retrieve weather data", e);
+            return null;
+        } catch (Exception e) {
             Log.e(TAG, "Failed to retrieve weather data", e);
             return null;
         }

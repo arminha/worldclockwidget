@@ -136,7 +136,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             Clocks.updateOrder(getActivity());
             updateWeather(false);
         }
-
+//#TODO example here how you are sharing preferance
         private void registerPreferenceChanged() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             final Context context = getActivity();

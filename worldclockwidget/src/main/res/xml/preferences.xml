@@ -2,13 +2,30 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:wc="http://schemas.android.com/apk/res/ch.corten.aha.worldclock" >
     <PreferenceCategory android:title="@string/general">
+        <ch.corten.aha.preference.WeatherApiPreference
+            android:key="@string/WeatherApiPreference_key"
+            android:title="!!!Important!!!"
+            android:dialogTitle="Important!!"
+            android:summary="@string/WeatherApiPreference_key_summery"
+            android:dialogLayout="@layout/weather_key"
+            android:positiveButtonText="@string/close"
+            android:negativeButtonText="@null"/>
+        <EditTextPreference
+            android:defaultValue="@string/new_api_key_default_text"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/new_api_key_title"
+            android:summary="@string/new_api_key_summery"
+            android:key="@string/new_api_key" />
         <CheckBoxPreference
             android:title="@string/automatically_sort_cities"
             android:key="@string/auto_sort_clocks_key"
             android:summary="@string/disable_to_sort_cities_manually"
             android:defaultValue="true" />
+
+
     </PreferenceCategory>
-    
+
     <PreferenceCategory android:title="@string/weather">
         <ListPreference
             android:title="@string/temperature_unit"
@@ -17,7 +34,7 @@
             android:entryValues="@array/temp_unit_values"
             android:entries="@array/temp_units"
             android:defaultValue="@string/defaul_temp_unit" />
-        <ListPreference 
+        <ListPreference
             android:title="@string/wind_speed_unit"
             android:key="@string/wind_speed_unit_key"
             android:summary="@string/change_wind_speed_unit"
@@ -73,6 +90,7 @@
             android:dialogLayout="@layout/about_dialog"
             android:positiveButtonText="@string/close"
             android:negativeButtonText="@null" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -16,16 +16,32 @@
 
 package ch.corten.aha.worldclock.weather;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+
 import ch.corten.aha.worldclock.BuildConfig;
+import ch.corten.aha.worldclock.R;
 import ch.corten.aha.worldclock.weather.owm.OwmWeatherService;
+
+import ch.corten.aha.preference.WeatherApiPreference;
 
 public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
 
+    private static final String TAG = "WeatherServiceFactory";
     @Override
-    public WeatherService createService(String provider) {
+    public WeatherService createService(String provider,String owm_api_key) {
         if (BuildConfig.ENABLE_WEATHER) {
-            return new OwmWeatherService(BuildConfig.OWM_API_KEY);
+            Log.e(TAG, "Info:: weather service enabled. Key Value:- "+owm_api_key );
+            if (owm_api_key == BuildConfig.OWM_API_KEY) {
+                Log.e(TAG, "Info:: Currently using default key!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+            return new OwmWeatherService(owm_api_key); //Here passing the OWM_API_KEY to the OwmWeatherService class
         } else {
+            Log.e(TAG, "Warning!!!::Weather service is disabled!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             return new OwmWeatherService(null);
         }
     }

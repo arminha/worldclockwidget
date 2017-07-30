@@ -18,6 +18,6 @@ package ch.corten.aha.worldclock.weather;
 
 public interface WeatherServiceFactory {
 
-    WeatherService createService(String provider);
+    WeatherService createService(String provider,String owm_api_key);
 
 }

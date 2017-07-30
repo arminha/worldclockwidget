@@ -98,4 +98,16 @@
     <string name="close">Close</string>
     <string name="weather_service_language">en-US</string>
 
+    <string name="api_changes_text_string">Dear user. Recently there is a change of using your fevarite weather application due to restriction of usage from Open weather Map. Please follow the link to signup and enter your key. Thank you for your understanding and co-operation.</string>
+    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key link</a></string>
+    <string name="new_api_key">new_api_key</string>
+    <string name="new_api_key_title">Change API key</string>
+    <string name="new_api_key_summery">Please enter your Open Weather Map API key here</string>
+    <string name="new_api_key_default_text">Please enter new open weather map API</string>
+
+    <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
+    <string name="WeatherApiPreference_key_summery">Kindly get new weather api to run this app properly. Please click here for more information..</string>
+    <string name="get_api_message">Please get New API Key from below link</string>
+    <string name="current_api_key">Current API Key</string>
+
 </resources>
