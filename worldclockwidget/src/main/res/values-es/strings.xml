@@ -98,4 +98,15 @@
     <string name="close">Cierre</string>
     <string name="weather_service_language">es-ES</string>
 
+    <string name="api_changes_text_string">Querido usuario. Recientemente hay un cambio en el uso de su aplicación de tiempo fevarite debido a la restricción de uso de Mapa de tiempo abierto. Siga el enlace para registrarse e ingrese su clave. Gracias por su comprensión y cooperación.</string>
+    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api Enlace clave</a></string>
+    <string name="new_api_key">new_api_key</string>
+    <string name="new_api_key_title">Change API key</string>
+    <string name="new_api_key_summery">Introduzca su clave de API de mapa de tiempo abierto aquí</string>
+    <string name="new_api_key_default_text">Ingresa una nueva API de mapa de tiempo abierto</string>
+
+    <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
+    <string name="WeatherApiPreference_key_summery">Por favor, obtenga una nueva API de tiempo para ejecutar correctamente esta aplicación. Por favor, haga clic aquí para obtener más información ..</string>
+    <string name="get_api_message">Por favor, obtenga Nueva clave de API desde el enlace de abajo</string>
+    <string name="current_api_key">Current API Key</string>
 </resources>

@@ -98,4 +98,15 @@
     <string name="close">Close</string>
     <string name="weather_service_language">eu-ES</string>
 
+    <string name="api_changes_text_string">Erabiltzaile maitatua. Berriki zure Eguraldi Eguraldiaren Erabilera Eguneratze Eguraldiaren Maparen erabilera murriztearen ondorioz aldaketa bat dago. Jarraitu esteka sinatzeko eta idatzi zure gakoa. Eskerrik asko zure ulermena eta lankidetza.</string>
+    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key link</a></string>
+    <string name="new_api_key">new_api_key</string>
+    <string name="new_api_key_title">Aldatu API tekla</string>
+    <string name="new_api_key_summery">Sartu zure Open Weather Map API gakoa hemen</string>
+    <string name="new_api_key_default_text">Idatzi eguraldiaren mapa berria API berria</string>
+
+    <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
+    <string name="WeatherApiPreference_key_summery">Atseginez eguraldi api berria eskuratu behar da aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago lortzeko.</string>
+    <string name="get_api_message">Lortu esteka beheko API gako berria</string>
+    <string name="current_api_key">Uneko API gakoa</string>
 </resources>
