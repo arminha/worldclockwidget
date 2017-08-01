@@ -1,3 +1,7 @@
+1.8.6:
+
+* New features added to bring the application live. User signup for own api Key feature added.
+
 1.8.5:
 
 * Disable broken weather updates

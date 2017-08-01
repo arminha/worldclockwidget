@@ -1,6 +1,7 @@
 World Clock & Weather
 =====================
 **This project is coming live again. All the upcoming updates will be mainted by** `Biswajit Das <https://github.com/dasbiswajit>`_
+**This new release require Users to signup for API Key.Please look for Settings -> GENERAL -> !!!Important!!! section**
 
 A simple application to display the local time and current weather conditions in places all over the world.
 It comes with two home screen widgets which show weather and time or time only.
@@ -11,6 +12,7 @@ It comes with two home screen widgets which show weather and time or time only.
 Features
 --------
 
+* Generate own api key via signup. Process described at Settings -> GENERAL -> !!!Important!!!
 * Show local time and weather conditions in more than 4000 places.
 * Add your own places: Add a place in the same time zone and change its name and coordinates to your desired location to show the actual weather condition there!
 * A compact clock widget, displaying the local time in your favorite locations.
@@ -41,6 +43,7 @@ OpenWeatherMap API key
 ######################
 
 Using the OpenWeatherMap API requires an API key. A default key is stored in the file ``./worldclockwidget/default_owm_api_key``. It can be overwritten by setting the Gradle project property ``owmApiKey``.
+It is recomended that you shoould generate your own API key. Process described at Application Settings -> GENERAL -> !!!Important!!!
 
 Libraries
 ---------
