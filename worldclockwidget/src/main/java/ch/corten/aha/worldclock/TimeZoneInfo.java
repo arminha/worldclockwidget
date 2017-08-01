@@ -56,7 +56,7 @@ public final class TimeZoneInfo {
     public static String getTimeDifferenceString(DateTimeZone tz) {
         int minutesDiff = getTimeDifference(tz);
         StringBuilder sb = new StringBuilder();
-        sb.append("GMT");
+        sb.append("UTC");
         if (minutesDiff != 0) {
             if (minutesDiff < 0) {
                 sb.append("-");
