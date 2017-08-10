@@ -41,6 +41,8 @@ public class OwmWeatherService implements WeatherService {
         mApiKey = apiKey;
     }
 
+
+    /* This function is getting actual weather*/
     @Override
     public WeatherObservation getWeather(double latitude, double longitude) {
         if (mApiKey == null || mApiKey.isEmpty()) {
