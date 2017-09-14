@@ -2,9 +2,9 @@
 <resources>
 
     <string name="app_name">World Clock &amp; Weather</string>
-    <string name="add_city">Hiria gehitu</string>
-    <string name="world_clock_settings">World Clocken ezarpenak</string>
-    <string name="no_clock_defined">Menua erabili hiriak gehitzeko.</string>
+    <string name="add_city">Gehitu hiria</string>
+    <string name="world_clock_settings">World Clock-en ezarpenak</string>
+    <string name="no_clock_defined">Erabili menua hiriak gehitzeko.</string>
     <string name="n_selcted_format">{0} hautatuta</string>
     <string name="delete">Ezabatu</string>
     <string name="add">Gehitu</string>
@@ -13,7 +13,7 @@
     <string name="city">Hiria</string>
     <string name="latitude">Latitudea</string>
     <string name="longitude">Longitudea</string>
-    <string name="display_in_widget">Widgetean erakutsi</string>
+    <string name="display_in_widget">Bistaratu widgetean</string>
     <string name="description">Deskribapena</string>
     <string name="refresh">Freskatu</string>
 
@@ -29,26 +29,26 @@
     </string-array>
 
     <string name="preferences">Ezarpenak</string>
-    <string name="temperature_unit">Tenperaturaren unitatea</string>
-    <string name="wind_speed_unit">Haizearen abiaduraren unitatea</string>
+    <string name="temperature_unit">Tenperatura unitatea</string>
+    <string name="wind_speed_unit">Haizearen abiadura unitatea</string>
     <string name="humidity">Hezetasuna</string>
-    <string name="wind_format">Haizea: {0}, {1}ko abiaduran</string>
+    <string name="wind_format">Haizea: {0}, {1}-ko abiaduran</string>
     <string name="wind_format_no_direction">Haizea: {1}</string>
     <string name="weather">Eguraldia</string>
-    <string name="activity_title">Munduko erlojua</string>
-    <string name="clock_widget_name">Munduko erlojua</string>
+    <string name="activity_title">World Clock</string>
+    <string name="clock_widget_name">World Clock</string>
     <string name="weather_widget_name">World Clock &amp; Weather</string>
     <string name="no_data_available">Ez dago daturik eskuragarri</string>
-    <string name="change_temperature_unit">Tenperatura unitatea aldatu</string>
-    <string name="change_wind_speed_unit">Haizearen abiaduraren unitatea aldatu</string>
+    <string name="change_temperature_unit">Aldatu tenperatura unitatea</string>
+    <string name="change_wind_speed_unit">Aldatu haizearen abiadura unitatea</string>
     <string name="dialog_color_picker">Kolore hautatzailea</string>
-    <string name="press_color_to_apply">Kolorean sakatu aplikatzeko</string>
-    <string name="widget">Widget</string>
-    <string name="use_custom_colors">Kolore pertsonalizatuak erabili</string>
+    <string name="press_color_to_apply">Sakatu kolorea aplikatzeko</string>
+    <string name="widget">Widgeta</string>
+    <string name="use_custom_colors">Erabili kolore pertsonalizatuak</string>
     <string name="background">Atzeko planoa</string>
     <string name="foreground">Aurreko planoa</string>
-    <string name="change_background_color">Atzeko planoko kolorea eta gardentasuna aldatu</string>
-    <string name="change_foreground_color">Aurreko planoko kolorea aldatu</string>
+    <string name="change_background_color">Aldatu atzeko planoko kolorea eta gardentasuna</string>
+    <string name="change_foreground_color">Aldatu aurreko planoko kolorea</string>
 
     <string-array name="weather_purge_times">
         <item name="2hours">2 ordu</item>
@@ -56,14 +56,14 @@
         <item name="6hours">6 ordu</item>
         <item name="12hours">12 ordu</item>
         <item name="24hours">24 ordu</item>
-        <item name="never">Inoiz</item>
+        <item name="never">Inoiz ez</item>
     </string-array>
 
-    <string name="weather_data_purge_time">Datu zaharrak purgatu</string>
-    <string name="weather_data_purge_time_dialog">Hurrengoa baino zaharragoa den eguraldi datuak purgatu</string>
-    <string name="weather_data_purge_time_summary">Eguraldi datu zaharrak noiz  kentzen diren</string>
+    <string name="weather_data_purge_time">Purgatu datu zaharrak</string>
+    <string name="weather_data_purge_time_dialog">Purgatu ondokoa baino zaharragoak diren eguraldi-datuak</string>
+    <string name="weather_data_purge_time_summary">Eguraldi-datu zaharrak noiz ezabatzen diren</string>
     <string name="disable_automatic_update">Eguneraketa automatikorik ez</string>
-    <string name="disable_automatic_update_of_weather_conditions">Eguraldi baldintzen eguneraketa automatikoa ezgaitu</string>
+    <string name="disable_automatic_update_of_weather_conditions">Ezgaitu eguraldi-baldintzen eguneraketa automatikoa</string>
     <string name="weather_widget_name_2x1">World Clock &amp; Weather 2x1</string>
     <string name="weather_widget_name_2x2">World Clock &amp; Weather 2x2</string>
     <string name="weather_widget_name_2x3">World Clock &amp; Weather 2x3</string>
@@ -75,38 +75,38 @@
     <string name="done">Eginda</string>
     <string name="discard">Baztertu</string>
     <string name="general">Orokorra</string>
-    <string name="automatically_sort_cities">Hiriak automatikoki ordenatu</string>
-    <string name="disable_to_sort_cities_manually">Hiriak eskuz ordenatzeko ezgaitu</string>
+    <string name="automatically_sort_cities">Automatikoki ordenatu hiriak</string>
+    <string name="disable_to_sort_cities_manually">Ezgaitu hiriak eskuz ordenatzea</string>
     <string name="move_up">Gora mugitu</string>
     <string name="move_down">Behera mugitu</string>
-    <string name="time_zone">Ordu eremua</string>
-    <string name="feedback_title">Iritzia bidali</string>
+    <string name="time_zone">Ordu-zona</string>
+    <string name="feedback_title">Bidali iritzia</string>
     <string name="feedback_summary">Kontaiguzu pentsatzen duzuna</string>
     <string name="about">Honi buruz</string>
     <string name="version_caption">Bertsioa</string>
     <string name="license_caption">Lizentzia</string>
-    <string name="project_page_caption">Proiektuaren orria</string>
+    <string name="project_page_caption">Proiektuaren orrialdea</string>
     <string name="developer_caption">Garatzailea</string>
     <string name="acknowledgements_caption">Eskerrak</string>
-    <string name="license_text">GPL Version 3 or later</string>
+    <string name="license_text">GPLv3 edo geroztikoa</string>
     <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
-    <string name="developer_text">Armin Häberling\nBiswajit Das\nEsker bereziak <a href="https://vyick.wordpress.com/">vyick</a>entzat beta frogengatik eta bere iradokizunengatik!</string>
-    <string name="acknowledgement_weather">Eguraldi datuen hornitzaileak <a href="http://openweathermap.org/">Open Weather Map</a>.</string>
+    <string name="developer_text">Armin Häberling\nBiswajit Das\nEsker bereziak <a href="https://vyick.wordpress.com/">vyick</a>-entzat beta-probengatik eta bere iradokizunengatik!</string>
+    <string name="acknowledgement_weather">Eguraldi datuak <a href="http://openweathermap.org/">Open Weather Map</a>-ek hornitzen ditu.</string>
     <string name="acknowledgement_icons">Eguraldi ikonoak Alessio Atzeniren <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> ikonoetan oinarritu dira.</string>
-    <string name="acknowledgement_geonames">Ordu eremu eta datu geografikoen hornitzailea <a href="http://www.geonames.org/">GeoNames</a> da.</string>
-    <string name="about_title">About World Clock &amp; Weather</string>
-    <string name="close">Close</string>
+    <string name="acknowledgement_geonames">Ordu-zonak eta datu geografikoak <a href="http://www.geonames.org/">GeoNames</a>-ek hornitzen ditu.</string>
+    <string name="about_title">World Clock &amp; Weather-i buruz</string>
+    <string name="close">Itxi</string>
     <string name="weather_service_language">eu-ES</string>
 
-    <string name="api_changes_text_string">Erabiltzaile maitatua. Berriki zure Eguraldi Eguraldiaren Erabilera Eguneratze Eguraldiaren Maparen erabilera murriztearen ondorioz aldaketa bat dago. Jarraitu esteka sinatzeko eta idatzi zure gakoa. Eskerrik asko zure ulermena eta lankidetza.</string>
-    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key link</a></string>
+    <string name="api_changes_text_string">Erabiltzaile maitea. Open Weather Map-en erabilera murrizketa baten ondorioz, zure eguraldi mapa app gogokonenean aldaketa bat egon da. Jarraitu esteka izena emateko eta gero idatzi zure gakoa hemen. Eskerrik asko zure ulermen eta lankidetzagatik.</string>
+    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key esteka</a></string>
     <string name="new_api_key">new_api_key</string>
-    <string name="new_api_key_title">Aldatu API tekla</string>
-    <string name="new_api_key_summery">Sartu zure Open Weather Map API gakoa hemen</string>
-    <string name="new_api_key_default_text">Idatzi eguraldiaren mapa berria API berria</string>
+    <string name="new_api_key_title">Aldatu APIrako gakoa</string>
+    <string name="new_api_key_summery">Sartu zure Open Weather Map APIrako gakoa hemen</string>
+    <string name="new_api_key_default_text">Idatzi gako berria</string>
 
     <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
-    <string name="WeatherApiPreference_key_summery">Atseginez eguraldi api berria eskuratu behar da aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago lortzeko.</string>
-    <string name="get_api_message">Lortu esteka beheko API gako berria</string>
+    <string name="WeatherApiPreference_key_summery">Lor ezazu mesedez eguraldi APIrako gako berri bat aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago eskuratzeko.</string>
+    <string name="get_api_message">Lortu ezazu APIrako gako berria ondorengo estekan</string>
     <string name="current_api_key">Uneko API gakoa</string>
 </resources>
