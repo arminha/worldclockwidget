@@ -107,6 +107,8 @@
 
     <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
     <string name="WeatherApiPreference_summary">Por favor, obtenga una nueva API de tiempo para ejecutar correctamente esta aplicación. Por favor, haga clic aquí para obtener más información ..</string>
+    <string name="WeatherApiPreference_title">!!! Important !!!</string>
+    <string name="WeatherApiPreference_dialog_title">Important!!</string>
     <string name="get_api_message">Por favor, obtenga Nueva clave de API desde el enlace de abajo</string>
     <string name="current_api_key">Current API Key</string>
 </resources>
