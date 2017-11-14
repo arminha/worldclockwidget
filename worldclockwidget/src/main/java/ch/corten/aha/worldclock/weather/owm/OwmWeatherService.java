@@ -49,7 +49,7 @@ public class OwmWeatherService implements WeatherService {
             return disabledObservation();
         }
         try {
-            Log.wtf(TAG, "Key**********************************:"+mApiKey);
+            Log.i(TAG, "Key:" + mApiKey);
             String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
             if (mLanguageCode != null) {
                 query += "&lang=" + mLanguageCode;

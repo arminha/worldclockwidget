@@ -27,7 +27,7 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
     @Override
     public WeatherService createService(String provider, String owmApiKey) {
         if (BuildConfig.ENABLE_WEATHER) {
-            Log.i(TAG, "Weather service enabled. Key Value: " + owmApiKey );
+            Log.i(TAG, "Weather service enabled. Key Value: " + owmApiKey);
             if (BuildConfig.OWM_API_KEY.equals(owmApiKey)) {
                 Log.w(TAG, "Currently using default key!");
             }

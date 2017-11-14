@@ -56,12 +56,11 @@ public class WeatherApiPreference extends DialogPreference {
     private void setApikey(View view) {
         View v = view.findViewById(R.id.api_key_value);
         if (v != null && v instanceof TextView) {
-            TextView owm_api_key_text = (TextView) v;
+            TextView owmApiKeyText = (TextView) v;
 
-            //Owm_api_key_text.setText("--set your new apikey here--");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
-            String owmApiKey = prefs.getString(this.getContext().getString(R.string.new_api_key),null);
-            owm_api_key_text.setText(owmApiKey);
+            String owmApiKey = prefs.getString(this.getContext().getString(R.string.new_api_key), null);
+            owmApiKeyText.setText(owmApiKey);
         }
     }
 }
