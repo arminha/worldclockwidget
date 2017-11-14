@@ -102,11 +102,11 @@
     <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key esteka</a></string>
     <string name="new_api_key">new_api_key</string>
     <string name="new_api_key_title">Aldatu APIrako gakoa</string>
-    <string name="new_api_key_summery">Sartu zure Open Weather Map APIrako gakoa hemen</string>
+    <string name="new_api_key_summary">Sartu zure Open Weather Map APIrako gakoa hemen</string>
     <string name="new_api_key_default_text">Idatzi gako berria</string>
 
     <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
-    <string name="WeatherApiPreference_key_summery">Lor ezazu mesedez eguraldi APIrako gako berri bat aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago eskuratzeko.</string>
+    <string name="WeatherApiPreference_summary">Lor ezazu mesedez eguraldi APIrako gako berri bat aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago eskuratzeko.</string>
     <string name="get_api_message">Lortu ezazu APIrako gako berria ondorengo estekan</string>
     <string name="current_api_key">Uneko API gakoa</string>
 </resources>

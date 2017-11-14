@@ -98,7 +98,7 @@
     <string name="close">Close</string>
     <string name="weather_service_language">en-US</string>
 
-    <string name="api_changes_text_string">Dear user. Recently there is a change of using your fevarite weather application due to restriction of usage from Open weather Map. Please follow the link to signup and enter your key. Thank you for your understanding and co-operation.</string>
+    <string name="api_changes_text_string">Dear user. Recently there is a change of using your favorite weather application due to restriction of usage from Open Weather Map. Please follow the link to signup and enter your key. Thank you for your understanding and co-operation.</string>
     <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key link</a></string>
     <string name="new_api_key">new_api_key</string>
     <string name="new_api_key_title">Change API key</string>
