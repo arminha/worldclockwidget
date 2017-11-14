@@ -98,17 +98,17 @@
     <string name="close">Schließen</string>
     <string name="weather_service_language">de-DE</string>
 
-    <string name="api_changes_text_string">Lieber Benutzer. In letzter Zeit gibt es eine Änderung der Verwendung Ihrer Fevarite-Wetter-Anwendung aufgrund der Beschränkung der Nutzung von Open Weather Map. Bitte folgen Sie dem Link zur Anmeldung und geben Sie Ihren Schlüssel ein. Danke für dein Verständnis und die Kooperation.</string>
-    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api Schlüssellink</a></string>
+    <string name="api_changes_text_string">Lieber Benutzer. Seit kurzem gibt es eine Änderung bei der Verwendung Ihrer Lieblings-Wetter-App aufgrund einer Beschränkung der Nutzung von Open Weather Map. Bitte folgen Sie dem Link zur Anmeldung und geben Sie Ihren Schlüssel ein. Danke für Ihr Verständnis und Kooperation.</string>
+    <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">Open Weather API Schlüssellink</a></string>
     <string name="new_api_key">new_api_key</string>
     <string name="new_api_key_title">Change API key</string>
-    <string name="new_api_key_summary">Bitte geben Sie hier Ihren Open Weather Map API ein</string>
-    <string name="new_api_key_default_text">Bitte geben Sie neue offene Wetterkarte API ein</string>
+    <string name="new_api_key_summary">Bitte geben Sie hier Ihren Open Weather Map API Schlüssel ein</string>
+    <string name="new_api_key_default_text">Bitte geben Sie den neuen Open Weather Map API Schlüssel ein</string>
 
     <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
-    <string name="WeatherApiPreference_summary">Bitte bekomme neue Wetter-API, um diese App richtig auszuführen. Bitte klicken Sie hier für weitere Informationen..</string>
+    <string name="WeatherApiPreference_summary">Bitte richten Sie die neue Wetter-API ein, um diese App richtig auszuführen. Bitte klicken Sie hier für weitere Informationen..</string>
     <string name="WeatherApiPreference_title">!!! Important !!!</string>
     <string name="WeatherApiPreference_dialog_title">Important!!</string>
-    <string name="get_api_message">Bitte bekomme neue API Key von unten Link</string>
+    <string name="get_api_message">Bitte beziehen Sie eine API-Schlüssel von folgendem Link</string>
     <string name="current_api_key">Aktueller API-Schlüssel</string>
 </resources>
