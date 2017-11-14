@@ -4,9 +4,9 @@
     <PreferenceCategory android:title="@string/general">
         <ch.corten.aha.preference.WeatherApiPreference
             android:key="@string/WeatherApiPreference_key"
-            android:title="!!!Important!!!"
-            android:dialogTitle="Important!!"
-            android:summary="@string/WeatherApiPreference_key_summery"
+            android:title="@string/WeatherApiPreference_title"
+            android:dialogTitle="@string/WeatherApiPreference_dialog_title"
+            android:summary="@string/WeatherApiPreference_summary"
             android:dialogLayout="@layout/weather_key"
             android:positiveButtonText="@string/close"
             android:negativeButtonText="@null"/>
@@ -15,7 +15,7 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/new_api_key_title"
-            android:summary="@string/new_api_key_summery"
+            android:summary="@string/new_api_key_summary"
             android:key="@string/new_api_key" />
         <CheckBoxPreference
             android:title="@string/automatically_sort_cities"
