@@ -25,15 +25,15 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
 
     private static final String TAG = "WeatherServiceFactory";
     @Override
-    public WeatherService createService(String provider,String owm_api_key) {
+    public WeatherService createService(String provider, String owmApiKey) {
         if (BuildConfig.ENABLE_WEATHER) {
-            Log.e(TAG, "Info:: weather service enabled. Key Value:- "+owm_api_key );
-            if (owm_api_key == BuildConfig.OWM_API_KEY) {
-                Log.e(TAG, "Info:: Currently using default key!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Log.i(TAG, "Weather service enabled. Key Value: " + owmApiKey );
+            if (BuildConfig.OWM_API_KEY.equals(owmApiKey)) {
+                Log.w(TAG, "Currently using default key!");
             }
-            return new OwmWeatherService(owm_api_key); //Here passing the OWM_API_KEY to the OwmWeatherService class
+            return new OwmWeatherService(owmApiKey);
         } else {
-            Log.e(TAG, "Warning!!!::Weather service is disabled!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Log.w(TAG, "Weather service is disabled!");
             return new OwmWeatherService(null);
         }
     }

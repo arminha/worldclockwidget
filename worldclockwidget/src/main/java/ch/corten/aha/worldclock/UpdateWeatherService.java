@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.preference.EditTextPreference;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -100,13 +99,12 @@ public class UpdateWeatherService extends IntentService {
         if (updateInterval > 0) {
             query = Clocks.LAST_UPDATE + " < " + (currentTime - updateInterval);
         }
-        ///#TODO here triggering the service. So setting the key here. Biswajit will implement new APIKEY from shared preferance
-        String Default_weather_owm_API_KEY = BuildConfig.OWM_API_KEY;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String OWM_API_KEY =prefs.getString(context.getString(R.string.new_api_key),null);
-        Log.e(TAG,"New key from preferance: "+OWM_API_KEY+ "*******************************************************************");
 
-        WeatherService service = new AndroidWeatherServiceFactory().createService("owm",OWM_API_KEY);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String owmApiKey = prefs.getString(context.getString(R.string.new_api_key), null);
+        Log.i(TAG, "New key from preferance: " + owmApiKey);
+
+        WeatherService service = new AndroidWeatherServiceFactory().createService("owm", owmApiKey);
         service.setLanguage(context.getString(R.string.weather_service_language));
 
         try {
