@@ -49,6 +49,7 @@ manually_added_cities = \
     ,('6620770', 'McMurdo Station')
     ,('4062577', 'Florence')
     ,('5877641', 'Wasilla')
+    ,('378459', 'Ar Ruseris')
     ]
 
 time_zone_replacements = {
