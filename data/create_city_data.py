@@ -49,7 +49,7 @@ manually_added_cities = \
     ,('6620770', 'McMurdo Station')
     ,('4062577', 'Florence')
     ,('5877641', 'Wasilla')
-    ,('378459', 'Ar Ruseris')
+    ,('378459', 'Ar Ruseris', 'Ar Rusayris')
     ]
 
 time_zone_replacements = {
@@ -164,13 +164,23 @@ def select_row(ci, row):
     return False
 
 def is_manually_added(row):
-    for (id, name) in manually_added_cities:
+    for manual_city in manually_added_cities:
+        (id, name, override_name) = unpack_manual_city(*manual_city)
         if id == row[GEONAMEID]:
             if name != row[ASCIINAME]:
                 print 'WARNING: name of city [%s] has changed from "%s" to "%s"' % (id, name, row[ASCIINAME])
-            print 'manually added city: %s, %s [%s]' % (row[ASCIINAME], row[ISO_CODE], id)
+            if override_name:
+                print 'manually added city: %s, %s [%s] override name: %s' % (row[ASCIINAME], row[ISO_CODE], id, override_name)
+                row[NAME] = override_name
+            else:
+                print 'manually added city: %s, %s [%s]' % (row[ASCIINAME], row[ISO_CODE], id)
             return True
     return False
+
+def unpack_manual_city(id, name, *rest):
+    if rest:
+        return id, name, rest[0]
+    return id, name, None
 
 def checkPopulationLevel(row):
     iso_code = row[ISO_CODE]
