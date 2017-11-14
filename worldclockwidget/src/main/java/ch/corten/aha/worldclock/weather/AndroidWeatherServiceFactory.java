@@ -16,18 +16,10 @@
 
 package ch.corten.aha.worldclock.weather;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 
 import ch.corten.aha.worldclock.BuildConfig;
-import ch.corten.aha.worldclock.R;
 import ch.corten.aha.worldclock.weather.owm.OwmWeatherService;
-
-import ch.corten.aha.preference.WeatherApiPreference;
 
 public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
 
