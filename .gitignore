@@ -17,3 +17,6 @@ gradle.properties
 .idea/
 out/
 *.iml
+
+#key file
+/worldclockwidget/default_owm_api_key
