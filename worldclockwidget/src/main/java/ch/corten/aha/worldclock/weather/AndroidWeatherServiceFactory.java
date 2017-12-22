@@ -54,7 +54,7 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
                 Log.e(TAG, "Info:: performance key null detected.");
                 no_key = true;
             }
-            else if (owm_api_key.equals("Please enter new open weather map API"))
+            else if (owm_api_key.equals("Please enter new open weather map API key"))
             {
                 Log.e(TAG, "Info:: performance value is: Please enter new open weather map API.");
                 no_key = true;
@@ -74,7 +74,6 @@ public class AndroidWeatherServiceFactory implements WeatherServiceFactory {
                 Log.e(TAG, "Info:: New Key:" + new_api_key_from_file+".");
                 //Here setting the OWM_API_KEY to the OwmWeatherService class
                 api_key_value=new_api_key_from_file;
-
             }
             else
             {
