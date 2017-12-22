@@ -106,7 +106,7 @@ public class UpdateWeatherService extends IntentService {
         String OWM_API_KEY =prefs.getString(context.getString(R.string.new_api_key),null);
         Log.e(TAG,"New key from preferance: "+OWM_API_KEY+ "*******************************************************************");
 
-        WeatherService service = new AndroidWeatherServiceFactory().createService("owm",OWM_API_KEY);
+        WeatherService service = new AndroidWeatherServiceFactory().createService("owm",OWM_API_KEY,context);
         service.setLanguage(context.getString(R.string.weather_service_language));
 
         try {
