@@ -142,7 +142,7 @@
 6620715	Anvers Island	Anvers Island	Amberes  isla,Antwerpeneiland,Antwerpia,Anvera,Anvers,Anvers Island,Anvers  Ile,Anvers  Isla,Anvers-Insel,Anversoen,Anversoya,Anversön,Anversøya,Ile Anvers,Ilha Anvers,Illa Anvers,Insulo Anvers,Isla Anvers,Isola di Anvers,ang wei er dao,Île Anvers,Άνβερς,انورز جزیرہ,昂韋爾島	-64.6	-63.5	T	ISL	AQ						0		2009	Antarctica/Palmer	2008-01-20
 6620716	Joinville Island	Joinville Island	Joinville Island,Joinville  Isla,Joinvilleoya,Joinvilleøya	-63.35	-55.66667	T	ISL	AQ						0	765	-9999	Antarctica/Palmer	2008-01-20
 6620717	Charcot Island	Charcot Island	Charcot Island,Charcot  Ile,Charcot  Isla,Charcotoya,Charcotøya	-69.75	-75.25	T	ISL	AQ						0		446	Antarctica/Rothera	2008-01-20
-6620718	King George Island	King George Island	25 de Mayo  isla,King George Island,King Island,Kong Georgs oy,Kong Georgs øy,Rey Jorge  Isla	-62.38333	-59.11667	T	ISL	AQ						0	655	-9999	Antarctica/Palmer	2008-01-20
+6620718	King George Island	King George Island	25 de Mayo  isla,King George Island,King Island,Kong Georgs oy,Kong Georgs øy,Rey Jorge  Isla,TNM	-62	-58.1	T	ISL	AQ						0	655	520	Antarctica/Palmer	2017-07-02
 6620719	Mill Island	Mill Island	Mill Island,Mill-oya,Mill-øya	-65.5	100.66667	T	ISL	AQ						0	326	354	Antarctica/Davis	2008-01-20
 6620720	Sherman Island	Sherman Island	Sherman Island,Shermanoya,Shermanøya	-73.05	-100	T	ISL	AQ						0	186	154	Antarctica/Rothera	2008-01-20
 6620721	Smyley Island	Smyley Island	Smyley Island,Smyley  Cabo,Smyleyoya,Smyleyøya	-72.84202	-77.82715	T	ISL	AQ						0		291	Antarctica/Rothera	2014-08-02
@@ -151,7 +151,7 @@
 6620724	Grant Island	Grant Island	Grant Island,Grantoya,Grantøya	-74.46667	-131.58333	T	ISL	AQ						0	580	288	Antarctica/McMurdo	2008-01-20
 6620725	Latady Island	Latady Island	Latady Island,Latadyoya,Latadyøya	-70.75	-74.58333	T	ISL	AQ						0		-9999	Antarctica/Rothera	2008-01-20
 6620726	Drygalski Island	Drygalski Island	Drygalski Island,Drygalskioya,Drygalskiøya	-65.75	92.5	T	ISL	AQ						0	510	243	Antarctica/Mawson	2008-01-20
-6620727	Renaud Island	Renaud Island	Ranaudoya,Ranaudøya,Renaud Island,Renaud  isla	-66.16667	-66	T	ISL	AQ						0		-9999	Antarctica/Palmer	2008-01-20
+6620727	Renaud Island	Renaud Island	Ranaudoya,Ranaudøya,Renaud Island,Renaud Ylan,Renaud  isla,Renaud-Eiland,Renaud-Insel	-66.16667	-66	T	ISL	AQ	LI					0		-9999	America/Adak	2017-03-14
 6620728	Masson Island	Masson Island	Masson Island,Massonoya,Massonøya	-66.13333	96.58333	T	ISL	AQ						0	471	316	Antarctica/Vostok	2008-01-20
 6620729	Elephant Island	Elephant Island	Elefant-insulo,Elefant-sziget,Elefanta,Elefante  isla,Elefantoen,Elefantoya,Elefanttisaari,Elefantön,Elefantøya,Elefánt-sziget,Elephant Island,Elephanteiland,Elpendieg,Elpendīeg,Fil Adasi,Fil Adası,Ile de lElephant,Ilha Elefante,Illa Elefant,Isla Elefante,Isola Elephant,Mordvinova  ostrov,Oaljefanteilan,Oaljefanteilân,Ostriv Mordvinova,Ostrov Mordvinova,Sloni ostrov,Sloní ostrov,ellipeonteu seom,erefanto dao,xiang dao,Île de lÉléphant,Остров Мордвинова,Острів Мордвінова,אי הפיל,სპილოს კუნძული,エレファント島,象岛,엘리펀트 섬	-61.08486	-55.18433	T	ISL	AQ						0	852	141	Antarctica/Palmer	2008-01-20
 6620730	Rothschild Island	Rothschild Island	Rothschild Island,Rothschild  Ile de,Rothschild  isla,Rotschildoya,Rotschildøya	-69.42862	-72.55371	T	ISL	AQ						0		14	Antarctica/Rothera	2008-01-20
@@ -172,7 +172,6 @@
 6620745	Comandante Ferraz Brazilian Antarctic Base	Comandante Ferraz Brazilian Antarctic Base	Comandante Ferraz Brazilian Antarctic Base,Comandante Ferraz Brazilian Antarctic Base (Brazil),Estacao Antartica Comandante Ferraz,Estação Antártica Comandante Ferraz,Kommandant Ferraz-basen,Kommandant Ferraz-basen (Brasil)	-62.08693	-58.39221	S	STNB	AQ						0		-9999	Antarctica/Palmer	2009-12-23
 6620746	Concordia Station	Concordia Station	Concordia,Concordia (Frankrike og Italia),Concordia Station,Concordia Station (France and Italy)	-75.1	123.33333	S	STNB	AQ						32	3233	3230	Antarctica/Casey	2008-01-02
 6620748	Davis Station	Davis Station	Base Davis,Base antarctique Davis,Davis,Davis (Australia),Davis /Austral./,Davis Station,Davis Station (Australia),Davis-Station,Davis-stasjonen,Deivisa,Deiviso stotis,Dejvis,Devis,Stazione Davis,dai wei si zhan,Девіс,Дейвис,戴维斯站	-68.57632	77.96757	S	STNB	AQ						0		-9999	Antarctica/Davis	2009-11-04
-6620749	Dumont d'Urville Station	Dumont d'Urville Station	Dumont d'Urville,Dumont d'Urville /Fr./,Dumont d'Urville Station,Dumont d'Urville Station (France),Dumont d'Urville  Base,Dumont d'Urville-stasjonen (Frankrike),Dumont d’Urville	-66.66667	140	S	STNB	AQ						30		-9999	Antarctica/DumontDUrville	2013-09-28
 6620750	Base Presidente Eduardo Frei Montalva	Base Presidente Eduardo Frei Montalva	Base Frei,Base presidente Eduardo Frei Montalva,Eduardo Frei,Eduardo Frei Montalva,Eduardo Frei Montalva (Chile),Eduardofreja,Frej,Presidente Eduardo Frei Montalva,Presidente Eduardo Frei Montalva Station,Prezident Ehduardo Frej Montalva,edualeudo peulei montalba giji,Пойгоҳи раес‌ҷумҳури идворду фар мунтолуо,Президент Эдуардо Фрей Монталва,Фрей,پایگاه رئیس‌جمهور ادواردو فری مونتالوا,エドゥアルド・フレイ・モンタルバ基地,爱德华多·弗雷·蒙塔尔瓦总统基地,에두아르도 프레이 몬탈바 기지	-62.195	-58.97833	S	STNB	AQ						110	10	-9999	Antarctica/Palmer	2013-06-18
 6620751	Esperanza Base	Esperanza Base	Esperanza Base,Esperanza Base (Argentina),Esperanza-basen,Esperanza-basen (Argentina)	-63.4	-57	S	STNB	AQ						100	10	98	Antarctica/Palmer	2008-01-02
 6620752	Gabriel de Castilla Spanish Antarctic Station	Gabriel de Castilla Spanish Antarctic Station	Gabriel de Castilla Spanish Antarctic Station,Gabriel de Castilla Spanish Antarctic Station (Spain),Gabriel de Castilla-stasjonen,Gabriel de Castilla-stasjonen (Spania)	-62.96667	-60.68333	S	STNB	AQ						0		1	Antarctica/Palmer	2008-01-02
@@ -180,7 +179,7 @@
 6620754	Gonzalez Videla Station	Gonzalez Videla Station	Gonzalez Videla Station,Gonzalez Videla Station (Chile),Gonzalez Videla-stasjonen,Gonzalez Videla-stasjonen (Chile)	-64.82328	-62.8575	S	STNB	AQ						0		58	Antarctica/Palmer	2012-08-11
 6620755	Great Wall Station	Great Wall Station	Great Wall Station,Great Wall Station (China),Great Wall-stasjonen,Great Wall-stasjonen (Kina)	-62.21667	-58.97	S	STNM	AQ						0		-9999	Antarctica/Palmer	2008-01-02
 6620756	Halley Research Station	Halley Research Station	Halley Research Station,Halley Research Station (United Kingdom),Halley forskingsstasjon,Halley forskingsstasjon (Storbritannia)	-75.60463	-26.209	S	STNB	AQ						50		-9999	Antarctica/McMurdo	2015-04-29
-6620757	Henryk Arctowski Polish Antarctic Station	Henryk Arctowski Polish Antarctic Station	Arctowski /Pol./,Arctowski Station,Henryk Arctowski Polish Antarctic Station,Henryk Arctowski Polish Antarctic Station (Poland),Henryk Arctowski-stasjonen,Henryk Arctowski-stasjonen (Polen)	-62.15333	-58.48167	S	STNB	AQ						0		4	Antarctica/Palmer	2008-01-20
+6620757	Henryk Arctowski Polish Antarctic Station	Henryk Arctowski Polish Antarctic Station	Arctowski /Pol./,Arctowski Station,Henryk Arctowski Polish Antarctic Station,Henryk Arctowski Polish Antarctic Station (Poland),Henryk Arctowski-stasjonen,Henryk Arctowski-stasjonen (Polen)	-62.15333	-58.48167	S	STNB	AQ	PL					0		4	Antarctica/Palmer	2017-05-17
 6620758	Jinnah Antarctic Station	Jinnah Antarctic Station	Jinnah,Jinnah Antarctic Station,Jinnah Antarctic Station (Pakistan),Jinnah-stasjonen (Pakistan)	-70.4	25.75	S	STNB	AQ						0		-9999	Antarctica/Syowa	2012-07-27
 6620759	Juan Carlos I Spanish Antarctic Station	Juan Carlos I Spanish Antarctic Station	Juan Carlos I Spanish Antarctic Station,Juan Carlos I Spanish Antarctic Station (Spain),Juan Carlos I-stasjonen,Juan Carlos I-stasjonen (Spain)	-62.65	-60.38333	S	STNB	AQ						0		14	Antarctica/Palmer	2008-01-02
 6620760	Jubany	Jubany	Jubany,Jubany (Argentina)	-62.23667	-58.67667	S	STNM	AQ						60		32	Antarctica/Palmer	2008-01-02
@@ -2168,7 +2167,7 @@
 6623614	Prince Albert Mountains	Prince Albert Mountains	Montagne del principe Albert,Monts du Prince-Albert,Prince Albert Mountains,Prinssi Albertin vuoret,a er bo te qin wang shan mai,阿爾伯特親王山脈	-76	161.5	T	MTS	AQ						0		945	Antarctica/McMurdo	2011-01-27
 6623615	Prince Andrew Plateau	Prince Andrew Plateau	Prince Andrew Plateau	-83.63333	162	T	PLAT	AQ						0	2700	2898	Antarctica/McMurdo	2008-01-20
 6623616	Van Beneden Cap	Van Beneden Cap	Beneden Head,Beneden  cabo,Van Beneden Cap,Van Beneden  Cabo	-64.76712	-62.70102	T	CAPE	AQ						0	700	-9999	Antarctica/Palmer	2013-04-13
-6623617	Prince Charles Mountains	Prince Charles Mountains	Prince Charles Mountains	-71.42722	67.24611	T	MT	AQ						0		759	Antarctica/Mawson	2008-01-20
+6623617	Prince Charles Mountains	Prince Charles Mountains	Prince Charles Mountains	-71.42722	67.24611	T	MTS	AQ						0		759	Antarctica/Mawson	2017-05-23
 6623618	Prince Charles Strait	Prince Charles Strait	Prince Charles Strait,Principe Carlos  pasaje,Príncipe Carlos  pasaje	-61.09977	-54.56659	H	CHN	AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6623619	Prince de Ligne Mountains	Prince de Ligne Mountains	Prince de Ligne Mountains,Prince de Ligne  Monts	-72.33333	31.23333	T	MT	AQ						0	2285	1996	Antarctica/Syowa	2008-01-20
 6623620	Prince Edward Glacier	Prince Edward Glacier	Prince Edward Glacier	-82.76667	159.53333	H	GLCR	AQ						0		1386	Antarctica/McMurdo	2008-01-20
@@ -3176,7 +3175,7 @@
 6624622	Sage Nunataks	Sage Nunataks		-84.55	-173	T	NTKS	AQ						0		356	Antarctica/McMurdo	2008-01-20
 6624623	Sagehen Nunataks	Sagehen Nunataks		-86.5	-153.25	T	NTKS	AQ						0	150	1974	Antarctica/McMurdo	2008-01-20
 6624624	Sanhueza, Punta	Sanhueza, Punta		-64.81667	-62.85	T	CAPE	AQ						0		116	Antarctica/Palmer	2008-01-20
-6624625	Sail Rock	Sail Rock	Sail Rock,Vela  roca	-63.05	-60.95	T	ISL	AQ						0	30	-9999	Antarctica/Palmer	2013-04-13
+6624625	Sail Rock	Sail Rock	Sail Rock,Vela  roca	-63.05	-60.95	T	ISL	AQ						0	30	-9999	Antarctica/Palmer	2017-09-02
 6624626	Sails, Bay of	Sails, Bay of	Sailes  Bay of,Sails  Bay of	-77.35	163.56667	H	COVE	AQ						0		1	Antarctica/McMurdo	2008-01-20
 6624627	Saint George Peak	Saint George Peak	Saint George Peak,St. George Peak	-69.14355	-72.02733	T	PK	AQ						0	1500	523	Antarctica/Rothera	2013-04-13
 6624628	Saint Johns Range	Saint Johns Range	Saint Johns Range	-77.28333	162	T	MTS	AQ						0		1262	Antarctica/McMurdo	2008-01-20
@@ -10676,7 +10675,7 @@
 6632125	Dick, Mount	Dick, Mount	Dick  Mount	-80.81667	158.53333	T	MT	AQ						0	3000	1677	Antarctica/McMurdo	2008-01-20
 6632126	Dideriha, gora	Dideriha, gora		-81.96667	159.58333	T	MT	AQ						0		1375	Antarctica/McMurdo	2008-01-20
 6632127	Dido, Mount	Dido, Mount	Dido  Mount	-77.48333	160.95	T	MT	AQ						0	2255	1631	Antarctica/McMurdo	2008-01-20
-6632128	Diebel, punta	Diebel, punta		-60.73333	-44.71667	T	CAPE	AQ						0		1	Antarctica/Rothera	2008-01-20
+6632128	Punta Diebel	Punta Diebel		-60.73333	-44.71667	T	CAPE	AQ						0		1	Antarctica/Rothera	2016-11-17
 6632129	Dieglman Island	Dieglman Island	Dieglman Island	-66.00306	100.79556	T	ISL	AQ						0		-9999	Antarctica/Davis	2008-01-20
 6632130	Dietz Bluff	Dietz Bluff	Dietz Bluff	-72.02261	-62.11171	T	SLP	AQ						0		7	Antarctica/Palmer	2013-04-13
 6632131	Dietz, Mount	Dietz, Mount		-86.26667	-153.16667	T	MT	AQ						0	2250	1707	Antarctica/McMurdo	2008-01-20
@@ -13817,7 +13816,7 @@
 6635269	Hughes Point	Hughes Point		-73.5	-94.26667	T	CAPE	AQ						0		1365	Antarctica/Rothera	2008-01-20
 6635270	Hughes Range	Hughes Range	Hughes Range	-84.5	175.5	T	MTS	AQ						0	4255	3229	Antarctica/McMurdo	2008-01-20
 6635271	Hughes, Mount	Hughes, Mount	Hughes  Mount	-79.51667	157.38333	T	MT	AQ						0	2350	1778	Antarctica/DumontDUrville	2008-01-20
-6635272	Austral, manchón	Austral, manchon		-60.75	-44.73333	T	HLL	AQ						0		-9999	Antarctica/Rothera	2008-01-20
+6635272	Manchón Austral	Manchon Austral		-60.75	-44.73333	T	HLL	AQ						0		-9999	Antarctica/Rothera	2016-11-17
 6635273	Hugi Glacier	Hugi Glacier	Hugi Glacier,Hugi  glaciar	-66.22708	-65.07699	H	GLCR	AQ						0		615	Antarctica/Palmer	2013-04-13
 6635274	Victor Hugo, isla	Victor Hugo, isla	Hugo Island,Victor Hugo Island,Victor Hugo  Isla,Victor Hugo  isla,Víctor Hugo  Isla	-64.95838	-65.72152	T	ISL	AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6635275	Huie Cliffs	Huie Cliffs	Huie Cliffs	-83.31221	-50.99735	T	SLP	AQ						0		1747	Antarctica/Rothera	2013-04-13
@@ -15664,7 +15663,7 @@
 6637118	Bandits Bluff	Bandits Bluff		-68.42167	78.38472	T	SLP	AQ						0	32	-9999	Antarctica/Mawson	2008-01-20
 6637119	Loke, Mount	Loke, Mount	Loke  Mount	-77.48333	162.55	T	MT	AQ						0		937	Antarctica/McMurdo	2008-01-20
 6637120	Lokot' Island	Lokot' Island	Lokot' Island,Lokot'  ostrov	-68.855	77.8825	T	ISL	AQ						0	52	-9999	Antarctica/Davis	2008-01-20
-6637121	Lola, punta	Lola, punta	Lola Point,Lola  Point,Lola  punta	-60.71667	-44.71667	T	CAPE	AQ						0		-9999	Antarctica/Rothera	2008-01-20
+6637121	Lola, punta	Lola, punta	Lola Point,Lola  punta,Point Lola	-60.71667	-44.71667	T	CAPE	AQ						0		-9999	Antarctica/Rothera	2016-11-17
 6637122	Lola, Mount	Lola, Mount	Lola  Mount,Lola  monte	-60.716	-44.7	T	MT	AQ						0	170	-9999	Antarctica/Rothera	2013-04-13
 6637123	Lomas Ridge	Lomas Ridge	Lomas Ridge	-64.354	-57.603	T	PK	AQ						0		62	Antarctica/Palmer	2013-04-13
 6637124	Loma, punta	Loma, punta		-62.26667	-58.98333	T	CAPE	AQ						0		98	Antarctica/Palmer	2008-01-20
@@ -16356,7 +16355,7 @@
 6637810	McElroy Ridge	McElroy Ridge		-72.61667	168.05	T	PK	AQ						0		2190	Antarctica/McMurdo	2008-01-20
 6637811	McElroy, Mount	McElroy, Mount	McElroy  Mount	-74.15185	-63.18673	T	MT	AQ						0		1481	Antarctica/Palmer	2013-04-13
 6637812	Barracouta Ridge	Barracouta Ridge	Barracouta Ridge	-85.33333	-166.58333	T	PK	AQ						0		2154	Antarctica/McMurdo	2008-01-20
-6637813	Mac Farlane, estrecho	Mac Farlane, estrecho	Mac Farlane  estrecho,Mc Farlane  Estrecho,McFarlane Strait	-62.50631	-59.98702	H	CHN	AQ						0		-9999	Antarctica/Palmer	2013-04-13
+6637813	McFarlane Strait	McFarlane Strait	Mac Farlane  estrecho,Mc Farlane  Estrecho,McFarlane Strait	-62.50631	-59.98702	H	CHN	AQ						0		-9999	Antarctica/Palmer	2016-10-06
 6637814	McGaw Peak	McGaw Peak		-75.86667	-140.98333	T	PK	AQ						0	800	598	Antarctica/McMurdo	2008-01-20
 6637815	McGee Rock	McGee Rock		-75.9	-142.98333	T	HLL	AQ						0		800	Antarctica/McMurdo	2008-01-20
 6637816	McGee, Mount	McGee, Mount		-74.05	164.55	T	MT	AQ						0	1410	1074	Antarctica/McMurdo	2008-01-20
@@ -16834,7 +16833,7 @@
 6638288	Monakov, Cape	Monakov, Cape	Monakov  Cape,Monakova  mys	-67.18333	48.35	T	CAPE	AQ						0		-9999	Antarctica/Syowa	2008-01-20
 6638289	Monastery Nunatak	Monastery Nunatak	Monastery Nunatak	-77.96667	160.58333	T	NTK	AQ						0		1844	Antarctica/McMurdo	2008-01-20
 6638290	Mondor Glacier	Mondor Glacier	Mondor Glacier	-63.45161	-57.12726	H	GLCR	AQ						0		285	Antarctica/Palmer	2013-04-13
-6638291	Moneta, cabo	Moneta, cabo		-60.73333	-44.76667	T	CAPE	AQ						0		54	Antarctica/Rothera	2008-01-20
+6638291	Moneta, cabo	Moneta, cabo		-60.73333	-44.76667	T	CAPE	AQ						0		54	Antarctica/Rothera	2016-11-17
 6638292	Monflier, cabo	Monflier, cabo	Monflier Point,Monflier  Punta,Monflier  cabo	-65.92389	-66.03937	T	CAPE	AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6638293	Monge, Ile	Monge, Ile	Monge Island,Monge  Ile	-66.78722	141.48194	T	ISL	AQ						0		7	Antarctica/DumontDUrville	2008-01-20
 6638294	Monica Rock	Monica Rock	Monica Rock,Monica  Roca,Mónica  Roca	-62.34123	-59.74086	T	ISL	AQ						0	1	-9999	Antarctica/Palmer	2013-04-13
@@ -16922,7 +16921,7 @@
 6638376	Morennoe, ozero	Morennoe, ozero		-70.53333	68.8	H	LK	AQ						0		199	Antarctica/Mawson	2008-01-20
 6638377	Morennye, nunataki	Morennye, nunataki		-71.06667	71.76667	T	NTK	AQ						0		163	Antarctica/Mawson	2008-01-20
 6638378	Moreno, Ile	Moreno, Ile	Moreno Rock,Moreno  Ile,Vio  Islote	-64.08333	-62.3	T	ISL	AQ						0		37	Antarctica/Palmer	2008-01-20
-6638379	Moreno, punta	Moreno, punta	Moreno  Point,Moreno  punta	-60.73333	-44.68333	T	CAPE	AQ						0		105	Antarctica/Rothera	2008-01-20
+6638379	Moreno, punta	Moreno, punta	Moreno  punta,Point Moreno	-60.73333	-44.68333	T	CAPE	AQ						0		105	Antarctica/Rothera	2016-11-17
 6638380	Moreno, punta	Moreno, punta		-62.58333	-59.9	T	CAPE	AQ						0		-9999	Antarctica/Palmer	2008-01-20
 6638381	Moreton, punta	Moreton, punta	Moreton Point,Moreton  punta	-60.616	-46.033	T	CAPE	AQ						0		-9999	Antarctica/Rothera	2013-04-13
 6638382	Morgan Glacier	Morgan Glacier		-73.28389	68.28833	H	GLCR	AQ						0		959	Antarctica/Mawson	2008-01-20
@@ -17126,14 +17125,14 @@
 6638580	Orcadas /Arg./	Orcadas /Arg./		-60.75	-44.71667	S		AQ						0		2	Antarctica/Rothera	2008-01-20
 6638581	Orel Ice Fringe	Orel Ice Fringe	Orel Ice Fringe	-64.766	-62.583	H		AQ						0		215	Antarctica/Palmer	2013-04-13
 6638582	Oreshek, banka	Oreshek, banka		-67.65	45.95	U		AQ						0		-9999	Antarctica/Syowa	2008-01-20
-6638583	Orton Cave	Orton Cave	Orton Cave	-66.37083	110.44417			AQ						0	26	-9999	Antarctica/Davis	2008-01-20
+6638583	Orton Cave	Orton Cave	Orton Cave	-66.37083	110.44417	S	CAVE	AQ						0	26	-9999	Antarctica/Davis	2016-10-18
 6638584	Orton Reef	Orton Reef	Orton Reef	-66.26278	110.5475	U		AQ						0	0	-9999	Antarctica/Davis	2008-01-20
 6638585	Pain Névé	Pain Neve	Pain Neve,Pain Névé	-84.6	174.33333	H		AQ						0		2386	Antarctica/McMurdo	2008-01-20
 6638586	Parry Patch	Parry Patch	Parry Patch	-62.283	-59.366	U		AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6638587	Behaim Seamount	Behaim Seamount		-67.8	-11	U		AQ						0		-9999		2008-01-20
 6638588	Patuxent Ice Stream	Patuxent Ice Stream	Patuxent Ice Stream	-85.25	-67.75	H		AQ						0		1363	Antarctica/McMurdo	2008-01-20
-6638589	Pauls Hole	Pauls Hole	Pauls Hole	-64.69362	-62.63315			AQ						0		-9999	Antarctica/Palmer	2013-04-13
-6638590	Peel Cirque	Peel Cirque	Peel Cirque	-69.14321	-70.57318			AQ						0		1098	Antarctica/Rothera	2013-04-13
+6638589	Pauls Hole	Pauls Hole	Pauls Hole	-64.69362	-62.63315	H	HBR	AQ						0		-9999	Antarctica/Palmer	2016-10-18
+6638590	Peel Cirque	Peel Cirque	Peel Cirque	-69.14321	-70.57318	T	CRQ	AQ						0		1098	Antarctica/Rothera	2016-10-18
 6638591	Péndulo	Pendulo		-62.93625	-60.59264	S		AQ						0		166	Antarctica/Palmer	2008-01-20
 6638592	Penguin Station	Penguin Station		-70.19167	-2.38333	S		AQ						0		-9999		2008-01-20
 6638593	Penney Landing	Penney Landing	Penney Landing	-66.37028	110.46361	H		AQ						0	3	-9999	Antarctica/Davis	2008-01-20
@@ -17161,7 +17160,7 @@
 6638615	Bellinsgauzena, shel'fovyj lednik	Bellinsgauzena, shel'fovyj lednik		-69.5	-0.5	H		AQ						0		-9999		2008-01-20
 6638616	Polar Committee Icefall	Polar Committee Icefall		-62.13333	-58.5	H		AQ						0		34	Antarctica/Palmer	2008-01-20
 6638617	Bellinsgauzen, nauchnaja stancija /SSSR/	Bellinsgauzen, nauchnaja stancija /SSSR/		-62.2	-58.96667	S		AQ						0		-9999	Antarctica/Palmer	2008-01-20
-6638618	Polar Subglacial Basin	Polar Subglacial Basin		-85	110			AQ						0		3113	Antarctica/Davis	2008-01-20
+6638618	Polar Subglacial Basin	Polar Subglacial Basin		-85	110	U	BSNU	AQ						0		3113	Antarctica/Davis	2016-10-18
 6638619	Polarsirkel Valley	Polarsirkel Valley		-64.83333	8	U		AQ						0		-9999		2008-01-20
 6638620	Poljus Nedostupnosti, nauchnaja stancija/SSSR/	Poljus Nedostupnosti, nauchnaja stancija/SSSR/		-82.1	54.96667	S		AQ						0		3726	Antarctica/McMurdo	2008-01-20
 6638621	Port Lockroy (Base A) /Brit./	Port Lockroy (Base A) /Brit./		-64.81667	-63.51667	S		AQ						0		-9999	Antarctica/Palmer	2008-01-20
@@ -17182,7 +17181,7 @@
 6638636	Przheval'skijbreen	Przheval'skijbreen	Przheval'skijbreen,Przheval'skogo  lednik	-71.66667	11.33333	H	GLCR	AQ						0		1881	Antarctica/Syowa	2015-11-27
 6638637	Publications Ice Shelf	Publications Ice Shelf	Publication Ice Shelf,Publications Ice Shelf	-69.66917	75.22611	H		AQ						0		-9999	Antarctica/Mawson	2008-01-20
 6638638	Aguirre Cerda /Chile/	Aguirre Cerda /Chile/		-62.93333	-60.6	S		AQ						0		95	Antarctica/Palmer	2008-01-20
-6638639	Punchbowl Cirque	Punchbowl Cirque	Punchbowl Cirque	-76.7	159.78333			AQ						0		1804	Antarctica/McMurdo	2008-01-20
+6638639	Punchbowl Cirque	Punchbowl Cirque	Punchbowl Cirque	-76.7	159.78333	T	CRQ	AQ						0		1804	Antarctica/McMurdo	2016-10-18
 6638640	Purcell Snowfield	Purcell Snowfield	Purcell Snowfield	-70.566	-69.75	H		AQ						0		545	Antarctica/Rothera	2013-04-13
 6638641	Pushkina, lednik	Pushkina, lednik		-81.66667	-23	H		AQ						0		1322	Antarctica/McMurdo	2008-01-20
 6638642	Quadrangle, The	Quadrangle, The	Quadrangle  The	-71.57694	-68.57829	H		AQ						0		509	Antarctica/Rothera	2013-04-13
@@ -17211,10 +17210,10 @@
 6638665	Riiser-Larsen Basin	Riiser-Larsen Basin		-72.1	-14.75	U		AQ						0		-9999		2008-01-20
 6638666	Riiser-Larsen Ice Shelf	Riiser-Larsen Ice Shelf	Riiser-Larsen Ice Shelf,Riiser-Larsenisen	-74.41667	-20	H		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
 6638667	Rindebotnen	Rindebotnen	Rindebotnen,Rindebotnen Cirque	-72.56667	-3.33333			AQ						0		2025	Antarctica/Syowa	2008-01-20
-6638668	Riptide Cirque	Riptide Cirque	Riptide Cirque	-76.61667	160.85			AQ						0		1166	Antarctica/McMurdo	2008-01-20
+6638668	Riptide Cirque	Riptide Cirque	Riptide Cirque	-76.61667	160.85	T	CRQ	AQ						0		1166	Antarctica/McMurdo	2016-10-18
 6638669	Ritscher Canyon	Ritscher Canyon		-68.25	30	U		AQ						0		-9999		2008-01-20
 6638670	Rjadovoj, lednik	Rjadovoj, lednik		-66.81667	89.8	H		AQ						0		176	Antarctica/Vostok	2008-01-20
-6638671	Roberts Cirque	Roberts Cirque		-75.75	-115.81667			AQ						0		1997	Antarctica/McMurdo	2008-01-20
+6638671	Roberts Cirque	Roberts Cirque		-75.75	-115.81667	T	CRQ	AQ						0		1997	Antarctica/McMurdo	2016-10-18
 6638672	Roberts, pie de hielo	Roberts, pie de hielo	Roberts Ice Piedmont,Roberts  pie de hielo	-68.86667	-70.46667	H		AQ						0		294	Antarctica/Rothera	2008-01-20
 6638673	Robertson Landing	Robertson Landing	Robertson Landing	-66.38333	110.43333	S		AQ						0	3	-9999	Antarctica/Davis	2008-01-20
 6638674	Rocher Gris, Le	Rocher Gris, Le		-66.68056	139.93056	U		AQ						0	11	-9999	Antarctica/DumontDUrville	2008-01-20
@@ -17271,11 +17270,11 @@
 6638725	Sicheleishöcker	Sicheleishoecker	Sicheleishoecker,Sicheleishöcker,Sichelryggane	-70.6	-7.41667	H		AQ						0		-9999	Antarctica/Syowa	2008-01-20
 6638726	Signy	Signy	Signy,Signy Island (Base H) /Brit./	-60.708	-45.595	S		AQ						0		20	Antarctica/Rothera	2013-04-13
 6638727	Simler, hielos	Simler, hielos	Simler Snowfield,Simler  hielos	-66.05	-65.083	H		AQ						0		577	Antarctica/Palmer	2013-04-13
-6638728	Simmons Basin	Simmons Basin		-77.76667	161.3			AQ						0		1035	Antarctica/McMurdo	2008-01-20
+6638728	Simmons Basin	Simmons Basin		-77.76667	161.3	U	BSNU	AQ						0		1035	Antarctica/McMurdo	2016-10-18
 6638729	Simonovbreen	Simonovbreen	Simonovbreen,Simonow Hukk	-68.78833	-90.575	H	GLCR	AQ						0		151	Antarctica/Rothera	2016-01-27
 6638730	Airdevronsix Icefalls	Airdevronsix Icefalls	Airdevronsix Icefalls	-77.51667	160.36667	H		AQ						0		1648	Antarctica/McMurdo	2008-01-20
 6638731	Siple /USA/	Siple /USA/		-75.91667	-83.91667	S		AQ						0		1021	Antarctica/Rothera	2008-01-20
-6638732	Sjøbotnen Cirque	Sjobotnen Cirque	Sjobotnen,Sjobotnen Cirque,Sjøbotnen,Sjøbotnen Cirque	-71.36667	13.41667			AQ						0		1325	Antarctica/Syowa	2008-01-20
+6638732	Sjøbotnen Cirque	Sjobotnen Cirque	Sjobotnen,Sjobotnen Cirque,Sjøbotnen,Sjøbotnen Cirque	-71.36667	13.41667	T	CRQ	AQ						0		1325	Antarctica/Syowa	2016-10-18
 6638733	Skålebreen	Skalebreen	Skalebreen,Skålebreen	-72.11667	3.86667	H	GLCR	AQ						0		2142	Antarctica/Syowa	2015-11-30
 6638734	Bingen	Bingen	Bingen,Bingen Cirque	-72.66667	-3.33333			AQ						0		2121	Antarctica/Syowa	2008-01-20
 6638735	Skelton Depot /N.Z./	Skelton Depot /N.Z./		-79.01667	162.28333	S		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
@@ -17285,15 +17284,15 @@
 6638739	Skjoldet	Skjoldet		-72.1	-12.59167	H		AQ						0		-9999		2008-01-20
 6638740	Skorvebradden	Skorvebradden	Skorvebradden	-72.11667	5.5	H		AQ						0		2621	Antarctica/Syowa	2008-01-20
 6638741	Skorveriset	Skorveriset		-72.06667	9.5	H		AQ						0		2309	Antarctica/Syowa	2008-01-20
-6638742	Skredbotnen Cirque	Skredbotnen Cirque	Skredbotnen,Skredbotnen Cirque	-71.98333	4.45			AQ						0		2196	Antarctica/Syowa	2008-01-20
+6638742	Skredbotnen Cirque	Skredbotnen Cirque	Skredbotnen,Skredbotnen Cirque	-71.98333	4.45	T	CRQ	AQ						0		2196	Antarctica/Syowa	2016-10-18
 6638743	Skrytyj, lednik	Skrytyj, lednik		-67.18333	100	H		AQ						0		1039	Antarctica/Davis	2008-01-20
 6638744	Skytrain Ice Rise	Skytrain Ice Rise	Skytrain Ice Rise	-79.583	-78.333	H		AQ						0		531	Antarctica/McMurdo	2013-04-13
 6638745	Slabotnen	Slabotnen	Slabotnen,Slabotnen Cirque	-71.75	10.5			AQ						0		1584	Antarctica/Syowa	2008-01-20
-6638746	Slackwater Cirque	Slackwater Cirque	Slackwater Cirque	-76.63333	160.75			AQ						0		1339	Antarctica/McMurdo	2008-01-20
+6638746	Slackwater Cirque	Slackwater Cirque	Slackwater Cirque	-76.63333	160.75	T	CRQ	AQ						0		1339	Antarctica/McMurdo	2016-10-18
 6638747	Slava Ice Shelf	Slava Ice Shelf	Slava Ice Shelf	-68.81667	154.73333	H		AQ						0		91	Antarctica/DumontDUrville	2008-01-20
 6638748	Sledgers Icefall	Sledgers Icefall		-71.46667	163.2	H		AQ						0		790	Antarctica/McMurdo	2008-01-20
 6638749	Slot, The	Slot, The	Slot  The	-82.66667	155.08333	H		AQ						0		1867	Antarctica/DumontDUrville	2008-01-20
-6638750	Småkovane	Smakovane	Smakovane,Smakovane Cirques,Småkovane,Småkovane Cirques	-71.9	5.53333			AQ						0		1871	Antarctica/Syowa	2008-01-20
+6638750	Småkovane	Smakovane	Smakovane,Smakovane Cirques,Småkovane,Småkovane Cirques	-71.9	5.53333	T	CRQS	AQ						0		1871	Antarctica/Syowa	2016-10-18
 6638751	Snezhnyj, kar	Snezhnyj, kar		-74.41667	67.5			AQ						0		1398	Antarctica/Davis	2008-01-20
 6638752	Sobral /Arg./	Sobral /Arg./		-81.08333	-40.65	S		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
 6638753	Biscoe Wharf	Biscoe Wharf		-67.57291	-68.13188	S		AQ						0		-9999	Antarctica/Rothera	2013-04-13
@@ -17319,13 +17318,13 @@
 6638773	Statsrådsbreen	Statsradsbreen		-72.08333	26.06667	H	GLCR	AQ						0		1843	Antarctica/Syowa	2015-11-27
 6638774	Steershead Crevasses	Steershead Crevasses		-81.16667	-164	H		AQ						0		-9999		2008-01-20
 6638775	Stefan, hielos	Stefan, hielos	Stefan Ice Piedmont,Stefan  hielos	-66.666	-66.5	H		AQ						0		113	Antarctica/Palmer	2013-04-13
-6638776	Steinbotnen Cirque	Steinbotnen Cirque	Steinbotnen,Steinbotnen Cirque	-71.3	13.35			AQ						0		1022	Antarctica/Syowa	2008-01-20
+6638776	Steinbotnen Cirque	Steinbotnen Cirque	Steinbotnen,Steinbotnen Cirque	-71.3	13.35	T	CRQ	AQ						0		1022	Antarctica/Syowa	2016-10-18
 6638777	Ajax Icefall	Ajax Icefall	Ajax Icefall	-62.06435	-58.35619	H		AQ						0		227	Antarctica/Palmer	2013-04-13
 6638778	Stonington Island (Base E) /Brit./	Stonington Island (Base E) /Brit./		-68.1857	-66.99476	S		AQ						0		5	Antarctica/Rothera	2012-04-04
 6638779	Storegg Bank	Storegg Bank	Storegg,Storegg Bank	-66.66667	64.58333	U		AQ						0		-9999		2008-01-20
-6638780	Storkvæven	Storkvaeven	Storkvaeven,Storkvaeven Cirque,Storkvæven	-72.7	0.13333			AQ						0		1815	Antarctica/Syowa	2008-01-20
-6638781	Storkvammen	Storkvammen	Storkvammen,Storkvammen Cirque	-71.73333	11.73333			AQ						0		1697	Antarctica/Syowa	2008-01-20
-6638782	Strawberry Cirque	Strawberry Cirque		-83.33333	157.6			AQ						0		1920	Antarctica/McMurdo	2008-01-20
+6638780	Storkvæven	Storkvaeven	Storkvaeven,Storkvaeven Cirque,Storkvæven	-72.7	0.13333	T	CRQ	AQ						0		1815	Antarctica/Syowa	2016-10-18
+6638781	Storkvammen	Storkvammen	Storkvammen,Storkvammen Cirque	-71.73333	11.73333	T	CRQ	AQ						0		1697	Antarctica/Syowa	2016-10-18
+6638782	Strawberry Cirque	Strawberry Cirque		-83.33333	157.6	T	CRQ	AQ						0		1920	Antarctica/McMurdo	2016-10-18
 6638783	Strom Camp	Strom Camp		-85.2	165.25	S		AQ						0		2902	Antarctica/McMurdo	2008-01-20
 6638784	Stuhlinger Ice Piedmont	Stuhlinger Ice Piedmont		-70.36667	162.5	H		AQ						0		178	Antarctica/McMurdo	2008-01-20
 6638785	Styggebrekka	Styggebrekka	Styggebrekka,Styggebrekka Crevasses	-71.96667	5.75	H	GLCR	AQ						0		2043	Antarctica/Syowa	2015-11-27
@@ -17370,7 +17369,7 @@
 6638824	Tongji Xueji	Tongji Xueji		-69.5	76.31667	H		AQ						0		478	Antarctica/Mawson	2008-01-20
 6638825	Torge Plateau	Torge Plateau		-68.4	-9	U		AQ						0		-9999		2008-01-20
 6638826	Tôtyaku Hyôga	Totyaku Hyoga		-71.33333	35.75	H		AQ						0		1811	Antarctica/Syowa	2008-01-20
-6638827	Traffic Circle	Traffic Circle	Traffic Circle	-68.616	-66			AQ						0	500	534	Antarctica/Palmer	2013-04-13
+6638827	Traffic Circle	Traffic Circle	Traffic Circle	-68.616	-66	T	CRQ	AQ						0	500	534	Antarctica/Palmer	2016-10-18
 6638828	Traversegletscher	Traversegletscher		-70.73333	162.2	H		AQ						0		716	Antarctica/McMurdo	2008-01-20
 6638829	Trevozhnaja, banka	Trevozhnaja, banka		-67.65	46.08333	U		AQ						0		18	Antarctica/Syowa	2008-01-20
 6638830	Trillingane	Trillingane		-66.2	53.2			AQ						0		803	Antarctica/Mawson	2008-01-20
@@ -17427,8 +17426,8 @@
 6638881	Wehrle Dome	Wehrle Dome		-76.03333	65.41667	H		AQ						0		2300	Antarctica/Davis	2008-01-20
 6638882	Weiken Basin	Weiken Basin		-70.4	-4	U		AQ						0		-9999		2008-01-20
 6638883	Weir Icefall	Weir Icefall		-78.03333	161.65	H		AQ						0		1791	Antarctica/McMurdo	2008-01-20
-6638884	Boom Basin	Boom Basin	Boom Basin	-78.23333	162.8			AQ						0		1293	Antarctica/McMurdo	2008-01-20
-6638885	Weiss Amphitheater	Weiss Amphitheater		-77.06667	-126.1			AQ						0		2822	Antarctica/McMurdo	2008-01-20
+6638884	Boom Basin	Boom Basin	Boom Basin	-78.23333	162.8	U	BSNU	AQ						0		1293	Antarctica/McMurdo	2016-10-18
+6638885	Weiss Amphitheater	Weiss Amphitheater		-77.06667	-126.1	T	DPR	AQ						0		2822	Antarctica/McMurdo	2016-10-19
 6638886	West Ice Shelf	West Ice Shelf	West Ice Shelf	-67	85	H		AQ						0		-9999	Antarctica/Vostok	2008-01-20
 6638887	Westeis	Westeis		-66.33333	87.5	H		AQ						0		-9999		2008-01-20
 6638888	Western Basin	Western Basin		-72	174.5	U		AQ						0		-9999		2008-01-20
@@ -17440,7 +17439,7 @@
 6638894	Wild Canyon	Wild Canyon		-66	67	U		AQ						0		-9999		2008-01-20
 6638895	Wild Icefalls	Wild Icefalls	Wild Icefalls	-84.91667	162.41667	H		AQ						0		2187	Antarctica/McMurdo	2008-01-20
 6638896	Wilkes Ampitheatre	Wilkes Ampitheatre		-76.06667	161.91667			AQ						0		520	Antarctica/McMurdo	2008-01-20
-6638897	Wilkes Subglacial Basin	Wilkes Subglacial Basin	Wilkes Subglacial Basin	-75	145			AQ						0		2557	Antarctica/DumontDUrville	2008-01-20
+6638897	Wilkes Subglacial Basin	Wilkes Subglacial Basin	Wilkes Subglacial Basin	-75	145	U	BSNU	AQ						0		2557	Antarctica/DumontDUrville	2016-10-18
 6638898	Wilkes	Wilkes	Wilkes,Wilkes /Austral./	-66.25722	110.52556	S		AQ						0	10	-9999	Antarctica/Davis	2008-01-20
 6638899	Wilkins Canyon	Wilkins Canyon		-65	70	U		AQ						0		-9999		2008-01-20
 6638900	Wilkins Ice Front	Wilkins Ice Front		-70.36465	-74.3241	H		AQ						0		-9999	Antarctica/Rothera	2013-04-13
@@ -17449,7 +17448,7 @@
 6638903	Borgebotnen	Borgebotnen		-74.39	-9.69167			AQ						0		1692	Antarctica/McMurdo	2008-01-20
 6638904	Winklergletscher	Winklergletscher		-70.61667	162.93333	H		AQ						0		1049	Antarctica/McMurdo	2008-01-20
 6638905	Wit Stwosz Icefall	Wit Stwosz Icefall		-62.15	-58.2	H		AQ						0		87	Antarctica/Palmer	2008-01-20
-6638906	Witches Cauldron	Witches Cauldron	Witches Cauldron	-69.96559	-69.70539			AQ						0		2071	Antarctica/Rothera	2013-04-13
+6638906	Witches Cauldron	Witches Cauldron	Witches Cauldron	-69.96559	-69.70539	U	BSNU	AQ						0		2071	Antarctica/Rothera	2016-10-20
 6638907	Wordie Ice Front	Wordie Ice Front		-69.2	-67.5	H		AQ						0		-9999	Antarctica/Rothera	2008-01-20
 6638908	Wordie, barrera de hielos	Wordie, barrera de hielos	Wordie Ice Shelf,Wordie  Barrera de Hielos	-69.16667	-67.5	H		AQ						0		-9999	Antarctica/Rothera	2008-01-20
 6638909	Wormald Ice Piedmont	Wormald Ice Piedmont	Wormald Ice Piedmont	-67.48903	-68.06992	H		AQ						0		45	Antarctica/Rothera	2013-04-13
@@ -17472,8 +17471,8 @@
 6638926	Zybkij, lednik	Zybkij, lednik		-66.8	89.1	H		AQ						0		13	Antarctica/Vostok	2008-01-20
 6638927	Balidaan	Balidaan		-71.75	11.20833			AQ						0		1908	Antarctica/Syowa	2008-01-20
 6638928	Dakshin Gangotri	Dakshin Gangotri		-70.08333	12	S		AQ						0		-9999		2008-01-20
-6638929	Khufu Corrie	Khufu Corrie	Khufu Corrie	-71.32975	-68.30464			AQ						0		246	Antarctica/Rothera	2013-04-13
-6638930	Teasdale Corrie	Teasdale Corrie	Teasdale Corrie	-62.15626	-58.18293			AQ						0		98	Antarctica/Palmer	2013-04-13
+6638929	Khufu Corrie	Khufu Corrie	Khufu Corrie	-71.32975	-68.30464	T	CRQ	AQ						0		246	Antarctica/Rothera	2016-10-19
+6638930	Teasdale Corrie	Teasdale Corrie	Teasdale Corrie	-62.15626	-58.18293	T	CRQ	AQ						0		98	Antarctica/Palmer	2016-10-19
 6638931	Sky-Blu	Sky-Blu		-74.85214	-71.58175	H		AQ						0		1492	Antarctica/Rothera	2013-04-13
 6638932	Potsdamgletcher	Potsdamgletcher		-70.83333	12.66667	H		AQ						0	800	340	Antarctica/Syowa	2008-01-20
 6638933	Rauer Deep	Rauer Deep		-68.95	77.25	U		AQ						0	-750	-9999		2008-01-20
@@ -17481,19 +17480,19 @@
 6638935	Antipodes Fracture Zone	Antipodes Fracture Zone	Antipodes Fracture Zone	-60	-150.5	U		AQ						0		-9999		2008-01-20
 6638936	Atlantic-Indian Basin	Atlantic-Indian Basin		-60	15	U		AQ						0		-9999		2008-01-20
 6638937	Koettlitz Neve	Koettlitz Neve		-78.45	163	H		AQ						0		1074	Antarctica/McMurdo	2008-01-20
-6638938	Martin Cirque	Martin Cirque	Martin Cirque	-77.46667	162.66667			AQ						0		1152	Antarctica/McMurdo	2008-01-20
+6638938	Martin Cirque	Martin Cirque	Martin Cirque	-77.46667	162.66667	T	CRQ	AQ						0		1152	Antarctica/McMurdo	2016-10-18
 6638939	Bowden Névé	Bowden Neve	Bowden Neve,Bowden Névé	-83.5	165	H		AQ						0		1587	Antarctica/McMurdo	2008-01-20
-6638940	Mosley-Thompson Cirques	Mosley-Thompson Cirques		-78.01667	161.46667			AQ						0		1676	Antarctica/McMurdo	2008-01-20
+6638940	Mosley-Thompson Cirques	Mosley-Thompson Cirques		-78.01667	161.46667	T	CRQS	AQ						0		1676	Antarctica/McMurdo	2016-10-18
 6638941	Pedalling Ice Field	Pedalling Ice Field		-77.25	159.91667	H		AQ						0		2243	Antarctica/McMurdo	2008-01-20
-6638942	Bowen Cirque	Bowen Cirque	Bowen Cirque	-80.68745	-23.4535			AQ						0		1453	Antarctica/McMurdo	2013-04-13
+6638942	Bowen Cirque	Bowen Cirque	Bowen Cirque	-80.68745	-23.4535	T	CRQ	AQ						0		1453	Antarctica/McMurdo	2016-10-18
 6638943	Shackleton Fracture Zone	Shackleton Fracture Zone	Shackleton Fracture Zone	-59.83333	-58.75	U		AQ						0		-9999		2008-01-20
 6638944	South Indian Basin	South Indian Basin		-60	120	U		AQ						0		-9999		2008-01-20
 6638945	Southeast Pacific Basin	Southeast Pacific Basin		-60	-115	U		AQ						0		-9999		2008-01-20
 6638946	Whale Bay Furrows	Whale Bay Furrows		-78	-169	U		AQ						0		-9999		2008-01-20
-6638947	Colony Cirque	Colony Cirque	Colony Cirque	-77.53333	163.26667			AQ						0		566	Antarctica/McMurdo	2008-01-20
+6638947	Colony Cirque	Colony Cirque	Colony Cirque	-77.53333	163.26667	T	CRQ	AQ						0		566	Antarctica/McMurdo	2016-10-18
 6638948	Bowie Crevasse Field	Bowie Crevasse Field		-79.05	-84.75	H		AQ						0		615	Antarctica/McMurdo	2008-01-20
-6638949	Kienle Cirque	Kienle Cirque	Kienle Cirque	-78.06667	167.35			AQ						0		218	Antarctica/McMurdo	2008-01-20
-6638950	Marshall Cirque	Marshall Cirque	Marshall Cirque	-78.08333	167.26667			AQ						0		64	Antarctica/McMurdo	2008-01-20
+6638949	Kienle Cirque	Kienle Cirque	Kienle Cirque	-78.06667	167.35	T	CRQ	AQ						0		218	Antarctica/McMurdo	2016-10-18
+6638950	Marshall Cirque	Marshall Cirque	Marshall Cirque	-78.08333	167.26667	T	CRQ	AQ						0		64	Antarctica/McMurdo	2016-10-18
 6638951	Pakaru Icefalls	Pakaru Icefalls	Pakaru Icefalls	-77.63333	166.65	H		AQ						0		268	Antarctica/McMurdo	2008-01-20
 6638952	Territory Cirque	Territory Cirque	Territory Cirque	-77.55	163.31667			AQ						0		304	Antarctica/McMurdo	2008-01-20
 6638953	Tripp Ice Tongue	Tripp Ice Tongue	Tripp Ice Tongue	-76.56667	162.75	H		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
@@ -17515,7 +17514,7 @@
 6638969	Pieter J. Lenie Field Station, King George Island	Pieter J. Lenie Field Station, King George Island		-62.16667	-58.46667	S		AQ						0		65	Antarctica/Palmer	2008-01-20
 6638970	Ragotzkie Icefall	Ragotzkie Icefall	Ragotzkie Icefall	-80.05	158	H		AQ						0		1751	Antarctica/McMurdo	2008-01-20
 6638971	Siple Dome Camp	Siple Dome Camp		-81.65	-149.06667	S		AQ						0		601	Antarctica/McMurdo	2008-01-20
-6638972	Starbuck Cirque	Starbuck Cirque	Starbuck Cirque	-79.55	157.23333			AQ						0		1186	Antarctica/DumontDUrville	2008-01-20
+6638972	Starbuck Cirque	Starbuck Cirque	Starbuck Cirque	-79.55	157.23333	T	CRQ	AQ						0		1186	Antarctica/DumontDUrville	2016-10-18
 6638973	Upstream Delta Camp	Upstream Delta Camp		-81	-140	S		AQ						0		344	Antarctica/McMurdo	2008-01-20
 6638974	Bungenstock Plateau	Bungenstock Plateau		-68.95	-6.5	U		AQ						0		-9999		2008-01-20
 6638975	Saint-Exupéry Guyot	Saint-Exupery Guyot		-62.46667	-153.05	U		AQ						0		-9999		2008-01-20
@@ -17542,14 +17541,14 @@
 6638996	Brahms Ice Shelf	Brahms Ice Shelf	Brahms Ice Shelf	-71.45666	-73.72064	H		AQ						0		-9999	Antarctica/Rothera	2013-04-13
 6638997	Alison Ice Stream	Alison Ice Stream		-73.91667	-82.06667	H		AQ						0		89	Antarctica/Rothera	2008-01-20
 6638998	Brier Icefalls	Brier Icefalls		-80.25	155.6	H		AQ						0		1762	Antarctica/DumontDUrville	2008-01-20
-6638999	Corell Cirque	Corell Cirque		-79.9	155.95			AQ						0		1458	Antarctica/DumontDUrville	2008-01-20
+6638999	Corell Cirque	Corell Cirque		-79.9	155.95	T	CRQ	AQ						0		1458	Antarctica/DumontDUrville	2016-10-18
 6639000	Ferrigno Ice Stream	Ferrigno Ice Stream		-73.71667	-83.81667	H		AQ						0		366	Antarctica/Rothera	2008-01-20
 6639001	Fox Ice Stream	Fox Ice Stream		-73.46667	-85.48333	H		AQ						0		315	Antarctica/Rothera	2008-01-20
-6639002	Harvey Cirque	Harvey Cirque		-79.9	155.86667			AQ						0		1526	Antarctica/DumontDUrville	2008-01-20
-6639003	Hughes Basin	Hughes Basin		-80.31667	156.3			AQ						0		1682	Antarctica/DumontDUrville	2008-01-20
+6639002	Harvey Cirque	Harvey Cirque		-79.9	155.86667	T	CRQ	AQ						0		1526	Antarctica/DumontDUrville	2016-10-18
+6639003	Hughes Basin	Hughes Basin		-80.31667	156.3	U	BSNU	AQ						0		1682	Antarctica/DumontDUrville	2016-10-18
 6639004	Stwosz Icefall	Stwosz Icefall	Stwosz Icefall	-62.14856	-58.21571	H		AQ						0		169	Antarctica/Palmer	2013-04-13
 6639005	Van der Veen Ice Stream	Van der Veen Ice Stream		-83.83333	-130	H		AQ						0		691	Antarctica/McMurdo	2008-01-20
-6639006	Walker Cirque	Walker Cirque		-79.53333	156.51667			AQ						0		1741	Antarctica/DumontDUrville	2008-01-20
+6639006	Walker Cirque	Walker Cirque		-79.53333	156.51667	T	CRQ	AQ						0		1741	Antarctica/DumontDUrville	2016-10-18
 6639007	Wiesnet Ice Stream	Wiesnet Ice Stream		-73.4	-86.86667	H		AQ						0		264	Antarctica/Rothera	2008-01-20
 6639008	Williams Ice Stream	Williams Ice Stream		-73.25	-88.45	H		AQ						0		298	Antarctica/Rothera	2008-01-20
 6639009	Jacob, Fondeadero	Jacob, Fondeadero		-65.21667	-64.55	U		AQ						0		-9999	Antarctica/Palmer	2008-01-20
@@ -17559,31 +17558,31 @@
 6639013	Brattebotnen	Brattebotnen	Brattebotnen,Brattebotnen Cirque	-71.78333	10.25			AQ						0		2160	Antarctica/Syowa	2008-01-20
 6639014	Letelier Bank	Letelier Bank		-62.467	-59.658	U		AQ						0		58	Antarctica/Palmer	2013-04-13
 6639015	Kraków Icefield	Krakow Icefield	Krakow Dome,Krakow Icefield,Krakow Icefield (Dome Peninsula),Kraków Dome,Kraków Icefield,Kraków Icefield (Dome Peninsula)	-62.13759	-58.27358	H		AQ						0		287	Antarctica/Palmer	2013-04-13
-6639016	Redman Pond	Redman Pond		-77.55	160.83333			AQ						0		1043	Antarctica/McMurdo	2008-01-20
-6639017	Sarcophagus Pond	Sarcophagus Pond		-77.55	160.71667			AQ						0		1098	Antarctica/McMurdo	2008-01-20
-6639018	Stepping Stone Pond	Stepping Stone Pond		-77.55	160.78333			AQ						0		1069	Antarctica/McMurdo	2008-01-20
-6639019	Watanuki Pond	Watanuki Pond	Watanuki Pond	-77.5275	160.76667			AQ						0		1080	Antarctica/McMurdo	2008-01-20
+6639016	Redman Pond	Redman Pond		-77.55	160.83333	H	PND	AQ						0		1043	Antarctica/McMurdo	2016-10-18
+6639017	Sarcophagus Pond	Sarcophagus Pond		-77.55	160.71667	H	PND	AQ						0		1098	Antarctica/McMurdo	2016-10-18
+6639018	Stepping Stone Pond	Stepping Stone Pond		-77.55	160.78333	H	PND	AQ						0		1069	Antarctica/McMurdo	2016-10-18
+6639019	Watanuki Pond	Watanuki Pond	Watanuki Pond	-77.5275	160.76667	H	PND	AQ						0		1080	Antarctica/McMurdo	2016-10-18
 6639020	Nakai Snowfield	Nakai Snowfield	Nakai Snowfield	-77.48333	161.51667	H		AQ						0	1600	1781	Antarctica/McMurdo	2008-01-20
-6639021	Pentecost Cirque	Pentecost Cirque	Pentecost Cirque	-77.5	160.68333			AQ						0		1535	Antarctica/McMurdo	2008-01-20
-6639022	Healy Trough	Healy Trough	Healy Trough	-77.55	160.86667			AQ						0		1037	Antarctica/McMurdo	2008-01-20
+6639021	Pentecost Cirque	Pentecost Cirque	Pentecost Cirque	-77.5	160.68333	T	CRQ	AQ						0		1535	Antarctica/McMurdo	2016-10-18
+6639022	Healy Trough	Healy Trough	Healy Trough	-77.55	160.86667	U	TRGU	AQ						0		1037	Antarctica/McMurdo	2016-10-19
 6639023	Jackson Pond	Jackson Pond		-77.53333	160.75			AQ						0		1072	Antarctica/McMurdo	2008-01-20
-6639024	Kurasawa Pond	Kurasawa Pond	Kurasawa Pond	-77.52917	160.74167			AQ						0		1070	Antarctica/McMurdo	2008-01-20
-6639025	Leibert Cirque	Leibert Cirque	Leibert Cirque	-77.5	160.91667			AQ						0		1501	Antarctica/McMurdo	2008-01-20
-6639026	Marsh Cirque	Marsh Cirque	Marsh Cirque	-77.5	161.43333			AQ						0		1508	Antarctica/McMurdo	2008-01-20
-6639027	Gupwell Pond	Gupwell Pond	Gupwell Pond	-77.55833	160.905			AQ						0		1031	Antarctica/McMurdo	2008-01-20
-6639028	Craig Pond	Craig Pond		-77.56667	160.76667			AQ						0		1297	Antarctica/McMurdo	2008-01-20
-6639029	Dean Cirque	Dean Cirque	Dean Cirque	-77.5	160.75			AQ						0		1481	Antarctica/McMurdo	2008-01-20
-6639030	Rodriquez Pond	Rodriquez Pond		-77.55	160.83333			AQ						0		1043	Antarctica/McMurdo	2008-01-20
-6639031	Shaw Trough	Shaw Trough	Shaw Trough	-77.53333	160.9			AQ						0		1122	Antarctica/McMurdo	2008-01-20
+6639024	Kurasawa Pond	Kurasawa Pond	Kurasawa Pond	-77.52917	160.74167	H	PND	AQ						0		1070	Antarctica/McMurdo	2016-10-18
+6639025	Leibert Cirque	Leibert Cirque	Leibert Cirque	-77.5	160.91667	T	CRQ	AQ						0		1501	Antarctica/McMurdo	2016-10-18
+6639026	Marsh Cirque	Marsh Cirque	Marsh Cirque	-77.5	161.43333	T	CRQ	AQ						0		1508	Antarctica/McMurdo	2016-10-18
+6639027	Gupwell Pond	Gupwell Pond	Gupwell Pond	-77.55833	160.905	H	PND	AQ						0		1031	Antarctica/McMurdo	2016-10-18
+6639028	Craig Pond	Craig Pond		-77.56667	160.76667	H	PND	AQ						0		1297	Antarctica/McMurdo	2016-10-18
+6639029	Dean Cirque	Dean Cirque	Dean Cirque	-77.5	160.75	T	CRQ	AQ						0		1481	Antarctica/McMurdo	2016-10-18
+6639030	Rodriquez Pond	Rodriquez Pond		-77.55	160.83333	H	PND	AQ						0		1043	Antarctica/McMurdo	2016-10-18
+6639031	Shaw Trough	Shaw Trough	Shaw Trough	-77.53333	160.9	U	TRGU	AQ						0		1122	Antarctica/McMurdo	2016-10-19
 6639032	Warren Icefall	Warren Icefall	Warren Icefall	-77.55	160.41667	H		AQ						0		1617	Antarctica/McMurdo	2008-01-20
-6639033	Williams Pond	Williams Pond	Williams Pond	-77.54222	160.97611			AQ						0		977	Antarctica/McMurdo	2008-01-20
-6639034	Hawkins Cirque	Hawkins Cirque	Hawkins Cirque	-77.5	160.56667			AQ						0		1551	Antarctica/McMurdo	2008-01-20
-6639035	Headwall Pond	Headwall Pond		-77.55	160.76667			AQ						0		1073	Antarctica/McMurdo	2008-01-20
-6639036	Murray Pond	Murray Pond	Murray Pond	-77.56333	160.91667			AQ						0		1073	Antarctica/McMurdo	2008-01-20
-6639037	Connell Pond	Connell Pond		-77.55	160.81667			AQ						0		1048	Antarctica/McMurdo	2008-01-20
-6639038	Dauphin Pond	Dauphin Pond		-77.55	160.7			AQ						0		1108	Antarctica/McMurdo	2008-01-20
-6639039	Dipboye Cirque	Dipboye Cirque	Dipboye Cirque	-77.5	160.83333			AQ						0		1524	Antarctica/McMurdo	2008-01-20
-6639040	Glover Cirque	Glover Cirque	Glover Cirque	-77.5	161.08333			AQ						0		1494	Antarctica/McMurdo	2008-01-20
+6639033	Williams Pond	Williams Pond	Williams Pond	-77.54222	160.97611	H	PND	AQ						0		977	Antarctica/McMurdo	2016-10-18
+6639034	Hawkins Cirque	Hawkins Cirque	Hawkins Cirque	-77.5	160.56667	T	CRQ	AQ						0		1551	Antarctica/McMurdo	2016-10-18
+6639035	Headwall Pond	Headwall Pond		-77.55	160.76667	H	PND	AQ						0		1073	Antarctica/McMurdo	2016-10-18
+6639036	Murray Pond	Murray Pond	Murray Pond	-77.56333	160.91667	H	PND	AQ						0		1073	Antarctica/McMurdo	2016-10-18
+6639037	Connell Pond	Connell Pond		-77.55	160.81667	H	PND	AQ						0		1048	Antarctica/McMurdo	2016-10-18
+6639038	Dauphin Pond	Dauphin Pond		-77.55	160.7	H	PND	AQ						0		1108	Antarctica/McMurdo	2016-10-18
+6639039	Dipboye Cirque	Dipboye Cirque	Dipboye Cirque	-77.5	160.83333	T	CRQ	AQ						0		1524	Antarctica/McMurdo	2016-10-18
+6639040	Glover Cirque	Glover Cirque	Glover Cirque	-77.5	161.08333	T	CRQ	AQ						0		1494	Antarctica/McMurdo	2016-10-18
 6639041	Gourlay Snowfield	Gourlay Snowfield		-60.722	-45.606	H		AQ						0		1	Antarctica/Rothera	2013-04-13
 6639042	Drewry Ice Stream	Drewry Ice Stream	Drewry Ice Stream	-75.633	-71.75	H		AQ						0		704	Antarctica/Rothera	2013-04-13
 6639043	Saedinenie Snowfield	Saedinenie Snowfield		-62.54333	-60.22722	H		AQ						0		256	Antarctica/Palmer	2008-01-20
@@ -17630,7 +17629,7 @@
 6639084	Bursey Icefalls	Bursey Icefalls		-75.98333	-132.8	H		AQ						0		2213	Antarctica/McMurdo	2008-01-20
 6639085	Buzfuz Rock	Buzfuz Rock	Buzfuz Rock	-65.48187	-65.87335	U		AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6639086	Byrd Névé	Byrd Neve	Byrd Neve,Byrd Névé	-81.5	154	H		AQ						0		1617	Antarctica/DumontDUrville	2008-01-20
-6639087	Byrd Subglacial Basin	Byrd Subglacial Basin		-80	-115			AQ						0		1689	Antarctica/McMurdo	2008-01-20
+6639087	Byrd Subglacial Basin	Byrd Subglacial Basin		-80	-115	U	BSNU	AQ						0		1689	Antarctica/McMurdo	2016-10-18
 6639088	Byrdbreen	Byrdbreen	Byrdbreen	-72	26.5	H		AQ						0		1283	Antarctica/Syowa	2008-01-20
 6639089	Camp Norway 1	Camp Norway 1		-73.5	-13.66667	S		AQ						0		711	Antarctica/McMurdo	2008-01-20
 6639090	Camp "A"	Camp "A"		-66.92917	141.55	S		AQ						0	585	584	Antarctica/DumontDUrville	2008-01-20
@@ -17647,7 +17646,7 @@
 6639101	Cave Landing	Cave Landing	Cave Landing	-66.37083	110.44417	H		AQ						0	5	-9999	Antarctica/Davis	2008-01-20
 6639102	Cavendish Icefalls	Cavendish Icefalls	Cavendish Icefalls	-77.81667	161.33333	H		AQ						0		1148	Antarctica/McMurdo	2008-01-20
 6639103	Cave, la	Cave, la		-66.66472	140.00972			AQ						0	43	-9999	Antarctica/DumontDUrville	2008-01-20
-6639104	Cecilhola	Cecilhola	Cecil Cave,Cecilhola	-68.81167	-90.72833			AQ						0		234	Antarctica/Rothera	2008-01-20
+6639104	Cecilhola	Cecilhola	Cecil Cave,Cecilhola	-68.81167	-90.72833	S	CAVE	AQ						0		234	Antarctica/Rothera	2016-10-20
 6639105	Allison Dome	Allison Dome		-73.53333	70.41667	H		AQ						0		1696	Antarctica/Mawson	2008-01-20
 6639106	Charcot Canyon	Charcot Canyon		-67.5	-80	U		AQ						0		-9999		2008-01-20
 6639107	Charcot Ridge	Charcot Ridge		-66.83333	165.5	U		AQ						0		-9999		2008-01-20
@@ -17678,7 +17677,7 @@
 6639132	Counts Icefall	Counts Icefall		-85.21667	-90.8	H		AQ						0		2086	Antarctica/McMurdo	2008-01-20
 6639133	Cranfield Icefalls	Cranfield Icefalls	Cranfield Icefalls	-79.93333	159.66667	H		AQ						0		210	Antarctica/McMurdo	2008-01-20
 6639134	Crary Ice Rise	Crary Ice Rise		-82.93333	-172.5	H		AQ						0		-9999		2008-01-20
-6639135	Crater Cirque	Crater Cirque	Crater Cirque	-72.63333	169.36667			AQ						0		245	Antarctica/McMurdo	2008-01-20
+6639135	Crater Cirque	Crater Cirque	Crater Cirque	-72.63333	169.36667	T	CRQ	AQ						0		245	Antarctica/McMurdo	2016-10-18
 6639136	Creagh Icefall	Creagh Icefall		-78.03333	161.13333	H		AQ						0		1958	Antarctica/McMurdo	2008-01-20
 6639137	Amphitheatre, The	Amphitheatre, The	Amphitheatre  The	-68.08087	-66.63654			AQ						0		827	Antarctica/Palmer	2013-04-13
 6639138	Cristo Redentor, Ref. /Arg./	Cristo Redentor, Ref. /Arg./		-63.55	-57.36667	S		AQ						0		-9999	Antarctica/Palmer	2008-01-20
@@ -17720,11 +17719,11 @@
 6639174	Detaille Island (Base W) /Brit./	Detaille Island (Base W) /Brit./		-66.86724	-66.79039	S	STNB	AQ						0		-9999	Antarctica/Rothera	2012-05-04
 6639175	Deutsche Hütte	Deutsche Huette		-62.21667	-58.91667	S		AQ						0		-9999	Antarctica/Palmer	2008-01-20
 6639176	Deutschland Canyon	Deutschland Canyon		-73.5	-29.83333	U		AQ						0		-9999		2008-01-20
-6639177	Devils Corrie	Devils Corrie	Devils Corrie	-60.65	-45.4			AQ						0		581	Antarctica/Rothera	2008-01-20
+6639177	Devils Corrie	Devils Corrie	Devils Corrie	-60.65	-45.4	T	CRQ	AQ						0		581	Antarctica/Rothera	2016-10-19
 6639178	Devils Punchbowl	Devils Punchbowl	Devils Punchbowl	-77.01667	162.4			AQ						0		227	Antarctica/McMurdo	2008-01-20
 6639179	Dibble Iceberg Tongue	Dibble Iceberg Tongue	Dibble Iceberg Tongue	-65.66667	135	H		AQ						0		-9999	Antarctica/DumontDUrville	2008-01-20
 6639180	Dickson Icefalls	Dickson Icefalls		-76.03333	-133.41667	H		AQ						0	2000	1891	Antarctica/McMurdo	2008-01-20
-6639181	Dike Cirque	Dike Cirque		-83.23333	157.95			AQ						0		1999	Antarctica/McMurdo	2008-01-20
+6639181	Dike Cirque	Dike Cirque		-83.23333	157.95	T	CRQ	AQ						0		1999	Antarctica/McMurdo	2016-10-18
 6639182	Dingle Dome	Dingle Dome	Dingle Dome	-67.05	48.81667	H		AQ						0	431	423	Antarctica/Syowa	2008-01-20
 6639183	Dingsør Dome	Dingsor Dome	Dingsor Dome,Dingsør Dome	-68.01667	67.8	H		AQ						0		557	Antarctica/Mawson	2008-01-20
 6639184	Dismal Basin	Dismal Basin		-68.63917	78.22583			AQ						0	34	9	Antarctica/Mawson	2008-01-20
@@ -17774,12 +17773,12 @@
 6639228	Erehwon Basin	Erehwon Basin	Erehwon Basin,Erewhon Basin	-79.8	158.5			AQ						0		847	Antarctica/McMurdo	2008-01-20
 6639229	Anvers Island (Base N) /Brit/	Anvers Island (Base N) /Brit/		-64.75	-64.08333	S		AQ						0		54	Antarctica/Palmer	2008-01-20
 6639230	Erskinebukta	Erskinebukta	Erskine Iceport,Erskinebukta	-69.95	19.2	H		AQ						0		-9999		2008-01-20
-6639231	Eskola Cirque	Eskola Cirque	Eskola Cirque	-80.67121	-23.86043			AQ						0		1463	Antarctica/McMurdo	2013-04-13
+6639231	Eskola Cirque	Eskola Cirque	Eskola Cirque	-80.67121	-23.86043	T	CRQ	AQ						0		1463	Antarctica/McMurdo	2016-10-18
 6639232	Esperanza /Arg./	Esperanza /Arg./		-63.4	-56.98333	S		AQ						0		77	Antarctica/Palmer	2008-01-20
 6639233	Evans Ice Stream	Evans Ice Stream	Evans Ice Stream	-76	-78	H		AQ						0		233	Antarctica/Rothera	2008-01-20
 6639234	Evans Névé	Evans Neve	Evans Neve,Evans Névé	-72.75	164.5	H		AQ						0	3000	2320	Antarctica/McMurdo	2008-01-20
 6639235	Expedition Rock	Expedition Rock	Expedicion  rocas,Expedición  rocas,Expedition Rock	-60.7	-44.733	U		AQ						0		-9999	Antarctica/Rothera	2013-04-13
-6639236	Eyeglass Cirque	Eyeglass Cirque	Eyeglass Cirque	-77.8	161.95			AQ						0		1529	Antarctica/McMurdo	2008-01-20
+6639236	Eyeglass Cirque	Eyeglass Cirque	Eyeglass Cirque	-77.8	161.95	T	CRQ	AQ						0		1529	Antarctica/McMurdo	2016-10-18
 6639237	Faraday	Faraday	Faraday,Faraday /Brit./	-65.24589	-64.25573	S	STNB	AQ						0		-9999	Antarctica/Palmer	2012-06-10
 6639238	Fedorovbreen	Fedorovbreen	Fedorova  lednik,Fedorovbreen,Fëdorova  lednik	-73.33333	-2.5	H	GLCR	AQ						0		2140	Antarctica/Syowa	2015-11-30
 6639239	Fenristunga	Fenristunga	Fenristunga	-71.86667	8.28333	H		AQ						0		1989	Antarctica/Syowa	2008-01-20
@@ -17794,7 +17793,7 @@
 6639248	Flattunga	Flattunga	Flattunga	-68.85	39.96667	H		AQ						0		33	Antarctica/Syowa	2008-01-20
 6639249	Flensing Icefall	Flensing Icefall	Flensing Icefall	-70.91667	163.73333	H		AQ						0		147	Antarctica/McMurdo	2008-01-20
 6639250	Flight Deck Névé, The	Flight Deck Neve, The	Flight Deck Neve,Flight Deck Neve  The,Flight Deck Névé,Flight Deck Névé  The	-76.78333	161.5	H		AQ						0		1265	Antarctica/McMurdo	2008-01-20
-6639251	Flory Cirque	Flory Cirque		-77.65	160.86667			AQ						0		1553	Antarctica/McMurdo	2008-01-20
+6639251	Flory Cirque	Flory Cirque		-77.65	160.86667	T	CRQ	AQ						0		1553	Antarctica/McMurdo	2016-10-18
 6639252	Ford Ice Piedmont	Ford Ice Piedmont	Ford Ice Piedmont	-82.166	-50	H		AQ						0		298	Antarctica/Rothera	2013-04-13
 6639253	Forster Ice Piedmont	Forster Ice Piedmont	Forster Ice Piedmont	-69.366	-66.95	H		AQ						0		271	Antarctica/Palmer	2013-04-13
 6639254	Fossil Bluff (Base C) /Brit./	Fossil Bluff (Base C) /Brit./		-71.33333	-68.28333	S		AQ						0		133	Antarctica/Rothera	2008-01-20
@@ -17802,7 +17801,7 @@
 6639256	Fowler Ice Rise	Fowler Ice Rise		-77.5	-78	H		AQ						0		723	Antarctica/Rothera	2008-01-20
 6639257	Framheim	Framheim		-78.5	-164	S		AQ						0		-9999		2008-01-20
 6639258	Frankengletscher	Frankengletscher		-71.11667	165.95	H		AQ						0		1274	Antarctica/McMurdo	2008-01-20
-6639259	Fredbotnen	Fredbotnen	Fred Cirque,Fredbotnen	-72.56667	0.36667			AQ						0		1678	Antarctica/Syowa	2008-01-20
+6639259	Fredbotnen	Fredbotnen	Fred Cirque,Fredbotnen	-72.56667	0.36667	T	CRQ	AQ						0		1678	Antarctica/Syowa	2016-10-18
 6639260	Frustration Dome	Frustration Dome	Frustration Dome	-68	64.55	H		AQ						0		802	Antarctica/Mawson	2008-01-20
 6639261	Fuchs, pie de hielo	Fuchs, pie de hielo	Fuchs Ice Piedmont,Fuchs  pie de hielo	-67.233	-68.666	H		AQ						0		302	Antarctica/Rothera	2013-04-13
 6639262	Argus, Dome	Argus, Dome	Argus  Dome	-81	77	H		AQ						0	4000	4033	Antarctica/Mawson	2008-01-20
@@ -17812,7 +17811,7 @@
 6639266	Aristova, banka	Aristova, banka		-74.41667	-138.2	U		AQ						0		-9999		2008-01-20
 6639267	Gabbibotnen	Gabbibotnen		-74.57667	-10.075			AQ						0		1845	Antarctica/McMurdo	2008-01-20
 6639268	Gabriel de Castilla, Refugio	Gabriel de Castilla, Refugio		-62.97725	-60.67253	S		AQ						0		43	Antarctica/Palmer	2008-01-20
-6639269	Arkell Cirque	Arkell Cirque	Arkell Cirque	-80.6617	-24.27785			AQ						0		1417	Antarctica/McMurdo	2013-04-13
+6639269	Arkell Cirque	Arkell Cirque	Arkell Cirque	-80.6617	-24.27785	T	CRQ	AQ						0		1417	Antarctica/McMurdo	2016-10-18
 6639270	Gavin Ice Piedmont	Gavin Ice Piedmont	Gavin Ice Piedmont	-63.73956	-59.12864	H		AQ						0		364	Antarctica/Palmer	2013-04-13
 6639271	Gdansk Icefall	Gdansk Icefall		-62.18333	-58.6	H		AQ						0		57	Antarctica/Palmer	2008-01-20
 6639272	Geelan Ice Piedmont	Geelan Ice Piedmont	Geelan Ice Piedmont	-69.483	-72.683	H		AQ						0		294	Antarctica/Rothera	2013-04-13
@@ -17822,7 +17821,7 @@
 6639276	George VI Ice Shelf	George VI Ice Shelf	George VI Ice Shelf	-71.69165	-67.84021	H		AQ						0		-9999	Antarctica/Rothera	2013-04-13
 6639277	Getman Ice Piedmont	Getman Ice Piedmont	Getman Ice Piedmont	-68.10213	-64.9019	H		AQ						0		102	Antarctica/Palmer	2013-04-13
 6639278	Getz Ice Shelf	Getz Ice Shelf	Getz Ice Shelf	-74.25	-126.5	H		AQ						0		-9999		2008-01-20
-6639279	Giants Cirque	Giants Cirque	Giants Cirque	-67.283	-67.283			AQ						0		942	Antarctica/Palmer	2013-04-13
+6639279	Giants Cirque	Giants Cirque	Giants Cirque	-67.283	-67.283	T	CRQ	AQ						0		942	Antarctica/Palmer	2016-10-18
 6639280	Gillett Ice Shelf	Gillett Ice Shelf	Gillett Ice Shelf	-69.61667	159.75	H		AQ						0		134	Antarctica/DumontDUrville	2008-01-20
 6639281	Giotbreen	Giotbreen		-72.325	26.75833	H	GLCR	AQ						0		1880	Antarctica/Syowa	2015-11-27
 6639282	Giovinco Ice Piedmont	Giovinco Ice Piedmont		-84.01667	176.16667	H		AQ						0		485	Antarctica/McMurdo	2008-01-20
@@ -17833,15 +17832,15 @@
 6639287	Glopeken	Glopeken		-71.88333	10.11667	H	GLCR	AQ						0		1997	Antarctica/Syowa	2015-11-27
 6639288	Gluhoj, lednik	Gluhoj, lednik		-70.8	67.75	H		AQ						0		871	Antarctica/Mawson	2008-01-20
 6639289	Godelbukta	Godelbukta	Godel Iceport,Godelbukta	-70.15	21.75	H		AQ						0		-9999		2008-01-20
-6639290	Goldschmidt Cirque	Goldschmidt Cirque	Goldschmidt Cirque	-80.71004	-22.80045			AQ						0		1356	Antarctica/McMurdo	2013-04-13
+6639290	Goldschmidt Cirque	Goldschmidt Cirque	Goldschmidt Cirque	-80.71004	-22.80045	T	CRQ	AQ						0		1356	Antarctica/McMurdo	2016-10-18
 6639291	Goossensbreen	Goossensbreen		-71.83333	24.5	H	GLCR	AQ						0		1091	Antarctica/Syowa	2015-11-27
 6639292	Gornogo Instituta, lednik	Gornogo Instituta, lednik		-71.83333	10.83333	H	GLCR	AQ						0		2037	Antarctica/Syowa	2015-11-27
 6639293	Gosiki Hyôga	Gosiki Hyoga		-71.53333	35.63333	H		AQ						0		1900	Antarctica/Syowa	2008-01-20
 6639294	Grand Chasms	Grand Chasms	Grand Chasms	-78.616	-37.9	H		AQ						0		-9999		2013-04-13
-6639295	Grautskåla	Grautskala	Grautskala,Grautskala Cirque,Grautskåla,Grautskåla Cirque	-71.61667	11.33333			AQ						0		1654	Antarctica/Syowa	2008-01-20
-6639296	Ashtray Basin	Ashtray Basin		-77.86667	160.96667			AQ						0		1760	Antarctica/McMurdo	2008-01-20
+6639295	Grautskåla	Grautskala	Grautskala,Grautskala Cirque,Grautskåla,Grautskåla Cirque	-71.61667	11.33333	T	CRQ	AQ						0		1654	Antarctica/Syowa	2016-10-18
+6639296	Ashtray Basin	Ashtray Basin		-77.86667	160.96667	U	BSNU	AQ						0		1760	Antarctica/McMurdo	2016-10-18
 6639297	Green Ice Rises	Green Ice Rises	Green Ice Rises	-66.35	97.61667	H		AQ						0		-9999	Antarctica/Casey	2008-01-20
-6639298	Greenville Hole	Greenville Hole	Greenville Hole	-76.71667	160.96667			AQ						0	200	905	Antarctica/McMurdo	2008-01-20
+6639298	Greenville Hole	Greenville Hole	Greenville Hole	-76.71667	160.96667	T	DPR	AQ						0	200	905	Antarctica/McMurdo	2016-10-19
 6639299	Guemes, Refuge /Arg./	Guemes, Refuge /Arg./		-63.5	-57.13333	S		AQ						0		138	Antarctica/Palmer	2008-01-20
 6639300	Gurruchaga, Refuge /Arg./	Gurruchaga, Refuge /Arg./		-62.3	-59.21667	S		AQ						0		5	Antarctica/Palmer	2008-01-20
 6639301	Gutiérrez, Bajo	Gutierrez, Bajo	Gutierrez Reef,Gutierrez  Bajo,Gutiérrez Reef,Gutiérrez  Bajo	-63.3	-57.91667	U		AQ						0		-9999	Antarctica/Palmer	2008-01-20
@@ -17850,7 +17849,7 @@
 6639304	Håhellerbotnen	Hahellerbotnen	Hahellerbotnen,Hahellerbotnen Cirque,Håhellerbotnen,Håhellerbotnen Cirque	-71.9	6.08333			AQ						0		1730	Antarctica/Syowa	2008-01-20
 6639305	Half-ration Névé	Half-ration Neve	Half-ration Neve,Half-ration Névé	-73.01667	163.5	H		AQ						0		1890	Antarctica/McMurdo	2008-01-20
 6639306	Hallett Station	Hallett Station	Hallett Station,Hallett  N.Z.-USA/	-72.3	170.3	S		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
-6639307	Astrolabe Subglacial Basin	Astrolabe Subglacial Basin	Astrolabe Subglacial Basin	-70	136			AQ						0	4700	2495	Antarctica/DumontDUrville	2008-01-20
+6639307	Astrolabe Subglacial Basin	Astrolabe Subglacial Basin	Astrolabe Subglacial Basin	-70	136	U	BSNU	AQ						0		2495	Antarctica/DumontDUrville	2016-10-18
 6639308	Halley (1988)	Halley (1988)	Halley (1988),Halley  /Brit./	-75.583	-26.233	S		AQ						0		-9999		2013-04-13
 6639309	Hamarglovene	Hamarglovene	Hamarglovene,Hamarglovene Crevasses	-71.93333	5.1	H		AQ						0		1872	Antarctica/Syowa	2008-01-20
 6639310	Hamilton Ice Piedmont	Hamilton Ice Piedmont		-74.5	-110.3	H		AQ						0		289	Antarctica/Rothera	2008-01-20
@@ -17870,7 +17869,7 @@
 6639324	Haugebreen	Haugebreen		-74.46833	-9.85	H	GLCR	AQ						0		1889	Antarctica/McMurdo	2015-11-30
 6639325	Havelgletscher	Havelgletscher		-74.21667	162.66667	H		AQ						0		1150	Antarctica/McMurdo	2008-01-20
 6639326	Havhestbotnen	Havhestbotnen		-68.82833	-90.69167			AQ						0		856	Antarctica/Rothera	2008-01-20
-6639327	Havsbotn	Havsbotn	Havsbotn	-69.83333	38.75			AQ						0		-9999	Antarctica/Syowa	2008-01-20
+6639327	Havsbotn	Havsbotn	Havsbotn	-69.83333	38.75	H	BAY	AQ						0		-9999	Antarctica/Syowa	2016-10-19
 6639328	Hazuki Hyôga	Hazuki Hyoga	Hazuki Hyoga,Hazuki Hyôga,Hazukibreen	-69.13333	39.78333	H		AQ						0		43	Antarctica/Syowa	2008-01-20
 6639329	Heed Rock	Heed Rock	Heed Rock	-64.98035	-63.77963	U		AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6639330	Heirtzler Ice Piedmont	Heirtzler Ice Piedmont	Heirtzler Ice Piedmont	-72.60197	-61.37061	H		AQ						0		299	Antarctica/Palmer	2013-04-13
@@ -17885,12 +17884,12 @@
 6639339	Hessengletscher	Hessengletscher		-70.7	164.58333	H		AQ						0		408	Antarctica/McMurdo	2008-01-20
 6639340	Aurkjosen	Aurkjosen	Aurkjosen,Aurkjosen Cirque	-71.35	13.55833			AQ						0		828	Antarctica/Syowa	2008-01-20
 6639341	Aurkleven	Aurkleven	Aurkleven,Aurkleven Cirque	-71.96667	7.5			AQ						0		1734	Antarctica/Syowa	2008-01-20
-6639342	Aurkvævane	Aurkvaevane	Aurkvaevane,Aurkvaevane Cirques,Aurkvævane	-71.86667	14.45			AQ						0		1879	Antarctica/Syowa	2008-01-20
+6639342	Aurkvævane	Aurkvaevane	Aurkvaevane,Aurkvaevane Cirques,Aurkvævane	-71.86667	14.45	T	CRQS	AQ						0		1879	Antarctica/Syowa	2016-10-18
 6639343	Hillary Canyon	Hillary Canyon		-72.41667	-173	U		AQ						0		-9999		2008-01-20
 6639344	Aurora Canyon	Aurora Canyon		-65	-49.5	U		AQ						0		-9999		2008-01-20
 6639345	Hobbs Bank	Hobbs Bank		-74.33333	-137.5	U		AQ						0		-9999		2008-01-20
 6639346	Aurora Subglacial Basin	Aurora Subglacial Basin	Aurora Subglacial Basin	-74	120			AQ						0		3168	Antarctica/Casey	2008-01-20
-6639347	Hockey Cirque	Hockey Cirque		-83.28333	156.5			AQ						0		2035	Antarctica/DumontDUrville	2008-01-20
+6639347	Hockey Cirque	Hockey Cirque		-83.28333	156.5	T	CRQ	AQ						0		2035	Antarctica/DumontDUrville	2016-10-18
 6639348	Höflegletscher	Hoeflegletscher		-80.33333	-27.16667	H		AQ						0		952	Antarctica/McMurdo	2008-01-20
 6639349	Austaasen Bank	Austaasen Bank		-70.8	-10.5	U		AQ						0		-9999	Antarctica/Syowa	2008-01-20
 6639350	Høgisen	Hogisen		-73.5	-14.75	H	DOMG	AQ						0	1000	933	Antarctica/McMurdo	2015-11-30
@@ -17916,7 +17915,7 @@
 6639370	Iceberg Bank	Iceberg Bank		-76.41667	168.25	U		AQ						0		-9999		2008-01-20
 6639371	Icecube Tongue	Icecube Tongue		-77.66667	166.85	H		AQ						0		7	Antarctica/McMurdo	2008-01-20
 6639372	Igloo Snowdrift	Igloo Snowdrift		-74.98333	163.78333	H		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
-6639373	Avalanche Corrie	Avalanche Corrie	Avalanche Corrie	-60.666	-45.35			AQ						0		651	Antarctica/Rothera	2013-04-13
+6639373	Avalanche Corrie	Avalanche Corrie	Avalanche Corrie	-60.666	-45.35	T	CRQ	AQ						0		651	Antarctica/Rothera	2016-10-19
 6639374	Imhof Knoll	Imhof Knoll		-68.6	-2	U		AQ						0		-9999		2008-01-20
 6639375	Institute Ice Stream	Institute Ice Stream	Institute Ice Stream	-82	-75	H		AQ						0		325	Antarctica/McMurdo	2008-01-20
 6639376	Isbotnen	Isbotnen		-68.81333	-90.66667			AQ						0		1125	Antarctica/Rothera	2008-01-20
@@ -17938,7 +17937,7 @@
 6639392	Joice Icefall	Joice Icefall	Joice Icefall	-72.38333	166.35	H		AQ						0		2482	Antarctica/McMurdo	2008-01-20
 6639393	Jones Ice Shelf	Jones Ice Shelf	Jones Ice Shelf	-67.49957	-67.00427	H		AQ						0	3	-9999	Antarctica/Palmer	2013-04-13
 6639394	Babakina, Ledjanaja buhta	Babakina, Ledjanaja buhta		-79.58333	160.33333	H		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
-6639395	Jupiter Amphitheatre	Jupiter Amphitheatre		-71.56667	161.85			AQ						0		995	Antarctica/McMurdo	2008-01-20
+6639395	Jupiter Amphitheatre	Jupiter Amphitheatre		-71.56667	161.85	T	VAL	AQ						0		995	Antarctica/McMurdo	2016-10-19
 6639396	Jushchenko, vpadina (podvodnaja)	Jushchenko, vpadina (podvodnaja)		-60.88333	70.25	U		AQ						0		-9999		2008-01-20
 6639397	Jussieu Canyon	Jussieu Canyon		-65.25	143	U		AQ						0		-9999		2008-01-20
 6639398	Jutulgryta	Jutulgryta	Jutulgryta,Jutulgryta Crevasses	-71.25	0.41667	H		AQ						0		-9999	Antarctica/Syowa	2008-01-20
@@ -17955,11 +17954,11 @@
 6639409	Karandina, lednik	Karandina, lednik		-79.16667	-28.66667	H		AQ						0		517	Antarctica/McMurdo	2008-01-20
 6639410	Karlova, lednik	Karlova, lednik		-81.63333	161.58333	H		AQ						0		316	Antarctica/McMurdo	2008-01-20
 6639411	Karlsen, roca	Karlsen, roca	Karlsen Rock,Karlsen  roca	-60.35	-46	U		AQ						0		-9999	Antarctica/Palmer	2008-01-20
-6639412	Back Cirque	Back Cirque	Back Cirque	-67.64744	-68.48378			AQ						0		373	Antarctica/Rothera	2013-04-13
+6639412	Back Cirque	Back Cirque	Back Cirque	-67.64744	-68.48378	T	CRQ	AQ						0		373	Antarctica/Rothera	2016-10-18
 6639413	Katabotnen	Katabotnen	Kata-no-Kubo,Katabotnen	-72.04833	27.65			AQ						0		1230	Antarctica/Syowa	2008-01-20
 6639414	Kaya Hyôga	Kaya Hyoga	Kaya Hyoga,Kaya Hyôga,Kayabreen	-69.83333	37.18333	H		AQ						0		-9999	Antarctica/Syowa	2008-01-20
 6639415	Kealey Ice Rise	Kealey Ice Rise	Kealey Ice Rise	-77	-83	H		AQ						0		791	Antarctica/Rothera	2008-01-20
-6639416	Kendall Basin	Kendall Basin	Kendall Basin	-80.24798	-25.53719			AQ						0		798	Antarctica/McMurdo	2013-04-13
+6639416	Kendall Basin	Kendall Basin	Kendall Basin	-80.24798	-25.53719	U	BSNU	AQ						0		798	Antarctica/McMurdo	2016-10-18
 6639417	Baeyer Canyon	Baeyer Canyon		-69.28333	0.53333	U		AQ						0		-9999		2008-01-20
 6639418	Ketelersbreen	Ketelersbreen		-72.05	23.36667	H	GLCR	AQ						0		1362	Antarctica/Syowa	2015-11-27
 6639419	Adelaide	Adelaide	Adelaide,Adelaide Island (Base T) /Brit./	-67.76155	-68.91396	S		AQ						0		-9999	Antarctica/Rothera	2013-04-13
@@ -17992,7 +17991,7 @@
 6639446	Krutoj, lednik	Krutoj, lednik		-73.06667	68.33333	H		AQ						0		924	Antarctica/Mawson	2008-01-20
 6639447	Kuchina, lednik	Kuchina, lednik		-66.5	114.58333	H		AQ						0		53	Antarctica/Casey	2008-01-20
 6639448	Kumo-no-taira	Kumo-no-taira		-71.58333	35.75	H		AQ						0		1943	Antarctica/Syowa	2008-01-20
-6639449	Kuno Cirque	Kuno Cirque	Kuno Cirque	-80.64447	-24.92745			AQ						0		1438	Antarctica/McMurdo	2013-04-13
+6639449	Kuno Cirque	Kuno Cirque	Kuno Cirque	-80.64447	-24.92745	T	CRQ	AQ						0		1438	Antarctica/McMurdo	2016-10-18
 6639450	Kuprijanova, lednik	Kuprijanova, lednik		-66.6	93.33333	H		AQ						0		194	Antarctica/Vostok	2008-01-20
 6639451	Kurochkina, treshchiny	Kurochkina, treshchiny		-81.16667	-35	H		AQ						0		575	Antarctica/McMurdo	2008-01-20
 6639452	Kuvklaken	Kuvklaken		-70.1	10.83333	H		AQ						0		-9999		2008-01-20
@@ -18013,7 +18012,7 @@
 6639467	Landing, The	Landing, The	Landing  The	-78.36667	161.41667	H		AQ						0		775	Antarctica/McMurdo	2008-01-20
 6639468	Landy Ice Rises	Landy Ice Rises	Landy Ice Rises	-72.24953	-70.55666	H		AQ						0		-9999	Antarctica/Rothera	2013-04-13
 6639469	Langbogbreen	Langbogbreen		-72.18667	25.65	H	GLCR	AQ						0		1892	Antarctica/Syowa	2015-11-27
-6639470	Lapworth Cirque	Lapworth Cirque	Lapworth Cirque	-80.69973	-23.11031			AQ						0		1386	Antarctica/McMurdo	2013-04-13
+6639470	Lapworth Cirque	Lapworth Cirque	Lapworth Cirque	-80.69973	-23.11031	T	CRQ	AQ						0		1386	Antarctica/McMurdo	2016-10-18
 6639471	Larsen Bank	Larsen Bank	Larsen Bank	-66.26528	110.5275	U		AQ						0	0	-9999	Antarctica/Davis	2008-01-20
 6639472	Larsen Basin	Larsen Basin		-68	-60	U		AQ						0		-9999		2008-01-20
 6639473	Larsen Ice Front	Larsen Ice Front		-68	-60	H		AQ						0		-9999		2008-01-20
@@ -18047,7 +18046,7 @@
 6639501	Little America V /USA/	Little America V /USA/		-78.31667	-162.36667	S		AQ						0		-9999		2008-01-20
 6639502	Little Jeana /USA/	Little Jeana /USA/		-81.66667	170	S		AQ						0		-9999		2008-01-20
 6639503	Little Rockford /USA/	Little Rockford /USA/		-79.26667	-147.5	S		AQ						0		591	Antarctica/McMurdo	2008-01-20
-6639504	Livdebotnen	Livdebotnen	Livdebotnen,Livdebotnen Cirque	-71.75	11.33333			AQ						0		1948	Antarctica/Syowa	2008-01-20
+6639504	Livdebotnen	Livdebotnen	Livdebotnen,Livdebotnen Cirque	-71.75	11.33333	T	CRQ	AQ						0		1948	Antarctica/Syowa	2016-10-18
 6639505	Ljadova, lednik	Ljadova, lednik		-71.53333	-73.75	H		AQ						0		51	Antarctica/Rothera	2008-01-20
 6639506	Lloyd Icefall	Lloyd Icefall	Lloyd Icefall	-72.06667	165.45	H		AQ						0		2000	Antarctica/McMurdo	2008-01-20
 6639507	Loewe Automatic Weather Station	Loewe Automatic Weather Station		-68.4	112.16667	S		AQ						0		1628	Antarctica/Davis	2008-01-20
@@ -18066,7 +18065,7 @@
 6639520	Maksimova, lednik	Maksimova, lednik		-72.83333	66.25	H		AQ						0		417	Antarctica/Mawson	2008-01-20
 6639521	Maldifassi, Bajo	Maldifassi, Bajo	Maldifassi Shoal,Maldifassi  Bajo	-62.49306	-59.69472	U		AQ						0		93	Antarctica/Palmer	2013-04-13
 6639522	Malyj, kar	Malyj, kar		-71.58333	67.4			AQ						0		514	Antarctica/Mawson	2008-01-20
-6639523	Mandible Cirque	Mandible Cirque		-73.11667	169.25			AQ						0		-9999	Antarctica/McMurdo	2008-01-20
+6639523	Mandible Cirque	Mandible Cirque		-73.11667	169.25	T	CRQ	AQ						0		-9999	Antarctica/McMurdo	2016-10-18
 6639524	Barhatistyj, lednik	Barhatistyj, lednik		-73.25	68.38333	H		AQ						0		1075	Antarctica/Mawson	2008-01-20
 6639525	Mannbreen	Mannbreen		-74.93333	-12.3	H	GLCR	AQ						0		1573	Antarctica/McMurdo	2015-11-30
 6639526	Mansergh Snowfield	Mansergh Snowfield	Mansergh Snowfield	-82.01667	159.83333	H		AQ						0		1391	Antarctica/McMurdo	2008-01-20
@@ -18078,7 +18077,7 @@
 6639532	Martinigletscher	Martinigletscher		-71.03333	163.3	H		AQ						0		1088	Antarctica/McMurdo	2008-01-20
 6639533	Matejko Icefall	Matejko Icefall		-62.17778	-58.23333	H		AQ						0		41	Antarctica/Palmer	2008-01-20
 6639534	Mathisenskaget	Mathisenskaget		-74.865	-11.59167	T	MT	AQ						0	2260	1810	Antarctica/McMurdo	2015-11-30
-6639535	Maud Subglacial Basin	Maud Subglacial Basin		-81	15			AQ						0		2683	Antarctica/McMurdo	2008-01-20
+6639535	Maud Subglacial Basin	Maud Subglacial Basin		-81	15	U	BSNU	AQ						0		2683	Antarctica/McMurdo	2016-10-18
 6639536	Maudheim	Maudheim	Maudheim,Maudheim  /Nor./	-71.04333	-10.925	S		AQ						0		-9999		2008-01-20
 6639537	Barnes Icefalls	Barnes Icefalls	Barnes Icefalls	-83.816	-55.883	H		AQ						0		1415	Antarctica/Palmer	2013-04-13
 6639538	Maumee Ice Piedmont	Maumee Ice Piedmont		-74.73333	-113.41667	H		AQ						0		40	Antarctica/McMurdo	2008-01-20
@@ -18104,32 +18103,32 @@
 6639558	Miller Ice Rise	Miller Ice Rise		-69.1	-67.617	H		AQ						0		-9999	Antarctica/Rothera	2013-04-13
 6639559	Minnehaha Icefalls	Minnehaha Icefalls	Minnehaha Icefalls	-77.03333	162.4	H		AQ						0		396	Antarctica/McMurdo	2008-01-20
 6639560	Mir, nauchnaja stancija /SSSR/	Mir, nauchnaja stancija /SSSR/		-65.75	92.43333	S		AQ						0		248	Antarctica/Mawson	2008-01-20
-6639561	Misthound Cirque	Misthound Cirque	Misthound Cirque	-79.76667	156.2			AQ						0		1549	Antarctica/DumontDUrville	2008-01-20
-6639562	Mjøllkvævane	Mjollkvaevane	Mjollkvaevane,Mjollkvaevane Cirques,Mjøllkvaevane Cirques,Mjøllkvævane	-71.88333	14.43333			AQ						0		1919	Antarctica/Syowa	2008-01-20
+6639561	Misthound Cirque	Misthound Cirque	Misthound Cirque	-79.76667	156.2	T	CRQ	AQ						0		1549	Antarctica/DumontDUrville	2016-10-18
+6639562	Mjøllkvævane	Mjollkvaevane	Mjollkvaevane,Mjollkvaevane Cirques,Mjøllkvaevane Cirques,Mjøllkvævane	-71.88333	14.43333	T	CRQS	AQ						0		1919	Antarctica/Syowa	2016-10-18
 6639563	Moawhango Névé	Moawhango Neve		-72.25	163.56667	H		AQ						0		1799	Antarctica/McMurdo	2008-01-20
 6639564	Moby Dick Icefall	Moby Dick Icefall	Moby Dick Icefall	-61.966	-57.7	H		AQ						0		112	Antarctica/Palmer	2013-04-13
-6639565	Mohn Basin	Mohn Basin	Mohn Basin	-86.5	-168			AQ						0		2362	Antarctica/McMurdo	2008-01-20
+6639565	Mohn Basin	Mohn Basin	Mohn Basin	-86.5	-168	T	DPR	AQ						0		2362	Antarctica/McMurdo	2016-10-18
 6639566	Mokryj, lednik	Mokryj, lednik		-70.41667	72.66667	H		AQ						0		2	Antarctica/Davis	2008-01-20
 6639567	Molholm Shoal	Molholm Shoal	Molholm Shoal	-66.27139	110.54583	U		AQ						0	0	1	Antarctica/Davis	2008-01-20
 6639568	Møller Bank	Moller Bank	Moller Bank,Møller Bank	-67.56528	62.86667	U		AQ						0	0	-9999	Antarctica/Mawson	2008-01-20
 6639569	Möllereisstrom	Moellereisstrom	Moeller Ice Stream,Moellereisstrom,Möller Ice Stream,Möllereisstrom	-82	-63	H		AQ						0		-9999		2008-01-20
 6639570	Moore Dome	Moore Dome		-74.33333	-111.33333	H		AQ						0	700	615	Antarctica/Rothera	2008-01-20
-6639571	Morris Basin	Morris Basin	Morris Basin	-75.65	159.15			AQ						0		1041	Antarctica/McMurdo	2008-01-20
+6639571	Morris Basin	Morris Basin	Morris Basin	-75.65	159.15	U	BSNU	AQ						0		1041	Antarctica/McMurdo	2016-10-18
 6639572	Morsetbreen	Morsetbreen		-74.73	-11.5	H	GLCR	AQ						0		1587	Antarctica/McMurdo	2015-11-30
 6639573	Moscow University Ice Shelf	Moscow University Ice Shelf	Moscow University Ice Shelf,Moskovskogo Universiteta  shel'fovyj lednik	-67	121	H		AQ						0		-9999	Antarctica/Casey	2008-01-20
 6639574	Mott Snowfield	Mott Snowfield	Mott Snowfield	-63.33973	-57.27243	H		AQ						0		428	Antarctica/Palmer	2013-04-13
 6639575	Moulton Icefalls	Moulton Icefalls		-76	-134.58333	H		AQ						0		2156	Antarctica/McMurdo	2008-01-20
 6639576	Mozart Ice Piedmont	Mozart Ice Piedmont	Mozart Ice Piedmont	-69.87627	-71.71228	H		AQ						0		239	Antarctica/Rothera	2013-04-13
 6639577	Mstislava Keldysha, lednik buhta	Mstislava Keldysha, lednik buhta		-79.83333	160.41667	H		AQ						0		-9999	Antarctica/McMurdo	2008-01-20
-6639578	Mudrey Cirque	Mudrey Cirque		-77.65	160.73333			AQ						0		1557	Antarctica/McMurdo	2008-01-20
+6639578	Mudrey Cirque	Mudrey Cirque		-77.65	160.73333	T	CRQ	AQ						0		1557	Antarctica/McMurdo	2016-10-18
 6639579	Müller Ice Front	Mueller Ice Front		-67.21728	-66.90982	H		AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6639580	Müller Ice Shelf	Mueller Ice Shelf	Mueller Ice Shelf,Müller Ice Shelf	-67.25502	-66.88272	H		AQ						0		-9999	Antarctica/Palmer	2013-04-13
-6639581	Murchison Cirque	Murchison Cirque	Murchison Cirque	-80.7	-24.55			AQ						0		1225	Antarctica/McMurdo	2008-01-20
+6639581	Murchison Cirque	Murchison Cirque	Murchison Cirque	-80.7	-24.55	T	CRQ	AQ						0		1225	Antarctica/McMurdo	2016-10-18
 6639611	Wordie Caldera	Wordie Caldera		-61.8	-55.45	U		AQ						0		-9999		2008-01-22
 6639612	Bull Island	Bull Island		-71.98333	171.1	T	ISL	AQ						0		-9999	Antarctica/McMurdo	2008-01-22
 6639613	King Island	King Island		-65.51447	-64.02569	T	ISL	AQ						0		-9999	Antarctica/Palmer	2013-04-13
 6696480	McMurdo Station	McMurdo Station	Base McMurdo,Base antarctique McMurdo,Estacao McMurdo,Estacio McMurdo,Estació McMurdo,Estação McMurdo,Mak-Merdo,Makmerdo,McMurdo,McMurdo Statschoon,McMurdo basea,McMurdo-Station,McMurdo-stasjonen,Polarni stanice McMurdo,Polusa stacio McMurdo,Polární stanice McMurdo,Station McMurdo,Stazione McMurdo,maegmeodo giji,mai ke mo duo zhan,makumado ji de,thnt mq-mrdw,Мак-Мердо,Макмөрдо,תחנת מק-מרדו,قاعدة ماك موردو,マクマード基地,麥克默多站,맥머도 기지	-77.846	166.676	P	PPL	AQ						1258		-9999	Antarctica/McMurdo	2012-07-11
-6697173	Antarctica	Antarctica	'Anitatika,An Antartaice,Antaktika,Antarctica,Antarctique,Antarktida,Antarktik,Antarktika,Antarktiki,Antarktis,Antarktisz,Antarkto,Antarktyda,Antarktyka,Antartica,Antartica nutome,Antartida,Antartide,Antartika,Antàrtida,Antárktis,Antártida,Nam Cuc,Nam Cực,Qalasersuaq Kujalleq,Sudurskautslandid,Suðurskautslandið,alqtb aljnwby,antaratika,antarkatika,antarktika,antarktyka,antartika,arntakatika,entarkatika,entartika,i-Antarctica,jnwbgan,namgeug daelyug,nan ji,nan ji zhou,yantarktyka,ʻAnitātika,Ανταρκτική,Антарктида,Антарктик,Антарктика,Антарктыка,אנטארקטיקה,ئانتارکتیکا,القطب الجنوبي,انتارکتیکا,انٹارکٹیکا,جنوبگان,अंटार्कटिका,अंटार्क्टिका,अन्टारतिका,এন্টার্কটিকা,এন্টাৰ্টিকা,એન્ટાર્કટિકા,ଆର୍ଣ୍ଟକଟିକା,அண்டார்டிகா,అంటార్కటికా,ಅಂಟಾರ್ಟಿಕಾ,അന്‍റാര്‍ട്ടിക്ക,ඇන්ටාක්ටිකාව,แอนตาร์กติกา,ལྷོ་རྩེའི་མཐའ་གླིང་།,ཨེན་ཊཱག་ཊི་ཀ,အန္တာတိက,ანტარქტიკა,አንታርክቲካ,南极洲,南極,남극 대륙	-82.67628	8.78906	A	TERR	AQ		00				0		2481		2012-01-06
+6697173	Antarctica	Antarctica	'Anitatika,An Antartaice,Antaktika,Antarctica,Antarctique,Antarktida,Antarktik,Antarktika,Antarktiki,Antarktis,Antarktisz,Antarkto,Antarktyda,Antarktyka,Antartica,Antartica nutome,Antartida,Antartide,Antartika,Antàrtida,Antárktis,Antártida,Nam Cuc,Nam Cực,Qalasersuaq Kujalleq,Sudurskautslandid,Suðurskautslandið,alqtb aljnwby,antaratika,antarkatika,antarktika,antarktyka,antartika,arntakatika,entarkatika,entartika,i-Antarctica,jnwbgan,namgeug daelyug,nan ji,nan ji zhou,yantarktyka,ʻAnitātika,Ανταρκτική,Антарктида,Антарктик,Антарктика,Антарктыка,אנטארקטיקה,ئانتارکتیکا,القطب الجنوبي,انتارکتیکا,انٹارکٹیکا,جنوبگان,अंटार्कटिका,अंटार्क्टिका,अन्टारतिका,এন্টার্কটিকা,এন্টাৰ্টিকা,એન્ટાર્કટિકા,ଆର୍ଣ୍ଟକଟିକା,அண்டார்டிகா,అంటార్కటికా,ಅಂಟಾರ್ಟಿಕಾ,അന്‍റാര്‍ട്ടിക്ക,ඇන්ටාක්ටිකාව,แอนตาร์กติกา,ལྷོ་རྩེའི་མཐའ་གླིང་།,ཨེན་ཊཱག་ཊི་ཀ,အန္တာတိက,ანტარქტიკა,አንታርክቲካ,南极洲,南極,남극 대륙	-82.67628	8.78906	A	TERR	AQ		00				0		2481		2017-07-10
 6942222	Phantom Coast	Phantom Coast		-68.85	-90.5799	H	GULF	AQ						0		888	Antarctica/Rothera	2009-06-10
 6942239	South Pole	South Pole		-89.99842	0	T	PT	AQ						0		-9999	Antarctica/McMurdo	2009-06-10
 6944248	O Higgins	O Higgins		-63.3209	-57.89956	P	PPLL	AQ						0		-9999	Antarctica/Palmer	2009-07-31
@@ -18456,7 +18455,7 @@
 8521242	Skvarca Inlet	Skvarca Inlet		-66.1175	-60.9375	H	COVE	AQ						0		-9999	Antarctica/Palmer	2013-04-11
 8521243	Wendy Peak	Wendy Peak		-67.44944	-68.02083	T	PK	AQ						0		161	Antarctica/Rothera	2013-04-11
 8521244	Chaudoin, Mount	Chaudoin, Mount		-77.15417	162.025	T	MT	AQ						0		1144	Antarctica/McMurdo	2013-04-11
-8521245	Marambio Station	Marambio Station	Base Aerea Vicecomodoro Marambio,Base Aérea Vicecomodoro Marambio,Base Marambio	-64.24472	-56.65694	S	STNB	AQ						0		-9999	Antarctica/Palmer	2014-06-11
+8521245	Marambio Station	Marambio Station	Base Aerea Vicecomodoro Marambio,Base Aérea Vicecomodoro Marambio,Base Marambio	-64.24206	-56.6259	S	STNB	AQ						0		-9999	Antarctica/Palmer	2017-06-27
 8521246	Augustana, Mount	Augustana, Mount		-85.22667	-174.35333	T	MT	AQ						0		2714	Antarctica/McMurdo	2013-04-11
 8521247	Akerman Island	Akerman Island		-69.425	75.91661	T	ISL	AQ						0		-9999	Antarctica/Davis	2013-04-11
 8521248	Arturo Parodi Station	Arturo Parodi Station		-80.31833	-81.30778	S	STNB	AQ						0		983	Antarctica/McMurdo	2013-04-11
@@ -18523,3 +18522,5 @@
 8693006	DRV magnetic observatory area	DRV magnetic observatory area		-66.6648	140.00039	L	AREA	AQ						0		-9999	Antarctica/DumontDUrville	2014-01-30
 9072762	Villa Las Estrellas	Villa Las Estrellas	Vilja las Estreljasa,ビジャ・ラス・エストレージャス	-62.20001	-58.96109	P	PPL	AQ						0		-9999	Antarctica/Palmer	2014-06-05
 11257232	Svarthamaren	Svarthamaren		-72.013	5.166	T	SLP	AQ						0		2443	Antarctica/Troll	2016-09-19
+11258141	Troll	Troll		-72.01196	2.53407	S	ITTR	AQ						6		1328	Europe/London	2016-09-27
+11749467	McMurdo Station Pegasus Field	McMurdo Station Pegasus Field		-77.96306	166.50862	S	AIRF	AQ						0		-9999	Antarctica/McMurdo	2017-11-06

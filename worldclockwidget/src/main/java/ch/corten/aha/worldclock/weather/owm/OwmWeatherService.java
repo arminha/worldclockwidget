@@ -24,9 +24,9 @@ import com.google.gson.stream.JsonReader;
 /**
  * Open Weather Map weather service using the JSON API.
  *
- * Documentation: http://openweathermap.org/current
+ * Documentation: https://openweathermap.org/current
  *
- * Example URL: http://api.openweathermap.org/data/2.5/weather?lat=51.507222&lon=-0.1275
+ * Example URL: https://api.openweathermap.org/data/2.5/weather?lat=51.507222&lon=-0.1275
  */
 public class OwmWeatherService implements WeatherService {
 
@@ -49,7 +49,7 @@ public class OwmWeatherService implements WeatherService {
             return disabledObservation();
         }
         try {
-            Log.wtf(TAG, "Key**********************************:"+mApiKey);
+            Log.i(TAG, "Key:" + mApiKey);
             String query = "lat=" + latitude + "&lon=" + longitude + "&units=metric";
             if (mLanguageCode != null) {
                 query += "&lang=" + mLanguageCode;
@@ -57,7 +57,7 @@ public class OwmWeatherService implements WeatherService {
             if (mApiKey != null) {
                 query += "&APPID=" + mApiKey;
             }
-            URI uri = new URI("http", "api.openweathermap.org", "/data/2.5/weather", query, null);
+            URI uri = new URI("https", "api.openweathermap.org", "/data/2.5/weather", query, null);
             URL url = new URL(uri.toASCIIString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             try {
@@ -132,7 +132,7 @@ public class OwmWeatherService implements WeatherService {
     }
 
     /**
-     * Reads weather data as described at http://bugs.openweathermap.org/projects/api/wiki/Weather_Data.
+     * Reads weather data as described at https://bugs.openweathermap.org/projects/api/wiki/Weather_Data.
      *
      * @param reader
      * @param observation

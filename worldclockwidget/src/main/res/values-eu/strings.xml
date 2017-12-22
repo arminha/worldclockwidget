@@ -91,7 +91,7 @@
     <string name="license_text">GPLv3 edo geroztikoa</string>
     <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
     <string name="developer_text">Armin Häberling\nBiswajit Das\nEsker bereziak <a href="https://vyick.wordpress.com/">vyick</a>-entzat beta-probengatik eta bere iradokizunengatik!</string>
-    <string name="acknowledgement_weather">Eguraldi datuak <a href="http://openweathermap.org/">Open Weather Map</a>-ek hornitzen ditu.</string>
+    <string name="acknowledgement_weather">Eguraldi datuak <a href="https://openweathermap.org/">Open Weather Map</a>-ek hornitzen ditu.</string>
     <string name="acknowledgement_icons">Eguraldi ikonoak Alessio Atzeniren <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> ikonoetan oinarritu dira.</string>
     <string name="acknowledgement_geonames">Ordu-zonak eta datu geografikoak <a href="http://www.geonames.org/">GeoNames</a>-ek hornitzen ditu.</string>
     <string name="about_title">World Clock &amp; Weather-i buruz</string>
@@ -102,11 +102,13 @@
     <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api key esteka</a></string>
     <string name="new_api_key">new_api_key</string>
     <string name="new_api_key_title">Aldatu APIrako gakoa</string>
-    <string name="new_api_key_summery">Sartu zure Open Weather Map APIrako gakoa hemen</string>
+    <string name="new_api_key_summary">Sartu zure Open Weather Map APIrako gakoa hemen</string>
     <string name="new_api_key_default_text">Idatzi gako berria</string>
 
     <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
-    <string name="WeatherApiPreference_key_summery">Lor ezazu mesedez eguraldi APIrako gako berri bat aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago eskuratzeko.</string>
+    <string name="WeatherApiPreference_summary">Lor ezazu mesedez eguraldi APIrako gako berri bat aplikazioa behar bezala exekutatzeko. Egin klik hemen informazio gehiago eskuratzeko.</string>
+    <string name="WeatherApiPreference_title">!!! Important !!!</string>
+    <string name="WeatherApiPreference_dialog_title">Important!!</string>
     <string name="get_api_message">Lortu ezazu APIrako gako berria ondorengo estekan</string>
     <string name="current_api_key">Uneko API gakoa</string>
 </resources>

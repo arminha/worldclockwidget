@@ -61,7 +61,7 @@ Acknowledgements
 ----------------
 
 * Special thanks to `vyick <http://vyick.wordpress.com/>`_ for beta testing and feature suggestions!
-* Weather data is provided by `Open Weather Map <http://openweathermap.org/>`_.
+* Weather data is provided by `Open Weather Map <https://openweathermap.org/>`_.
 * The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
 * Time zone and geographical data is provided by `GeoNames <http://www.geonames.org/>`_.
 

@@ -91,7 +91,7 @@
     <string name="license_text">GPL Version 3 or later</string>
     <string name="project_page_text"><a href="https://github.com/arminha/worldclockwidget">github.com/arminha/worldclockwidget</a></string>
     <string name="developer_text">Armin Häberling\nBiswajit Das\nAgradecimiento especial para <a href="https://vyick.wordpress.com/">vyick</a> por las pruebas beta y sus sugerencias!</string>
-    <string name="acknowledgement_weather">Datos climatológicos provistos por <a href="http://openweathermap.org/">Open Weather Map</a>.</string>
+    <string name="acknowledgement_weather">Datos climatológicos provistos por <a href="https://openweathermap.org/">Open Weather Map</a>.</string>
     <string name="acknowledgement_icons">Iconos de clima basados en <a href="http://www.alessioatzeni.com/meteocons/">Meteocons</a> de Alessio Atzeni.</string>
     <string name="acknowledgement_geonames">Huso horario e información geográfica provista por <a href="http://www.geonames.org/">GeoNames</a>.</string>
     <string name="about_title">Acerca de World Clock &amp; Weather</string>
@@ -102,11 +102,13 @@
     <string name="openweather_signup_link"><a href="https://home.openweathermap.org/users/sign_up">open weather api Enlace clave</a></string>
     <string name="new_api_key">new_api_key</string>
     <string name="new_api_key_title">Change API key</string>
-    <string name="new_api_key_summery">Introduzca su clave de API de mapa de tiempo abierto aquí</string>
+    <string name="new_api_key_summary">Introduzca su clave de API de mapa de tiempo abierto aquí</string>
     <string name="new_api_key_default_text">Ingresa una nueva API de mapa de tiempo abierto</string>
 
     <string name="WeatherApiPreference_key">WeatherApiPreference_key</string>
-    <string name="WeatherApiPreference_key_summery">Por favor, obtenga una nueva API de tiempo para ejecutar correctamente esta aplicación. Por favor, haga clic aquí para obtener más información ..</string>
+    <string name="WeatherApiPreference_summary">Por favor, obtenga una nueva API de tiempo para ejecutar correctamente esta aplicación. Por favor, haga clic aquí para obtener más información ..</string>
+    <string name="WeatherApiPreference_title">!!! Important !!!</string>
+    <string name="WeatherApiPreference_dialog_title">Important!!</string>
     <string name="get_api_message">Por favor, obtenga Nueva clave de API desde el enlace de abajo</string>
     <string name="current_api_key">Current API Key</string>
 </resources>
