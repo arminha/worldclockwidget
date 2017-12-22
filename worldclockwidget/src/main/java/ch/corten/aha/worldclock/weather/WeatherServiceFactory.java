@@ -16,8 +16,10 @@
 
 package ch.corten.aha.worldclock.weather;
 
+import android.content.Context;
+
 public interface WeatherServiceFactory {
 
-    WeatherService createService(String provider,String owm_api_key);
+    WeatherService createService(String provider, String owm_api_key, Context mcontext);
 
 }
