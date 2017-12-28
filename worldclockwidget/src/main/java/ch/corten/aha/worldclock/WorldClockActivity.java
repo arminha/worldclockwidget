@@ -326,6 +326,9 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
             case R.id.menu_add:
+                //#TODO: Try to add logic find the city from gps and add them below is the example to add the clock
+                // check if the city is already added then send message already added.
+                //WorldClock.Clocks.addClock(getActivity(), "Asia/Kolkata", "Gangasagar","India", 330, 21.647535, 88.081215);
                 addClock();
                 return true;
             case R.id.menu_refresh:
