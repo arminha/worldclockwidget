@@ -35,8 +35,11 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
 
-import org.joda.time.DateTimeUtils;
-import org.joda.time.DateTimeZone;
+import net.time4j.Moment;
+import net.time4j.SystemClock;
+import net.time4j.base.TimeSource;
+import net.time4j.tz.TZID;
+import net.time4j.tz.Timezone;
 
 public class WorldClockWidgetProvider extends ClockWidgetProvider {
     private static final boolean SANS_JELLY_BEAN_MR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1;
@@ -94,18 +97,18 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
         try {
             int n = 0;
             DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
-            long now = DateTimeUtils.currentTimeMillis();
             final int maxEntries = context.getResources().getInteger(R.integer.worldclock_widget_max_entries);
             while (cursor.moveToNext() && n < CITY_IDS.length
                     && n < maxEntries) {
                 String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
                 String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
                 views.setTextViewText(CITY_IDS[n], city);
-                DateTimeZone tz = DateTimeZone.forID(id);
+                TZID tzid = Timezone.of(id).getID();
+                TimeSource<Moment> clock = SystemClock.INSTANCE;
                 if (SANS_JELLY_BEAN_MR1) {
-                    views.setTextViewText(TIME_IDS[n], TimeZoneInfo.formatDate(df, tz, now));
+                    views.setTextViewText(TIME_IDS[n], TimeZoneInfo.formatDate(df, tzid, clock));
                 } else {
-                    TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tz, now);
+                    TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tzid, clock);
                     views.setViewVisibility(TIME_IDS[n], View.VISIBLE);
                     RemoteViewUtil.setTextClockTimeZone(views, TIME_IDS[n], javaTimeZone.getID());
                 }

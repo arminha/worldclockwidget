@@ -18,7 +18,7 @@ package ch.corten.aha.worldclock;
 
 import android.app.Application;
 
-import net.danlew.android.joda.JodaTimeAndroid;
+import net.time4j.android.ApplicationStarter;
 
 /**
  * Initializes libraries.
@@ -28,6 +28,6 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        JodaTimeAndroid.init(this);
+        ApplicationStarter.initialize(this);
     }
 }

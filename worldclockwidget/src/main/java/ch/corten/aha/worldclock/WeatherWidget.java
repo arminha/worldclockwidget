@@ -16,24 +16,27 @@
 
 package ch.corten.aha.worldclock;
 
-import java.text.DateFormat;
-import java.util.TimeZone;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 
-import org.joda.time.DateTimeUtils;
-import org.joda.time.DateTimeZone;
+import net.time4j.Moment;
+import net.time4j.SystemClock;
+import net.time4j.base.TimeSource;
+import net.time4j.tz.TZID;
+import net.time4j.tz.Timezone;
+
+import java.text.DateFormat;
+import java.util.TimeZone;
 
 import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
@@ -69,14 +72,14 @@ public final class WeatherWidget {
         rv.setTextViewText(R.id.city_text, cursor.getString(cursor.getColumnIndex(Clocks.CITY)));
 
         String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
-        long now = DateTimeUtils.currentTimeMillis();
-        DateTimeZone tz = DateTimeZone.forID(id);
+        TZID tzid = Timezone.of(id).getID();
+        TimeSource<Moment > clock = SystemClock.INSTANCE;
         if (SANS_JELLY_BEAN_MR1) {
-            rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTimeWithOptionalWeekDay(tz, now, timeFormat));
+            rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTimeWithOptionalWeekDay(tzid, clock, timeFormat));
         } else {
-            TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tz, now);
+            TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tzid, clock);
             RemoteViewUtil.setTextClockTimeZone(rv, R.id.time_text, javaTimeZone.getID());
-            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferentWeekday(tz, now));
+            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferentWeekday(tzid, clock));
         }
 
         rv.setTextViewText(R.id.condition_text, cursor

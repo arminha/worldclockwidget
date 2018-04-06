@@ -49,8 +49,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-import org.joda.time.DateTimeUtils;
-import org.joda.time.DateTimeZone;
+import net.time4j.SystemClock;
+import net.time4j.tz.Timezone;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -87,7 +87,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         private ActionMode mMode;
         private OnSharedPreferenceChangeListener mSpChange;
         private boolean mAutoSortClocks;
-        private final List<PauseListener> mListeners = new ArrayList<PauseListener>();
+        private final List<PauseListener> mListeners = new ArrayList<>();
 
         private static final String[] CLOCKS_PROJECTION = {
             Clocks._ID,
@@ -199,7 +199,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
         @Override
         public void removePauseListener(PauseListener listener) {
             mListeners.remove(listener);
-        };
+        }
 
         private void setupCabOld(ListView listView) {
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -462,10 +462,10 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             BindHelper.bindText(view, cursor, R.id.area_text, Clocks.AREA);
 
             String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
-            DateTimeZone tz = DateTimeZone.forID(timeZoneId);
+            Timezone tz = Timezone.of(timeZoneId);
             java.text.DateFormat df = DateFormat.getDateFormat(context);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
-            dateText.setText(TimeZoneInfo.formatDate(df, tz, DateTimeUtils.currentTimeMillis()));
+            dateText.setText(TimeZoneInfo.formatDate(df, tz.getID(), SystemClock.INSTANCE));
 
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
             timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));

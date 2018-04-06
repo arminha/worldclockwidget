@@ -27,10 +27,12 @@ import android.provider.Settings;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import org.joda.time.DateTimeUtils;
-import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import net.time4j.Moment;
+import net.time4j.format.expert.ChronoFormatter;
+import net.time4j.format.expert.PatternType;
+import net.time4j.tz.Timezone;
+
+import java.util.Locale;
 
 /**
  * Like AnalogClock, but digital.  Shows seconds.
@@ -57,8 +59,8 @@ public class DigitalClock extends TextView implements PauseListener {
     private int mState = STATE_DETACHED;
     private PauseSource mPauseSource = null;
 
-    private DateTimeFormatter mDateFormat;
-    private DateTimeZone mTimeZone;
+    private ChronoFormatter<Moment> mDateFormat;
+    private Timezone mTimeZone;
 
     public DigitalClock(Context context) {
         super(context);
@@ -70,11 +72,11 @@ public class DigitalClock extends TextView implements PauseListener {
         initClock(context);
     }
 
-    public DateTimeZone getTimeZone() {
+    public Timezone getTimeZone() {
         return mTimeZone;
     }
 
-    public void setTimeZone(DateTimeZone timeZone) {
+    public void setTimeZone(Timezone timeZone) {
         mTimeZone = timeZone;
         setFormat();
         updateClock();
@@ -104,7 +106,7 @@ public class DigitalClock extends TextView implements PauseListener {
         super.onAttachedToWindow();
         mHandler = new Handler();
 
-        /**
+        /*
          * requests a tick on the next hard-second boundary.
          */
         mTicker = new Runnable() {
@@ -170,16 +172,21 @@ public class DigitalClock extends TextView implements PauseListener {
     }
 
     private void setFormat() {
-        mDateFormat = DateTimeFormat.forPattern(is24HourMode() ? M24 : M12).withZone(mTimeZone);
+        mDateFormat =
+                ChronoFormatter.ofMomentPattern(
+                        is24HourMode() ? M24 : M12,
+                        PatternType.CLDR,
+                        Locale.getDefault(),
+                        mTimeZone.getID());
     }
 
     private void updateClock() {
-        setText(mDateFormat.print(DateTimeUtils.currentTimeMillis()));
+        setText(mDateFormat.format(net.time4j.SystemClock.currentMoment()));
         invalidate();
     }
 
     private class FormatChangeObserver extends ContentObserver {
-        public FormatChangeObserver() {
+        FormatChangeObserver() {
             super(new Handler());
         }
 
