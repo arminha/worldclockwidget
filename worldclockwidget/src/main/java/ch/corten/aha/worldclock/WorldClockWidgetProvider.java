@@ -37,7 +37,6 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import net.time4j.Moment;
-import net.time4j.base.TimeSource;
 import net.time4j.tz.TZID;
 import net.time4j.tz.Timezone;
 
@@ -98,17 +97,17 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
             int n = 0;
             DateFormat df = android.text.format.DateFormat.getTimeFormat(context);
             final int maxEntries = context.getResources().getInteger(R.integer.worldclock_widget_max_entries);
+            Moment moment = PlatformClock.INSTANCE.currentTime();
             while (cursor.moveToNext() && n < CITY_IDS.length
                     && n < maxEntries) {
                 String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
                 String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
                 views.setTextViewText(CITY_IDS[n], city);
                 TZID tzid = Timezone.of(id).getID();
-                TimeSource<Moment> clock = PlatformClock.INSTANCE;
                 if (SANS_JELLY_BEAN_MR1) {
-                    views.setTextViewText(TIME_IDS[n], TimeZoneInfo.formatDate(df, tzid, clock));
+                    views.setTextViewText(TIME_IDS[n], TimeZoneInfo.formatDate(df, tzid, moment));
                 } else {
-                    TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tzid, clock);
+                    TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tzid, moment);
                     views.setViewVisibility(TIME_IDS[n], View.VISIBLE);
                     RemoteViewUtil.setTextClockTimeZone(views, TIME_IDS[n], javaTimeZone.getID());
                 }

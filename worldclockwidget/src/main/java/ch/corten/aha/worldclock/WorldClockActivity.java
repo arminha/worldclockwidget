@@ -49,6 +49,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import net.time4j.Moment;
 import net.time4j.tz.Timezone;
 
 import java.text.MessageFormat;
@@ -463,12 +464,13 @@ public class WorldClockActivity extends SherlockFragmentActivity {
 
             String timeZoneId = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
             Timezone tz = Timezone.of(timeZoneId);
+            Moment moment = PlatformClock.INSTANCE.currentTime();
             java.text.DateFormat df = DateFormat.getDateFormat(context);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
-            dateText.setText(TimeZoneInfo.formatDate(df, tz.getID(), PlatformClock.INSTANCE));
+            dateText.setText(TimeZoneInfo.formatDate(df, tz.getID(), moment));
 
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
-            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
+            timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz, moment));
             DigitalClock clock = (DigitalClock) view.findViewById(R.id.time_clock);
             clock.setTimeZone(tz);
 

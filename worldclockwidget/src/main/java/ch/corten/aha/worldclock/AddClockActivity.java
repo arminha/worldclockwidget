@@ -40,8 +40,10 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.actionbarsherlock.widget.SearchView.OnQueryTextListener;
 
+import net.time4j.Moment;
 import net.time4j.tz.Timezone;
 
+import ch.corten.aha.utils.PlatformClock;
 import ch.corten.aha.worldclock.provider.WorldClock;
 import ch.corten.aha.worldclock.provider.WorldClock.Cities;
 
@@ -97,9 +99,10 @@ public class AddClockActivity extends SherlockFragmentActivity {
                     BindHelper.bindText(view, cursor, R.id.area_text, Cities.COUNTRY);
                     TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
                     Timezone tz = Timezone.of(cursor.getString(cursor.getColumnIndex(Cities.TIMEZONE_ID)));
-                    timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));
+                    Moment moment = PlatformClock.INSTANCE.currentTime();
+                    timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz, moment));
                     TextView timeZoneDescText = (TextView) view.findViewById(R.id.timezone_desc_text);
-                    timeZoneDescText.setText(TimeZoneInfo.getDescription(tz));
+                    timeZoneDescText.setText(TimeZoneInfo.getDescription(tz, moment));
                 }
             };
             setListAdapter(mAdapter);
@@ -191,7 +194,8 @@ public class AddClockActivity extends SherlockFragmentActivity {
                 String timeZoneId = c.getString(c.getColumnIndex(Cities.TIMEZONE_ID));
                 String city = c.getString(c.getColumnIndex(Cities.NAME));
                 String country = c.getString(c.getColumnIndex(Cities.COUNTRY));
-                int timeDiff = TimeZoneInfo.getTimeDifference(Timezone.of(timeZoneId));
+                Moment moment = PlatformClock.INSTANCE.currentTime();
+                int timeDiff = TimeZoneInfo.getTimeDifference(Timezone.of(timeZoneId), moment);
                 double latitude = c.getDouble(c.getColumnIndex(Cities.LATITUDE));
                 double longitude = c.getDouble(c.getColumnIndex(Cities.LONGITUDE));
                 WorldClock.Clocks.addClock(getActivity(), timeZoneId, city,

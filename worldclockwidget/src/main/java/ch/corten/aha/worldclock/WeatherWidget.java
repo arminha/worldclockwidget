@@ -30,7 +30,6 @@ import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 
 import net.time4j.Moment;
-import net.time4j.base.TimeSource;
 import net.time4j.tz.TZID;
 import net.time4j.tz.Timezone;
 
@@ -73,13 +72,13 @@ public final class WeatherWidget {
 
         String id = cursor.getString(cursor.getColumnIndex(Clocks.TIMEZONE_ID));
         TZID tzid = Timezone.of(id).getID();
-        TimeSource<Moment > clock = PlatformClock.INSTANCE;
+        Moment moment = PlatformClock.INSTANCE.currentTime();
         if (SANS_JELLY_BEAN_MR1) {
-            rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTimeWithOptionalWeekDay(tzid, clock, timeFormat));
+            rv.setTextViewText(R.id.time_text, TimeZoneInfo.showTimeWithOptionalWeekDay(tzid, moment, timeFormat));
         } else {
-            TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tzid, clock);
+            TimeZone javaTimeZone = TimeZoneInfo.convertToJavaTimeZone(tzid, moment);
             RemoteViewUtil.setTextClockTimeZone(rv, R.id.time_text, javaTimeZone.getID());
-            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferentWeekday(tzid, clock));
+            rv.setTextViewText(R.id.weekday_text, TimeZoneInfo.showDifferentWeekday(tzid, moment));
         }
 
         rv.setTextViewText(R.id.condition_text, cursor

@@ -18,8 +18,6 @@ package ch.corten.aha.worldclock;
 
 import net.time4j.Moment;
 import net.time4j.TemporalType;
-import net.time4j.base.TimeSource;
-import net.time4j.base.UnixTime;
 import net.time4j.format.expert.ChronoFormatter;
 import net.time4j.format.expert.PatternType;
 import net.time4j.tz.NameStyle;
@@ -32,8 +30,6 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import ch.corten.aha.utils.PlatformClock;
-
 public final class TimeZoneInfo {
 
     private static final String WEEKDAY_FORMAT = "EEE";
@@ -41,24 +37,27 @@ public final class TimeZoneInfo {
     private TimeZoneInfo() {
     }
 
-    public static int getTimeDifference(Timezone tz) { // in minutes
-        return tz.getOffset(PlatformClock.INSTANCE.currentTime()).getIntegralAmount() / 60;
+    public static int getTimeDifference(Timezone tz, Moment moment) { // in minutes
+        return tz.getOffset(moment).getIntegralAmount() / 60;
     }
 
-    public static String formatDate(DateFormat dateFormat, TZID tzid, TimeSource<Moment> clock) {
+    public static String formatDate(DateFormat dateFormat, TZID tzid, Moment moment) {
         if (dateFormat instanceof SimpleDateFormat) {
             String pattern = ((SimpleDateFormat) dateFormat).toPattern();
-            ChronoFormatter<Moment> cf =
-                    ChronoFormatter.ofMomentPattern(pattern, PatternType.CLDR, Locale.getDefault(), tzid);
-            return cf.format(clock.currentTime());
+            return ChronoFormatter.ofMomentPattern(
+                    pattern,
+                    PatternType.CLDR,
+                    Locale.getDefault(),
+                    tzid
+            ).format(moment);
         } else {
-            dateFormat.setTimeZone(convertToJavaTimeZone(tzid, clock));
-            return dateFormat.format(TemporalType.JAVA_UTIL_DATE.from(clock.currentTime()));
+            dateFormat.setTimeZone(convertToJavaTimeZone(tzid, null));
+            return dateFormat.format(TemporalType.JAVA_UTIL_DATE.from(moment));
         }
     }
 
-    public static String getTimeDifferenceString(Timezone tz) {
-        int minutesDiff = getTimeDifference(tz);
+    public static String getTimeDifferenceString(Timezone tz, Moment moment) {
+        int minutesDiff = getTimeDifference(tz, moment);
         StringBuilder sb = new StringBuilder();
         sb.append("UTC");
         if (minutesDiff != 0) {
@@ -80,30 +79,29 @@ public final class TimeZoneInfo {
         return sb.toString();
     }
 
-    public static String getDescription(Timezone tz) {
+    public static String getDescription(Timezone tz, Moment moment) {
         NameStyle style =
-                tz.isDaylightSaving(PlatformClock.INSTANCE.currentTime())
+                tz.isDaylightSaving(moment)
                         ? NameStyle.LONG_DAYLIGHT_TIME
                         : NameStyle.LONG_STANDARD_TIME;
         return tz.getDisplayName(style, Locale.getDefault());
     }
 
-    public static String showTimeWithOptionalWeekDay(TZID tzid, TimeSource<Moment> clock, DateFormat df) {
-        return formatDate(df, tzid, clock) + showDifferentWeekday(tzid, clock);
+    public static String showTimeWithOptionalWeekDay(TZID tzid, Moment moment, DateFormat df) {
+        return formatDate(df, tzid, moment) + showDifferentWeekday(tzid, moment);
     }
 
     /**
      * Convert a Time4A {@link net.time4j.tz.Timezone} to an equivalent Java {@link java.util.TimeZone}.
      *
-     * @param tzid  the time zone id
-     * @param clock source of current time
+     * @param   tzid        the time zone id
+     * @param   moment      usually the current time
      * @return a Java {@link java.util.TimeZone} with the same offset for the given time.
      */
-    public static TimeZone convertToJavaTimeZone(TZID tzid, TimeSource<?> clock) {
-        UnixTime ut = clock.currentTime();
+    public static TimeZone convertToJavaTimeZone(TZID tzid, Moment moment) {
         TimeZone timeZone = TimeZone.getTimeZone(tzid.canonical());
-        ZonalOffset offset = Timezone.of(tzid).getOffset(ut);
-        int platformOffsetInSecs = timeZone.getOffset(ut.getPosixTime() * 1000L) / 1000;
+        ZonalOffset offset = Timezone.of(tzid).getOffset(moment);
+        int platformOffsetInSecs = timeZone.getOffset(moment.getPosixTime() * 1000L) / 1000;
         if (platformOffsetInSecs == offset.getIntegralAmount()) {
             return timeZone;
         } else {
@@ -113,7 +111,7 @@ public final class TimeZoneInfo {
         }
     }
 
-    public static String showDifferentWeekday(TZID tzid, TimeSource<Moment> clock) {
+    public static String showDifferentWeekday(TZID tzid, Moment moment) {
         ChronoFormatter<Moment> dayFormat =
                 ChronoFormatter.ofMomentPattern(
                         WEEKDAY_FORMAT,
@@ -126,9 +124,8 @@ public final class TimeZoneInfo {
                         PatternType.CLDR,
                         Locale.getDefault(),
                         Timezone.ofSystem().getID());
-        Moment now = clock.currentTime();
-        String day = dayFormat.format(now);
-        String localDay = localDayFormat.format(now);
+        String day = dayFormat.format(moment);
+        String localDay = localDayFormat.format(moment);
         if (!day.equals(localDay)) {
             return " " + day;
         }
