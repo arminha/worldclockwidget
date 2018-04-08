@@ -17,9 +17,9 @@
 package ch.corten.aha.worldclock;
 
 import net.time4j.Moment;
-import net.time4j.SystemClock;
 import net.time4j.TemporalType;
 import net.time4j.base.TimeSource;
+import net.time4j.base.UnixTime;
 import net.time4j.format.expert.ChronoFormatter;
 import net.time4j.format.expert.PatternType;
 import net.time4j.tz.NameStyle;
@@ -32,6 +32,8 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import ch.corten.aha.utils.PlatformClock;
+
 public final class TimeZoneInfo {
 
     private static final String WEEKDAY_FORMAT = "EEE";
@@ -40,7 +42,7 @@ public final class TimeZoneInfo {
     }
 
     public static int getTimeDifference(Timezone tz) { // in minutes
-        return tz.getOffset(SystemClock.currentMoment()).getIntegralAmount() / 60;
+        return tz.getOffset(PlatformClock.INSTANCE.currentTime()).getIntegralAmount() / 60;
     }
 
     public static String formatDate(DateFormat dateFormat, TZID tzid, TimeSource<Moment> clock) {
@@ -80,7 +82,7 @@ public final class TimeZoneInfo {
 
     public static String getDescription(Timezone tz) {
         NameStyle style =
-                tz.isDaylightSaving(SystemClock.currentMoment())
+                tz.isDaylightSaving(PlatformClock.INSTANCE.currentTime())
                         ? NameStyle.LONG_DAYLIGHT_TIME
                         : NameStyle.LONG_STANDARD_TIME;
         return tz.getDisplayName(style, Locale.getDefault());
@@ -98,7 +100,7 @@ public final class TimeZoneInfo {
      * @return a Java {@link java.util.TimeZone} with the same offset for the given time.
      */
     public static TimeZone convertToJavaTimeZone(TZID tzid, TimeSource<?> clock) {
-        Moment ut = Moment.from(clock.currentTime());
+        UnixTime ut = clock.currentTime();
         TimeZone timeZone = TimeZone.getTimeZone(tzid.canonical());
         ZonalOffset offset = Timezone.of(tzid).getOffset(ut);
         int platformOffsetInSecs = timeZone.getOffset(ut.getPosixTime() * 1000L) / 1000;

@@ -19,6 +19,7 @@ package ch.corten.aha.worldclock;
 import java.text.DateFormat;
 import java.util.TimeZone;
 
+import ch.corten.aha.utils.PlatformClock;
 import ch.corten.aha.widget.RemoteViewUtil;
 import ch.corten.aha.worldclock.provider.WorldClock.Clocks;
 
@@ -36,7 +37,6 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import net.time4j.Moment;
-import net.time4j.SystemClock;
 import net.time4j.base.TimeSource;
 import net.time4j.tz.TZID;
 import net.time4j.tz.Timezone;
@@ -104,7 +104,7 @@ public class WorldClockWidgetProvider extends ClockWidgetProvider {
                 String city = cursor.getString(cursor.getColumnIndex(Clocks.CITY));
                 views.setTextViewText(CITY_IDS[n], city);
                 TZID tzid = Timezone.of(id).getID();
-                TimeSource<Moment> clock = SystemClock.INSTANCE;
+                TimeSource<Moment> clock = PlatformClock.INSTANCE;
                 if (SANS_JELLY_BEAN_MR1) {
                     views.setTextViewText(TIME_IDS[n], TimeZoneInfo.formatDate(df, tzid, clock));
                 } else {

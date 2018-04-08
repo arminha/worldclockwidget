@@ -49,13 +49,13 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-import net.time4j.SystemClock;
 import net.time4j.tz.Timezone;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.corten.aha.utils.PlatformClock;
 import ch.corten.aha.widget.DigitalClock;
 import ch.corten.aha.widget.PauseListener;
 import ch.corten.aha.widget.PauseSource;
@@ -465,7 +465,7 @@ public class WorldClockActivity extends SherlockFragmentActivity {
             Timezone tz = Timezone.of(timeZoneId);
             java.text.DateFormat df = DateFormat.getDateFormat(context);
             TextView dateText = (TextView) view.findViewById(R.id.date_text);
-            dateText.setText(TimeZoneInfo.formatDate(df, tz.getID(), SystemClock.INSTANCE));
+            dateText.setText(TimeZoneInfo.formatDate(df, tz.getID(), PlatformClock.INSTANCE));
 
             TextView timeDiffText = (TextView) view.findViewById(R.id.time_diff_text);
             timeDiffText.setText(TimeZoneInfo.getTimeDifferenceString(tz));

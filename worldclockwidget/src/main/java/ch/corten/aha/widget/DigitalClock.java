@@ -34,6 +34,8 @@ import net.time4j.tz.Timezone;
 
 import java.util.Locale;
 
+import ch.corten.aha.utils.PlatformClock;
+
 /**
  * Like AnalogClock, but digital.  Shows seconds.
  *
@@ -181,7 +183,7 @@ public class DigitalClock extends TextView implements PauseListener {
     }
 
     private void updateClock() {
-        setText(mDateFormat.format(net.time4j.SystemClock.currentMoment()));
+        setText(mDateFormat.format(PlatformClock.INSTANCE.currentTime()));
         invalidate();
     }
 
