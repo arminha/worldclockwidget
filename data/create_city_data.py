@@ -49,12 +49,16 @@ manually_added_cities = \
     ,('6620770', 'McMurdo Station')
     ,('4062577', 'Florence')
     ,('5877641', 'Wasilla')
-    ,('378459', 'Ar Ruseris', 'Ar Rusayris')
+    ,('378459',  'Ar Ruseris', 'Ar Rusayris')
     ]
 
 time_zone_replacements = {
     'Arctic/Longyearbyen': 'Europe/Oslo',
 }
+
+additional_cities = [
+    ['Gangasagar', 'Gangasagar', 21.647535, 88.081215, 'IN', 'Asia/Kolkata']
+]
 
 levels = {
     'CH' : 55000,
@@ -121,6 +125,7 @@ def main():
 
     for cities_file in cities_files:
         read_cities_file(ci, cities_file)
+    add_additional_cities(ci)
     write_output_file(ci)
 
 def read_cities_file(ci, cities_file):
@@ -139,6 +144,10 @@ def read_cities_file(ci, cities_file):
                 for index in columns_to_copy:
                     newrow.append(row[index])
                 ci.add_city(newrow)
+
+def add_additional_cities(ci):
+    for row in additional_cities:
+        ci.add_city(row)
 
 def write_output_file(ci):
     with open(output_file, 'wb') as w:
