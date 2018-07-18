@@ -10,7 +10,7 @@
 4036655	Weddell Plain	Weddell Plain	Weddell Abyssal Plain,Weddell Plain	-65	-20	U	PLNU	AQ		00				0		-9999	America/Fortaleza	2008-01-20
 4036656	Vaughan Bank	Vaughan Bank		-67.61667	163.5	U	SMU	AQ		00				0		-9999	Pacific/Tarawa	1999-07-23
 4036657	Vanderford Valley	Vanderford Valley	Vanderford Strath,Vanderford Submarine Valley	-66.41667	110.16667	U	VALU	AQ		00				0		-9999	Antarctica/Davis	1999-05-17
-4036658	Umitaka Bank	Umitaka Bank	Umitaka Bank,Umitaka Seamount,Umitka Bank	-67.41667	167	U	SMU	AQ		00				0		-9999	Pacific/Tarawa	2008-01-20
+4036658	Umitaka Bank	Umitaka Bank	Umitaka Bank,Umitaka Seamount	-67.41667	167	U	SMU	AQ		00				0		-9999	Pacific/Tarawa	2018-03-04
 4036659	Tressler Bank	Tressler Bank	Tressler Bank	-65	95	U	BNKU	AQ		00				0		-9999	Antarctica/Mawson	2008-01-20
 4036660	Terra Nova Canyon	Terra Nova Canyon	Terra Nova Canyon	-69	159	U	CNYU	AQ		00				0		-9999	Pacific/Tarawa	2008-01-20
 4036662	Sulzberger Basin	Sulzberger Basin	Sulzberger Basin	-77	-152.5	U	BSNU	AQ		00				0		-9999	Pacific/Gambier	2008-01-20
@@ -128,7 +128,7 @@
 6620463	Tor research station	Tor research station	Tor feltstasjon,Tor research station,Tor research station (Norway)	-71.88889	5.15833	S	STNM	AQ		00				15	1625	1610	Antarctica/Syowa	2007-12-18
 6620468	Valkyrkjedomen	Valkyrkjedomen	Dome F,Dome Fuji,Valkyrjedomen,domu fu shi,ドーム富士	-77.31667	39.7	T	PK	AQ						0	3810	3803	Antarctica/Syowa	2007-12-19
 6620703	Alexander Island	Alexander Island	Alejandro I  Isla,Alexander Island,Alexanderoya,Alexanderøya,Zemlja Aleksandra I	-71.2867	-69.89502	T	ISL	AQ						0		714	Antarctica/Rothera	2008-01-20
-6620704	Berkner Island	Berkner Island	Berkner Island,Berkneroya,Berknerøya	-79.33333	-48.11667	T	ISL	AQ						0		616	Antarctica/Rothera	2008-01-20
+6620704	Berkner Island	Berkner Island	Berkner Island,Berkneroya,Berknerøya	-79.33333	-48.11667	T	ISL	AQ						0		616	Antarctica/Rothera	2018-02-15
 6620705	Thurston Island	Thurston Island	Ile Thurston,Ilha Thurston,Illa Thurston,Illa de Thurston,Isla Thurston,Isola Thurston,Tarston,Tarstono sala,Terston,Therston,Thurston,Thurston Adasi,Thurston Adası,Thurston Island,Thurston uhartea,Thurston  Isla,Thurston-Insel,Thurston-eiland,Thurstoninsaari,Thurstonoya,Thurstonuv ostrov,Thurstonøya,Thurstonův ostrov,Wyspa Thurstona,Ynys Thurston,jzyrt thwrstn,sasuton dao,se si dun dao,Île Thurston,Θέρστον,Тарстон,Терстон,تھرسٹن جزیرہ,جزيرة ثورستن,ტარსტონი,サーストン島,瑟斯顿岛	-72.16667	-99	T	ISL	AQ						0		629	Antarctica/Rothera	2008-01-20
 6620706	Carney Island	Carney Island	Carney Island,Carneyoya,Carneyøya	-73.93333	-121	T	ISL	AQ						0		413	Antarctica/McMurdo	2008-01-20
 6620707	Roosevelt Island	Roosevelt Island	Roosevelt Island,Rooseveltoya,Rooseveltøya	-79.28333	-162	T	ISL	AQ						0		425	Antarctica/McMurdo	2008-01-20
@@ -154,7 +154,7 @@
 6620727	Renaud Island	Renaud Island	Ranaudoya,Ranaudøya,Renaud Island,Renaud Ylan,Renaud  isla,Renaud-Eiland,Renaud-Insel	-66.16667	-66	T	ISL	AQ	LI					0		-9999	America/Adak	2017-03-14
 6620728	Masson Island	Masson Island	Masson Island,Massonoya,Massonøya	-66.13333	96.58333	T	ISL	AQ						0	471	316	Antarctica/Vostok	2008-01-20
 6620729	Elephant Island	Elephant Island	Elefant-insulo,Elefant-sziget,Elefanta,Elefante  isla,Elefantoen,Elefantoya,Elefanttisaari,Elefantön,Elefantøya,Elefánt-sziget,Elephant Island,Elephanteiland,Elpendieg,Elpendīeg,Fil Adasi,Fil Adası,Ile de lElephant,Ilha Elefante,Illa Elefant,Isla Elefante,Isola Elephant,Mordvinova  ostrov,Oaljefanteilan,Oaljefanteilân,Ostriv Mordvinova,Ostrov Mordvinova,Sloni ostrov,Sloní ostrov,ellipeonteu seom,erefanto dao,xiang dao,Île de lÉléphant,Остров Мордвинова,Острів Мордвінова,אי הפיל,სპილოს კუნძული,エレファント島,象岛,엘리펀트 섬	-61.08486	-55.18433	T	ISL	AQ						0	852	141	Antarctica/Palmer	2008-01-20
-6620730	Rothschild Island	Rothschild Island	Rothschild Island,Rothschild  Ile de,Rothschild  isla,Rotschildoya,Rotschildøya	-69.42862	-72.55371	T	ISL	AQ						0		14	Antarctica/Rothera	2008-01-20
+6620730	Rothschild Island	Rothschild Island	Rothschild Island,Rothschild  Ile de,Rothschild  isla,Rotschildoya,Rotschildøya	-69.42862	-72.55371	T	ISL	AQ						0		14	Antarctica/Rothera	2018-02-15
 6620731	Hearst Island	Hearst Island	Hearst Island,Hearst  isla,Hearstoya,Hearstøya	-69.41667	-62.16667	T	ISL	AQ						0	365	282	Antarctica/Palmer	2008-01-20
 6620732	D’Urville Island	D'Urville Island	D'Urville Island,D'Urvilleoya,D’Urville Island,D’Urvilleøya,d'Urville  isla	-63.1	-56.25	T	ISL	AQ						0	210	181	Antarctica/Palmer	2008-01-20
 6620733	Coronation Island	Coronation Island	Coronacion  isla,Coronación  isla,Coronation,Coronation Island,Coronation-Insel,Gewuldorbeagungieg,Gewuldorbeagungīeg,Ile du Couronnement,Illa Coronacio,Illa Coronació,Isla Coronacion,Isla Coronación,Koroneisena,Koroneišena,Koronejshen,Koroneysen,Koroneyşen,Kronada insulo,Kroningsoya,Kroningsøya,ke luo nei shen dao,Île du Couronnement,Коронейшен,კორონეიშენის კუნძული,科羅內申島	-60.59506	-45.58777	T	ISL	AQ						0		824	Antarctica/Rothera	2008-01-20
@@ -18130,10 +18130,10 @@
 6696480	McMurdo Station	McMurdo Station	Base McMurdo,Base antarctique McMurdo,Estacao McMurdo,Estacio McMurdo,Estació McMurdo,Estação McMurdo,Mak-Merdo,Makmerdo,McMurdo,McMurdo Statschoon,McMurdo basea,McMurdo-Station,McMurdo-stasjonen,Polarni stanice McMurdo,Polusa stacio McMurdo,Polární stanice McMurdo,Station McMurdo,Stazione McMurdo,maegmeodo giji,mai ke mo duo zhan,makumado ji de,thnt mq-mrdw,Мак-Мердо,Макмөрдо,תחנת מק-מרדו,قاعدة ماك موردو,マクマード基地,麥克默多站,맥머도 기지	-77.846	166.676	P	PPL	AQ						1258		-9999	Antarctica/McMurdo	2012-07-11
 6697173	Antarctica	Antarctica	'Anitatika,An Antartaice,Antaktika,Antarctica,Antarctique,Antarktida,Antarktik,Antarktika,Antarktiki,Antarktis,Antarktisz,Antarkto,Antarktyda,Antarktyka,Antartica,Antartica nutome,Antartida,Antartide,Antartika,Antàrtida,Antárktis,Antártida,Nam Cuc,Nam Cực,Qalasersuaq Kujalleq,Sudurskautslandid,Suðurskautslandið,alqtb aljnwby,antaratika,antarkatika,antarktika,antarktyka,antartika,arntakatika,entarkatika,entartika,i-Antarctica,jnwbgan,namgeug daelyug,nan ji,nan ji zhou,yantarktyka,ʻAnitātika,Ανταρκτική,Антарктида,Антарктик,Антарктика,Антарктыка,אנטארקטיקה,ئانتارکتیکا,القطب الجنوبي,انتارکتیکا,انٹارکٹیکا,جنوبگان,अंटार्कटिका,अंटार्क्टिका,अन्टारतिका,এন্টার্কটিকা,এন্টাৰ্টিকা,એન્ટાર્કટિકા,ଆର୍ଣ୍ଟକଟିକା,அண்டார்டிகா,అంటార్కటికా,ಅಂಟಾರ್ಟಿಕಾ,അന്‍റാര്‍ട്ടിക്ക,ඇන්ටාක්ටිකාව,แอนตาร์กติกา,ལྷོ་རྩེའི་མཐའ་གླིང་།,ཨེན་ཊཱག་ཊི་ཀ,အန္တာတိက,ანტარქტიკა,አንታርክቲካ,南极洲,南極,남극 대륙	-82.67628	8.78906	A	TERR	AQ		00				0		2481		2017-07-10
 6942222	Phantom Coast	Phantom Coast		-68.85	-90.5799	H	GULF	AQ						0		888	Antarctica/Rothera	2009-06-10
-6942239	South Pole	South Pole		-89.99842	0	T	PT	AQ						0		-9999	Antarctica/McMurdo	2009-06-10
+6942239	South Pole	South Pole	Polus Antarcticus,Suedpol,Südpol	-90	0	T	PT	AQ						0		-9999	America/Argentina/Ushuaia	2018-04-09
 6944248	O Higgins	O Higgins		-63.3209	-57.89956	P	PPLL	AQ						0		-9999	Antarctica/Palmer	2009-07-31
 6951069	Serre Che	Serre Che		-83.8864	34.9805	S	STNB	AQ						0		3001	Antarctica/McMurdo	2013-04-03
-7646142	Maro Cliffs	Maro Cliffs		-79.06667	-28.5	T	CLF	AQ						0		492	Antarctica/McMurdo	2011-01-15
+7646142	Maro Cliffs	Maro Cliffs	Maro Cliffs,Marø Cliffs	-79.06667	-28.5	T	CLF	AQ						0		492	Antarctica/McMurdo	2018-06-23
 7646220	Borga	Borga		-72.96505	-3.79646	S	STNB	AQ						0		1886	Antarctica/Syowa	2011-01-15
 7646221	Sarie Marais	Sarie Marais		-72.03085	-2.80735	S	STNB	AQ						0		1089	Antarctica/Syowa	2011-01-15
 8260905	Teniente R. Marsh Airport	Teniente R. Marsh Airport	Aerodromo Teniente Rodolfo Marsh Martin,Aeroport Teniente R. Marsh,Aeroporto di Teniente Re Marsh,Aeródromo Teniente Rodolfo Marsh Martin,Aéroport Teniente R. Marsh,Mezhdunarodnyj aehroport imeni Teniente Rodolfo Marsha Martina,SCRM,TNM,Teniente R. Marsh Airport,frwdgah stwan ar. marsh,Международный аэропорт имени Тениенте Родолфо Марша Мартина,فرودگاه ستوان آر. مارش	-62.19083	-58.98667	S	AIRP	AQ						0		-9999	Antarctica/Palmer	2016-04-16

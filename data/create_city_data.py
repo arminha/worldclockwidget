@@ -49,12 +49,17 @@ manually_added_cities = \
     ,('6620770', 'McMurdo Station')
     ,('4062577', 'Florence')
     ,('5877641', 'Wasilla')
-    ,('378459', 'Ar Ruseris', 'Ar Rusayris')
+    ,('378459',  'Ar Ruseris', 'Ar Rusayris')
+    ,('1915223', 'Zhongshan', None, 'Asia/Shanghai')
     ]
 
 time_zone_replacements = {
     'Arctic/Longyearbyen': 'Europe/Oslo',
 }
+
+additional_cities = [
+    ['Gangasagar', 'Gangasagar', 21.647535, 88.081215, 'IN', 'Asia/Kolkata']
+]
 
 levels = {
     'CH' : 55000,
@@ -121,6 +126,7 @@ def main():
 
     for cities_file in cities_files:
         read_cities_file(ci, cities_file)
+    add_additional_cities(ci)
     write_output_file(ci)
 
 def read_cities_file(ci, cities_file):
@@ -140,6 +146,10 @@ def read_cities_file(ci, cities_file):
                     newrow.append(row[index])
                 ci.add_city(newrow)
 
+def add_additional_cities(ci):
+    for row in additional_cities:
+        ci.add_city(row)
+
 def write_output_file(ci):
     with open(output_file, 'wb') as w:
         writer = csv.writer(w, delimiter='\t', quoting=csv.QUOTE_NONE)
@@ -155,32 +165,36 @@ def write_output_file(ci):
         writer.writerow(['UTC', 'GMT Zulu', '0', '0', 'Coordinated Universal Time', 'GMT'])
 
 def select_row(ci, row):
+    if is_manually_added(row):
+        return True
     if checkPopulationLevel(row):
         return True
     if ci.is_capital(row):
-        return True
-    if is_manually_added(row):
         return True
     return False
 
 def is_manually_added(row):
     for manual_city in manually_added_cities:
-        (id, name, override_name) = unpack_manual_city(*manual_city)
+        (id, name, override_name, override_timezone) = unpack_manual_city(*manual_city)
         if id == row[GEONAMEID]:
             if name != row[ASCIINAME]:
                 print 'WARNING: name of city [%s] has changed from "%s" to "%s"' % (id, name, row[ASCIINAME])
+            print 'manually added city: %s, %s [%s]' % (row[ASCIINAME], row[ISO_CODE], id)
             if override_name:
-                print 'manually added city: %s, %s [%s] override name: %s' % (row[ASCIINAME], row[ISO_CODE], id, override_name)
+                print '    override name: %s' % override_name
                 row[NAME] = override_name
-            else:
-                print 'manually added city: %s, %s [%s]' % (row[ASCIINAME], row[ISO_CODE], id)
+            if override_timezone:
+                print '    override time zone: %s' % override_timezone
+                row[TIMEZONE] = override_timezone
             return True
     return False
 
 def unpack_manual_city(id, name, *rest):
-    if rest:
-        return id, name, rest[0]
-    return id, name, None
+    if len(rest) == 1:
+        return id, name, rest[0], None
+    if len(rest) == 2:
+        return id, name, rest[0], rest[1]
+    return id, name, None, None
 
 def checkPopulationLevel(row):
     iso_code = row[ISO_CODE]
@@ -190,4 +204,3 @@ def checkPopulationLevel(row):
 
 if __name__ == "__main__":
     main()
-
