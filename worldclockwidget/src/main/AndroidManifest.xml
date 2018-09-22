@@ -94,6 +94,11 @@
         <provider
             android:name="ch.corten.aha.worldclock.provider.WorldClockContentProvider"
             android:authorities="ch.corten.aha.worldclock.provider"
+            android:exported="false"
+            android:permission="ch.corten.aha.worldclock.permission.WRITE_APP_DATA" />
+        <provider
+            android:name="ch.corten.aha.worldclock.provider.WidgetContentProvider"
+            android:authorities="ch.corten.aha.worldclock.widgetprovider"
             android:exported="true"
             android:writePermission="ch.corten.aha.worldclock.permission.WRITE_APP_DATA" />
 

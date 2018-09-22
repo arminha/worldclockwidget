@@ -37,6 +37,9 @@ public final class WorldClock {
     public static final String AUTHORITY = "ch.corten.aha.worldclock.provider";
     public static final Uri AUTHORITY_URI = Uri.parse("content://" + AUTHORITY);
 
+    public static final String WIDGET_AUTHORITY = "ch.corten.aha.worldclock.widgetprovider";
+    public static final Uri WIDGET_AUTHORITY_URI = Uri.parse("content://" + WIDGET_AUTHORITY);
+
     public static class Clocks implements BaseColumns {
         public static enum MoveTarget {
             UP,
@@ -46,9 +49,11 @@ public final class WorldClock {
         static final String TABLE_NAME = "clocks";
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, TABLE_NAME);
+        public static final Uri WIDGET_CONTENT_URI = Uri.withAppendedPath(WIDGET_AUTHORITY_URI, TABLE_NAME);
 
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + TABLE_NAME;
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd." + AUTHORITY + "." + TABLE_NAME;
+        public static final String WIDGET_CONTENT_TYPE = "vnd.android.cursor.dir/vnd." + WIDGET_AUTHORITY + "." + TABLE_NAME;
 
         public static final String _ID = BaseColumns._ID;
         public static final String TIMEZONE_ID = "timezone_id";
@@ -216,11 +221,9 @@ public final class WorldClock {
         }
 
         public static Cursor widgetList(Context context, String[] projection, boolean autoSort) {
-            String sortOrder = autoSort
-                    ? Clocks.TIME_DIFF + " ASC, " + Clocks.CITY + " ASC"
-                    : Clocks.ORDER_KEY + " ASC";
-            return context.getContentResolver().query(Clocks.CONTENT_URI,
-                    projection, Clocks.USE_IN_WIDGET + " = 1", null, sortOrder);
+            String sortOrder = autoSort ? "auto" : "";
+            return context.getContentResolver().query(Clocks.WIDGET_CONTENT_URI,
+                    projection, null, null, sortOrder);
         }
     }
 

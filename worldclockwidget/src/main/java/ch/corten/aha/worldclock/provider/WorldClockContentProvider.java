@@ -49,11 +49,12 @@ public class WorldClockContentProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
+        String querySelection = null;
         switch (URI_MATCHER.match(uri)) {
         case CLOCKS:
             break;
         case CLOCKS_ITEM:
-            selection = "_ID = " + uri.getLastPathSegment();
+            querySelection = "_ID = " + Integer.parseInt(uri.getLastPathSegment());
             break;
         case CITIES:
         case CITIES_ITEM:
@@ -63,7 +64,7 @@ public class WorldClockContentProvider extends ContentProvider {
         }
 
         SQLiteDatabase db = getClockDbHelper().getWritableDatabase();
-        int deleted = db.delete(Clocks.TABLE_NAME, selection, selectionArgs);
+        int deleted = db.delete(Clocks.TABLE_NAME, querySelection, null);
         if (deleted > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
@@ -147,7 +148,7 @@ public class WorldClockContentProvider extends ContentProvider {
             break;
         case CITIES_ITEM:
         case CLOCKS_ITEM:
-            selection = "_ID = " + uri.getLastPathSegment();
+            selection = "_ID = " + Integer.parseInt(uri.getLastPathSegment());
             break;
         default:
             throw invalidUri(uri);
@@ -162,11 +163,12 @@ public class WorldClockContentProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection,
             String[] selectionArgs) {
+        String querySelection = null;
         switch (URI_MATCHER.match(uri)) {
         case CLOCKS:
             break;
         case CLOCKS_ITEM:
-            selection = "_ID = " + uri.getLastPathSegment();
+            querySelection = "_ID = " + Integer.parseInt(uri.getLastPathSegment());
             break;
         case CITIES:
         case CITIES_ITEM:
@@ -175,8 +177,8 @@ public class WorldClockContentProvider extends ContentProvider {
             throw invalidUri(uri);
         }
 
-        SQLiteDatabase db = getClockDbHelper().getReadableDatabase();
-        int updated = db.update(Clocks.TABLE_NAME, values, selection, selectionArgs);
+        SQLiteDatabase db = getClockDbHelper().getWritableDatabase();
+        int updated = db.update(Clocks.TABLE_NAME, values, querySelection, null);
         if (updated > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
