@@ -1,7 +1,7 @@
 World Clock & Weather
 =====================
 ** Important fix!!
-User can use default api key as well as signup API Keys. Please look for application Settings -> GENERAL -> !!!Important!!! section**
+This project will be updated soon**
 
 A simple application to display the local time and current weather conditions in places all over the world.
 It comes with two home screen widgets which show weather and time or time only.
