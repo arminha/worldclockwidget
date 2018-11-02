@@ -109,7 +109,7 @@ dependencies{
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
-    compile group: 'net.time4j', name: 'time4j-android', version: '3.41-2018d'
+    compile group: 'net.time4j', name: 'time4j-android', version: '4.0-2018g'
 }
 
 
