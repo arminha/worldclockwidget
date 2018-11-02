@@ -24,6 +24,6 @@ public class PlatformClock
 
     @Override
     public Moment currentTime() {
-        return this.zonalClock.currentMoment();
+        return this.zonalClock.now().inStdTimezone();
     }
 }
