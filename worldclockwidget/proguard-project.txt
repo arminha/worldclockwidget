@@ -42,5 +42,3 @@
 #   public *;
 #}
 
-# ignore missing Joda time references
--dontwarn org.joda.time.tz.ZoneInfoCompiler,org.joda.convert.*

@@ -24,8 +24,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import org.joda.time.DateTimeZone;
+import net.time4j.Moment;
+import net.time4j.tz.Timezone;
 
+import ch.corten.aha.utils.PlatformClock;
 import ch.corten.aha.worldclock.TimeZoneInfo;
 import ch.corten.aha.worldclock.weather.WeatherObservation;
 
@@ -41,7 +43,7 @@ public final class WorldClock {
     public static final Uri WIDGET_AUTHORITY_URI = Uri.parse("content://" + WIDGET_AUTHORITY);
 
     public static class Clocks implements BaseColumns {
-        public static enum MoveTarget {
+        public enum MoveTarget {
             UP,
             DOWN
         }
@@ -199,11 +201,12 @@ public final class WorldClock {
             Cursor c = cr.query(CONTENT_URI, new String[] {_ID, TIMEZONE_ID, TIME_DIFF}, null, null, _ID);
             if (c != null) {
                 try {
+                    Moment moment = PlatformClock.INSTANCE.currentTime();
                     while (c.moveToNext()) {
                         String timeZoneId = c.getString(c.getColumnIndex(TIMEZONE_ID));
                         int storedDiff = c.getInt(c.getColumnIndex(TIME_DIFF));
-                        DateTimeZone tz = DateTimeZone.forID(timeZoneId);
-                        int diff = TimeZoneInfo.getTimeDifference(tz);
+                        Timezone tz = Timezone.of(timeZoneId);
+                        int diff = TimeZoneInfo.getTimeDifference(tz, moment);
                         if (storedDiff != diff) {
                             // update entry
                             long id = c.getLong(c.getColumnIndex(_ID));

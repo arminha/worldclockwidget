@@ -16,45 +16,48 @@
 
 package ch.corten.aha.worldclock;
 
-import android.util.Log;
-
-import org.joda.time.DateTimeUtils;
-import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import net.time4j.Moment;
+import net.time4j.TemporalType;
+import net.time4j.format.expert.ChronoFormatter;
+import net.time4j.format.expert.PatternType;
+import net.time4j.tz.NameStyle;
+import net.time4j.tz.TZID;
+import net.time4j.tz.Timezone;
+import net.time4j.tz.ZonalOffset;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public final class TimeZoneInfo {
 
     private static final String WEEKDAY_FORMAT = "EEE";
-    private static final String TZ_ID_TAG = "TZ-IDs";
 
     private TimeZoneInfo() {
     }
 
-    public static int getTimeDifference(DateTimeZone tz) {
-        int milliseconds = tz.getOffset(DateTimeUtils.currentTimeMillis());
-        return milliseconds / 60000;
+    public static int getTimeDifference(Timezone tz, Moment moment) { // in minutes
+        return tz.getOffset(moment).getIntegralAmount() / 60;
     }
 
-    public static String formatDate(DateFormat dateFormat, DateTimeZone tz, long time) {
+    public static String formatDate(DateFormat dateFormat, TZID tzid, Moment moment) {
         if (dateFormat instanceof SimpleDateFormat) {
             String pattern = ((SimpleDateFormat) dateFormat).toPattern();
-            DateTimeFormatter format = DateTimeFormat.forPattern(pattern).withZone(tz);
-            return format.print(time);
+            return ChronoFormatter.ofMomentPattern(
+                    pattern,
+                    PatternType.CLDR,
+                    Locale.getDefault(),
+                    tzid
+            ).format(moment);
         } else {
-            dateFormat.setTimeZone(convertToJavaTimeZone(tz, time));
-            return dateFormat.format(new Date(time));
+            dateFormat.setTimeZone(convertToJavaTimeZone(tzid, null));
+            return dateFormat.format(TemporalType.JAVA_UTIL_DATE.from(moment));
         }
     }
 
-    public static String getTimeDifferenceString(DateTimeZone tz) {
-        int minutesDiff = getTimeDifference(tz);
+    public static String getTimeDifferenceString(Timezone tz, Moment moment) {
+        int minutesDiff = getTimeDifference(tz, moment);
         StringBuilder sb = new StringBuilder();
         sb.append("UTC");
         if (minutesDiff != 0) {
@@ -76,50 +79,54 @@ public final class TimeZoneInfo {
         return sb.toString();
     }
 
-    public static String getDescription(DateTimeZone tz) {
-        // The Java TimeZones gives a better description (and knows more time zones)
-        TimeZone timeZone = tz.toTimeZone();
-        if (timeZone.useDaylightTime() && timeZone.inDaylightTime(new Date())) {
-            return timeZone.getDisplayName(true, TimeZone.LONG);
-        }
-        return timeZone.getDisplayName();
+    public static String getDescription(Timezone tz, Moment moment) {
+        NameStyle style =
+                tz.isDaylightSaving(moment)
+                        ? NameStyle.LONG_DAYLIGHT_TIME
+                        : NameStyle.LONG_STANDARD_TIME;
+        return tz.getDisplayName(style, Locale.getDefault());
     }
 
-    public static String showTimeWithOptionalWeekDay(DateTimeZone tz, long time, DateFormat df) {
-        return formatDate(df, tz, time) + showDifferentWeekday(tz, time);
+    public static String showTimeWithOptionalWeekDay(TZID tzid, Moment moment, DateFormat df) {
+        return formatDate(df, tzid, moment) + showDifferentWeekday(tzid, moment);
     }
 
     /**
-     * Convert a joda-time {@link org.joda.time.DateTimeZone} to an equivalent Java {@link java.util.TimeZone}.
+     * Convert a Time4A {@link net.time4j.tz.Timezone} to an equivalent Java {@link java.util.TimeZone}.
      *
-     * @param dateTimeZone a joda-time {@link org.joda.time.DateTimeZone}
-     * @param time         the time when the time zones should be equivalent.
+     * @param   tzid        the time zone id
+     * @param   moment      usually the current time
      * @return a Java {@link java.util.TimeZone} with the same offset for the given time.
      */
-    public static TimeZone convertToJavaTimeZone(DateTimeZone dateTimeZone, long time) {
-        TimeZone timeZone = dateTimeZone.toTimeZone();
-        long offset = dateTimeZone.getOffset(time);
-        if (timeZone.getOffset(time) == offset) {
+    public static TimeZone convertToJavaTimeZone(TZID tzid, Moment moment) {
+        TimeZone timeZone = TimeZone.getTimeZone(tzid.canonical());
+        ZonalOffset offset = Timezone.of(tzid).getOffset(moment);
+        int platformOffsetInSecs = timeZone.getOffset(moment.getPosixTime() * 1000L) / 1000;
+        if (platformOffsetInSecs == offset.getIntegralAmount()) {
             return timeZone;
+        } else {
+            // let's now return the simple offset representation
+            // instead of searching for a potentially wrong replacement zone with same offset
+            return TimeZone.getTimeZone(offset.canonical());
         }
-        String[] ids = TimeZone.getAvailableIDs((int) offset);
-        Log.d(TZ_ID_TAG, dateTimeZone.getID() + ": " + Arrays.toString(ids));
-        for (String id : ids) {
-            TimeZone tz = TimeZone.getTimeZone(id);
-            if (tz.getOffset(time) == offset) {
-                timeZone = tz;
-                Log.d(TZ_ID_TAG, "Found time zone " + tz.getID() + " for " + dateTimeZone.getID() + " with offset: " + offset);
-                break;
-            }
-        }
-        return timeZone;
     }
 
-    public static String showDifferentWeekday(DateTimeZone tz, long time) {
-        DateTimeFormatter dayFormat = DateTimeFormat.forPattern(WEEKDAY_FORMAT).withZone(tz);
-        String day = dayFormat.print(time);
-        DateTimeFormatter localDayFormat = DateTimeFormat.forPattern(WEEKDAY_FORMAT);
-        if (!day.equals(localDayFormat.print(time))) {
+    public static String showDifferentWeekday(TZID tzid, Moment moment) {
+        ChronoFormatter<Moment> dayFormat =
+                ChronoFormatter.ofMomentPattern(
+                        WEEKDAY_FORMAT,
+                        PatternType.CLDR,
+                        Locale.getDefault(),
+                        tzid);
+        ChronoFormatter<Moment> localDayFormat =
+                ChronoFormatter.ofMomentPattern(
+                        WEEKDAY_FORMAT,
+                        PatternType.CLDR,
+                        Locale.getDefault(),
+                        Timezone.ofSystem().getID());
+        String day = dayFormat.format(moment);
+        String localDay = localDayFormat.format(moment);
+        if (!day.equals(localDay)) {
             return " " + day;
         }
         return "";

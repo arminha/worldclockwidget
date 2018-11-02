@@ -90,7 +90,7 @@ def getOpenWeatherMapApiKey() {
     if (project.hasProperty('owmApiKey')) {
         return owmApiKey
     } else {
-        def apiKeyFile = file('default_owm_api_key');
+        def apiKeyFile = file('default_owm_api_key')
         if (apiKeyFile.isFile()) {
           return apiKeyFile.text.trim()
         }
@@ -109,7 +109,7 @@ dependencies{
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
-    compile 'net.danlew:android.joda:2.9.4.1'
+    compile group: 'net.time4j', name: 'time4j-android', version: '4.0-2018g'
 }
 
 
