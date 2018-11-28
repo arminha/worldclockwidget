@@ -1,7 +1,7 @@
 World Clock & Weather
 =====================
-** Important fix!!
-User can use default api key as well as signup API Keys. Please look for application Settings -> GENERAL -> !!!Important!!! section**
+
+**This project is not maintained any more!**
 
 A simple application to display the local time and current weather conditions in places all over the world.
 It comes with two home screen widgets which show weather and time or time only.
@@ -25,8 +25,7 @@ The Internet connectivity permission is **only** used to retrieve current weathe
 Download
 --------
 
-The latest version of the app is available on `Google Play <https://play.google.com/store/apps/details?id=ch.corten.aha.worldclock>`_
-and on `F-Droid <https://f-droid.org/repository/browse/?fdid=ch.corten.aha.worldclock>`_.
+The latest version of the app is available on `F-Droid <https://f-droid.org/repository/browse/?fdid=ch.corten.aha.worldclock>`_.
 
 Screenshots
 -----------
@@ -62,4 +61,3 @@ Acknowledgements
 * Weather data is provided by `Open Weather Map <https://openweathermap.org/>`_.
 * The weather icons are based on `Meteocons <http://www.alessioatzeni.com/meteocons/>`_ from Alessio Atzeni.
 * Time zone and geographical data is provided by `GeoNames <http://www.geonames.org/>`_.
-
