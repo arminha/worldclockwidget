@@ -113,7 +113,7 @@ Bendigo	Bendigo	-36.75818	144.28024	Australia	Australia/Melbourne
 Brisbane	Brisbane	-27.46794	153.02809	Australia	Australia/Brisbane
 Broken Hill	Broken Hill	-31.9652	141.4512	Australia	Australia/Broken_Hill
 Bundaberg	Bundaberg	-24.86621	152.3479	Australia	Australia/Brisbane
-Cairns	Cairns	-16.92304	145.76625	Australia	Australia/Brisbane
+Cairns	Cairns	-16.92366	145.76613	Australia	Australia/Brisbane
 Canberra	Canberra	-35.28346	149.12807	Australia	Australia/Sydney
 Darwin	Darwin	-12.46113	130.84185	Australia	Australia/Darwin
 Geelong	Geelong	-38.14711	144.36069	Australia	Australia/Melbourne
@@ -131,10 +131,15 @@ Sydney	Sydney	-33.86785	151.20732	Australia	Australia/Sydney
 Toowoomba	Toowoomba	-27.56056	151.95386	Australia	Australia/Brisbane
 Townsville	Townsville	-19.26639	146.80569	Australia	Australia/Brisbane
 Wollongong	Wollongong	-34.424	150.89345	Australia	Australia/Sydney
+Donaustadt	Donaustadt	48.2333	16.46002	Austria	Europe/Vienna
+Favoriten	Favoriten	48.16116	16.38233	Austria	Europe/Vienna
+Floridsdorf	Floridsdorf	48.25	16.4	Austria	Europe/Vienna
 Graz	Graz	47.06667	15.45	Austria	Europe/Vienna
 Innsbruck	Innsbruck	47.26266	11.39454	Austria	Europe/Vienna
 Linz	Linz	48.30639	14.28611	Austria	Europe/Vienna
+Ottakring	Ottakring	48.21667	16.3	Austria	Europe/Vienna
 Salzburg	Salzburg	47.79941	13.04399	Austria	Europe/Vienna
+Simmering	Simmering	48.18333	16.43333	Austria	Europe/Vienna
 Vienna	Vienna	48.20849	16.37208	Austria	Europe/Vienna
 Baku	Baku	40.37767	49.89201	Azerbaijan	Asia/Baku
 Ganja	Ganja	40.68278	46.36056	Azerbaijan	Asia/Baku
@@ -725,7 +730,6 @@ Hohhot	Hohhot	40.81056	111.65222	China	Asia/Shanghai
 Honggang	Honggang	46.40124	124.88322	China	Asia/Shanghai
 Huadian	Huadian	42.96333	126.74778	China	Asia/Shanghai
 Huai'an	Huai'an	33.58861	119.01917	China	Asia/Shanghai
-Huai’an	Huai'an	33.50389	119.14417	China	Asia/Shanghai
 Huaibei	Huaibei	33.97444	116.79167	China	Asia/Shanghai
 Huaihua	Huaihua	27.56337	110.00404	China	Asia/Shanghai
 Huainan	Huainan	32.62639	116.99694	China	Asia/Shanghai
@@ -992,17 +996,17 @@ Bello	Bello	6.33732	-75.55795	Colombia	America/Bogota
 Bogotá	Bogota	4.60971	-74.08175	Colombia	America/Bogota
 Bucaramanga	Bucaramanga	7.12539	-73.1198	Colombia	America/Bogota
 Buenaventura	Buenaventura	3.8801	-77.03116	Colombia	America/Bogota
-Buga	Buga	3.90089	-76.29783	Colombia	America/Bogota
 Cali	Cali	3.43722	-76.5225	Colombia	America/Bogota
 Cartagena	Cartagena	10.39972	-75.51444	Colombia	America/Bogota
 Cartago	Cartago	4.74639	-75.91167	Colombia	America/Bogota
 Cúcuta	Cucuta	7.89391	-72.50782	Colombia	America/Bogota
-Dos Quebradas	Dos Quebradas	4.83916	-75.66727	Colombia	America/Bogota
+Dosquebradas	Dosquebradas	4.83916	-75.66727	Colombia	America/Bogota
 Envigado	Envigado	6.17591	-75.59174	Colombia	America/Bogota
 Florencia	Florencia	1.61438	-75.60623	Colombia	America/Bogota
 Floridablanca	Floridablanca	7.06222	-73.08644	Colombia	America/Bogota
 Girardot City	Girardot City	4.30079	-74.80754	Colombia	America/Bogota
 Girón	Giron	7.0682	-73.16981	Colombia	America/Bogota
+Guadalajara de Buga	Guadalajara de Buga	3.90089	-76.29783	Colombia	America/Bogota
 Ibagué	Ibague	4.43889	-75.23222	Colombia	America/Bogota
 Itagüí	Itaguei	6.18461	-75.59913	Colombia	America/Bogota
 Magangué	Magangue	9.24202	-74.75467	Colombia	America/Bogota
@@ -1066,6 +1070,7 @@ Olomouc	Olomouc	49.59552	17.25175	Czechia	Europe/Prague
 Ostrava	Ostrava	49.83465	18.28204	Czechia	Europe/Prague
 Pilsen	Pilsen	49.74747	13.37759	Czechia	Europe/Prague
 Prague	Prague	50.08804	14.42076	Czechia	Europe/Prague
+Beni	Beni	0.49113	29.47306	Democratic Republic of the Congo	Africa/Lubumbashi
 Boma	Boma	-5.85098	13.05364	Democratic Republic of the Congo	Africa/Kinshasa
 Bukavu	Bukavu	-2.49077	28.84281	Democratic Republic of the Congo	Africa/Lubumbashi
 Butembo	Butembo	0.14164	29.29117	Democratic Republic of the Congo	Africa/Lubumbashi
@@ -1337,7 +1342,7 @@ Wandsbek	Wandsbek	53.58334	10.08305	Germany	Europe/Berlin
 Wiesbaden	Wiesbaden	50.08258	8.24932	Germany	Europe/Berlin
 Witten	Witten	51.44362	7.35258	Germany	Europe/Berlin
 Wolfsburg	Wolfsburg	52.42452	10.7815	Germany	Europe/Berlin
-Wuppertal	Wuppertal	51.27027	7.16755	Germany	Europe/Berlin
+Wuppertal	Wuppertal	51.25627	7.14816	Germany	Europe/Berlin
 Würzburg	Wuerzburg	49.79391	9.95121	Germany	Europe/Berlin
 Accra	Accra	5.55602	-0.1969	Ghana	Africa/Accra
 Atsiaman	Atsiaman	5.69775	-0.32824	Ghana	Africa/Accra
@@ -1615,7 +1620,7 @@ Kaithal	Kaithal	29.80153	76.39959	India	Asia/Kolkata
 Kākināda	Kakinada	16.96036	82.23809	India	Asia/Kolkata
 Kalyān	Kalyan	19.2437	73.13554	India	Asia/Kolkata
 Kāmārhāti	Kamarhati	22.67111	88.37472	India	Asia/Kolkata
-Kānchipuram	Kanchipuram	12.83515	79.70006	India	Asia/Kolkata
+Kanchipuram	Kanchipuram	12.83515	79.70006	India	Asia/Kolkata
 Kānchrāpāra	Kanchrapara	22.95998	88.42849	India	Asia/Kolkata
 Kanpur	Kanpur	26.46523	80.34975	India	Asia/Kolkata
 Karīmnagar	Karimnagar	18.43915	79.12856	India	Asia/Kolkata
@@ -1656,7 +1661,6 @@ Mālegaon	Malegaon	20.54966	74.53462	India	Asia/Kolkata
 Māler Kotla	Maler Kotla	30.5309	75.87949	India	Asia/Kolkata
 Malkajgiri	Malkajgiri	17.44781	78.52633	India	Asia/Kolkata
 Mandsaur	Mandsaur	24.07184	75.06986	India	Asia/Kolkata
-Māndu	Mandu	22.36667	75.38333	India	Asia/Kolkata
 Mandya	Mandya	12.5223	76.89746	India	Asia/Kolkata
 Mangalore	Mangalore	12.91723	74.85603	India	Asia/Kolkata
 Mathura	Mathura	27.5035	77.67215	India	Asia/Kolkata
@@ -1834,7 +1838,6 @@ Bekasi	Bekasi	-6.2349	106.9896	Indonesia	Asia/Jakarta
 Belawan	Belawan	3.7755	98.6832	Indonesia	Asia/Jakarta
 Bengkulu	Bengkulu	-3.80044	102.26554	Indonesia	Asia/Jakarta
 Binjai	Binjai	3.6001	98.4854	Indonesia	Asia/Jakarta
-Bitung	Bitung	1.45697	125.1895	Indonesia	Asia/Makassar
 Blitar	Blitar	-8.0983	112.1681	Indonesia	Asia/Jakarta
 Bogor	Bogor	-6.59444	106.78917	Indonesia	Asia/Jakarta
 Bontang	Bontang	0.1324	117.4854	Indonesia	Asia/Makassar
@@ -2003,9 +2006,8 @@ Sanandaj	Sanandaj	35.31495	46.99883	Iran	Asia/Tehran
 Saqqez	Saqqez	36.24992	46.2735	Iran	Asia/Tehran
 Sari	Sari	36.56332	53.06009	Iran	Asia/Tehran
 Sāveh	Saveh	35.0213	50.3566	Iran	Asia/Tehran
-Semnān	Semnan	35.57691	53.39205	Iran	Asia/Tehran
+Semnan	Semnan	35.57691	53.39205	Iran	Asia/Tehran
 Shahr-e Kord	Shahr-e Kord	32.32556	50.86444	Iran	Asia/Tehran
-Shāhreẕā	Shahreza	32.03389	51.87944	Iran	Asia/Tehran
 Shahrud	Shahrud	36.41819	54.97628	Iran	Asia/Tehran
 Shiraz	Shiraz	29.61031	52.53113	Iran	Asia/Tehran
 Sirjan	Sirjan	29.45137	55.6809	Iran	Asia/Tehran
@@ -2365,12 +2367,12 @@ Russeifa	Russeifa	32.01778	36.04639	Jordan	Asia/Amman
 Wādī as Sīr	Wadi as Sir	31.9545	35.81831	Jordan	Asia/Amman
 Zarqa	Zarqa	32.07275	36.08796	Jordan	Asia/Amman
 Aktau	Aktau	43.65	51.16667	Kazakhstan	Asia/Aqtau
+Aktobe	Aktobe	50.27969	57.20718	Kazakhstan	Asia/Aqtobe
 Almaty	Almaty	43.25667	76.92861	Kazakhstan	Asia/Almaty
-Aqtöbe	Aqtobe	50.27969	57.20718	Kazakhstan	Asia/Aqtobe
 Astana	Astana	51.1801	71.44598	Kazakhstan	Asia/Almaty
 Atyrau	Atyrau	47.11667	51.88333	Kazakhstan	Asia/Atyrau
 Ekibastuz	Ekibastuz	51.72371	75.32287	Kazakhstan	Asia/Almaty
-Karagandy	Karagandy	49.83333	73.1658	Kazakhstan	Asia/Almaty
+Karagandy	Karagandy	49.80187	73.10211	Kazakhstan	Asia/Almaty
 Kokshetau	Kokshetau	53.28333	69.4	Kazakhstan	Asia/Almaty
 Kostanay	Kostanay	53.21435	63.62463	Kazakhstan	Asia/Qyzylorda
 Kyzylorda	Kyzylorda	44.85278	65.50917	Kazakhstan	Asia/Qyzylorda
@@ -2382,7 +2384,6 @@ Rudnyy	Rudnyy	52.9729	63.11677	Kazakhstan	Asia/Qyzylorda
 Semey	Semey	50.42675	80.26669	Kazakhstan	Asia/Almaty
 Shymkent	Shymkent	42.3	69.6	Kazakhstan	Asia/Almaty
 Taldykorgan	Taldykorgan	45.01556	78.37389	Kazakhstan	Asia/Almaty
-Taldyqorghan	Taldyqorghan	45	77.91667	Kazakhstan	Asia/Almaty
 Taraz	Taraz	42.9	71.36667	Kazakhstan	Asia/Almaty
 Temirtau	Temirtau	50.05494	72.96464	Kazakhstan	Asia/Almaty
 Ust-Kamenogorsk	Ust-Kamenogorsk	49.97143	82.60586	Kazakhstan	Asia/Almaty
@@ -2418,6 +2419,7 @@ Tyre	Tyre	33.27333	35.19389	Lebanon	Asia/Beirut
 Maseru	Maseru	-29.31667	27.48333	Lesotho	Africa/Maseru
 Monrovia	Monrovia	6.30054	-10.7969	Liberia	Africa/Monrovia
 Ajdabiya	Ajdabiya	30.75545	20.22625	Libya	Africa/Tripoli
+Al Ajaylat	Al Ajaylat	32.75718	12.37633	Libya	Africa/Tripoli
 Al Jadīd	Al Jadid	27.05	14.4	Libya	Africa/Tripoli
 Al Khums	Al Khums	32.64861	14.26191	Libya	Africa/Tripoli
 Az Zāwīyah	Az Zawiyah	32.7571	12.72764	Libya	Africa/Tripoli
@@ -2470,7 +2472,7 @@ Kuala Terengganu	Kuala Terengganu	5.3302	103.1408	Malaysia	Asia/Kuala_Lumpur
 Kuantan	Kuantan	3.8077	103.326	Malaysia	Asia/Kuala_Lumpur
 Kuching	Kuching	1.55	110.33333	Malaysia	Asia/Kuching
 Kulim	Kulim	5.36499	100.56177	Malaysia	Asia/Kuala_Lumpur
-Lahad Datu	Lahad Datu	5.0268	118.327	Malaysia	Asia/Kuching
+Lahad Datu	Lahad Datu	5.02298	118.32897	Malaysia	Asia/Kuching
 Malacca	Malacca	2.196	102.2405	Malaysia	Asia/Kuala_Lumpur
 Miri	Miri	4.39928	113.99163	Malaysia	Asia/Kuching
 Muar	Muar	2.0442	102.5689	Malaysia	Asia/Kuala_Lumpur
@@ -2504,22 +2506,23 @@ Aguascalientes	Aguascalientes	21.88234	-102.28259	Mexico	America/Mexico_City
 Álvaro Obregón	Alvaro Obregon	19.35867	-99.20329	Mexico	America/Mexico_City
 Azcapotzalco	Azcapotzalco	19.48698	-99.18594	Mexico	America/Mexico_City
 Benito Juarez	Benito Juarez	19.3984	-99.15766	Mexico	America/Mexico_City
+Benito Juárez	Benito Juarez	19.3727	-99.1564	Mexico	America/Mexico_City
 Buenavista	Buenavista	19.60833	-99.16944	Mexico	America/Mexico_City
 Campeche	Campeche	19.84386	-90.52554	Mexico	America/Merida
 Cancún	Cancun	21.17429	-86.84656	Mexico	America/Cancun
 Celaya	Celaya	20.52353	-100.8157	Mexico	America/Mexico_City
 Chalco	Chalco	19.26174	-98.89775	Mexico	America/Mexico_City
 Chetumal	Chetumal	18.51413	-88.30381	Mexico	America/Cancun
+Chicoloapan	Chicoloapan	19.41687	-98.90202	Mexico	America/Mexico_City
 Chihuahua	Chihuahua	28.63528	-106.08889	Mexico	America/Chihuahua
 Chilpancingo	Chilpancingo	17.5506	-99.50578	Mexico	America/Mexico_City
-Cholula	Cholula	19.06406	-98.30352	Mexico	America/Mexico_City
 Ciudad Acuña	Ciudad Acuna	29.32322	-100.95217	Mexico	America/Matamoros
 Ciudad Apodaca	Ciudad Apodaca	25.78195	-100.18839	Mexico	America/Monterrey
+Ciudad Benito Juárez	Ciudad Benito Juarez	25.64724	-100.09582	Mexico	America/Monterrey
 Ciudad del Carmen	Ciudad del Carmen	18.64592	-91.82991	Mexico	America/Merida
 Ciudad Delicias	Ciudad Delicias	28.19013	-105.47012	Mexico	America/Chihuahua
 Ciudad de Villa de Álvarez	Ciudad de Villa de Alvarez	19.26722	-103.73778	Mexico	America/Mexico_City
 Ciudad General Escobedo	Ciudad General Escobedo	25.79698	-100.31791	Mexico	America/Monterrey
-Ciudad Guzmán	Ciudad Guzman	19.70466	-103.4617	Mexico	America/Mexico_City
 Ciudad López Mateos	Ciudad Lopez Mateos	19.55793	-99.25675	Mexico	America/Mexico_City
 Ciudad Madero	Ciudad Madero	22.27228	-97.83623	Mexico	America/Monterrey
 Ciudad Nezahualcoyotl	Ciudad Nezahualcoyotl	19.40061	-99.01483	Mexico	America/Mexico_City
@@ -2534,18 +2537,20 @@ Colonia Lindavista	Colonia Lindavista	19.49156	-99.12475	Mexico	America/Mexico_C
 Córdoba	Cordoba	18.8842	-96.92559	Mexico	America/Mexico_City
 Coyoacán	Coyoacan	19.3467	-99.16174	Mexico	America/Mexico_City
 Cuauhtémoc	Cuauhtemoc	19.44506	-99.14612	Mexico	America/Mexico_City
+Cuauhtémoc	Cuauhtemoc	28.40884	-106.86319	Mexico	America/Chihuahua
+Cuautitlán	Cuautitlan	19.67052	-99.17989	Mexico	America/Mexico_City
 Cuautitlán Izcalli	Cuautitlan Izcalli	19.64388	-99.21598	Mexico	America/Mexico_City
 Cuautla	Cuautla	18.8106	-98.93525	Mexico	America/Mexico_City
 Cuernavaca	Cuernavaca	18.9261	-99.23075	Mexico	America/Mexico_City
 Culiacán	Culiacan	24.79032	-107.38782	Mexico	America/Mazatlan
 Delegación Cuajimalpa de Morelos	Delegacion Cuajimalpa de Morelos	19.3692	-99.29089	Mexico	America/Mexico_City
 Ecatepec de Morelos	Ecatepec de Morelos	19.60492	-99.06064	Mexico	America/Mexico_City
-El Salto	El Salto	20.51895	-103.18159	Mexico	America/Mexico_City
 Ensenada	Ensenada	31.87149	-116.60071	Mexico	America/Tijuana
 Fresnillo	Fresnillo	23.18126	-102.87136	Mexico	America/Mexico_City
 Gómez Palacio	Gomez Palacio	25.56985	-103.49588	Mexico	America/Monterrey
 Guadalajara	Guadalajara	20.66682	-103.39182	Mexico	America/Mexico_City
 Guadalupe	Guadalupe	25.67678	-100.25646	Mexico	America/Monterrey
+Guadalupe	Guadalupe	22.74753	-102.51874	Mexico	America/Mexico_City
 Gustavo Adolfo Madero	Gustavo Adolfo Madero	19.49392	-99.11075	Mexico	America/Mexico_City
 Hermosillo	Hermosillo	29.1026	-110.97732	Mexico	America/Hermosillo
 Heroica Guaymas	Heroica Guaymas	27.91928	-110.89755	Mexico	America/Hermosillo
@@ -2559,22 +2564,17 @@ Iztapalapa	Iztapalapa	19.35529	-99.06224	Mexico	America/Mexico_City
 Jiutepec	Jiutepec	18.88139	-99.17778	Mexico	America/Mexico_City
 Juárez	Juarez	31.72024	-106.46084	Mexico	America/Ojinaga
 La Paz	La Paz	24.14437	-110.3005	Mexico	America/Mazatlan
-Las Margaritas	Las Margaritas	16.31265	-91.98107	Mexico	America/Mexico_City
 León de los Aldama	Leon de los Aldama	21.12908	-101.67374	Mexico	America/Mexico_City
 Los Mochis	Los Mochis	25.79302	-108.99808	Mexico	America/Mazatlan
-Los Reyes Acaquilpan	Los Reyes Acaquilpan	19.36357	-98.97707	Mexico	America/Mexico_City
 Magdalena Contreras	Magdalena Contreras	19.33212	-99.21118	Mexico	America/Mexico_City
 Manzanillo	Manzanillo	19.11695	-104.34214	Mexico	America/Mexico_City
-Martínez de la Torre	Martinez de la Torre	20.07082	-97.06078	Mexico	America/Mexico_City
-Matamoros	Matamoros	25.52699	-103.2285	Mexico	America/Monterrey
 Mazatlán	Mazatlan	23.2329	-106.4062	Mexico	America/Mazatlan
 Mérida	Merida	20.97537	-89.61696	Mexico	America/Merida
-Metepec	Metepec	19.25934	-99.60175	Mexico	America/Mexico_City
 Mexicali	Mexicali	32.62781	-115.45446	Mexico	America/Tijuana
 Mexico City	Mexico City	19.42847	-99.12766	Mexico	America/Mexico_City
 Miguel Hidalgo	Miguel Hidalgo	19.43411	-99.20024	Mexico	America/Mexico_City
-Milpa Alta	Milpa Alta	19.19251	-99.02317	Mexico	America/Mexico_City
 Minatitlán	Minatitlan	18.00011	-94.5569	Mexico	America/Mexico_City
+Miramar	Miramar	22.36094	-97.89997	Mexico	America/Monterrey
 Monclova	Monclova	26.90687	-101.42056	Mexico	America/Monterrey
 Monterrey	Monterrey	25.67507	-100.31847	Mexico	America/Monterrey
 Morelia	Morelia	19.70078	-101.18443	Mexico	America/Mexico_City
@@ -2608,11 +2608,10 @@ Santa Catarina	Santa Catarina	25.67325	-100.45813	Mexico	America/Monterrey
 Santa María Chimalhuacán	Santa Maria Chimalhuacan	19.42155	-98.95038	Mexico	America/Mexico_City
 Santiago de Querétaro	Santiago de Queretaro	20.58806	-100.38806	Mexico	America/Mexico_City
 Soledad de Graciano Sánchez	Soledad de Graciano Sanchez	22.18912	-100.93792	Mexico	America/Mexico_City
-Tampico	Tampico	22.24484	-97.8352	Mexico	America/Monterrey
-Tantoyuca	Tantoyuca	21.35064	-98.2257	Mexico	America/Mexico_City
+Tampico	Tampico	22.28519	-97.87777	Mexico	America/Monterrey
 Tapachula	Tapachula	14.90385	-92.25749	Mexico	America/Mexico_City
 Tehuacán	Tehuacan	18.46422	-97.39735	Mexico	America/Mexico_City
-Temapache	Temapache	21.06611	-97.64207	Mexico	America/Mexico_City
+Tepexpan	Tepexpan	19.61387	-98.9364	Mexico	America/Mexico_City
 Tepic	Tepic	21.50951	-104.89569	Mexico	America/Mazatlan
 Texcoco de Mora	Texcoco de Mora	19.51194	-98.88293	Mexico	America/Mexico_City
 Tijuana	Tijuana	32.5027	-117.00371	Mexico	America/Tijuana
@@ -2624,7 +2623,7 @@ Toluca	Toluca	19.28786	-99.65324	Mexico	America/Mexico_City
 Tonalá	Tonala	20.62445	-103.23423	Mexico	America/Mexico_City
 Torreón	Torreon	25.54389	-103.41898	Mexico	America/Monterrey
 Tulancingo	Tulancingo	20.08355	-98.36288	Mexico	America/Mexico_City
-Túxpam de Rodríguez Cano	Tuxpam de Rodriguez Cano	20.95777	-97.40805	Mexico	America/Mexico_City
+Tuxtepec	Tuxtepec	18.0883	-96.12535	Mexico	America/Mexico_City
 Tuxtla	Tuxtla	16.75973	-93.11308	Mexico	America/Mexico_City
 Uruapan	Uruapan	19.41116	-102.05644	Mexico	America/Mexico_City
 Venustiano Carranza	Venustiano Carranza	19.44361	-99.10499	Mexico	America/Mexico_City
@@ -2676,6 +2675,7 @@ Tétouan	Tetouan	35.57845	-5.36837	Morocco	Africa/Casablanca
 Beira	Beira	-19.84361	34.83889	Mozambique	Africa/Maputo
 Chimoio	Chimoio	-19.11639	33.48333	Mozambique	Africa/Maputo
 Lichinga	Lichinga	-13.31278	35.24056	Mozambique	Africa/Maputo
+Mandimba	Mandimba	-14.3525	35.65056	Mozambique	Africa/Maputo
 Maputo	Maputo	-25.96553	32.58322	Mozambique	Africa/Maputo
 Matola	Matola	-25.96222	32.45889	Mozambique	Africa/Maputo
 Maxixe	Maxixe	-23.85972	35.34722	Mozambique	Africa/Maputo
@@ -2773,12 +2773,10 @@ Wanganui	Wanganui	-39.93333	175.05	New Zealand	Pacific/Auckland
 Wellington	Wellington	-41.28664	174.77557	New Zealand	Pacific/Auckland
 Whangarei	Whangarei	-35.73167	174.32391	New Zealand	Pacific/Auckland
 Chinandega	Chinandega	12.62937	-87.13105	Nicaragua	America/Managua
-Jinotega	Jinotega	13.08881	-86.00105	Nicaragua	America/Managua
 León	Leon	12.43787	-86.87804	Nicaragua	America/Managua
 Managua	Managua	12.13282	-86.2504	Nicaragua	America/Managua
 Masaya	Masaya	11.97444	-86.09417	Nicaragua	America/Managua
 Matagalpa	Matagalpa	12.92559	-85.91747	Nicaragua	America/Managua
-Tipitapa	Tipitapa	12.19732	-86.09706	Nicaragua	America/Managua
 Agadez	Agadez	16.97333	7.99111	Niger	Africa/Niamey
 Maradi	Maradi	13.5	7.10174	Niger	Africa/Niamey
 Niamey	Niamey	13.51366	2.1098	Niger	Africa/Niamey
@@ -2967,7 +2965,6 @@ Tando Adam	Tando Adam	25.76818	68.66196	Pakistan	Asia/Karachi
 Tando Allahyar	Tando Allahyar	25.4605	68.71745	Pakistan	Asia/Karachi
 Vihari	Vihari	30.0445	72.3556	Pakistan	Asia/Karachi
 Wazirabad	Wazirabad	32.44324	74.12	Pakistan	Asia/Karachi
-Melekeok	Melekeok	7.50043	134.62355	Palau	Pacific/Palau
 East Jerusalem	East Jerusalem	31.78336	35.23388	Palestinian Territory	Asia/Hebron
 Gaza	Gaza	31.50161	34.46672	Palestinian Territory	Asia/Gaza
 Hebron	Hebron	31.52935	35.0938	Palestinian Territory	Asia/Hebron
@@ -2978,7 +2975,7 @@ Rafaḩ	Rafah	31.29722	34.24357	Palestinian Territory	Asia/Gaza
 Juan Díaz	Juan Diaz	9.05	-79.45	Panama	America/Panama
 Panamá	Panama	8.9936	-79.51973	Panama	America/Panama
 San Miguelito	San Miguelito	9.05032	-79.47068	Panama	America/Panama
-Port Moresby	Port Moresby	-9.44314	147.17972	Papua New Guinea	Pacific/Port_Moresby
+Port Moresby	Port Moresby	-9.47723	147.15089	Papua New Guinea	Pacific/Port_Moresby
 Asunción	Asuncion	-25.30066	-57.63591	Paraguay	America/Asuncion
 Capiatá	Capiata	-25.3552	-57.44545	Paraguay	America/Asuncion
 Ciudad del Este	Ciudad del Este	-25.50972	-54.61111	Paraguay	America/Asuncion
@@ -3110,7 +3107,7 @@ Bydgoszcz	Bydgoszcz	53.1235	18.00762	Poland	Europe/Warsaw
 Bytom	Bytom	50.34802	18.93282	Poland	Europe/Warsaw
 Chorzów	Chorzow	50.30582	18.9742	Poland	Europe/Warsaw
 Częstochowa	Czestochowa	50.79646	19.12409	Poland	Europe/Warsaw
-Dąbrowa Górnicza	Dabrowa Gornicza	50.31818	19.2374	Poland	Europe/Warsaw
+Dąbrowa Górnicza	Dabrowa Gornicza	50.33394	19.20479	Poland	Europe/Warsaw
 Elbląg	Elblag	54.1522	19.40884	Poland	Europe/Warsaw
 Gdańsk	Gdansk	54.35205	18.64637	Poland	Europe/Warsaw
 Gdynia	Gdynia	54.51889	18.53188	Poland	Europe/Warsaw
@@ -3122,7 +3119,7 @@ Kielce	Kielce	50.87033	20.62752	Poland	Europe/Warsaw
 Koszalin	Koszalin	54.19438	16.17222	Poland	Europe/Warsaw
 Kraków	Krakow	50.06143	19.93658	Poland	Europe/Warsaw
 Legnica	Legnica	51.21006	16.1619	Poland	Europe/Warsaw
-Łódź	Lodz	51.75	19.46667	Poland	Europe/Warsaw
+Łódź	Lodz	51.77058	19.47395	Poland	Europe/Warsaw
 Lublin	Lublin	51.25	22.56667	Poland	Europe/Warsaw
 Mokotów	Mokotow	52.1934	21.03487	Poland	Europe/Warsaw
 Olsztyn	Olsztyn	53.77995	20.49416	Poland	Europe/Warsaw
@@ -3277,7 +3274,7 @@ Kyzyl	Kyzyl	51.71472	94.45338	Russia	Asia/Krasnoyarsk
 Leninsk-Kuznetsky	Leninsk-Kuznetsky	54.6567	86.1737	Russia	Asia/Novokuznetsk
 Lipetsk	Lipetsk	52.60311	39.57076	Russia	Europe/Moscow
 Lyubertsy	Lyubertsy	55.67719	37.89322	Russia	Europe/Moscow
-Lyublino	Lyublino	55.67923	37.7525	Russia	Europe/Moscow
+Lyublino	Lyublino	55.67738	37.76005	Russia	Europe/Moscow
 Magadan	Magadan	59.5638	150.80347	Russia	Asia/Magadan
 Magnitogorsk	Magnitogorsk	53.41861	59.04722	Russia	Asia/Yekaterinburg
 Makhachkala	Makhachkala	42.97638	47.50236	Russia	Europe/Moscow
@@ -3446,7 +3443,6 @@ Sakakah	Sakakah	29.96974	40.20641	Saudi Arabia	Asia/Riyadh
 Sulţānah	Sultanah	24.49258	39.58572	Saudi Arabia	Asia/Riyadh
 Tabuk	Tabuk	28.3998	36.57151	Saudi Arabia	Asia/Riyadh
 Ta’if	Ta'if	21.27028	40.41583	Saudi Arabia	Asia/Riyadh
-Unaizah	Unaizah	26.08427	43.99355	Saudi Arabia	Asia/Riyadh
 Yanbu	Yanbu	24.08954	38.0618	Saudi Arabia	Asia/Riyadh
 Dakar	Dakar	14.6937	-17.44406	Senegal	Africa/Dakar
 Kaolack	Kaolack	14.15197	-16.07259	Senegal	Africa/Dakar
@@ -3859,7 +3855,6 @@ Port of Spain	Port of Spain	10.66668	-61.51889	Trinidad and Tobago	America/Port_
 Bizerte	Bizerte	37.27442	9.87391	Tunisia	Africa/Tunis
 Gabès	Gabes	33.88146	10.0982	Tunisia	Africa/Tunis
 Kairouan	Kairouan	35.6781	10.09633	Tunisia	Africa/Tunis
-Midoun	Midoun	33.80813	10.99228	Tunisia	Africa/Tunis
 Sfax	Sfax	34.74056	10.76028	Tunisia	Africa/Tunis
 Sousse	Sousse	35.82539	10.63699	Tunisia	Africa/Tunis
 Tunis	Tunis	36.81897	10.16579	Tunisia	Africa/Tunis
@@ -4106,11 +4101,13 @@ Wolverhampton	Wolverhampton	52.58547	-2.12296	United Kingdom	Europe/London
 Worcester	Worcester	52.18935	-2.22001	United Kingdom	Europe/London
 York	York	53.95763	-1.08271	United Kingdom	Europe/London
 Abilene	Abilene	32.44874	-99.73314	United States	America/Chicago
+Ahwatukee Foothills	Ahwatukee Foothills	33.34171	-111.98403	United States	America/Phoenix
 Akron	Akron	41.08144	-81.51901	United States	America/New_York
 Albany	Albany	42.65258	-73.75623	United States	America/New_York
 Albuquerque	Albuquerque	35.08449	-106.65114	United States	America/Denver
 Alexandria	Alexandria	38.80484	-77.04692	United States	America/New_York
 Alhambra	Alhambra	34.09529	-118.12701	United States	America/Los_Angeles
+Alhambra	Alhambra	33.49838	-112.13432	United States	America/Phoenix
 Alief	Alief	29.71106	-95.59633	United States	America/Chicago
 Allen	Allen	33.10317	-96.67055	United States	America/Chicago
 Allentown	Allentown	40.60843	-75.49018	United States	America/New_York
@@ -4216,6 +4213,7 @@ Davenport	Davenport	41.52364	-90.57764	United States	America/Chicago
 Davie	Davie	26.06287	-80.2331	United States	America/New_York
 Dayton	Dayton	39.75895	-84.19161	United States	America/New_York
 Dearborn	Dearborn	42.32226	-83.17631	United States	America/Detroit
+Deer Valley	Deer Valley	33.68393	-112.13488	United States	America/Phoenix
 Deltona	Deltona	28.90054	-81.26367	United States	America/New_York
 Denton	Denton	33.21484	-97.13307	United States	America/Chicago
 Denver	Denver	39.73915	-104.9847	United States	America/Denver
@@ -4365,6 +4363,7 @@ Madison	Madison	43.07305	-89.40123	United States	America/Chicago
 Manchester	Manchester	42.99564	-71.45479	United States	America/New_York
 Mandan	Mandan	46.82666	-100.88958	United States	America/North_Dakota/New_Salem
 Manhattan	Manhattan	40.78343	-73.96625	United States	America/New_York
+Maryvale	Maryvale	33.50199	-112.17765	United States	America/Phoenix
 McAllen	McAllen	26.20341	-98.23001	United States	America/Chicago
 McKinney	McKinney	33.19762	-96.61527	United States	America/Chicago
 Meads	Meads	38.41258	-82.70905	United States	America/New_York
@@ -4620,49 +4619,49 @@ Samarqand	Samarqand	39.65417	66.95972	Uzbekistan	Asia/Samarkand
 Tashkent	Tashkent	41.26465	69.21627	Uzbekistan	Asia/Tashkent
 Tirmiz	Tirmiz	37.22417	67.27833	Uzbekistan	Asia/Samarkand
 Urganch	Urganch	41.55	60.63333	Uzbekistan	Asia/Samarkand
-Port-Vila	Port-Vila	-17.73381	168.32188	Vanuatu	Pacific/Efate
+Port-Vila	Port-Vila	-17.73648	168.31366	Vanuatu	Pacific/Efate
 Vatican City	Vatican City	41.90268	12.45414	Vatican	Europe/Vatican
 Acarigua	Acarigua	9.55451	-69.19564	Venezuela	America/Caracas
 Alto Barinas	Alto Barinas	8.5931	-70.2261	Venezuela	America/Caracas
-Anaco	Anaco	9.43889	-64.47278	Venezuela	America/Caracas
+Anaco	Anaco	9.42958	-64.46428	Venezuela	America/Caracas
 Barcelona	Barcelona	10.13625	-64.68618	Venezuela	America/Caracas
 Barinas	Barinas	8.62261	-70.20749	Venezuela	America/Caracas
 Barquisimeto	Barquisimeto	10.0647	-69.35703	Venezuela	America/Caracas
-Baruta	Baruta	10.43398	-66.87662	Venezuela	America/Caracas
-Cabimas	Cabimas	10.38828	-71.43993	Venezuela	America/Caracas
+Cabimas	Cabimas	10.39907	-71.45206	Venezuela	America/Caracas
 Cagua	Cagua	10.18634	-67.45935	Venezuela	America/Caracas
 Calabozo	Calabozo	8.92416	-67.42929	Venezuela	America/Caracas
 Caracas	Caracas	10.48801	-66.87919	Venezuela	America/Caracas
 Carúpano	Carupano	10.66516	-63.25387	Venezuela	America/Caracas
-Catia La Mar	Catia La Mar	10.60383	-67.03034	Venezuela	America/Caracas
+Catia La Mar	Catia La Mar	10.60545	-67.03238	Venezuela	America/Caracas
 Charallave	Charallave	10.24247	-66.85723	Venezuela	America/Caracas
 Ciudad Bolívar	Ciudad Bolivar	8.12923	-63.54086	Venezuela	America/Caracas
 Ciudad Guayana	Ciudad Guayana	8.35122	-62.64102	Venezuela	America/Caracas
 Coro	Coro	11.4045	-69.67344	Venezuela	America/Caracas
-Cúa	Cua	10.15892	-66.88575	Venezuela	America/Caracas
+Cúa	Cua	10.16245	-66.88248	Venezuela	America/Caracas
 Cumaná	Cumana	10.45397	-64.18256	Venezuela	America/Caracas
 Ejido	Ejido	8.54665	-71.24087	Venezuela	America/Caracas
 El Limón	El Limon	10.30589	-67.63212	Venezuela	America/Caracas
-El Tigre	El Tigre	8.88752	-64.24544	Venezuela	America/Caracas
+El Tigre	El Tigre	8.88902	-64.2527	Venezuela	America/Caracas
 Guacara	Guacara	10.22609	-67.877	Venezuela	America/Caracas
 Guanare	Guanare	9.04183	-69.74206	Venezuela	America/Caracas
-Guarenas	Guarenas	10.46736	-66.60663	Venezuela	America/Caracas
-Guatire	Guatire	10.4762	-66.54266	Venezuela	America/Caracas
+Guarenas	Guarenas	10.47027	-66.61934	Venezuela	America/Caracas
+Guatire	Guatire	10.474	-66.54241	Venezuela	America/Caracas
 Los Teques	Los Teques	10.34447	-67.04325	Venezuela	America/Caracas
 Maracaibo	Maracaibo	10.66663	-71.61245	Venezuela	America/Caracas
 Maracay	Maracay	10.23535	-67.59113	Venezuela	America/Caracas
-Mariara	Mariara	10.29644	-67.71813	Venezuela	America/Caracas
+Mariara	Mariara	10.29532	-67.7177	Venezuela	America/Caracas
 Maturín	Maturin	9.74569	-63.18323	Venezuela	America/Caracas
 Mérida	Merida	8.58972	-71.15611	Venezuela	America/Caracas
 Mucumpiz	Mucumpiz	8.41667	-71.13333	Venezuela	America/Caracas
-Ocumare del Tuy	Ocumare del Tuy	10.11649	-66.77609	Venezuela	America/Caracas
+Nuestra Señora del Rosario de Baruta	Nuestra Senora del Rosario de Baruta	10.43398	-66.87662	Venezuela	America/Caracas
+Ocumare del Tuy	Ocumare del Tuy	10.1182	-66.77513	Venezuela	America/Caracas
 Palo Negro	Palo Negro	10.17389	-67.54194	Venezuela	America/Caracas
-Petare	Petare	10.47226	-66.80155	Venezuela	America/Caracas
+Petare	Petare	10.48269	-66.81468	Venezuela	America/Caracas
 Puerto Cabello	Puerto Cabello	10.47051	-68.02958	Venezuela	America/Caracas
-Puerto La Cruz	Puerto La Cruz	10.21667	-64.61667	Venezuela	America/Caracas
-Punto Fijo	Punto Fijo	11.6956	-70.19957	Venezuela	America/Caracas
+Puerto La Cruz	Puerto La Cruz	10.21382	-64.6328	Venezuela	America/Caracas
+Punto Fijo	Punto Fijo	11.69152	-70.19918	Venezuela	America/Caracas
 San Cristóbal	San Cristobal	7.76694	-72.225	Venezuela	America/Caracas
-Santa Teresa	Santa Teresa	10.23409	-66.66308	Venezuela	America/Caracas
+Santa Teresa del Tuy	Santa Teresa del Tuy	10.23291	-66.66474	Venezuela	America/Caracas
 Turmero	Turmero	10.22856	-67.47421	Venezuela	America/Caracas
 Valencia	Valencia	10.16202	-68.00765	Venezuela	America/Caracas
 Bảo Lộc	Bao Loc	11.54798	107.80772	Vietnam	Asia/Ho_Chi_Minh
@@ -4713,9 +4712,9 @@ Mata-Utu	Mata-Utu	-13.28163	-176.17453	Wallis and Futuna	Pacific/Wallis
 Laayoune	Laayoune	27.1418	-13.18797	Western Sahara	Africa/Casablanca
 Aden	Aden	12.77944	45.03667	Yemen	Asia/Aden
 Al Ḩudaydah	Al Hudaydah	14.79781	42.95452	Yemen	Asia/Aden
-Al Mukallā	Al Mukalla	14.54248	49.12424	Yemen	Asia/Aden
 Dhamār	Dhamar	14.54274	44.40514	Yemen	Asia/Aden
 Ibb	Ibb	13.96667	44.18333	Yemen	Asia/Aden
+Mukalla	Mukalla	14.54248	49.12424	Yemen	Asia/Aden
 Sanaa	Sanaa	15.35472	44.20667	Yemen	Asia/Aden
 Ta‘izz	Ta`izz	13.57952	44.02091	Yemen	Asia/Aden
 Chingola	Chingola	-12.52897	27.88382	Zambia	Africa/Lusaka

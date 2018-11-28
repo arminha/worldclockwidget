@@ -287,7 +287,7 @@ UY	URY	858	UY	Uruguay	Montevideo	176220	3477000	SA	.uy	UYU	Peso	598	#####	^(\d{5
 UZ	UZB	860	UZ	Uzbekistan	Tashkent	447400	27865738	AS	.uz	UZS	Som	998	######	^(\d{6})$	uz,ru,tg	1512440	TM,AF,KG,TJ,KZ	
 VA	VAT	336	VT	Vatican	Vatican City	0.44	921	EU	.va	EUR	Euro	379	#####	^(\d{5})$	la,it,fr	3164670	IT	
 VC	VCT	670	VC	Saint Vincent and the Grenadines	Kingstown	389	104217	NA	.vc	XCD	Dollar	+1-784			en-VC,fr	3577815		
-VE	VEN	862	VE	Venezuela	Caracas	912050	27223228	SA	.ve	VEF	Bolivar	58	####	^(\d{4})$	es-VE	3625428	GY,BR,CO	
+VE	VEN	862	VE	Venezuela	Caracas	912050	27223228	SA	.ve	VES	Bolivar Soberano	58	####	^(\d{4})$	es-VE	3625428	GY,BR,CO	
 VG	VGB	092	VI	British Virgin Islands	Road Town	153	21730	NA	.vg	USD	Dollar	+1-284			en-VG	3577718		
 VI	VIR	850	VQ	U.S. Virgin Islands	Charlotte Amalie	352	108708	NA	.vi	USD	Dollar	+1-340	#####-####	^008\d{2}(?:-\d{4})?$	en-VI	4796775		
 VN	VNM	704	VM	Vietnam	Hanoi	329560	89571130	AS	.vn	VND	Dong	84	######	^(\d{6})$	vi,en,fr,zh,km	1562822	CN,LA,KH	

@@ -188,7 +188,7 @@
 6620763	Leningradskaya Station	Leningradskaya Station	Leningradskaja,Leningradskaja  nauchnaja stancija /SSSR/,Leningradskaja-stasjonen (Russland),Leningradskaya,Leningradskaya Station,Leningradskaya Station (Russia)	-69.50174	159.38897	S	STNB	AQ						0		216	Antarctica/DumontDUrville	2012-07-27
 6620764	Machu Picchu Research Station	Machu Picchu Research Station	Machu Picchu Research Station,Machu Picchu Research Station (Peru),Machu Picchu forskingsstasjon,Machu Picchu forskingsstasjon (Peru)	-62.09166	-58.47061	S	STNB	AQ						0		5	Antarctica/Palmer	2009-12-23
 6620766	Maitri Station	Maitri Station	Maitri,Maitri Station,Maitri Station (India),Maitri-stasjonen (India)	-70.76595	11.72719	S	STNB	AQ						25		103	Antarctica/Syowa	2012-07-27
-6620767	Marambio Base	Marambio Base	Marambio Base,Marambio Base (Argentina),Marambio-basen,Marambio-basen (Argentina),SAWB	-64.23922	-56.63538	S	AIRB	AQ						70		-9999	Antarctica/Palmer	2016-03-29
+6620767	Marambio Airport	Marambio Airport	Aerodromo Marambio,Aeroport de Marambio,Aeródromo Marambio,Aéroport de Marambio,Marambio Airport,Marambio-basen,Marambio-basen (Argentina),SAWB	-64.23922	-56.63538	S	AIRP	AQ						70		-9999	Antarctica/Palmer	2018-08-19
 6620768	Mario Zucchelli Station	Mario Zucchelli Station	Mario Zucchelli Station,Mario Zucchelli Station (Italy),Mario Zucchelli-stasjonen,Mario Zucchelli-stasjonen (Italia)	-74.7	164.11667	S	STNB	AQ						0		8	Antarctica/McMurdo	2008-01-02
 6620769	Mawson Station	Mawson Station	Base Mawson,Base antarctique Mawson,Mausono stotis,Mawson,Mawson /Austral./,Mawson Station,Mawson Station (Australia),Mawson-Station,Mawson-Statioun,Mawson-stasjonen,Mawson-stasjonen (Australia),Mosona,Mouson,Stazione Mawson,mo sen zhan,mousoni,Моусон,ماؤسن سٹیشن,მოუსონი,莫森站	-67.60258	62.8736	S	STNB	AQ						0		-9999	Antarctica/Mawson	2012-07-27
 6620770	McMurdo Station	McMurdo Station	Base McMurdo,Base antarctique McMurdo,Estacao McMurdo,Estacio McMurdo,Estació McMurdo,Estação McMurdo,Mak-Merdo,Mak-Mjordo,Makmerdo,McMurdo,McMurdo (USA),McMurdo /USA/,McMurdo Station,McMurdo Station (United States),McMurdo Statschoon,McMurdo basea,McMurdo-Station,Polarni stanice McMurdo,Polusa stacio McMurdo,Polární stanice McMurdo,Station McMurdo,Stazione McMurdo,maegmeodo giji,mai ke mo duo zhan,makumado ji de,thnt mq-mrdw,Мак-Мердо,Мак-Мёрдо,Макмөрдо,תחנת מק-מרדו,قاعدة ماك موردو,マクマード基地,麥克默多站,맥머도 기지	-77.85	166.66667	S	STNB	AQ						1258		-9999	Antarctica/McMurdo	2008-01-20
@@ -7303,7 +7303,7 @@
 6628750	House Creek	House Creek		-77.65	162.75	H	STM	AQ						0		261	Antarctica/McMurdo	2008-01-20
 6628751	Hubbard, Mount	Hubbard, Mount		-78.36667	163.71667	T	MT	AQ						0		991	Antarctica/McMurdo	2008-01-20
 6628752	Albanus Glacier	Albanus Glacier	Albanus Glacier	-85.86667	-151	H	GLCR	AQ						0		883	Antarctica/McMurdo	2008-01-20
-6628753	Bøving Island	Boving Island	Boving Island,Bøving Island	-66.27639	110.52111	T	ISL	AQ						0		-9999	Antarctica/Davis	2008-01-20
+6628753	Bøving Island	Boving Island	Boving Island,Bøving Island	-66.27639	110.52111	T	ISL	AQ						0		-9999	Antarctica/Davis	2018-10-03
 6628754	Huey Gully	Huey Gully	Huey Gully	-77.58333	163.01667	T	VAL	AQ						0		813	Antarctica/McMurdo	2008-01-20
 6628755	Hull Point	Hull Point	Hull Point	-62.16034	-58.19535	T	CAPE	AQ						0	15	-9999	Antarctica/Palmer	2013-04-13
 6628756	Inan Peak	Inan Peak		-78.33333	162.63333	T	PK	AQ						0		2060	Antarctica/McMurdo	2008-01-20
