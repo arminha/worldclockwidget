@@ -1,3 +1,8 @@
+1.9.0:
+
+* Fix potential SQL injection in the content provider for the weather widgets
+* Update city and time zone database
+
 1.8.6:
 
 * New features added to bring the application live. User signup for own api Key feature added.
